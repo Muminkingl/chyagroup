@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Inter, Playfair_Display } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -10,6 +11,17 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+});
+
+const playfair = Playfair_Display({
+  variable: "--font-editorial",
+  subsets: ["latin"],
+  style: ["italic", "normal"],
 });
 
 export const metadata: Metadata = {
@@ -25,8 +37,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${playfair.variable} h-full antialiased`}
     >
+      <head>
+        <Script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js" strategy="beforeInteractive" />
+      </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
