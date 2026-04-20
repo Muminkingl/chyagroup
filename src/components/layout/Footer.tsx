@@ -6,12 +6,6 @@ const InstagramIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const LogoIcon = () => (
-  <svg className="w-8 h-8 text-neutral-200" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 2L2 7l10 5 10-5-10-5z" />
-    <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-  </svg>
-);
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -23,10 +17,13 @@ export const Footer = () => {
           
           {/* Brand Info */}
           <div className="md:col-span-1">
-            <div className="flex items-center gap-3 mb-4">
-              <LogoIcon />
-              <h3 className="text-2xl font-bold text-white tracking-tight">Chya Group</h3>
-            </div>
+            <Link href="/" className="flex items-center gap-3 mb-6">
+              <img src="/logo.svg" alt="Chya Group Logo" className="w-10 h-10 object-contain" />
+              <span className="font-bold text-2xl tracking-widest uppercase">
+                <span className="text-[#ff4d4d]">Chya</span>{" "}
+                <span className="text-[#60a5fa]">Group</span>
+              </span>
+            </Link>
             <p className="text-sm leading-6 mb-6">
               Pioneering excellence across diversified investments. Building a sustainable and innovative future for the region.
             </p>
@@ -48,8 +45,8 @@ export const Footer = () => {
             <h4 className="text-white font-semibold mb-4">Company</h4>
             <ul className="space-y-3 text-sm">
               <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
-              <li><Link href="/teams" className="hover:text-white transition-colors">Teams</Link></li>
-              <li><Link href="/history" className="hover:text-white transition-colors">History</Link></li>
+              <li><Link href="/about#leadership" className="hover:text-white transition-colors">Teams</Link></li>
+              <li><Link href="/about#history" className="hover:text-white transition-colors">History</Link></li>
               <li><Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
             </ul>
           </div>

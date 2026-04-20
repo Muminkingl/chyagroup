@@ -2,41 +2,59 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "../ui/Button";
 
 export const Header = () => {
+  const pathname = usePathname();
   const [scrollState, setScrollState] = useState<"hero" | "transition" | "dark">("hero");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Find the hero section height dynamically
-      const heroSection = document.querySelector("main > section") as HTMLElement | null;
-      const heroBottom = heroSection ? heroSection.getBoundingClientRect().bottom : 600;
+      if (pathname === "/") {
+        // Home page logic: based on hero height
+        const heroSection = document.querySelector("main > section") as HTMLElement | null;
+        const heroBottom = heroSection ? heroSection.getBoundingClientRect().bottom : 600;
 
-      if (heroBottom > 80) {
-        // Still in hero — fully transparent
-        setScrollState("hero");
-      } else if (heroBottom > -80) {
-        // Just crossing the hero boundary — brief transition
-        setScrollState("transition");
+        if (heroBottom > 80) {
+          setScrollState("hero");
+        } else if (heroBottom > -80) {
+          setScrollState("transition");
+        } else {
+          setScrollState("dark");
+        }
+      } else if (pathname === "/about") {
+        // About page logic: wait until reaching the leadership section
+        const leadershipSection = document.getElementById("leadership");
+        const leadershipTop = leadershipSection ? leadershipSection.getBoundingClientRect().top : 400;
+
+        if (leadershipTop > 80) {
+          setScrollState("hero");
+        } else {
+          setScrollState("dark");
+        }
       } else {
-        // Well below hero — show full dark header
-        setScrollState("dark");
+        // Subpage logic: based on simple scroll threshold
+        if (window.scrollY < 20) {
+          setScrollState("hero");
+        } else {
+          setScrollState("dark");
+        }
       }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // run once on mount
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
 
   const navLinks = [
-    { name: "About Us", href: "#" },
-    { name: "Our Company", href: "#" },
-    { name: "News", href: "#" },
+    { name: "About Us", href: "/about" },
+    { name: "Our History", href: "/about#history" },
+    { name: "News", href: "/news" },
   ];
 
   const LogoIcon = () => (
@@ -58,13 +76,13 @@ export const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 relative z-50 group">
-            <LogoIcon />
-            <span className="font-bold text-sm text-white tracking-widest uppercase opacity-0 w-0 group-hover:opacity-100 group-hover:w-[120px] transition-all duration-300 overflow-hidden whitespace-nowrap">
-              Chya Group
+            <img src="/logo.svg" alt="Chya Group Logo" className="w-10 h-10 object-contain" />
+            <span className="font-bold text-lg tracking-widest uppercase opacity-0 w-0 group-hover:opacity-100 group-hover:w-[160px] transition-all duration-300 overflow-hidden whitespace-nowrap">
+              <span className="text-[#ff4d4d]">Chya</span>{" "}
+              <span className="text-[#60a5fa]">Group</span>
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <Link
@@ -75,9 +93,11 @@ export const Header = () => {
                 {link.name}
               </Link>
             ))}
-            <Button size="sm" variant="primary">
-              Contact Us
-            </Button>
+            <Link href="/contact">
+              <Button size="sm" variant="primary">
+                Contact Us
+              </Button>
+            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -108,13 +128,14 @@ export const Header = () => {
               {link.name}
             </Link>
           ))}
-          <Button
-            size="lg"
-            variant="primary"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Contact Us
-          </Button>
+          <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+            <Button
+              size="lg"
+              variant="primary"
+            >
+              Contact Us
+            </Button>
+          </Link>
         </motion.div>
       )}
     </header>
