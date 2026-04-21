@@ -26,15 +26,36 @@ export default function Contact() {
   };
 
   // Handle Submission
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/chyagroup2019@gmail.com", {
+        method: "POST",
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          _subject: `New Message from ${formData.name} - Chya Group Portfolio`
+        })
+      });
+
+      if (response.ok) {
+        setIsSuccess(true);
+      } else {
+        throw new Error("Submission failed");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      alert("Something went wrong. Please try again or contact us directly via email.");
+    } finally {
       setIsSubmitting(false);
-      setIsSuccess(true);
-    }, 1500);
+    }
   };
 
   // Handle Countdown and Redirect
@@ -86,6 +107,11 @@ export default function Contact() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col h-full">
+                  {/* Hidden metadata for FormSubmit */}
+                  <input type="hidden" name="_subject" value={`New Contact from ${formData.name}`} />
+                  <input type="hidden" name="_template" value="table" />
+                  <input type="hidden" name="_captcha" value="false" />
+
                   <div className="space-y-6 flex-1">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div className="space-y-2 text-start">
