@@ -5,9 +5,14 @@ import { useRouter } from 'next/navigation';
 import { clsx } from 'clsx';
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { useLanguage } from '@/context/LanguageContext';
+import { translations } from '@/i18n/translations';
+import { cn } from '@/lib/utils';
 
 export default function Contact() {
   const router = useRouter();
+  const { locale, isRTL } = useLanguage();
+  const t = translations[locale].contact;
   
   // Form State
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -48,12 +53,12 @@ export default function Contact() {
       
       <main className="flex-grow flex items-center justify-center">
         <div className="w-full max-w-6xl mx-auto px-4 py-16 md:py-24 animate-fade-in-up">
-          <div className="mb-12 md:mb-16 max-w-2xl">
+          <div className="mb-12 md:mb-16 max-w-2xl text-start">
             <h1 className="text-4xl md:text-5xl font-medium tracking-tight text-white mb-4">
-              Let's start a conversation
+              {t.title}
             </h1>
-            <p className="text-lg text-neutral-400">
-              Whether you have a question about our services, or anything else, our team is ready to answer all your questions.
+            <p className="text-lg text-neutral-400 font-light leading-relaxed">
+              {t.description}
             </p>
           </div>
 
@@ -67,22 +72,26 @@ export default function Contact() {
                   <div className="w-20 h-20 bg-green-500/10 border border-green-500/20 rounded-full flex items-center justify-center mb-6 shadow-sm">
                     <iconify-icon icon="solar:check-circle-bold" width="40" height="40" style={{ color: '#4ade80' }}></iconify-icon>
                   </div>
-                  <h3 className="text-3xl font-medium tracking-tight text-white mb-3">Message Received</h3>
-                  <p className="text-neutral-400 mb-10 max-w-sm">
-                    Thank you, {formData.name.split(' ')[0] || 'there'}! We've received your message and will get back to you shortly.
+                  <h3 className="text-3xl font-medium tracking-tight text-white mb-3">
+                    {t.form.successTitle}
+                  </h3>
+                  <p className="text-neutral-400 mb-10 max-w-sm font-light">
+                    {t.form.successDesc.replace('{name}', formData.name.split(' ')[0] || '')}
                   </p>
                   
                   <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 px-5 py-2.5 rounded-full text-sm font-medium text-neutral-300 shadow-sm">
                     <iconify-icon icon="solar:hourglass-linear" width="18" className="animate-spin" style={{ animationDuration: '3s' }}></iconify-icon>
-                    Redirecting to home in <span className="w-4 text-center text-white">{countdown}s</span>
+                    {t.form.redirect.replace('{seconds}', countdown.toString())}
                   </div>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col h-full">
                   <div className="space-y-6 flex-1">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                      <div className="space-y-2 text-left">
-                        <label htmlFor="name" className="text-sm font-medium text-neutral-300 ml-1">Full Name</label>
+                      <div className="space-y-2 text-start">
+                        <label htmlFor="name" className="text-sm font-medium text-neutral-300 ms-1">
+                          {t.form.fullName}
+                        </label>
                         <input
                           type="text"
                           id="name"
@@ -90,12 +99,14 @@ export default function Contact() {
                           required
                           value={formData.name}
                           onChange={handleChange}
-                          placeholder="Full Name"
+                          placeholder={t.form.placeholderName}
                           className="w-full bg-neutral-950/50 border border-white/10 text-white placeholder-neutral-600 text-sm rounded-xl focus:ring-1 focus:ring-white focus:border-white block px-4 py-3 outline-none transition-all hover:bg-white/5"
                         />
                       </div>
-                      <div className="space-y-2 text-left">
-                        <label htmlFor="email" className="text-sm font-medium text-neutral-300 ml-1">Email Address</label>
+                      <div className="space-y-2 text-start">
+                        <label htmlFor="email" className="text-sm font-medium text-neutral-300 ms-1">
+                          {t.form.email}
+                        </label>
                         <input
                           type="email"
                           id="email"
@@ -103,14 +114,16 @@ export default function Contact() {
                           required
                           value={formData.email}
                           onChange={handleChange}
-                          placeholder="Email Address"
+                          placeholder={t.form.placeholderEmail}
                           className="w-full bg-neutral-950/50 border border-white/10 text-white placeholder-neutral-600 text-sm rounded-xl focus:ring-1 focus:ring-white focus:border-white block px-4 py-3 outline-none transition-all hover:bg-white/5"
                         />
                       </div>
                     </div>
 
-                    <div className="space-y-2 text-left flex-1 flex flex-col">
-                      <label htmlFor="message" className="text-sm font-medium text-neutral-300 ml-1">Message</label>
+                    <div className="space-y-2 text-start flex-1 flex flex-col">
+                      <label htmlFor="message" className="text-sm font-medium text-neutral-300 ms-1">
+                        {t.form.message}
+                      </label>
                       <textarea
                         id="message"
                         name="message"
@@ -118,33 +131,36 @@ export default function Contact() {
                         rows={6}
                         value={formData.message}
                         onChange={handleChange}
-                        placeholder="How can we help you?"
+                        placeholder={t.form.placeholderMessage}
                         className="w-full flex-1 bg-neutral-950/50 border border-white/10 text-white placeholder-neutral-600 text-sm rounded-xl focus:ring-1 focus:ring-white focus:border-white block px-4 py-3 outline-none transition-all resize-none hover:bg-white/5"
                       ></textarea>
                     </div>
                   </div>
 
-                  <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
-                    <p className="text-xs text-neutral-500">
-                      By submitting, you agree to our privacy policy.
+                  <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6">
+                    <p className="text-xs text-neutral-500 text-start">
+                      {t.form.privacy}
                     </p>
                     <button
                       type="submit"
                       disabled={isSubmitting}
                       className={clsx(
-                        "inline-flex items-center justify-center gap-2 rounded-xl bg-white px-8 py-3 text-sm font-medium text-neutral-950 transition-all shadow-sm",
+                        "w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-white px-8 py-3 text-sm font-medium text-neutral-950 transition-all shadow-sm",
                         isSubmitting ? "opacity-80 cursor-not-allowed" : "hover:bg-neutral-200 hover:scale-[1.02] active:scale-[0.98] hover:shadow-[0_0_15px_rgba(255,255,255,0.15)]"
                       )}
                     >
                       {isSubmitting ? (
                         <>
                           <iconify-icon icon="solar:spinner-linear" width="18" className="animate-spin"></iconify-icon>
-                          Sending...
+                          {t.form.sending}
                         </>
                       ) : (
                         <>
-                          Send Message
-                          <iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon>
+                          {t.form.submit}
+                          <iconify-icon 
+                            icon={isRTL ? "solar:arrow-left-linear" : "solar:arrow-right-linear"} 
+                            width="18"
+                          />
                         </>
                       )}
                     </button>
@@ -156,8 +172,10 @@ export default function Contact() {
             {/* Right Column: Info & Map */}
             <div className="lg:col-span-2 space-y-6">
               {/* Contact Info Card */}
-              <div className="bg-neutral-900/40 border border-white/10 rounded-3xl p-8 shadow-xl">
-                <h3 className="text-lg font-medium tracking-tight text-white mb-6">Contact Information</h3>
+              <div className="bg-neutral-900/40 border border-white/10 rounded-3xl p-8 shadow-xl text-start">
+                <h3 className="text-lg font-medium tracking-tight text-white mb-6">
+                  {t.info.title}
+                </h3>
                 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
@@ -165,7 +183,7 @@ export default function Contact() {
                       <iconify-icon icon="solar:letter-linear" width="20"></iconify-icon>
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-white">Email Us</p>
+                      <p className="text-sm font-medium text-white">{t.info.emailTitle}</p>
                       <a href="mailto:chyagroup2019@gmail.com" className="text-sm text-neutral-400 mt-0.5 hover:text-white transition-colors">
                         chyagroup2019@gmail.com
                       </a>
@@ -177,7 +195,7 @@ export default function Contact() {
                       <iconify-icon icon="solar:map-point-linear" width="20"></iconify-icon>
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-white">Visit Headquarters</p>
+                      <p className="text-sm font-medium text-white">{t.info.visitTitle}</p>
                       <p className="text-sm text-neutral-400 mt-0.5 leading-relaxed">
                         Runaki Street, Erbil 44001<br/>Kurdistan Region, Iraq
                       </p>
@@ -189,8 +207,8 @@ export default function Contact() {
                       <iconify-icon icon="solar:phone-linear" width="20"></iconify-icon>
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-white">Call Us</p>
-                      <div className="flex flex-col gap-1 mt-0.5">
+                      <p className="text-sm font-medium text-white">{t.info.callTitle}</p>
+                      <div className="flex flex-col gap-1 mt-0.5" dir="ltr">
                         <a href="tel:+9647504798788" className="text-sm text-neutral-400 hover:text-white transition-colors">+964 750 479 8788</a>
                         <a href="tel:+9647504442688" className="text-sm text-neutral-400 hover:text-white transition-colors">+964 750 444 2688</a>
                       </div>
@@ -215,12 +233,15 @@ export default function Contact() {
                 ></iframe>
                 
                 {/* Subtle overlay badge */}
-                <div className="absolute bottom-4 left-4 z-20 bg-neutral-950/90 backdrop-blur-sm border border-white/10 px-3 py-1.5 rounded-full shadow-sm flex items-center gap-2">
+                <div className={cn(
+                  "absolute bottom-4 z-20 bg-neutral-950/90 backdrop-blur-sm border border-white/10 px-3 py-1.5 rounded-full shadow-sm flex items-center gap-2",
+                  isRTL ? "right-4" : "left-4"
+                )}>
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-20"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
                   </span>
-                  <span className="text-xs font-medium text-white tracking-tight">HQ Erbil</span>
+                  <span className="text-xs font-medium text-white tracking-tight">{t.info.hqErbil}</span>
                 </div>
               </div>
               

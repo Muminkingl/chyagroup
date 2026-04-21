@@ -4,9 +4,20 @@ import Link from 'next/link';
 import { BookOpen, Calendar } from 'lucide-react';
 import { clsx } from 'clsx';
 import { Post } from '@/data/newsData';
+import { useLanguage } from '@/context/LanguageContext';
+import { translations } from '@/i18n/translations';
 
 export default function PostCard({ post, className }: { post: Post, className?: string }) {
+  const { locale, isRTL } = useLanguage();
+  const t = translations[locale].newsArchive;
   const hasImage = !!(post.imageUrl && post.imageUrl.trim() !== '');
+
+  // Format date based on locale
+  const formattedDate = new Date(post.date).toLocaleDateString(locale === 'en' ? 'en-US' : locale === 'ar' ? 'ar-EG' : 'ku-IQ', {
+    month: 'short',
+    day: '2-digit',
+    year: 'numeric'
+  });
 
   return (
     <Link 
@@ -32,13 +43,13 @@ export default function PostCard({ post, className }: { post: Post, className?: 
         <div className="h-1 w-full bg-gradient-to-r from-amber-500/30 via-blue-500/30 to-transparent" />
       )}
       
-      <div className="p-5 flex flex-col flex-1">
+      <div className="p-5 flex flex-col flex-1 text-start">
         <div className="flex items-center gap-3 mb-3 text-xs text-neutral-400">
           <span className="font-semibold text-amber-500/80 uppercase tracking-wider text-[10px]">{post.category}</span>
           <span className="w-1 h-1 rounded-full bg-neutral-600"></span>
           <span className="flex items-center gap-1">
             <Calendar size={11} />
-            {post.date}
+            {formattedDate}
           </span>
         </div>
         
@@ -46,7 +57,7 @@ export default function PostCard({ post, className }: { post: Post, className?: 
           {post.title}
         </h3>
         
-        <p className="text-sm text-neutral-400 mb-6 line-clamp-2 flex-1 font-light" dir="auto">
+        <p className="text-sm text-neutral-400 mb-6 line-clamp-2 flex-1 font-light leading-relaxed" dir="auto">
           {post.excerpt}
         </p>
         
@@ -56,11 +67,11 @@ export default function PostCard({ post, className }: { post: Post, className?: 
             <div className="w-6 h-6 rounded-full bg-zinc-800 border border-white/10 flex items-center justify-center">
               <span className="text-[9px] font-bold text-zinc-400">CG</span>
             </div>
-            <span className="text-xs text-neutral-300">Chya Group</span>
+            <span className="text-xs text-neutral-300">{t.author}</span>
           </div>
           <span className="text-xs text-neutral-500 flex items-center gap-1">
             <BookOpen className="w-3.5 h-3.5" />
-            {post.readTime}
+            {t.readTime.replace('{minutes}', post.readTime)}
           </span>
         </div>
       </div>

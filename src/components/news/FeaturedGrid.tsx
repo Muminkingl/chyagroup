@@ -3,13 +3,28 @@
 import Link from 'next/link';
 import { Calendar, Clock } from 'lucide-react';
 import { Post } from '@/data/newsData';
+import { useLanguage } from '@/context/LanguageContext';
+import { translations } from '@/i18n/translations';
+import { cn } from '@/lib/utils';
 
 export default function FeaturedGrid({ posts }: { posts: Post[] }) {
+  const { locale, isRTL } = useLanguage();
+  const t = translations[locale].newsArchive;
+
   if (!posts || posts.length < 1) return null;
 
   const heroPost = posts[0];
   const sidePosts = posts.slice(1, 3);
   const hasHeroImage = !!(heroPost.imageUrl && heroPost.imageUrl.trim() !== '');
+
+  // Localized date formatting
+  const formatDate = (dateStr: string) => {
+    return new Date(dateStr).toLocaleDateString(locale === 'en' ? 'en-US' : locale === 'ar' ? 'ar-EG' : 'ku-IQ', {
+      month: 'short',
+      day: '2-digit',
+      year: 'numeric'
+    });
+  };
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -39,21 +54,21 @@ export default function FeaturedGrid({ posts }: { posts: Post[] }) {
           </div>
         )}
 
-        <div className="relative p-8 flex flex-col justify-end flex-1">
+        <div className="relative p-8 flex flex-col justify-end flex-1 text-start">
           <div className="flex items-center gap-3 mb-4">
             <span className="px-3 py-1 text-xs font-bold rounded-full bg-amber-500/20 backdrop-blur-md text-amber-400 border border-amber-500/30 uppercase tracking-wider">
               {heroPost.category}
             </span>
             <span className="text-sm text-neutral-300 flex items-center gap-1.5">
               <Calendar className="w-4 h-4" />
-              {heroPost.date}
+              {formatDate(heroPost.date)}
             </span>
           </div>
           
           <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-3 group-hover:text-amber-400 transition-colors" dir="auto">
             {heroPost.title}
           </h2>
-          <p className="text-neutral-300 text-base md:text-lg max-w-2xl mb-6 line-clamp-2 font-light" dir="auto">
+          <p className="text-neutral-300 text-base md:text-lg max-w-2xl mb-6 line-clamp-2 font-light leading-relaxed" dir="auto">
             {heroPost.excerpt}
           </p>
           
@@ -62,10 +77,10 @@ export default function FeaturedGrid({ posts }: { posts: Post[] }) {
               <span className="text-xs font-bold text-zinc-400">CG</span>
             </div>
             <div>
-              <p className="text-sm font-medium text-white">Chya Group</p>
-              <p className="text-xs text-neutral-400 flex items-center gap-1">
+              <p className="text-sm font-medium text-white">{t.author}</p>
+              <p className="text-xs text-neutral-400 flex items-center gap-1 font-light">
                 <Clock size={11} />
-                {heroPost.readTime}
+                {t.readTime.replace('{minutes}', heroPost.readTime)}
               </p>
             </div>
           </div>
@@ -98,20 +113,27 @@ export default function FeaturedGrid({ posts }: { posts: Post[] }) {
                 {/* Decorative glow */}
                 <div className="absolute -top-24 -right-24 w-48 h-48 bg-white/5 rounded-full blur-[50px] group-hover:bg-white/10 transition-colors pointer-events-none" />
                 
-                <div className="relative p-6 flex flex-col h-full justify-between">
+                <div className="relative p-6 flex flex-col h-full justify-between text-start">
                   <div>
                     <div className="flex items-center justify-between mb-4">
                       <span className="text-[10px] font-bold text-amber-500 uppercase tracking-widest">
                         {post.category}
                       </span>
-                      <div className="text-neutral-500 group-hover:text-white transition-colors transform group-hover:translate-x-1 group-hover:-translate-y-1 duration-300">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                      <div className={cn(
+                        "text-neutral-500 group-hover:text-white transition-colors transform duration-300",
+                        isRTL ? "group-hover:-translate-x-1 group-hover:-translate-y-1" : "group-hover:translate-x-1 group-hover:-translate-y-1"
+                      )}>
+                        {isRTL ? (
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 17L7 7M7 7H17M7 7V17"/></svg>
+                        ) : (
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                        )}
                       </div>
                     </div>
                     <h3 className="text-xl font-semibold tracking-tight text-white mb-2 group-hover:text-neutral-200 line-clamp-3" dir="auto">
                       {post.title}
                     </h3>
-                    <p className="text-sm text-neutral-400 line-clamp-2 font-light" dir="auto">
+                    <p className="text-sm text-neutral-400 line-clamp-2 font-light leading-relaxed" dir="auto">
                       {post.excerpt}
                     </p>
                   </div>
@@ -121,11 +143,11 @@ export default function FeaturedGrid({ posts }: { posts: Post[] }) {
                       <div className="w-6 h-6 rounded-full bg-zinc-800 border border-white/10 flex items-center justify-center">
                         <span className="text-[9px] font-bold text-zinc-500">CG</span>
                       </div>
-                      <span className="text-xs text-neutral-300">Chya Group</span>
+                      <span className="text-xs text-neutral-300">{t.author}</span>
                     </div>
-                    <span className="text-xs text-neutral-500 flex items-center gap-1">
+                    <span className="text-xs text-neutral-500 flex items-center gap-1 font-light">
                       <Clock size={11} />
-                      {post.readTime}
+                      {t.readTime.replace('{minutes}', post.readTime)}
                     </span>
                   </div>
                 </div>
