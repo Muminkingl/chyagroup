@@ -95,7 +95,7 @@ export default function HeroSection() {
                                             )}
                                         </Link>
                                         <Link
-                                            href="#contact"
+                                            href="/contact"
                                             className="flex items-center justify-center text-white/70 border border-white/10 h-12 rounded-full px-6 text-sm hover:bg-white/5 transition-colors backdrop-blur-sm"
                                         >
                                             <span className="text-nowrap">{t.contactUs}</span>
