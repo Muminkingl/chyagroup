@@ -8,6 +8,7 @@ import { Footer } from "@/components/layout/Footer";
 import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/i18n/translations';
 import { cn } from '@/lib/utils';
+import { Iconify } from '@/components/ui/Iconify';
 
 export default function Contact() {
   const router = useRouter();
@@ -91,7 +92,7 @@ export default function Contact() {
               {isSuccess ? (
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8 bg-neutral-900/95 backdrop-blur-md z-10 animate-scale-in">
                   <div className="w-20 h-20 bg-green-500/10 border border-green-500/20 rounded-full flex items-center justify-center mb-6 shadow-sm">
-                    <iconify-icon icon="solar:check-circle-bold" width="40" height="40" style={{ color: '#4ade80' }}></iconify-icon>
+                    <Iconify icon="solar:check-circle-bold" width={40} height={40} style={{ color: '#4ade80' }} />
                   </div>
                   <h3 className="text-3xl font-medium tracking-tight text-white mb-3">
                     {t.form.successTitle}
@@ -101,7 +102,7 @@ export default function Contact() {
                   </p>
                   
                   <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 px-5 py-2.5 rounded-full text-sm font-medium text-neutral-300 shadow-sm">
-                    <iconify-icon icon="solar:hourglass-linear" width="18" className="animate-spin" style={{ animationDuration: '3s' }}></iconify-icon>
+                    <Iconify icon="solar:hourglass-linear" width={18} className="animate-spin" style={{ animationDuration: '3s' }} />
                     {t.form.redirect.replace('{seconds}', countdown.toString())}
                   </div>
                 </div>
@@ -177,15 +178,15 @@ export default function Contact() {
                     >
                       {isSubmitting ? (
                         <>
-                          <iconify-icon icon="solar:spinner-linear" width="18" className="animate-spin"></iconify-icon>
+                          <Iconify icon="solar:spinner-linear" width={18} className="animate-spin" />
                           {t.form.sending}
                         </>
                       ) : (
                         <>
                           {t.form.submit}
-                          <iconify-icon 
+                          <Iconify 
                             icon={isRTL ? "solar:arrow-left-linear" : "solar:arrow-right-linear"} 
-                            width="18"
+                            width={18}
                           />
                         </>
                       )}
@@ -206,7 +207,7 @@ export default function Contact() {
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400 shrink-0">
-                      <iconify-icon icon="solar:letter-linear" width="20"></iconify-icon>
+                      <Iconify icon="solar:letter-linear" width={20} />
                     </div>
                     <div>
                       <p className="text-sm font-medium text-white">{t.info.emailTitle}</p>
@@ -218,7 +219,7 @@ export default function Contact() {
 
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400 shrink-0">
-                      <iconify-icon icon="solar:map-point-linear" width="20"></iconify-icon>
+                      <Iconify icon="solar:map-point-linear" width={20} />
                     </div>
                     <div>
                       <p className="text-sm font-medium text-white">{t.info.visitTitle}</p>
@@ -230,7 +231,7 @@ export default function Contact() {
 
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400 shrink-0">
-                      <iconify-icon icon="solar:phone-linear" width="20"></iconify-icon>
+                      <Iconify icon="solar:phone-linear" width={20} />
                     </div>
                     <div>
                       <p className="text-sm font-medium text-white">{t.info.callTitle}</p>

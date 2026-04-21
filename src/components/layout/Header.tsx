@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Iconify } from "../ui/Iconify";
 import { Button } from "../ui/Button";
 
 import { cn } from "@/lib/utils";
@@ -129,7 +129,7 @@ export const Header = () => {
               className="relative z-50 p-2 text-neutral-300 hover:text-white transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {isMobileMenuOpen ? <Iconify icon="solar:close-circle-linear" width={24} /> : <Iconify icon="solar:hamburger-menu-linear" width={24} />}
             </button>
           </div>
         </div>

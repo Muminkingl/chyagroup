@@ -1,7 +1,7 @@
 "use client";
 
 import Link from 'next/link';
-import { BookOpen, Calendar } from 'lucide-react';
+import { Iconify } from '../ui/Iconify';
 import { clsx } from 'clsx';
 import { Post } from '@/data/newsData';
 import { useLanguage } from '@/context/LanguageContext';
@@ -48,7 +48,7 @@ export default function PostCard({ post, className }: { post: Post, className?: 
           <span className="font-semibold text-amber-500/80 uppercase tracking-wider text-[10px]">{post.category}</span>
           <span className="w-1 h-1 rounded-full bg-neutral-600"></span>
           <span className="flex items-center gap-1">
-            <Calendar size={11} />
+            <Iconify icon="solar:calendar-linear" width={11} />
             {formattedDate}
           </span>
         </div>
@@ -70,7 +70,7 @@ export default function PostCard({ post, className }: { post: Post, className?: 
             <span className="text-xs text-neutral-300">{t.author}</span>
           </div>
           <span className="text-xs text-neutral-500 flex items-center gap-1">
-            <BookOpen className="w-3.5 h-3.5" />
+            <Iconify icon="solar:book-linear" width={14} />
             {t.readTime.replace('{minutes}', post.readTime)}
           </span>
         </div>

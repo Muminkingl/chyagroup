@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/i18n/translations';
 import { cn } from '@/lib/utils';
+import { Iconify } from '@/components/ui/Iconify';
 
 export default function LocationSection() {
   const { locale, isRTL } = useLanguage();
@@ -17,7 +18,7 @@ export default function LocationSection() {
 
           <div className="lg:col-span-1 flex flex-col justify-center text-start">
             <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full border border-white/10 bg-white/5 w-fit">
-              <iconify-icon icon="solar:map-point-linear" class="text-white/70"></iconify-icon>
+              <Iconify icon="solar:map-point-linear" className="text-white/70" />
               <span className="text-xs font-medium text-white/80 uppercase tracking-widest">{t.eyebrow}</span>
             </div>
 
@@ -32,7 +33,7 @@ export default function LocationSection() {
             <div className="space-y-6">
               <div className="flex gap-4">
                 <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
-                  <iconify-icon icon="solar:buildings-2-linear" class="text-white text-lg" />
+                  <Iconify icon="solar:buildings-2-linear" className="text-white text-lg" />
                 </div>
                 <div className="text-start">
                   <h4 className="text-white font-medium mb-1">{t.hqTitle}</h4>
@@ -42,7 +43,7 @@ export default function LocationSection() {
 
               <div className="flex gap-4">
                 <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
-                  <iconify-icon icon="solar:letter-linear" class="text-white text-lg" />
+                  <Iconify icon="solar:letter-linear" className="text-white text-lg" />
                 </div>
                 <div className="text-start">
                   <h4 className="text-white font-medium mb-1">{t.email}</h4>
@@ -57,7 +58,7 @@ export default function LocationSection() {
 
               <div className="flex gap-4">
                 <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
-                  <iconify-icon icon="solar:phone-linear" class="text-white text-lg" />
+                  <Iconify icon="solar:phone-linear" className="text-white text-lg" />
                 </div>
                 <div className="text-start">
                   <h4 className="text-white font-medium mb-1">{t.phone}</h4>
@@ -96,7 +97,7 @@ export default function LocationSection() {
               width="100%"
               height="100%"
               style={{ border: 0 }}
-              allowFullScreen=""
+              allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               className="absolute inset-0 transition-opacity duration-500 opacity-80 group-hover:opacity-100 grayscale-[0.9] invert-[0.95] contrast-[1.2] hue-rotate-[180deg]"

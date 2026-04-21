@@ -2,6 +2,7 @@
 
 import { clsx } from 'clsx';
 import { useLanguage } from '@/context/LanguageContext';
+import { Iconify } from '../ui/Iconify';
 
 export default function TeamCard({ member, featured = false }: { member: any, featured?: boolean }) {
   const { isRTL } = useLanguage();
@@ -38,7 +39,7 @@ export default function TeamCard({ member, featured = false }: { member: any, fe
             "opacity-0 group-hover:opacity-100",
             isRTL ? "translate-x-4 group-hover:translate-x-0" : "-translate-x-4 group-hover:translate-x-0"
           )}>
-            <iconify-icon icon="solar:buildings-2-bold-duotone" class="text-amber-500"></iconify-icon>
+            <Iconify icon="solar:buildings-2-bold-duotone" className="text-amber-500" />
             <span className="text-[10px] uppercase tracking-widest text-amber-500/80 font-bold">Leadership</span>
           </div>
           

@@ -2,6 +2,7 @@
 
 import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/i18n/translations';
+import { Iconify } from '../ui/Iconify';
 
 export default function Hero() {
   const { locale } = useLanguage();
@@ -24,7 +25,7 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-20 text-center px-6 max-w-4xl mx-auto mt-16">
         <div className="inline-flex items-center gap-2 mb-6">
-          <iconify-icon icon="solar:star-fall-bold-duotone" class="text-amber-400 text-xl"></iconify-icon>
+          <Iconify icon="solar:star-fall-bold-duotone" className="text-amber-400 text-xl" />
           <span className="text-sm font-medium tracking-wide text-zinc-300 uppercase">{t.eyebrow}</span>
         </div>
         <h1 className="text-5xl md:text-7xl font-medium tracking-tight text-white mb-6 drop-shadow-lg">

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { ArrowRight, ChevronRight } from 'lucide-react';
+import { Iconify } from '../ui/Iconify';
 import { Button } from '../ui/Button';
 
 export const Hero = () => {
@@ -54,7 +54,7 @@ export const Hero = () => {
         >
           <Button size="lg" className="w-full sm:w-auto group">
             Discover Our Portfolio
-            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <Iconify icon="solar:arrow-right-linear" width={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
           </Button>
           <Button variant="outline" size="lg" className="w-full sm:w-auto">
             Contact Us

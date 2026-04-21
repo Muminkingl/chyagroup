@@ -3,7 +3,7 @@
 import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
-import { X } from "lucide-react";
+import { Iconify } from "@/components/ui/Iconify";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/i18n/translations";
 import { cn } from "@/lib/utils";
@@ -72,7 +72,7 @@ const CloseIcon = ({ isRTL }: { isRTL: boolean }) => (
       isRTL ? "left-4" : "right-4"
     )}
   >
-    <X size={20} />
+    <Iconify icon="solar:close-circle-linear" width={20} />
   </motion.button>
 );
 
@@ -81,7 +81,7 @@ export default function HistorySection({ id }: { id: string }) {
   const t = translations[locale].about.history;
   const [active, setActive] = useState<any | null>(null);
   const layoutId = useId();
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null!);
 
   useOutsideClick(ref, () => setActive(null));
 

@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils';
 import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/i18n/translations';
 import Link from 'next/link';
+import { Iconify } from '../ui/Iconify';
 
 export default function ChyaHistorySection() {
   const { locale, isRTL } = useLanguage();
@@ -50,7 +51,7 @@ export default function ChyaHistorySection() {
           "inline-flex items-center gap-2 px-4 py-1.5 mb-8 rounded-full border border-white/10 bg-black/30 backdrop-blur-md transition-all duration-1000",
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         )}>
-          <iconify-icon icon="solar:buildings-linear" class="text-white/70"></iconify-icon>
+          <Iconify icon="solar:buildings-linear" className="text-white/70" />
           <span className="text-xs font-medium text-white/80 uppercase tracking-widest">{t.eyebrow}</span>
         </div>
 
@@ -83,7 +84,7 @@ export default function ChyaHistorySection() {
             className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 text-sm font-medium text-black bg-white rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] focus:outline-none focus:ring-2 focus:ring-white/50"
           >
             <span className="relative z-10 font-semibold tracking-wide">{t.readMore}</span>
-            <iconify-icon 
+            <Iconify 
               icon={isRTL ? "solar:arrow-left-linear" : "solar:arrow-right-linear"} 
               className={cn(
                 "text-lg relative z-10 transition-transform duration-300",

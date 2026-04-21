@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import AdminSidebar from "@/components/admin/AdminSidebar";
-import { Menu } from "lucide-react";
+import { Iconify } from "@/components/ui/Iconify";
 
 export default function AdminLayout({
   children,
@@ -22,7 +22,7 @@ export default function AdminLayout({
               onClick={() => setIsSidebarOpen(true)}
               className="p-2 md:hidden hover:bg-zinc-800 rounded-lg transition-colors text-zinc-400 hover:text-white"
             >
-              <Menu size={20} />
+              <Iconify icon="solar:hamburger-menu-linear" width={20} />
             </button>
             <h1 className="text-lg md:text-xl font-medium tracking-tight">Admin Portal</h1>
           </div>

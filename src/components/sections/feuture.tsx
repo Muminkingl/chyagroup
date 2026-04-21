@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import AbstractGlassArt from './abstarc';
 import { BlurInText } from '@/components/ui/blur-in-text';
+import { Iconify } from '@/components/ui/Iconify';
 
 import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/i18n/translations';
@@ -166,7 +167,7 @@ export default function FeatureSection() {
                   <div className="relative z-10 flex-1 p-6 flex flex-col justify-between text-start">
                     <div className="flex justify-between items-start">
                       <div className="px-2 py-1 bg-black/40 backdrop-blur-md rounded text-[9px] tracking-widest uppercase text-white/50 border border-white/5 flex items-center gap-1.5">
-                        <iconify-icon icon={feature.icon} width="12"></iconify-icon>
+                        <Iconify icon={feature.icon} width={12} />
                         {feature.tag}
                       </div>
                       <div className="w-2 h-2 rounded-full bg-white/20 animate-pulse" />
@@ -178,7 +179,7 @@ export default function FeatureSection() {
                       </h3>
                       <div className="flex gap-2">
                         <div className="px-3 py-1.5 bg-black/60 backdrop-blur-md rounded-lg text-[10px] tracking-wider uppercase text-white/70 border border-white/10 flex items-center gap-1.5">
-                          <iconify-icon icon="solar:shield-check-linear"></iconify-icon>
+                          <Iconify icon="solar:shield-check-linear" />
                           {locale === 'en' ? 'Verified' : locale === 'ar' ? 'موثوق' : 'پشاندراو'}
                         </div>
                       </div>
@@ -195,7 +196,7 @@ export default function FeatureSection() {
                 className="w-10 h-10 rounded-full flex items-center justify-center border border-white/10 bg-white/5 text-white/60 hover:text-white hover:bg-white/10 transition-colors backdrop-blur-sm"
                 aria-label="Previous feature"
               >
-                <iconify-icon icon={isRTL ? "solar:arrow-right-linear" : "solar:arrow-left-linear"} width="20"></iconify-icon>
+                <Iconify icon={isRTL ? "solar:arrow-right-linear" : "solar:arrow-left-linear"} width={20} />
               </button>
               <div className="flex gap-2">
                 {features.map((_, idx) => (
@@ -213,7 +214,7 @@ export default function FeatureSection() {
                 className="w-10 h-10 rounded-full flex items-center justify-center border border-white/10 bg-white/5 text-white/60 hover:text-white hover:bg-white/10 transition-colors backdrop-blur-sm"
                 aria-label="Next feature"
               >
-                <iconify-icon icon={isRTL ? "solar:arrow-left-linear" : "solar:arrow-right-linear"} width="20"></iconify-icon>
+                <Iconify icon={isRTL ? "solar:arrow-left-linear" : "solar:arrow-right-linear"} width={20} />
               </button>
             </div>
           </div>

@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/Button";
 import { createPost, getPosts } from "../actions";
 import ImageUpload from "@/components/admin/ImageUpload";
+import { Iconify } from "@/components/ui/Iconify";
 
 export default function CreatePost() {
   const editorRef = useRef<HTMLDivElement>(null);
@@ -37,7 +38,7 @@ export default function CreatePost() {
       title={title}
       className="p-2 text-zinc-400 hover:text-zinc-50 hover:bg-zinc-800 rounded-md transition-colors flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-zinc-600"
     >
-      <iconify-icon icon={icon} class="text-lg"></iconify-icon>
+      <Iconify icon={icon} className="text-lg" />
     </button>
   );
 
@@ -125,7 +126,6 @@ export default function CreatePost() {
                       contentEditable
                       suppressContentEditableWarning
                       dir="auto"
-                      placeholder="Write your post content here / اكتب محتوى المنشور هنا..."
                     />
                   </div>
                 </div>
@@ -162,7 +162,7 @@ export default function CreatePost() {
           <Card className="sticky top-24 border-white/5 bg-zinc-900/20 backdrop-blur-sm">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-lg">
-                <iconify-icon icon="solar:history-linear" class="text-xl text-zinc-400"></iconify-icon>
+                <Iconify icon="solar:history-linear" className="text-xl text-zinc-400" />
                 Recent Posts
               </CardTitle>
               <CardDescription>Latest published items.</CardDescription>
@@ -183,7 +183,7 @@ export default function CreatePost() {
                       </span>
                     </div>
                     <span className="text-[10px] text-zinc-500 flex items-center gap-1 uppercase tracking-wider mt-1">
-                      <iconify-icon icon="solar:clock-circle-linear"></iconify-icon>
+                      <Iconify icon="solar:clock-circle-linear" />
                       {new Date(post.created_at).toLocaleDateString()}
                     </span>
                   </div>

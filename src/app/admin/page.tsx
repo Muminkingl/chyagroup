@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/Card";
 import { getSupabaseAdmin } from "@/lib/supabase";
 import DashboardChart from "@/components/admin/DashboardChart";
+import { Iconify } from "@/components/ui/Iconify";
 
 export const dynamic = "force-dynamic";
 
@@ -76,7 +77,7 @@ export default async function Dashboard() {
             <CardTitle className="text-sm font-medium text-zinc-400">
               Total Posts
             </CardTitle>
-            <iconify-icon icon="solar:document-linear" class="text-zinc-400 text-xl"></iconify-icon>
+            <Iconify icon="solar:document-linear" className="text-zinc-400 text-xl" />
           </CardHeader>
           <CardContent>
             <div className="text-3xl font-semibold">{stats.totalPosts}</div>
@@ -91,7 +92,7 @@ export default async function Dashboard() {
             <CardTitle className="text-sm font-medium text-zinc-400">
               Total Views
             </CardTitle>
-            <iconify-icon icon="solar:eye-linear" class="text-zinc-400 text-xl"></iconify-icon>
+            <Iconify icon="solar:eye-linear" className="text-zinc-400 text-xl" />
           </CardHeader>
           <CardContent>
             <div className="text-3xl font-semibold">{stats.totalViews.toLocaleString()}</div>
@@ -106,7 +107,7 @@ export default async function Dashboard() {
             <CardTitle className="text-sm font-medium text-zinc-400">
               Admin Status
             </CardTitle>
-            <iconify-icon icon="solar:shield-user-linear" class="text-zinc-400 text-xl"></iconify-icon>
+            <Iconify icon="solar:shield-user-linear" className="text-zinc-400 text-xl" />
           </CardHeader>
           <CardContent>
             <div className="text-3xl font-semibold">Active</div>
@@ -121,7 +122,7 @@ export default async function Dashboard() {
             <CardTitle className="text-sm font-medium text-zinc-400">
               System Health
             </CardTitle>
-            <iconify-icon icon="solar:pulse-linear" class="text-emerald-500 text-xl"></iconify-icon>
+            <Iconify icon="solar:pulse-linear" className="text-emerald-500 text-xl" />
           </CardHeader>
           <CardContent>
             <div className="text-3xl font-semibold text-emerald-500">99.9%</div>

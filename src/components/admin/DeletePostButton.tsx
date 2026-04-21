@@ -3,6 +3,7 @@
 import { deletePost } from "@/app/admin/actions";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { Iconify } from "@/components/ui/Iconify";
 
 interface DeletePostButtonProps {
   postId: string;
@@ -34,7 +35,7 @@ export default function DeletePostButton({ postId }: DeletePostButtonProps) {
       disabled={isDeleting}
       className="text-zinc-500 hover:text-rose-500 transition-colors flex items-center gap-1.5 text-xs font-medium disabled:opacity-50 disabled:cursor-wait"
     >
-      <iconify-icon icon="solar:trash-bin-trash-linear" class="text-base"></iconify-icon>
+      <Iconify icon="solar:trash-bin-trash-linear" className="text-base" />
       <span>{isDeleting ? "Deleting..." : "Delete"}</span>
     </button>
   );

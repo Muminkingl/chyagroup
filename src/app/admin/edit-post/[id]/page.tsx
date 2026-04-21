@@ -8,6 +8,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { clsx } from "clsx";
 import ImageUpload from "@/components/admin/ImageUpload";
+import { Iconify } from "@/components/ui/Iconify";
 
 export default function EditPostDetail({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
@@ -57,7 +58,7 @@ export default function EditPostDetail({ params }: { params: Promise<{ id: strin
       title={title}
       className="p-2 text-zinc-400 hover:text-zinc-50 hover:bg-zinc-800 rounded-md transition-colors flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-zinc-600"
     >
-      <iconify-icon icon={icon} class="text-lg"></iconify-icon>
+      <Iconify icon={icon} className="text-lg" />
     </button>
   );
 
@@ -92,7 +93,7 @@ export default function EditPostDetail({ params }: { params: Promise<{ id: strin
     <div className="space-y-6 max-w-7xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="flex flex-col gap-2">
         <Link href="/admin/edit-post" className="flex items-center gap-2 text-xs text-zinc-500 hover:text-white transition-colors mb-2">
-           <iconify-icon icon="solar:arrow-left-linear"></iconify-icon>
+           <Iconify icon="solar:arrow-left-linear" />
            Back to Manager
         </Link>
         <h2 className="text-3xl font-semibold tracking-tight text-white">Edit Post</h2>
@@ -202,7 +203,7 @@ export default function EditPostDetail({ params }: { params: Promise<{ id: strin
                        )}
                      >
                        <span>{s}</span>
-                       {status === s && <iconify-icon icon="solar:check-circle-bold" class="text-emerald-500 text-lg"></iconify-icon>}
+                       {status === s && <Iconify icon="solar:check-circle-bold" className="text-emerald-500 text-lg" />}
                      </button>
                    ))}
                 </div>
@@ -210,7 +211,7 @@ export default function EditPostDetail({ params }: { params: Promise<{ id: strin
 
               <div className="p-4 rounded-xl bg-amber-500/5 border border-amber-500/10 mt-4">
                  <div className="flex gap-3">
-                   <iconify-icon icon="solar:info-circle-linear" class="text-amber-500 mt-1"></iconify-icon>
+                   <Iconify icon="solar:info-circle-linear" className="text-amber-500 mt-1" />
                    <p className="text-[11px] text-amber-500/80 leading-relaxed font-medium">
                      Updates to the status are applied immediately when you save the post. Published posts are visible to all users.
                    </p>

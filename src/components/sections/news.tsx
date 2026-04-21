@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/i18n/translations';
 import { NewsPost } from '@/lib/news_fetch';
+import { Iconify } from '@/components/ui/Iconify';
 
 interface LatestNewsSectionProps {
   posts: NewsPost[];
@@ -23,7 +24,7 @@ export default function LatestNewsSection({ posts }: LatestNewsSectionProps) {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
-              <iconify-icon icon="solar:document-text-linear" class="text-white/70"></iconify-icon>
+              <Iconify icon="solar:document-text-linear" className="text-white/70" />
               <span className="text-xs font-medium text-white/80 uppercase tracking-widest leading-none">
                 {t.news.eyebrow}
               </span>
@@ -38,9 +39,9 @@ export default function LatestNewsSection({ posts }: LatestNewsSectionProps) {
             className="group inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/10 hover:border-white/30 bg-white/5 hover:bg-white/10 transition-all text-sm font-medium text-white"
           >
             <span>{t.news.viewAll}</span>
-            <iconify-icon 
+            <Iconify 
               icon={isRTL ? "solar:arrow-left-linear" : "solar:arrow-right-linear"} 
-              class={cn("text-lg transition-transform", isRTL ? "group-hover:-translate-x-1" : "group-hover:translate-x-1")} 
+              className={cn("text-lg transition-transform", isRTL ? "group-hover:-translate-x-1" : "group-hover:translate-x-1")} 
             />
           </Link>
         </div>
@@ -81,7 +82,7 @@ export default function LatestNewsSection({ posts }: LatestNewsSectionProps) {
                     className="inline-flex items-center gap-2 text-sm font-medium text-white/70 hover:text-white transition-colors"
                   >
                     {t.news.readArticle}
-                    <iconify-icon 
+                    <Iconify 
                         icon={isRTL ? "solar:arrow-left-up-linear" : "solar:arrow-right-up-linear"} 
                     />
                   </Link>

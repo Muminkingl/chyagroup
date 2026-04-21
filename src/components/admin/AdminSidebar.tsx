@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { logout } from '@/app/admin/actions';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Iconify } from '@/components/ui/Iconify';
 
 const navItems = [
   {
@@ -68,7 +69,7 @@ export default function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
                     : "text-zinc-400 hover:bg-zinc-800/50 hover:text-zinc-50"
                 )}
               >
-                <iconify-icon icon={item.icon} class={cn("text-xl", isActive ? "text-zinc-50" : "text-zinc-500")}></iconify-icon>
+                <Iconify icon={item.icon} className={cn("text-xl", isActive ? "text-zinc-50" : "text-zinc-500")} />
                 {item.title}
               </Link>
             );
@@ -80,7 +81,7 @@ export default function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
         <div className="flex items-center justify-between gap-3 px-3 py-2 rounded-xl border border-white/5 bg-zinc-900/40">
           <div className="flex items-center gap-3 overflow-hidden">
             <div className="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center border border-white/10 flex-shrink-0">
-              <iconify-icon icon="solar:user-linear" class="text-zinc-400"></iconify-icon>
+              <Iconify icon="solar:user-linear" className="text-zinc-400" />
             </div>
             <div className="flex flex-col overflow-hidden">
               <span className="text-xs font-medium text-zinc-50 truncate">Admin User</span>
@@ -92,7 +93,7 @@ export default function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
             className="p-2 rounded-lg bg-zinc-800 hover:bg-rose-500/20 hover:text-rose-500 text-zinc-400 transition-all flex-shrink-0"
             title="Logout"
           >
-            <iconify-icon icon="solar:logout-linear" class="text-lg"></iconify-icon>
+            <Iconify icon="solar:logout-linear" className="text-lg" />
           </button>
         </div>
       </div>

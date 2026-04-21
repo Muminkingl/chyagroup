@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { InfiniteSlider } from '@/components/motion-primitives/infinite-slider';
 import { ProgressiveBlur } from '@/components/motion-primitives/progressive-blur';
 import { BlurInText } from '@/components/ui/blur-in-text';
-import { ChevronRight } from 'lucide-react';
+
 
 const partners = [
     { name: "FIB", logo: "https://fib.iq/wp-content/themes/FIB/assets/images/header-mobile-logo.svg", url: "https://fib.iq/" },
@@ -38,6 +38,7 @@ const PartnerLogo = ({ name, logo, url }: { name: string, logo: string, url: str
 
 import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/i18n/translations';
+import { Iconify } from '@/components/ui/Iconify';
 
 export default function HeroSection() {
     const { locale, isRTL } = useLanguage();
@@ -88,9 +89,9 @@ export default function HeroSection() {
                                         >
                                             <span className="text-nowrap">{t.learnMore}</span>
                                             {isRTL ? (
-                                                <iconify-icon icon="solar:alt-arrow-left-linear" class="ms-1 w-4 h-4"></iconify-icon>
+                                                <Iconify icon="solar:alt-arrow-left-linear" className="ms-1 w-4 h-4" />
                                             ) : (
-                                                <ChevronRight className="ms-1 w-4 h-4" />
+                                                <Iconify icon="solar:alt-arrow-right-linear" width={16} className="ms-1 h-4 w-4" />
                                             )}
                                         </Link>
                                         <Link

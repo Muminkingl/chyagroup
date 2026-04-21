@@ -3,7 +3,7 @@ import { Footer } from '@/components/layout/Footer';
 import { getPostById, incrementViewCount } from '@/app/admin/actions';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { ChevronLeft, Clock, Calendar, Eye } from 'lucide-react';
+import { Iconify } from '@/components/ui/Iconify';
 
 export const dynamic = "force-dynamic";
 
@@ -46,7 +46,7 @@ export default async function PostDetail({ params }: { params: Promise<{ id: str
             className="group inline-flex items-center gap-2 text-zinc-500 hover:text-white transition-colors mb-12 text-sm font-medium"
           >
             <div className="w-8 h-8 rounded-full border border-white/5 flex items-center justify-center group-hover:bg-white/5 transition-all">
-              <ChevronLeft size={16} />
+              <Iconify icon="solar:alt-arrow-left-linear" width={16} />
             </div>
             <span>Back to News</span>
           </Link>
@@ -67,15 +67,15 @@ export default async function PostDetail({ params }: { params: Promise<{ id: str
 
             <div className="flex flex-wrap items-center gap-y-4 gap-x-8 text-sm text-zinc-400 font-light">
               <div className="flex items-center gap-2">
-                <Calendar size={14} className="text-zinc-600" />
+                <Iconify icon="solar:calendar-linear" width={14} className="text-zinc-600" />
                 <span>{new Date(post.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
               </div>
               <div className="flex items-center gap-2">
-                <Clock size={14} className="text-zinc-600" />
+                <Iconify icon="solar:clock-circle-linear" width={14} className="text-zinc-600" />
                 <span>5 min read</span>
               </div>
               <div className="flex items-center gap-2">
-                <Eye size={14} className="text-zinc-600" />
+                <Iconify icon="solar:eye-linear" width={14} className="text-zinc-600" />
                 <span>{post.views_count + 1} views</span>
               </div>
             </div>

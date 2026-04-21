@@ -1,7 +1,7 @@
 "use client";
 
 import Link from 'next/link';
-import { Calendar, Clock } from 'lucide-react';
+import { Iconify } from '../ui/Iconify';
 import { Post } from '@/data/newsData';
 import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/i18n/translations';
@@ -60,7 +60,7 @@ export default function FeaturedGrid({ posts }: { posts: Post[] }) {
               {heroPost.category}
             </span>
             <span className="text-sm text-neutral-300 flex items-center gap-1.5">
-              <Calendar className="w-4 h-4" />
+              <Iconify icon="solar:calendar-linear" width={16} />
               {formatDate(heroPost.date)}
             </span>
           </div>
@@ -79,7 +79,7 @@ export default function FeaturedGrid({ posts }: { posts: Post[] }) {
             <div>
               <p className="text-sm font-medium text-white">{t.author}</p>
               <p className="text-xs text-neutral-400 flex items-center gap-1 font-light">
-                <Clock size={11} />
+                <Iconify icon="solar:clock-circle-linear" width={11} />
                 {t.readTime.replace('{minutes}', heroPost.readTime)}
               </p>
             </div>
@@ -124,9 +124,9 @@ export default function FeaturedGrid({ posts }: { posts: Post[] }) {
                         isRTL ? "group-hover:-translate-x-1 group-hover:-translate-y-1" : "group-hover:translate-x-1 group-hover:-translate-y-1"
                       )}>
                         {isRTL ? (
-                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 17L7 7M7 7H17M7 7V17"/></svg>
+                          <Iconify icon="solar:alt-arrow-left-up-linear" width={18} />
                         ) : (
-                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                          <Iconify icon="solar:alt-arrow-right-up-linear" width={18} />
                         )}
                       </div>
                     </div>
@@ -146,7 +146,7 @@ export default function FeaturedGrid({ posts }: { posts: Post[] }) {
                       <span className="text-xs text-neutral-300">{t.author}</span>
                     </div>
                     <span className="text-xs text-neutral-500 flex items-center gap-1 font-light">
-                      <Clock size={11} />
+                      <Iconify icon="solar:clock-circle-linear" width={11} />
                       {t.readTime.replace('{minutes}', post.readTime)}
                     </span>
                   </div>

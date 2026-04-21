@@ -3,7 +3,7 @@
 import { useLanguage } from "@/context/LanguageContext";
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Globe, ChevronDown } from "lucide-react";
+import { Iconify } from "../ui/Iconify";
 
 const languages = [
   { code: "en", name: "English", flag: "/flag/english.svg" },
@@ -36,7 +36,7 @@ export default function LanguageToggle() {
       >
         <img src={currentLang.flag} alt={currentLang.name} className="w-5 h-3.5 object-cover rounded-[2px]" />
         <span className="text-xs font-medium text-white/90 hidden sm:block">{currentLang.name}</span>
-        <ChevronDown size={14} className={`text-white/40 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
+        <Iconify icon="solar:alt-arrow-down-linear" width={14} className={`text-white/40 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
       </button>
 
       <AnimatePresence>

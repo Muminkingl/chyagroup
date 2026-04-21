@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import { uploadImage } from "@/app/admin/actions";
 import { clsx } from "clsx";
+import { Iconify } from "@/components/ui/Iconify";
 
 interface ImageUploadProps {
   onUploadComplete: (url: string) => void;
@@ -98,7 +99,7 @@ export default function ImageUpload({ onUploadComplete, defaultImage, label }: I
             />
             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                <div className="flex flex-col items-center gap-2">
-                  <iconify-icon icon="solar:upload-linear" class="text-3xl text-white"></iconify-icon>
+                  <Iconify icon="solar:upload-linear" className="text-3xl text-white" />
                   <span className="text-xs font-bold text-white uppercase tracking-widest">Change Image</span>
                </div>
             </div>
@@ -114,7 +115,7 @@ export default function ImageUpload({ onUploadComplete, defaultImage, label }: I
         ) : (
           <div className="flex flex-col items-center justify-center py-12 px-6 text-center gap-4 transition-transform group-hover:scale-[1.02]">
             <div className="w-16 h-16 rounded-full bg-zinc-900 flex items-center justify-center border border-white/5 group-hover:bg-zinc-800 transition-colors">
-               <iconify-icon icon="solar:camera-linear" class="text-3xl text-zinc-500 group-hover:text-zinc-200"></iconify-icon>
+               <Iconify icon="solar:camera-linear" className="text-3xl text-zinc-500 group-hover:text-zinc-200" />
             </div>
             <div>
               <p className="text-sm font-medium text-zinc-300">Click or drag image to upload</p>
@@ -131,14 +132,14 @@ export default function ImageUpload({ onUploadComplete, defaultImage, label }: I
 
       {error && (
         <p className="text-xs text-rose-500 mt-2 flex items-center gap-1.5">
-            <iconify-icon icon="solar:danger-circle-bold"></iconify-icon>
+            <Iconify icon="solar:danger-circle-bold" />
             {error}
         </p>
       )}
       
       {preview && !isUploading && !error && (
           <p className="text-[10px] text-emerald-500 flex items-center gap-1.5 font-bold uppercase tracking-widest mt-1">
-              <iconify-icon icon="solar:check-circle-bold"></iconify-icon>
+              <Iconify icon="solar:check-circle-bold" />
               Image ready for publication
           </p>
       )}

@@ -3,6 +3,7 @@ import { getPosts } from "../actions";
 import DeletePostButton from "@/components/admin/DeletePostButton";
 import Link from "next/link";
 import { clsx } from "clsx";
+import { Iconify } from "@/components/ui/Iconify";
 
 export const dynamic = "force-dynamic";
 
@@ -69,7 +70,7 @@ export default async function EditPost() {
                           href={`/admin/edit-post/${post.id}`}
                           className="text-zinc-500 hover:text-white transition-colors flex items-center gap-1.5 text-xs font-medium"
                         >
-                          <iconify-icon icon="solar:pen-linear" class="text-base"></iconify-icon>
+                          <Iconify icon="solar:pen-linear" className="text-base" />
                           <span>Edit</span>
                         </Link>
                         
