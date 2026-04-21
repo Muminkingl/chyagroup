@@ -52,7 +52,7 @@ export default function HeroSection() {
                         {/* Hero Content - sits above background */}
                         <div className="aspect-2/3 relative z-10 flex flex-col justify-end px-6 lg:aspect-video">
                             <div className="mx-auto w-full max-w-7xl pb-10 lg:px-12 lg:pb-36">
-                                <div className="max-w-2xl text-start">
+                                <div className="max-w-4xl text-start">
                                     {/* Main headline with BlurInText */}
                                     <h1 className="text-4xl md:text-6xl xl:text-7xl font-bold tracking-tight text-white leading-[1.05] mb-6">
                                         <span className="block">
