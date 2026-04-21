@@ -22,6 +22,7 @@ export function BlurInText({
   trigger = "mount",
   className,
 }: BlurInTextProps) {
+  if (!text) return null;
   const items = split === "letter" ? text.split("") : text.split(" ");
   
   const containerVariants = {
@@ -60,7 +61,7 @@ export function BlurInText({
           className="inline-block"
           style={{ whiteSpace: "pre" }}
         >
-          {item}
+          {item}{split === "word" && index < items.length - 1 ? " " : ""}
         </motion.span>
       ))}
     </motion.span>

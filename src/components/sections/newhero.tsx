@@ -36,7 +36,13 @@ const PartnerLogo = ({ name, logo, url }: { name: string, logo: string, url: str
     </a>
 );
 
+import { useLanguage } from '@/context/LanguageContext';
+import { translations } from '@/i18n/translations';
+
 export default function HeroSection() {
+    const { locale, isRTL } = useLanguage();
+    const t = translations[locale].hero;
+
     return (
         <>
             <main className="overflow-x-hidden">
@@ -45,69 +51,53 @@ export default function HeroSection() {
                         {/* Hero Content - sits above background */}
                         <div className="aspect-2/3 relative z-10 flex flex-col justify-end px-6 lg:aspect-video">
                             <div className="mx-auto w-full max-w-7xl pb-10 lg:px-12 lg:pb-36">
-                                <div className="max-w-2xl">
+                                <div className="max-w-2xl text-start">
                                     {/* Main headline with BlurInText */}
                                     <h1 className="text-4xl md:text-6xl xl:text-7xl font-bold tracking-tight text-white leading-[1.05] mb-6">
                                         <span className="block">
                                             <BlurInText
-                                                text="Strength In"
+                                                text={t.line1}
                                                 blurAmount={12}
                                                 duration={1}
                                                 stagger={0.06}
-                                                split="letter"
+                                                split={isRTL ? "word" : "letter"}
                                                 trigger="mount"
                                             />
                                         </span>
                                         <span className="block font-light italic text-white/70">
                                             <BlurInText
-                                                text="Numbers,"
+                                                text={t.line2}
                                                 blurAmount={12}
                                                 duration={1.1}
                                                 stagger={0.06}
-                                                split="letter"
-                                                trigger="mount"
-                                            />
-                                        </span>
-                                        <span className="block mt-1">
-                                            <BlurInText
-                                                text="Power In"
-                                                blurAmount={12}
-                                                duration={1.2}
-                                                stagger={0.06}
-                                                split="letter"
-                                                trigger="mount"
-                                            />
-                                        </span>
-                                        <span className="block font-light italic text-white/70">
-                                            <BlurInText
-                                                text="Unity."
-                                                blurAmount={12}
-                                                duration={1.3}
-                                                stagger={0.08}
-                                                split="letter"
+                                                split={isRTL ? "word" : "letter"}
                                                 trigger="mount"
                                             />
                                         </span>
                                     </h1>
 
                                     {/* Subline */}
-                                    <p className="mt-4 text-base md:text-lg text-white/50 max-w-md leading-relaxed font-light">
-                                        Connecting markets, empowering industries, and shaping the future of commerce and finance across the region.
+                                    <p className="mt-4 text-base md:text-lg text-white/50 max-w-md leading-relaxed font-light text-start">
+                                        {t.description}
                                     </p>
 
                                     <div className="mt-10 flex items-center gap-3">
                                         <Link
                                             href="#partners"
-                                            className="flex items-center justify-center bg-white text-black font-semibold h-12 rounded-full pl-6 pr-4 text-sm hover:bg-neutral-200 transition-colors"
+                                            className="flex items-center justify-center bg-white text-black font-semibold h-12 rounded-full ps-6 pe-4 text-sm hover:bg-neutral-200 transition-colors"
                                         >
-                                            <span className="text-nowrap">Learn More</span>
-                                            <ChevronRight className="ml-1 w-4 h-4" />
+                                            <span className="text-nowrap">{t.learnMore}</span>
+                                            {isRTL ? (
+                                                <iconify-icon icon="solar:alt-arrow-left-linear" class="ms-1 w-4 h-4"></iconify-icon>
+                                            ) : (
+                                                <ChevronRight className="ms-1 w-4 h-4" />
+                                            )}
                                         </Link>
                                         <Link
                                             href="#contact"
                                             className="flex items-center justify-center text-white/70 border border-white/10 h-12 rounded-full px-6 text-sm hover:bg-white/5 transition-colors backdrop-blur-sm"
                                         >
-                                            <span className="text-nowrap">Contact Us</span>
+                                            <span className="text-nowrap">{t.contactUs}</span>
                                         </Link>
                                     </div>
                                 </div>
@@ -137,13 +127,15 @@ export default function HeroSection() {
                     <div className="group relative m-auto max-w-7xl px-6">
                         <div className="flex flex-col items-center md:flex-row">
                             <div className="md:max-w-44 md:border-r md:border-white/10 md:pr-6 whitespace-nowrap">
-                                <p className="text-end text-xs text-white/30 tracking-widest uppercase">Our Partners</p>
+                                <p className="text-center md:text-end text-xs font-bold text-white/60 tracking-[0.2em] uppercase">{t.partners}</p>
                             </div>
                             <div className="relative py-6 md:w-[calc(100%-11rem)] overflow-hidden">
                                 <InfiniteSlider
                                     speedOnHover={20}
                                     speed={40}
-                                    gap={80}>
+                                    gap={80}
+                                    reverse={isRTL}
+                                >
                                     {partners.map((partner, index) => (
                                         <PartnerLogo key={`${partner.name}-${index}`} {...partner} />
                                     ))}

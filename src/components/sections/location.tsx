@@ -1,26 +1,32 @@
 "use client";
 import Link from 'next/link';
+import { useLanguage } from '@/context/LanguageContext';
+import { translations } from '@/i18n/translations';
+import { cn } from '@/lib/utils';
 
 export default function LocationSection() {
+  const { locale, isRTL } = useLanguage();
+  const t = translations[locale].location;
+
   return (
     <section className="w-full py-24 bg-[#09090b] relative overflow-hidden">
       {/* Background ambient glow - matching feature section */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-white/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-3 gap-12 items-center">
 
-          <div className="lg:col-span-1 flex flex-col justify-center">
-            <div className="inline-flex items-center space-x-2 px-3 py-1 mb-6 rounded-full border border-white/10 bg-white/5 w-fit">
+          <div className="lg:col-span-1 flex flex-col justify-center text-start">
+            <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full border border-white/10 bg-white/5 w-fit">
               <iconify-icon icon="solar:map-point-linear" class="text-white/70"></iconify-icon>
-              <span className="text-xs font-medium text-white/80 uppercase tracking-widest">Global HQ</span>
+              <span className="text-xs font-medium text-white/80 uppercase tracking-widest">{t.eyebrow}</span>
             </div>
 
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-6">
-              Visit our headquarters
+            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-6 leading-[1.2]">
+              {t.title}
             </h2>
 
             <p className="text-white/50 text-lg font-light leading-relaxed mb-8">
-              Strategically located in Erbil. Come experience the future of commerce and industry in person.
+              {t.description}
             </p>
 
             <div className="space-y-6">
@@ -28,9 +34,9 @@ export default function LocationSection() {
                 <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
                   <iconify-icon icon="solar:buildings-2-linear" class="text-white text-lg" />
                 </div>
-                <div>
-                  <h4 className="text-white font-medium mb-1">Erbil Headquarters</h4>
-                  <p className="text-white/50 text-sm">Runaki Street, Erbil 44001,<br />Kurdistan Region, Iraq</p>
+                <div className="text-start">
+                  <h4 className="text-white font-medium mb-1">{t.hqTitle}</h4>
+                  <p className="text-white/50 text-sm">{t.hqAddress}</p>
                 </div>
               </div>
 
@@ -38,11 +44,11 @@ export default function LocationSection() {
                 <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
                   <iconify-icon icon="solar:letter-linear" class="text-white text-lg" />
                 </div>
-                <div>
-                  <h4 className="text-white font-medium mb-1">Email</h4>
+                <div className="text-start">
+                  <h4 className="text-white font-medium mb-1">{t.email}</h4>
                   <a 
                     href="mailto:chyagroup2019@gmail.com" 
-                    className="text-white/50 text-sm hover:text-white transition-colors"
+                    className="text-white/50 text-sm hover:text-white transition-colors ltr:tracking-normal rtl:tracking-tight"
                   >
                     chyagroup2019@gmail.com
                   </a>
@@ -53,18 +59,20 @@ export default function LocationSection() {
                 <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
                   <iconify-icon icon="solar:phone-linear" class="text-white text-lg" />
                 </div>
-                <div>
-                  <h4 className="text-white font-medium mb-1">Phone</h4>
+                <div className="text-start">
+                  <h4 className="text-white font-medium mb-1">{t.phone}</h4>
                   <div className="flex flex-col gap-1">
                     <a 
                       href="tel:+9647504798788" 
                       className="text-white/50 text-sm hover:text-white transition-colors"
+                      dir="ltr"
                     >
                       +964 750 479 8788
                     </a>
                     <a 
                       href="tel:+9647504442688" 
                       className="text-white/50 text-sm hover:text-white transition-colors"
+                      dir="ltr"
                     >
                       +964 750 444 2688
                     </a>
@@ -77,7 +85,7 @@ export default function LocationSection() {
               href="/contact"
               className="mt-10 px-8 py-3 bg-white text-black font-semibold rounded-full hover:scale-105 transition-transform w-fit inline-block"
             >
-              Contact Us
+              {t.contactBtn}
             </Link>
           </div>
 

@@ -7,15 +7,22 @@ import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "../ui/Button";
 
+import { cn } from "@/lib/utils";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/i18n/translations";
+import LanguageToggle from "./LanguageToggle";
+
 export const Header = () => {
   const pathname = usePathname();
+  const { locale } = useLanguage();
+  const t = translations[locale].nav;
+  
   const [scrollState, setScrollState] = useState<"hero" | "transition" | "dark">("hero");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       if (pathname === "/") {
-        // Home page logic: based on hero height
         const heroSection = document.querySelector("main > section") as HTMLElement | null;
         const heroBottom = heroSection ? heroSection.getBoundingClientRect().bottom : 600;
 
@@ -27,7 +34,6 @@ export const Header = () => {
           setScrollState("dark");
         }
       } else if (pathname === "/about") {
-        // About page logic: wait until reaching the leadership section
         const leadershipSection = document.getElementById("leadership");
         const leadershipTop = leadershipSection ? leadershipSection.getBoundingClientRect().top : 400;
 
@@ -37,7 +43,6 @@ export const Header = () => {
           setScrollState("dark");
         }
       } else {
-        // Subpage logic: based on simple scroll threshold
         if (window.scrollY < 20) {
           setScrollState("hero");
         } else {
@@ -52,17 +57,10 @@ export const Header = () => {
   }, [pathname]);
 
   const navLinks = [
-    { name: "About Us", href: "/about" },
-    { name: "Our History", href: "/about#history" },
-    { name: "News", href: "/news" },
+    { name: t.about, href: "/about" },
+    { name: t.history, href: "/about#history" },
+    { name: t.news, href: "/news" },
   ];
-
-  const LogoIcon = () => (
-    <svg className="w-8 h-8 text-neutral-200" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 2L2 7l10 5 10-5-10-5z" />
-      <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-    </svg>
-  );
 
   const headerClass = {
     hero: "bg-transparent py-6",
@@ -77,9 +75,28 @@ export const Header = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 relative z-50 group">
             <img src="/logo.svg" alt="Chya Group Logo" className="w-10 h-10 object-contain" />
-            <span className="font-bold text-lg tracking-widest uppercase opacity-0 w-0 group-hover:opacity-100 group-hover:w-[160px] transition-all duration-300 overflow-hidden whitespace-nowrap">
-              <span className="text-[#ff4d4d]">Chya</span>{" "}
-              <span className="text-[#60a5fa]">Group</span>
+            <span className={cn(
+              "font-bold text-lg tracking-widest uppercase opacity-0 w-0 group-hover:opacity-100 transition-all duration-300 overflow-hidden whitespace-nowrap",
+              locale === 'en' ? "group-hover:w-[160px]" : "group-hover:w-[200px]"
+            )}>
+              {locale === 'en' && (
+                <>
+                  <span className="text-[#ff4d4d]">Chya</span>{" "}
+                  <span className="text-[#60a5fa]">Group</span>
+                </>
+              )}
+              {locale === 'ar' && (
+                <>
+                  <span className="text-[#60a5fa]">مجموعة</span>{" "}
+                  <span className="text-[#ff4d4d]">چیا</span>
+                </>
+              )}
+              {locale === 'ku' && (
+                <>
+                  <span className="text-[#ff4d4d]">چیا</span>{" "}
+                  <span className="text-[#60a5fa]">گرووپ</span>
+                </>
+              )}
             </span>
           </Link>
 
@@ -93,20 +110,28 @@ export const Header = () => {
                 {link.name}
               </Link>
             ))}
+            
+            <div className="w-px h-4 bg-white/10 hidden lg:block" />
+            
+            <LanguageToggle />
+
             <Link href="/contact">
               <Button size="sm" variant="primary">
-                Contact Us
+                {t.contact}
               </Button>
             </Link>
           </nav>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden relative z-50 p-2 text-neutral-300 hover:text-white transition-colors"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Mobile toggle and Lang */}
+          <div className="flex items-center gap-4 md:hidden">
+            <LanguageToggle />
+            <button
+              className="relative z-50 p-2 text-neutral-300 hover:text-white transition-colors"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -133,7 +158,7 @@ export const Header = () => {
               size="lg"
               variant="primary"
             >
-              Contact Us
+              {t.contact}
             </Button>
           </Link>
         </motion.div>

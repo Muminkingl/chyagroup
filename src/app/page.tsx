@@ -5,8 +5,11 @@ import FeatureSection from "@/components/sections/feuture";
 import ChyaHistorySection from "@/components/sections/history";
 import LatestNewsSection from "@/components/sections/news";
 import LocationSection from "@/components/sections/location";
+import { getLatestPosts } from "@/lib/news_fetch";
 
-export default function Home() {
+export default async function Home() {
+  const latestPosts = await getLatestPosts(3);
+
   return (
     <main className="min-h-screen bg-[#09090b] flex flex-col">
       <Header />
@@ -22,7 +25,7 @@ export default function Home() {
       </div>
 
       <ChyaHistorySection />
-      <LatestNewsSection />
+      <LatestNewsSection posts={latestPosts} />
       <LocationSection />
 
       <Footer />

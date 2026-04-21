@@ -1,14 +1,13 @@
 "use client";
 
 import Link from 'next/link';
-import { BookOpen } from 'lucide-react';
+import { BookOpen, Calendar } from 'lucide-react';
 import { clsx } from 'clsx';
 import { Post } from '@/data/newsData';
 
-/**
- * Standard card for remaining posts
- */
 export default function PostCard({ post, className }: { post: Post, className?: string }) {
+  const hasImage = !!(post.imageUrl && post.imageUrl.trim() !== '');
+
   return (
     <Link 
       href={`/news/${post.id}`}
@@ -17,33 +16,47 @@ export default function PostCard({ post, className }: { post: Post, className?: 
         className
       )}
     >
-      <div className="relative h-48 overflow-hidden">
-        <img 
-          src={post.imageUrl} 
-          alt={post.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80 group-hover:opacity-100"
-        />
-      </div>
+      {/* Only render image section if image exists */}
+      {hasImage && (
+        <div className="relative h-48 overflow-hidden bg-zinc-900">
+          <img 
+            src={post.imageUrl} 
+            alt={post.title}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80 group-hover:opacity-100"
+          />
+        </div>
+      )}
+
+      {/* If no image, show a subtle accent bar instead */}
+      {!hasImage && (
+        <div className="h-1 w-full bg-gradient-to-r from-amber-500/30 via-blue-500/30 to-transparent" />
+      )}
       
       <div className="p-5 flex flex-col flex-1">
         <div className="flex items-center gap-3 mb-3 text-xs text-neutral-400">
-          <span className="font-medium text-neutral-300">{post.category}</span>
+          <span className="font-semibold text-amber-500/80 uppercase tracking-wider text-[10px]">{post.category}</span>
           <span className="w-1 h-1 rounded-full bg-neutral-600"></span>
-          <span>{post.date}</span>
+          <span className="flex items-center gap-1">
+            <Calendar size={11} />
+            {post.date}
+          </span>
         </div>
         
-        <h3 className="text-lg font-semibold tracking-tight text-white mb-2 line-clamp-2">
+        <h3 className="text-lg font-semibold tracking-tight text-white mb-2 line-clamp-2" dir="auto">
           {post.title}
         </h3>
         
-        <p className="text-sm text-neutral-400 mb-6 line-clamp-2 flex-1">
+        <p className="text-sm text-neutral-400 mb-6 line-clamp-2 flex-1 font-light" dir="auto">
           {post.excerpt}
         </p>
         
         <div className="flex items-center justify-between mt-auto">
+          {/* Author */}
           <div className="flex items-center gap-2">
-            <img src={post.author.avatar} alt={post.author.name} className="w-6 h-6 rounded-full grayscale group-hover:grayscale-0 transition-all" />
-            <span className="text-xs text-neutral-300">{post.author.name}</span>
+            <div className="w-6 h-6 rounded-full bg-zinc-800 border border-white/10 flex items-center justify-center">
+              <span className="text-[9px] font-bold text-zinc-400">CG</span>
+            </div>
+            <span className="text-xs text-neutral-300">Chya Group</span>
           </div>
           <span className="text-xs text-neutral-500 flex items-center gap-1">
             <BookOpen className="w-3.5 h-3.5" />
