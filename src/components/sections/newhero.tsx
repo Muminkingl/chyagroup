@@ -1,41 +1,7 @@
 "use client";
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { InfiniteSlider } from '@/components/motion-primitives/infinite-slider';
-import { ProgressiveBlur } from '@/components/motion-primitives/progressive-blur';
 import { BlurInText } from '@/components/ui/blur-in-text';
-
-
-const partners = [
-    { name: "FIB", logo: "https://fib.iq/wp-content/themes/FIB/assets/images/header-mobile-logo.svg", url: "https://fib.iq/" },
-    { name: "AIIB", logo: "/asia.svg", url: "https://aiib.iq/" },
-    { name: "NW", logo: "/nass.svg", url: "https://nw.iq/" },
-    { name: "Shift", logo: "/shift.svg", url: "https://www.shifttransfer.com/" },
-    { name: "Direct Remit", logo: "/retmi.png", url: "https://www.emiratesnbd.com/en/foreign-exchange/directremit" },
-    { name: "Qi Card", logo: "https://qi.iq/images/logo.svg?1=1", url: "https://qi.iq/en/home" },
-    { name: "Zain Cash", logo: "https://zaincash.com/static/media/ZainCashLogo.fea8cf3bb90421f45dd384d6afc6fe3b.svg", url: "https://zaincash.com/" },
-    { name: "Switch", logo: "/switch.png", url: "https://switch.com.iq/" },
-    { name: "Fast Pay", logo: "https://www.fast-pay.iq/img/clogo.png", url: "https://www.fast-pay.iq/" },
-    { name: "Asia Pay", logo: "https://www.asiapay.iq/en/images/header-footer/Logo.png", url: "https://www.asiapay.iq/" },
-    { name: "Blue", logo: "/blue.png", url: "https://blue.com.iq/en/home/" },
-    { name: "Houzz", logo: "/houzz.png", url: "https://shophouzz.com/pages/creditcard" },
-];
-
-const PartnerLogo = ({ name, logo, url }: { name: string, logo: string, url: string }) => (
-    <a 
-        href={url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center justify-center px-4 h-12 transition-all duration-300 grayscale-[0.2] opacity-75 hover:grayscale-0 hover:opacity-100 group"
-    >
-        <img 
-            src={logo} 
-            alt={`${name} Logo`} 
-            className="h-full w-auto max-w-[120px] object-contain transition-transform duration-300 group-hover:scale-110" 
-        />
-    </a>
-);
-
 import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/i18n/translations';
 import { Iconify } from '@/components/ui/Iconify';
@@ -43,121 +9,163 @@ import { Iconify } from '@/components/ui/Iconify';
 export default function HeroSection() {
     const { locale, isRTL } = useLanguage();
     const t = translations[locale].hero;
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        // Small delay so the browser has painted before triggering animations
+        const raf = requestAnimationFrame(() => setMounted(true));
+        return () => cancelAnimationFrame(raf);
+    }, []);
 
     return (
         <>
-            <main className="overflow-x-hidden">
-                <section>
-                    <div className="relative">
-                        {/* Hero Content - sits above background */}
-                        <div className="aspect-2/3 relative z-10 flex flex-col justify-end px-6 lg:aspect-video">
-                            <div className="mx-auto w-full max-w-7xl pb-10 lg:px-12 lg:pb-36">
-                                <div className="max-w-4xl text-start">
-                                    {/* Main headline with BlurInText */}
-                                    <h1 className="text-4xl md:text-6xl xl:text-7xl font-bold tracking-tight text-white leading-[1.05] mb-6">
-                                        <span className="block">
-                                            <BlurInText
-                                                text={t.line1}
-                                                blurAmount={12}
-                                                duration={1}
-                                                stagger={0.06}
-                                                split={isRTL ? "word" : "letter"}
-                                                trigger="mount"
-                                            />
-                                        </span>
-                                        <span className="block font-light italic text-white/70">
-                                            <BlurInText
-                                                text={t.line2}
-                                                blurAmount={12}
-                                                duration={1.1}
-                                                stagger={0.06}
-                                                split={isRTL ? "word" : "letter"}
-                                                trigger="mount"
-                                            />
-                                        </span>
-                                    </h1>
+            {/* Keyframe definitions injected once */}
+            <style>{`
+                @keyframes heroGlobeIn {
+                    0%   { opacity: 0; transform: translateX(6%) scale(0.96); }
+                    100% { opacity: 1; transform: translateX(0%)  scale(1);    }
+                }
+                @keyframes heroFadeUp {
+                    0%   { opacity: 0; transform: translateY(22px); }
+                    100% { opacity: 1; transform: translateY(0);     }
+                }
+                @keyframes heroSvgIn {
+                    0%   { opacity: 0; }
+                    100% { opacity: 0.12; }
+                }
 
-                                    {/* Subline */}
-                                    <p className="mt-4 text-base md:text-lg text-white/50 max-w-md leading-relaxed font-light text-start">
-                                        {t.description}
-                                    </p>
+                .hero-globe {
+                    opacity: 0;
+                }
+                .hero-globe.ready {
+                    animation: heroGlobeIn 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
+                }
 
-                                    <div className="mt-10 flex items-center gap-3">
-                                        <Link
-                                            href="#partners"
-                                            className="flex items-center justify-center bg-white text-black font-semibold h-12 rounded-full ps-6 pe-4 text-sm hover:bg-neutral-200 transition-colors"
-                                        >
-                                            <span className="text-nowrap">{t.learnMore}</span>
-                                            {isRTL ? (
-                                                <Iconify icon="solar:alt-arrow-left-linear" className="ms-1 w-4 h-4" />
-                                            ) : (
-                                                <Iconify icon="solar:alt-arrow-right-linear" width={16} className="ms-1 h-4 w-4" />
-                                            )}
-                                        </Link>
-                                        <Link
-                                            href="/contact"
-                                            className="flex items-center justify-center text-white/70 border border-white/10 h-12 rounded-full px-6 text-sm hover:bg-white/5 transition-colors backdrop-blur-sm"
-                                        >
-                                            <span className="text-nowrap">{t.contactUs}</span>
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                .hero-arc-grid {
+                    opacity: 0;
+                }
+                .hero-arc-grid.ready {
+                    animation: heroSvgIn 1.4s ease 0.05s forwards;
+                }
 
-                        {/* Background Image with grid overlay */}
-                        <div className="aspect-2/3 pointer-events-none absolute inset-0 overflow-hidden rounded-3xl lg:aspect-video lg:rounded-[3rem]">
-                            {/* The background image */}
-                            <img
-                                src="/image.png"
-                                alt="Chya Group Hero"
-                                className="absolute inset-0 w-full h-full object-cover object-center"
+                .hero-fade-up {
+                    opacity: 0;
+                }
+                .hero-fade-up.ready {
+                    animation: heroFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+                }
+                .hero-fade-up.ready.delay-1 { animation-delay: 0.55s; }
+                .hero-fade-up.ready.delay-2 { animation-delay: 0.72s; }
+            `}</style>
+
+            <section className="relative w-full overflow-hidden" style={{ background: '#f5f0ea' }}>
+                {/* Decorative arc grid — top right corner */}
+                <svg
+                    className={`hero-arc-grid${mounted ? ' ready' : ''} absolute top-0 ${isRTL ? 'left-0 scale-x-[-1]' : 'right-0'} w-[300px] h-[300px] pointer-events-none z-0`}
+                    viewBox="0 0 300 300"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    {[60, 100, 140, 180, 220, 260].map((r) => (
+                        <circle key={r} cx="300" cy="0" r={r} stroke="#0c1a2e" strokeWidth="0.8" />
+                    ))}
+                    {[15, 30, 45, 60, 75].map((deg) => {
+                        const rad = (deg * Math.PI) / 180;
+                        return (
+                            <line
+                                key={deg}
+                                x1="300"
+                                y1="0"
+                                x2={300 - Math.cos(rad) * 280}
+                                y2={Math.sin(rad) * 280}
+                                stroke="#0c1a2e"
+                                strokeWidth="0.8"
                             />
-                            {/* Dark overlay to ensure text readability */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
-                            {/* Grid texture overlay */}
-                            <div className="absolute inset-0 bg-grid-pattern opacity-30" />
-                            {/* Bottom fade */}
-                            <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#09090b] to-transparent" />
-                        </div>
-                    </div>
-                </section>
+                        );
+                    })}
+                </svg>
 
-                {/* Logo Ticker */}
-                <section id="partners" className="bg-[#09090b] py-6 border-t border-white/5 scroll-mt-24">
-                    <div className="group relative m-auto max-w-7xl px-6">
-                        <div className="flex flex-col items-center md:flex-row">
-                            <div className="md:max-w-44 md:border-r md:border-white/10 md:pr-6 whitespace-nowrap">
-                                <p className="text-center md:text-end text-xs font-bold text-white/60 tracking-[0.2em] uppercase">{t.partners}</p>
-                            </div>
-                            <div className="relative py-6 md:w-[calc(100%-11rem)] overflow-hidden">
-                                <InfiniteSlider
-                                    speedOnHover={20}
-                                    speed={40}
-                                    gap={80}
-                                    reverse={isRTL}
+                {/* Main hero area */}
+                <div className="relative min-h-[600px] lg:min-h-[92vh]">
+
+                    {/* Globe image — animated entrance */}
+                    <div
+                        className={`hero-globe${mounted ? ' ready' : ''} absolute bottom-[-5%] ${isRTL ? 'left-[-8%]' : 'right-[-8%]'} w-[90%] sm:w-[80%] lg:w-[68%] h-[60%] sm:h-[75%] lg:h-[95%]`}
+                    >
+                        <img
+                            src="/zawe.png"
+                            alt="Global connections"
+                            className={`w-full h-full object-contain ${isRTL ? 'object-left' : 'object-right'}`}
+                            style={{
+                                maskImage: `linear-gradient(to ${isRTL ? 'right' : 'left'}, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%), linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 12%, rgba(0,0,0,1) 88%, rgba(0,0,0,0) 100%)`,
+                                WebkitMaskImage: `linear-gradient(to ${isRTL ? 'right' : 'left'}, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%), linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 12%, rgba(0,0,0,1) 88%, rgba(0,0,0,0) 100%)`,
+                                maskComposite: 'intersect',
+                                WebkitMaskComposite: 'destination-in',
+                                filter: 'brightness(1.1) contrast(1.05)',
+                            }}
+                        />
+                    </div>
+
+                    {/* Text content */}
+                    <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 flex items-center min-h-[600px] lg:min-h-[92vh]">
+                        <div className={`max-w-2xl pt-32 pb-24 lg:pt-40 lg:pb-32 ${isRTL ? 'ms-auto text-right' : 'text-left'}`}>
+
+                            {/* Main headline — BlurInText already handles its own entrance */}
+                            <h1 className="text-[2.6rem] sm:text-5xl md:text-6xl xl:text-[4.25rem] font-bold tracking-tight text-[#0c1a2e] leading-[1.08] mb-6">
+                                <span className="block lg:whitespace-nowrap">
+                                    <BlurInText
+                                        text={t.line1}
+                                        blurAmount={10}
+                                        duration={0.8}
+                                        stagger={0.04}
+                                        split={isRTL ? "word" : "letter"}
+                                        trigger="mount"
+                                    />
+                                </span>
+                                <span className="block font-light italic text-[#0c1a2e]/60 mt-1">
+                                    <BlurInText
+                                        text={t.line2}
+                                        blurAmount={10}
+                                        duration={0.9}
+                                        stagger={0.04}
+                                        split={isRTL ? "word" : "letter"}
+                                        trigger="mount"
+                                    />
+                                </span>
+                            </h1>
+
+                            {/* Subtitle */}
+                            <p className={`hero-fade-up${mounted ? ' ready delay-1' : ''} text-[15px] sm:text-base text-[#3a4f6a] max-w-sm leading-relaxed font-normal mb-10`}>
+                                {t.description}
+                            </p>
+
+                            {/* Buttons */}
+                            <div className={`hero-fade-up${mounted ? ' ready delay-2' : ''} flex items-center gap-3 flex-wrap ${isRTL ? 'flex-row-reverse' : ''}`}>
+                                <Link
+                                    href="#agents"
+                                    className="flex items-center justify-center bg-[#0c1a2e] text-white font-semibold h-[46px] rounded-full ps-6 pe-5 text-sm hover:bg-[#162d4f] transition-all duration-300 shadow-sm hover:shadow-md"
                                 >
-                                    {partners.map((partner, index) => (
-                                        <PartnerLogo key={`${partner.name}-${index}`} {...partner} />
-                                    ))}
-                                </InfiniteSlider>
-                                <div className="bg-gradient-to-r from-[#09090b] absolute inset-y-0 left-0 w-20 z-10" />
-                                <div className="bg-gradient-to-l from-[#09090b] absolute inset-y-0 right-0 w-20 z-10" />
-                                <ProgressiveBlur
-                                    className="pointer-events-none absolute left-0 top-0 h-full w-20 z-20"
-                                    direction="left"
-                                    blurIntensity={1}
-                                />
-                                <ProgressiveBlur
-                                    className="pointer-events-none absolute right-0 top-0 h-full w-20 z-20"
-                                    direction="right"
-                                    blurIntensity={1}
-                                />
+                                    <span className="text-nowrap">{t.learnMore}</span>
+                                    {isRTL ? (
+                                        <Iconify icon="solar:alt-arrow-left-linear" className="ms-1.5 w-4 h-4" />
+                                    ) : (
+                                        <Iconify icon="solar:alt-arrow-right-linear" width={16} className="ms-1.5 h-4 w-4" />
+                                    )}
+                                </Link>
+                                <Link
+                                    href="/contact"
+                                    className="flex items-center justify-center text-[#0c1a2e] border border-[#0c1a2e]/25 h-[46px] rounded-full px-6 text-sm font-medium hover:bg-[#0c1a2e]/5 transition-all duration-300"
+                                >
+                                    <span className="text-nowrap">{t.contactUs}</span>
+                                </Link>
                             </div>
                         </div>
                     </div>
-                </section>
-            </main>
+                </div>
+
+                {/* Bottom transition gradient */}
+                <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#f5f0ea] via-[#f5f0ea]/80 to-transparent z-20 pointer-events-none" />
+            </section>
         </>
     );
 }

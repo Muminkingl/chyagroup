@@ -1,293 +1,199 @@
 "use client";
-import React, { useState, useEffect } from 'react';
-import clsx from 'clsx';
-import AbstractGlassArt from './abstarc';
-import { BlurInText } from '@/components/ui/blur-in-text';
+import React from 'react';
 import { Iconify } from '@/components/ui/Iconify';
-
 import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/i18n/translations';
 
 const FEATURE_CONFIG = [
   {
     id: 'general-trading',
-    icon: 'solar:shop-2-linear',
-    image: 'https://media.gettyimages.com/id/171333647/photo/charts-printed-on-paper-and-calculator.jpg?s=612x612&w=0&k=20&c=rkFKVXbLZmH938W0MEvhb976-ZlhBKlsNkKMqFmtwXk=',
-    count: 14,
+    icon: 'solar:global-linear',
+    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600&auto=format&fit=crop', // Cargo / Ports
   },
   {
     id: 'money-exchange',
-    icon: 'solar:card-transfer-linear',
-    image: 'https://media.gettyimages.com/id/1426365017/photo/providing-customers-with-top-notch-service.jpg?s=612x612&w=0&k=20&c=jSrQxjw_ueuBXJ4zubumlR1e_WqLICWtOv2v8tcxFdQ=',
-    count: 5,
+    icon: 'solar:wallet-linear',
+    image: 'https://images.unsplash.com/photo-1553729459-efe14ef6055d?q=80&w=600&auto=format&fit=crop', // Finance / Money
   },
   {
     id: 'mobile-tech',
-    icon: 'solar:smartphone-2-linear',
-    image: 'https://media.gettyimages.com/photos/smartphone-showing-health-data-picture-id635946549?k=20&m=635946549&s=612x612&w=0&h=TmJyXdFglUpejaNcECc4baDG59RhqEGiXT633gAMp0o=',
-    count: 3,
+    icon: 'solar:smartphone-linear',
+    image: 'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?q=80&w=600&auto=format&fit=crop', // Phone
   },
   {
     id: 'printing',
-    icon: 'solar:printer-minimalistic-linear',
-    image: 'https://media.istockphoto.com/id/136628290/photo/photocopy.jpg?s=612x612&w=0&k=20&c=L_ytG6BObvzgBjlzObxx_gxQ89znxQmm9HmD45Ewn0U=',
-    count: 1,
+    icon: 'solar:printer-linear',
+    image: 'https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?q=80&w=600&auto=format&fit=crop', // Printer / Office
   },
   {
     id: 'online-trading',
-    icon: 'solar:chart-square-linear',
-    image: 'https://static.vecteezy.com/system/resources/thumbnails/022/603/274/small/investors-analyzing-stock-market-trading-charts-technical-price-charts-and-indicators-business-and-technology-stock-chart-data-stock-trading-and-investment-concept-forex-trading-analysis-free-photo.jpg',
-    count: 3,
+    icon: 'solar:cart-linear',
+    image: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=600&auto=format&fit=crop', // Stock / Online Trading charts
   },
 ];
 
 export default function FeatureSection() {
   const { locale, isRTL } = useLanguage();
   const t = translations[locale].features;
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
 
-  // Merge config with translations
   const features = FEATURE_CONFIG.map((config, idx) => ({
     ...config,
-    ...t.items[idx]
+    ...t.items[idx],
+    num: `0${idx + 1}`
   }));
 
-  const handleNext = () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setActiveIndex((prev) => (prev + 1) % features.length);
-    setTimeout(() => setIsAnimating(false), 500);
-  };
-
-  const handlePrev = () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setActiveIndex((prev) => (prev - 1 + features.length) % features.length);
-    setTimeout(() => setIsAnimating(false), 500);
-  };
-
-  // Auto-advance every 13 seconds
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % features.length);
-    }, 13000);
-    return () => clearInterval(timer);
-  }, [features.length]);
-
-
   return (
-    <section className="w-full px-6 md:px-12 lg:px-24">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-        
-        {/* Left Column: Headline & Carousel - Order flips in RTL via flex-row-reverse usually, but grid handles it if we use logical props */}
-        <div className="flex flex-col relative z-20">
-          
-          {/* Headline Area */}
-          <div className="mb-12">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-white leading-[1.1] mb-6 flex flex-col md:block text-start">
-              <div className="inline-flex gap-2 mr-2 rtl:mr-0 rtl:ml-2">
-                <BlurInText text={t.headline.five} stagger={0.04} split={isRTL ? "word" : "letter"} /> 
-                <span className="font-editorial text-white/70 font-normal">
-                    <BlurInText text={t.headline.sectors} stagger={0.04} split={isRTL ? "word" : "letter"} />
-                </span>
-              </div>
-              <br className="hidden md:block" />
-              <div className="inline-flex gap-2">
-                <BlurInText text={t.headline.one} stagger={0.04} split={isRTL ? "word" : "letter"} />
-                <span className="font-editorial text-white/70 font-normal">
-                    <BlurInText text={t.headline.vision} stagger={0.04} split={isRTL ? "word" : "letter"} />
-                </span>
-              </div>
-            </h1>
-            <p className="text-white/50 text-sm md:text-base max-w-md leading-relaxed text-start">
+    <section className="relative w-full overflow-hidden bg-[#f5f0ea] pb-24">
+      {/* Background Image Container with Gradient */}
+      <div className="absolute top-0 left-0 w-full h-[850px] z-0">
+        <img
+          src="/chyabank.png"
+          alt="Chya Group Building"
+          className="w-full h-full object-cover object-[85%_10%]"
+        />
+        {/* Top gradient to seamlessly blend with the previous #f5f0ea section */}
+        <div className="absolute top-0 left-0 w-full h-48 bg-gradient-to-b from-[#f5f0ea] via-[#f5f0ea]/80 to-transparent z-10" />
+
+        {/* Bottom gradient to blend into the rest of the #f5f0ea section */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#f5f0ea] via-[#f5f0ea]/10 to-transparent pointer-events-none" />
+
+        {/* Strong horizontal gradient on the left to ensure text readability over the sky */}
+        <div className={`absolute top-0 ${isRTL ? 'right-0' : 'left-0'} w-[65%] h-full bg-gradient-to-${isRTL ? 'l' : 'r'} from-[#f5f0ea]/95 via-[#f5f0ea]/60 to-transparent pointer-events-none`} />
+      </div>
+
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 pt-32">
+
+        {/* Top Header Section */}
+        <div className={`flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-8 ${isRTL ? 'lg:flex-row-reverse' : ''}`}>
+
+          {/* Left Content */}
+          <div className={`flex flex-col max-w-xl ${isRTL ? 'text-right' : 'text-left'}`}>
+            <span className="text-[11px] font-bold tracking-widest text-[#e84040] uppercase mb-4">
+              OUR SECTORS
+            </span>
+            <h2 className="text-4xl md:text-5xl lg:text-[3.8rem] font-bold text-[#0c1a2e] leading-[1.05] tracking-tight mb-6 drop-shadow-sm">
+              {t.headline.five} {t.headline.sectors}
+              <br />
+              {t.headline.one} {t.headline.vision}
+            </h2>
+            <p className="text-[#3a4f6a] text-[15px] leading-relaxed max-w-[420px]">
               {t.description}
             </p>
-          </div>
 
-          {/* Card Carousel */}
-          <div className="relative h-[500px] w-full max-w-[550px] perspective-1000">
-            {features.map((feature, index) => {
-              // Calculate relative position for the stack effect
-              const offset = (index - activeIndex + features.length) % features.length;
-              
-              // Define styles based on stack position
-              let stackClasses = "";
-              let zIndex = 0;
-              
-              const multiplier = isRTL ? -1 : 1;
-              
-              if (offset === 0) {
-                // Front active card
-                stackClasses = "translate-x-0 translate-y-0 scale-100 opacity-100 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.5)]";
-                zIndex = 30;
-              } else if (offset === 1) {
-                // Middle card
-                stackClasses = clsx(
-                    "translate-y-8 scale-[0.92] opacity-60 border-white/5",
-                    isRTL ? "-translate-x-8" : "translate-x-8"
-                );
-                zIndex = 20;
-              } else if (offset === 2) {
-                // Back card
-                stackClasses = clsx(
-                    "translate-y-16 scale-[0.84] opacity-30 border-white/5",
-                    isRTL ? "-translate-x-16" : "translate-x-16"
-                );
-                zIndex = 10;
-              } else {
-                // Hidden cards (if more than 3)
-                stackClasses = clsx(
-                    "translate-y-24 scale-75 opacity-0",
-                    isRTL ? "-translate-x-24" : "translate-x-24"
-                );
-                zIndex = 0;
-              }
-
-              return (
-                <div 
-                  key={feature.id}
-                  className={clsx(
-                    "absolute top-0 left-0 w-full h-full rounded-2xl glass-panel transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] flex flex-col overflow-hidden",
-                    stackClasses
-                  )}
-                  style={{ zIndex }}
-                >
-                  <div className="absolute inset-0 z-0">
-                     <img src={feature.image} alt={feature.cardTitle} className="w-full h-full object-cover opacity-50 mix-blend-lighten" />
-                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                  </div>
-                  
-                  {/* Decorative glass art inside the card */}
-                   <div className="absolute inset-0 z-0 mix-blend-overlay opacity-60">
-                     <AbstractGlassArt variant={index} />
-                  </div>
-                  
-                  {/* Card Content Overlay */}
-                  <div className="relative z-10 flex-1 p-6 flex flex-col justify-between text-start">
-                    <div className="flex justify-between items-start">
-                      <div className="px-2 py-1 bg-black/40 backdrop-blur-md rounded text-[9px] tracking-widest uppercase text-white/50 border border-white/5 flex items-center gap-1.5">
-                        <Iconify icon={feature.icon} width={12} />
-                        {feature.tag}
-                      </div>
-                      <div className="w-2 h-2 rounded-full bg-white/20 animate-pulse" />
-                    </div>
-                    
-                    <div>
-                      <h3 className="text-3xl font-bold tracking-tighter text-white/90 drop-shadow-lg mb-4">
-                        {feature.cardTitle}
-                      </h3>
-                      <div className="flex gap-2">
-                        <div className="px-3 py-1.5 bg-black/60 backdrop-blur-md rounded-lg text-[10px] tracking-wider uppercase text-white/70 border border-white/10 flex items-center gap-1.5">
-                          <Iconify icon="solar:shield-check-linear" />
-                          {locale === 'en' ? 'Verified' : locale === 'ar' ? 'موثوق' : 'پشاندراو'}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+            {/* Stats Pill */}
+            <div className={`flex items-center gap-5 md:gap-7 bg-[#f5f0ea]/90 backdrop-blur-md rounded-full px-7 py-4 mt-10 border border-[#0c1a2e]/10 shadow-sm w-fit ${isRTL ? 'flex-row-reverse' : ''}`}>
+              <div className={`flex items-center gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                <div className="w-9 h-9 rounded-full border border-[#0c1a2e]/10 flex items-center justify-center text-[#0c1a2e]">
+                  <Iconify icon="solar:users-group-rounded-linear" width={16} />
                 </div>
-              );
-            })}
-
-            {/* Carousel Controls */}
-            <div className="absolute -bottom-16 left-0 rtl:left-auto rtl:right-0 flex items-center gap-4 z-40">
-              <button 
-                onClick={handlePrev}
-                className="w-10 h-10 rounded-full flex items-center justify-center border border-white/10 bg-white/5 text-white/60 hover:text-white hover:bg-white/10 transition-colors backdrop-blur-sm"
-                aria-label="Previous feature"
-              >
-                <Iconify icon={isRTL ? "solar:arrow-right-linear" : "solar:arrow-left-linear"} width={20} />
-              </button>
-              <div className="flex gap-2">
-                {features.map((_, idx) => (
-                  <div 
-                    key={idx} 
-                    className={clsx(
-                      "h-1 rounded-full transition-all duration-300",
-                      idx === activeIndex ? "w-6 bg-white/80" : "w-2 bg-white/20"
-                    )}
-                  />
-                ))}
+                <div className="flex flex-col">
+                  <span className="text-[16px] font-bold text-[#0c1a2e] leading-tight">14+</span>
+                  <span className="text-[10px] font-medium text-[#3a4f6a]">Branches</span>
+                </div>
               </div>
-              <button 
-                onClick={handleNext}
-                className="w-10 h-10 rounded-full flex items-center justify-center border border-white/10 bg-white/5 text-white/60 hover:text-white hover:bg-white/10 transition-colors backdrop-blur-sm"
-                aria-label="Next feature"
-              >
-                <Iconify icon={isRTL ? "solar:arrow-left-linear" : "solar:arrow-right-linear"} width={20} />
-              </button>
-            </div>
-          </div>
-        </div>
 
-        {/* Right Column: Content */}
-        <div className="flex flex-col mt-8 lg:mt-0 pt-0 lg:pt-12 items-start lg:items-end">
-          
-          {/* Category Pills */}
-          <div className="flex flex-wrap gap-2 mb-10 justify-start lg:justify-end">
-            {features.map((f, idx) => (
-              <button
-                key={f.tag}
-                onClick={() => setActiveIndex(idx)}
-                className={clsx(
-                  "flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300 border",
-                  idx === activeIndex 
-                    ? "bg-white/10 text-white border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.05)]" 
-                    : "bg-transparent text-white/40 border-transparent hover:text-white/70 hover:bg-white/5"
-                )}
-              >
-                {f.tag}
-                <span className={clsx(
-                  "text-[10px] px-1.5 py-0.5 rounded-full bg-black/50",
-                  idx === activeIndex ? "text-white/80" : "text-white/30"
-                )}>
-                  {f.count}
-                </span>
-              </button>
-            ))}
-          </div>
+              <div className="w-px h-8 bg-[#0c1a2e]/10" />
 
-          {/* Info Card */}
-          <div 
-            key={activeIndex} 
-            className="glass-panel rounded-2xl p-8 lg:p-10 animate-fade-slide relative overflow-hidden text-start"
-          >
-            {/* Subtle highlight effect on the card */}
-            <div className="absolute top-0 left-1/4 w-1/2 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-            
-            <div className="flex justify-between items-start mb-8">
-              <div className="text-[10px] tracking-[0.2em] font-semibold text-white/40 uppercase">
-                {features[activeIndex].contentLabel}
+              <div className={`flex items-center gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                <div className="w-9 h-9 rounded-full border border-[#0c1a2e]/10 flex items-center justify-center text-[#0c1a2e]">
+                  <Iconify icon="solar:user-linear" width={16} />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[16px] font-bold text-[#0c1a2e] leading-tight">44+</span>
+                  <span className="text-[10px] font-medium text-[#3a4f6a]">Professionals</span>
+                </div>
+              </div>
+
+              <div className="w-px h-8 bg-[#0c1a2e]/10" />
+
+              <div className={`flex items-center gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                <div className="w-9 h-9 rounded-full border border-[#0c1a2e]/10 flex items-center justify-center text-[#0c1a2e]">
+                  <Iconify icon="solar:chart-square-linear" width={16} />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[16px] font-bold text-[#0c1a2e] leading-tight">One</span>
+                  <span className="text-[10px] font-medium text-[#3a4f6a]">Unified Vision</span>
+                </div>
               </div>
             </div>
 
-            <h2 className="text-2xl lg:text-3xl font-semibold tracking-tight text-white mb-4">
-              {features[activeIndex].contentTitle}
-            </h2>
-            
-            <div className="space-y-4 mb-10 text-sm lg:text-base text-white/50 leading-relaxed font-light">
-              <p>
-                {features[activeIndex].contentBody}
+            {/* Button */}
+            <button className={`mt-10 px-8 py-3.5 bg-[#0c1a2e] hover:bg-[#162d4f] text-white rounded-full text-sm font-medium transition-all shadow-sm flex items-center gap-2 w-fit ${isRTL ? 'flex-row-reverse' : ''}`}>
+              <span>Our Journey</span>
+              <Iconify icon={isRTL ? "solar:arrow-left-linear" : "solar:arrow-right-linear"} width={16} />
+            </button>
+          </div>
+
+          {/* Right Content - Floating Quote Card */}
+          <div className="mt-12 lg:mt-[380px] lg:mr-16 z-20">
+            <div className="bg-[#10203a] rounded-[24px] p-8 w-full sm:w-[360px] shadow-2xl relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 border border-white/10">
+              <div className="text-[#8baef2]/80 text-6xl font-serif leading-none h-10 mb-4 -ml-2">
+                “
+              </div>
+              <p className={`text-white text-[18px] font-medium leading-[1.6] tracking-wide ${isRTL ? 'text-right' : 'text-left'}`}>
+                Diverse expertise.<br />
+                Unified purpose.<br />
+                Lasting impact.
               </p>
             </div>
-
-            {/* Metrics Strip */}
-            <div className="grid grid-cols-3 gap-4 pt-8 border-t border-white/10">
-              {features[activeIndex].metrics.map((metric, i) => (
-                <div key={i} className="flex flex-col gap-1">
-                  <div className="text-2xl font-semibold text-white tracking-tight">
-                    {metric.value}
-                  </div>
-                  <div className="text-[10px] tracking-widest uppercase text-white/40">
-                    {metric.label}
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
 
         </div>
+
+        {/* Bottom Cards Grid */}
+        <div className={`grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-5 mt-16 lg:mt-24 ${isRTL ? 'dir-rtl' : ''}`}>
+          {features.map((feature) => (
+            <div
+              key={feature.id}
+              className={`bg-[#fcfcfb]/95 backdrop-blur-sm rounded-[1.5rem] overflow-hidden border border-white/50 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col h-[400px] group ${isRTL ? 'text-right' : 'text-left'}`}
+            >
+              {/* Card Top / Text */}
+              <div className="p-6 pb-4 flex flex-col flex-1 relative">
+                <div className="text-[2.5rem] font-bold text-[#0c1a2e]/5 absolute top-5 right-5 pointer-events-none transition-all duration-300 group-hover:text-[#0c1a2e]/10">
+                  {feature.num}
+                </div>
+
+                <div className="w-12 h-12 rounded-full bg-[#f5f0ea] border border-[#0c1a2e]/5 flex items-center justify-center text-[#0c1a2e] mb-6 shadow-sm">
+                  <Iconify icon={feature.icon} width={22} />
+                </div>
+
+                <h3 className="text-base font-bold text-[#0c1a2e] mb-3 leading-tight pr-4">
+                  {/* Assuming title could be long, letting it break nicely */}
+                  {feature.cardTitle.split('&').map((part, i) => (
+                    <React.Fragment key={i}>
+                      {part}
+                      {i === 0 && feature.cardTitle.includes('&') && ' & '}
+                      {i === 0 && feature.cardTitle.includes('&') && <br />}
+                    </React.Fragment>
+                  ))}
+                </h3>
+
+                <p className="text-xs text-[#3a4f6a] leading-relaxed line-clamp-3 pr-2">
+                  {feature.contentBody}
+                </p>
+              </div>
+
+              {/* Card Bottom / Image */}
+              <div className="h-[160px] relative mt-auto p-2">
+                <div className="w-full h-full rounded-[1rem] overflow-hidden relative">
+                  <img
+                    src={feature.image}
+                    alt={feature.cardTitle}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-[#0c1a2e]/10 group-hover:bg-transparent transition-colors duration-300" />
+                </div>
+
+                {/* Embedded Button */}
+                <button className={`absolute bottom-5 ${isRTL ? 'right-5' : 'left-5'} w-8 h-8 bg-[#0c1a2e] hover:bg-[#1a365d] rounded-full flex items-center justify-center text-white transition-colors shadow-lg z-10`}>
+                  <Iconify icon={isRTL ? "solar:arrow-left-linear" : "solar:arrow-right-linear"} width={14} />
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+
       </div>
     </section>
   );
-}
+}

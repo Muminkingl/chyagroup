@@ -3,6 +3,10 @@ export const translations = {
     nav: {
       brand: "Chya Group",
       about: "About Us",
+      company: "Our Company",
+      vision: "Vision",
+      objective: "Objective",
+      message: "Message",
       history: "Our History",
       news: "News",
       contact: "Contact Us"
@@ -13,13 +17,18 @@ export const translations = {
       description: "Connecting markets, empowering industries, and shaping the future of commerce and finance across the region.",
       learnMore: "Learn More",
       contactUs: "Contact Us",
-      partners: "Our Partners"
+      partners: "Our Partners",
+      agentLoop: "Our Agents",
+      clients: "Our Clients",
+      brandQRs: "Brand QR Codes"
     },
     news: {
       latest: "Latest News",
       all: "All News",
       eyebrow: "Press & Updates",
-      headline: "Latest news from Chya",
+      headline: "Latest news from",
+      headlineAccent: "Chya",
+      subtitle: "Stay informed with our latest updates, stories, and achievements driving meaningful impact across the region.",
       viewAll: "View All News",
       readArticle: "Read article"
     },
@@ -278,6 +287,10 @@ export const translations = {
     nav: {
       brand: "مجموعة چیا",
       about: "من نحن",
+      company: "شركتنا",
+      vision: "رؤيتنا",
+      objective: "أهدافنا",
+      message: "رسالتنا",
       history: "تاريخنا",
       news: "الأخبار",
       contact: "اتصل بنا"
@@ -288,13 +301,18 @@ export const translations = {
       description: "ربط الأسواق، تمكين الصناعات، وتشكيل مستقبل التجارة والتمويل في جميع أنحاء المنطقة.",
       learnMore: "تعرف على المزيد",
       contactUs: "اتصل بنا",
-      partners: "شركاؤنا"
+      partners: "شركاؤنا",
+      agentLoop: "وكالاتنا",
+      clients: "عملاؤنا",
+      brandQRs: "رموز QR للعلامات التجارية"
     },
     news: {
       latest: "أحدث الأخبار",
       all: "كل الأخبار",
       eyebrow: "آخر الأخبار",
-      headline: "أحدث الأخبار من چیا",
+      headline: "أحدث الأخبار من",
+      headlineAccent: "چیا",
+      subtitle: "ابقَ على اطلاع بآخر أخبارنا وإنجازاتنا التي تحدث تأثيراً حقيقياً في المنطقة.",
       viewAll: "عرض كل الأخبار",
       readArticle: "اقرأ المقال"
     },
@@ -553,6 +571,10 @@ export const translations = {
     nav: {
       brand: "چیا گرووپ",
       about: "دەربارەی ئێمە",
+      company: "کۆمپانیاکەمان",
+      vision: "دیدگامان",
+      objective: "ئامانجمان",
+      message: "پەیاممان",
       history: "مێژووەکەمان",
       news: "هەواڵەکان",
       contact: "پەیوەندیمان پێوە بکەن"
@@ -563,13 +585,18 @@ export const translations = {
       description: "بەستنەوەی بازاڕەکان، بەهێزکردنی پیشەسازییەکان، و داڕشتنی داهاتووی بازرگانی و دارایی لە سەرانسەری ناوچەکەدا.",
       learnMore: "زیاتر بزانە",
       contactUs: "پەیوەندیمان پێوە بکەن",
-      partners: "وەکالەکانمان"
+      partners: "هاوبەشەکانمان",
+      agentLoop: "وەکالەکان",
+      clients: "کڕیارەکانمان",
+      brandQRs: "کۆدەکانی QRی براندەکان"
     },
     news: {
       latest: "دوایین هەواڵەکان",
       all: "هەموو هەواڵەکان",
       eyebrow: "هەواڵ و نوێکارییەکان",
-      headline: "دوایین هەواڵەکانی چیا",
+      headline: "دوایین هەواڵەکانی",
+      headlineAccent: "چیا",
+      subtitle: "لەگەڵ دوایین نوێکارییەکان و دەستکەوتەکانمان بمێنەوە کە کاریگەری واقیعیان لە ناوچەکەدا هەیە.",
       viewAll: "بینینی هەموو هەواڵەکان",
       readArticle: "خوێندنەوەی بابەت"
     },

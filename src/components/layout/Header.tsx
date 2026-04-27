@@ -3,58 +3,54 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Iconify } from "../ui/Iconify";
-import { Button } from "../ui/Button";
 
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/i18n/translations";
 import LanguageToggle from "./LanguageToggle";
 
+const languageNames: Record<string, string> = {
+  en: 'English',
+  ar: 'العربية',
+  ku: 'کوردی',
+};
+
 export const Header = () => {
   const pathname = usePathname();
-  const { locale } = useLanguage();
+  const { locale, setLocale, isRTL } = useLanguage();
   const t = translations[locale].nav;
   
-  const [scrollState, setScrollState] = useState<"hero" | "transition" | "dark">("hero");
+  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLangOpen, setIsLangOpen] = useState(false);
+  const langRef = useRef<HTMLDivElement>(null);
+
+  // Close language dropdown on click outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (langRef.current && !langRef.current.contains(e.target as Node)) {
+        setIsLangOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (pathname === "/") {
-        const heroSection = document.querySelector("main > section") as HTMLElement | null;
-        const heroBottom = heroSection ? heroSection.getBoundingClientRect().bottom : 600;
-
-        if (heroBottom > 80) {
-          setScrollState("hero");
-        } else if (heroBottom > -80) {
-          setScrollState("transition");
-        } else {
-          setScrollState("dark");
-        }
-      } else if (pathname === "/about") {
-        const leadershipSection = document.getElementById("leadership");
-        const leadershipTop = leadershipSection ? leadershipSection.getBoundingClientRect().top : 400;
-
-        if (leadershipTop > 80) {
-          setScrollState("hero");
-        } else {
-          setScrollState("dark");
-        }
+      if (window.scrollY > 40) {
+        setIsScrolled(true);
       } else {
-        if (window.scrollY < 20) {
-          setScrollState("hero");
-        } else {
-          setScrollState("dark");
-        }
+        setIsScrolled(false);
       }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [pathname]);
+  }, []);
 
   const navLinks = [
     { name: t.about, href: "/about" },
@@ -62,71 +58,120 @@ export const Header = () => {
     { name: t.news, href: "/news" },
   ];
 
-  const headerClass = {
-    hero: "bg-transparent py-6",
-    transition: "bg-black/60 backdrop-blur-md py-5 border-b border-white/5",
-    dark: "bg-black/80 backdrop-blur-md py-4 border-b border-white/10",
-  }[scrollState];
-
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-500 ${headerClass}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
+    <header className="fixed top-0 w-full z-50 pointer-events-none transition-all duration-500">
+      <div 
+        className={cn(
+          "max-w-7xl mx-auto transition-all duration-500 pointer-events-auto",
+          isScrolled 
+            ? "px-6 py-2.5 mx-4 sm:mx-6 lg:mx-auto mt-4 bg-[#fcfcfb] border border-[#0c1a2e]/10 rounded-full" 
+            : "px-4 sm:px-6 lg:px-8 py-7 bg-transparent"
+        )}
+      >
+        <div className={`flex items-center justify-between ${isRTL ? 'flex-row-reverse' : ''}`}>
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 relative z-50 group">
+          <Link href="/" className="flex items-center gap-2 relative z-50 flex-shrink-0">
             <img src="/logo.svg" alt="Chya Group Logo" className="w-10 h-10 object-contain" />
-            <span className={cn(
-              "font-bold text-lg tracking-widest uppercase opacity-0 w-0 group-hover:opacity-100 transition-all duration-300 overflow-hidden whitespace-nowrap",
-              locale === 'en' ? "group-hover:w-[160px]" : "group-hover:w-[200px]"
-            )}>
+            <div className="flex flex-col leading-[1.1]">
               {locale === 'en' && (
-                <>
-                  <span className="text-[#ff4d4d]">Chya</span>{" "}
-                  <span className="text-[#60a5fa]">Group</span>
-                </>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-[17px] font-black tracking-[0.05em] uppercase text-[#e84040]">CHYA</span>
+                  <span className="text-[17px] font-black tracking-[0.05em] uppercase text-[#0c1a2e]">GROUP</span>
+                </div>
               )}
               {locale === 'ar' && (
-                <>
-                  <span className="text-[#60a5fa]">مجموعة</span>{" "}
-                  <span className="text-[#ff4d4d]">چیا</span>
-                </>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-[18px] font-black tracking-normal text-[#e84040]">چیا</span>
+                  <span className="text-[18px] font-black tracking-normal text-[#0c1a2e]">مجموعة</span>
+                </div>
               )}
               {locale === 'ku' && (
-                <>
-                  <span className="text-[#ff4d4d]">چیا</span>{" "}
-                  <span className="text-[#60a5fa]">گرووپ</span>
-                </>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-[18px] font-black tracking-normal text-[#e84040]">چیا</span>
+                  <span className="text-[18px] font-black tracking-normal text-[#0c1a2e]">گرووپ</span>
+                </div>
               )}
-            </span>
+            </div>
           </Link>
 
-          <nav className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="text-sm font-medium text-neutral-300 hover:text-white transition-colors"
-              >
-                {link.name}
-              </Link>
-            ))}
+          <nav className={`hidden md:flex items-center gap-8 ${isRTL ? 'flex-row-reverse' : ''}`}>
+            <div className={`flex items-center gap-8 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                {navLinks.map((link) => (
+                <Link
+                    key={link.name}
+                    href={link.href}
+                    className="text-[14px] font-bold text-[#1a365d] hover:text-[#0c1a2e] transition-colors"
+                >
+                    {link.name}
+                </Link>
+                ))}
+            </div>
             
-            <div className="w-px h-4 bg-white/10 hidden lg:block" />
+            <div className="w-px h-5 hidden lg:block bg-[#0c1a2e]/10" />
             
-            <LanguageToggle />
+            <div className={`flex items-center gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                {/* Language Dropdown */}
+                <div className="relative" ref={langRef}>
+                <button
+                    onClick={() => setIsLangOpen(!isLangOpen)}
+                    className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-[13px] font-bold transition-all duration-300 bg-white border border-[#0c1a2e]/10 text-[#1a365d] hover:bg-neutral-50 shadow-sm ${isRTL ? 'flex-row-reverse' : ''}`}
+                >
+                    <Iconify icon="solar:global-linear" width={16} className="text-[#1a365d]" />
+                    <span>{languageNames[locale]}</span>
+                    <Iconify 
+                    icon="solar:alt-arrow-down-linear" 
+                    width={14} 
+                    className={cn("transition-transform duration-200 text-[#1a365d]", isLangOpen && "rotate-180")} 
+                    />
+                </button>
+                <AnimatePresence>
+                    {isLangOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -8, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: -8, scale: 0.95 }}
+                        transition={{ duration: 0.15 }}
+                        className={`absolute top-full mt-2 ${isRTL ? 'left-0' : 'right-0'} bg-white rounded-xl shadow-lg border border-black/5 py-1 min-w-[140px] overflow-hidden`}
+                    >
+                        {(['en', 'ar', 'ku'] as const).map((code) => (
+                        <button
+                            key={code}
+                            onClick={() => { setLocale(code); setIsLangOpen(false); }}
+                            className={cn(
+                            "w-full px-4 py-2.5 text-[13px] transition-colors",
+                            isRTL ? "text-right" : "text-left",
+                            locale === code 
+                                ? "bg-[#0c1a2e]/5 text-[#0c1a2e] font-bold" 
+                                : "text-[#3a4f6a] font-semibold hover:bg-[#0c1a2e]/5"
+                            )}
+                        >
+                            {languageNames[code]}
+                        </button>
+                        ))}
+                    </motion.div>
+                    )}
+                </AnimatePresence>
+                </div>
 
-            <Link href="/contact">
-              <Button size="sm" variant="primary">
-                {t.contact}
-              </Button>
-            </Link>
+                <Link href="/contact">
+                    <button
+                        className={`flex items-center gap-2 bg-[#0c1a2e] hover:bg-[#162d4f] text-white px-6 py-2.5 rounded-full text-[13px] font-bold transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 ${isRTL ? 'flex-row-reverse' : ''}`}
+                    >
+                        <span>{t.contact}</span>
+                        {isRTL ? (
+                            <Iconify icon="solar:arrow-left-linear" width={16} />
+                        ) : (
+                            <Iconify icon="solar:arrow-right-linear" width={16} />
+                        )}
+                    </button>
+                </Link>
+            </div>
           </nav>
 
-          {/* Mobile toggle and Lang */}
+          {/* Mobile toggle */}
           <div className="flex items-center gap-4 md:hidden">
-            <LanguageToggle />
             <button
-              className="relative z-50 p-2 text-neutral-300 hover:text-white transition-colors"
+              className="relative z-50 p-2 text-[#0c1a2e] hover:text-[#0c1a2e]/70 transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <Iconify icon="solar:close-circle-linear" width={24} /> : <Iconify icon="solar:hamburger-menu-linear" width={24} />}
@@ -136,33 +181,35 @@ export const Header = () => {
       </div>
 
       {/* Mobile Navigation */}
+      <AnimatePresence>
       {isMobileMenuOpen && (
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          className="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center space-y-8 md:hidden"
+          className="fixed inset-0 z-40 bg-[#f5f0ea]/95 backdrop-blur-xl flex flex-col items-center justify-center space-y-8 md:hidden pointer-events-auto"
         >
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="text-2xl font-bold text-neutral-300 hover:text-white transition-colors"
+              className="text-2xl font-bold text-[#0c1a2e] hover:text-[#0c1a2e]/70 transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {link.name}
             </Link>
           ))}
+          <LanguageToggle />
           <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-            <Button
-              size="lg"
-              variant="primary"
+            <button
+              className="px-8 py-3 text-white text-lg font-medium rounded-full bg-[#0c1a2e] shadow-lg"
             >
               {t.contact}
-            </Button>
+            </button>
           </Link>
         </motion.div>
       )}
+      </AnimatePresence>
     </header>
   );
 };

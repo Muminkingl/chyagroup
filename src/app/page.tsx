@@ -5,6 +5,9 @@ import FeatureSection from "@/components/sections/feuture";
 import ChyaHistorySection from "@/components/sections/history";
 import LatestNewsSection from "@/components/sections/news";
 import LocationSection from "@/components/sections/location";
+import AgentLoop from "@/components/sections/AgentLoop";
+import ClientsSection from "@/components/sections/Clients";
+import BrandQRs from "@/components/sections/BrandQRs";
 import { getLatestPosts } from "@/lib/news_fetch";
 
 export default async function Home() {
@@ -13,19 +16,23 @@ export default async function Home() {
   return (
     <main className="min-h-screen bg-[#09090b] flex flex-col">
       <Header />
-      <HeroSection />
-      
-      <div id="sectors" className="py-24 md:py-32 scroll-mt-20 relative overflow-hidden flex items-center justify-center">
-        {/* Background ambient glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-white/5 rounded-full blur-[120px] pointer-events-none" />
-        
-        <div className="relative z-10 w-full max-w-7xl mx-auto">
-          <FeatureSection />
-        </div>
+      <div className="bg-[#f5f0ea]">
+        <HeroSection />
+        <ChyaHistorySection />
       </div>
 
-      <ChyaHistorySection />
+      <div id="sectors">
+        <FeatureSection />
+      </div>
+
+      <AgentLoop />
+      
+      <ClientsSection />
+
       <LatestNewsSection posts={latestPosts} />
+
+      <BrandQRs />
+
       <LocationSection />
 
       <Footer />

@@ -14,27 +14,32 @@ export default function About() {
   const { locale, isRTL } = useLanguage();
   const t = translations[locale].about;
   
-  // Setup scroll spy for the two main sections
+  // Setup scroll spy for the main sections
   const activeSection = useScrollSpy(['leadership', 'history'], 200);
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     const element = document.getElementById(id);
     if (element) {
-      // Offset for sticky header
       const y = element.getBoundingClientRect().top + window.scrollY - 100;
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
   };
 
   return (
-    <div className="bg-[#09090b] min-h-screen flex flex-col">
+    <div className="relative min-h-screen w-full overflow-hidden bg-[#0c1a2e]">
       <Header />
+
+      {/* 
+        Background is now handled by the Hero component
+        to keep the Citadel glow strictly at the top.
+      */}
       
-      <main className="flex-grow">
+      <main className="relative z-10 flex-grow">
+        {/* Hero Section - Now transparent to let page background show through */}
         <Hero />
         
-        <div className="max-w-7xl mx-auto px-6 py-24">
+        <div className="max-w-7xl mx-auto px-6 py-24 md:py-32">
           <div className={clsx(
             "flex flex-col gap-16 relative",
             isRTL ? "lg:flex-row-reverse" : "lg:flex-row"
@@ -42,8 +47,8 @@ export default function About() {
             
             {/* Sticky Sidebar Navigation */}
             <aside className="lg:w-64 flex-shrink-0">
-              <div className="sticky top-32 glass-panel rounded-2xl p-6">
-                <h3 className="text-[10px] uppercase tracking-widest text-zinc-500 font-bold mb-6">
+              <div className="sticky top-32 glass-panel rounded-2xl p-6 border border-white/5 bg-[#0c1a2e]/40 backdrop-blur-md">
+                <h3 className="text-[10px] uppercase tracking-widest text-zinc-400 font-bold mb-6">
                   {t.nav.title}
                 </h3>
                 <nav className="flex flex-col gap-4">
@@ -53,14 +58,14 @@ export default function About() {
                     className={clsx(
                       "flex items-center gap-3 text-sm transition-all duration-300",
                       activeSection === 'leadership' 
-                        ? "text-amber-400 font-medium" 
-                        : "text-zinc-400 hover:text-zinc-200",
+                        ? "text-red-500 font-bold" 
+                        : "text-zinc-300 hover:text-white",
                       activeSection === 'leadership' && (isRTL ? "-translate-x-2" : "translate-x-2")
                     )}
                   >
                     <div className={clsx(
                       "w-1.5 h-1.5 rounded-full transition-colors",
-                      activeSection === 'leadership' ? "bg-amber-400 shadow-[0_0_10px_rgba(251,191,36,0.5)]" : "bg-transparent"
+                      activeSection === 'leadership' ? "bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.5)]" : "bg-transparent"
                     )} />
                     {t.nav.leadership}
                   </a>
@@ -73,14 +78,14 @@ export default function About() {
                     className={clsx(
                       "flex items-center gap-3 text-sm transition-all duration-300",
                       activeSection === 'history' 
-                        ? "text-amber-400 font-medium" 
-                        : "text-zinc-400 hover:text-zinc-200",
+                        ? "text-red-500 font-bold" 
+                        : "text-zinc-300 hover:text-white",
                       activeSection === 'history' && (isRTL ? "-translate-x-2" : "translate-x-2")
                     )}
                   >
                     <div className={clsx(
                       "w-1.5 h-1.5 rounded-full transition-colors",
-                      activeSection === 'history' ? "bg-amber-400 shadow-[0_0_10px_rgba(251,191,36,0.5)]" : "bg-transparent"
+                      activeSection === 'history' ? "bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.5)]" : "bg-transparent"
                     )} />
                     {t.nav.history}
                   </a>
@@ -89,7 +94,7 @@ export default function About() {
             </aside>
 
             {/* Main Content Area */}
-            <div className="flex-1 min-w-0 flex flex-col gap-32 text-start">
+            <div className="flex-1 min-w-0 flex flex-col gap-32 text-start text-white">
               <TeamSection id="leadership" />
               <HistorySection id="history" />
             </div>

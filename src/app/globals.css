@@ -29,7 +29,7 @@ html {
 }
 
 .glass-panel {
-  background: rgba(20, 20, 22, 0.6);
+  background: rgba(12, 26, 46, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(12px);
   box-shadow: 0 4px 60px rgba(0,0,0,0.4);

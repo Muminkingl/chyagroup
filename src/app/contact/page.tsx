@@ -14,7 +14,7 @@ export default function Contact() {
   const router = useRouter();
   const { locale, isRTL } = useLanguage();
   const t = translations[locale].contact;
-  
+
   // Form State
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -30,11 +30,11 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
       const response = await fetch("https://formsubmit.co/ajax/chyagroup2019@gmail.com", {
         method: "POST",
-        headers: { 
+        headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
@@ -72,7 +72,7 @@ export default function Contact() {
   return (
     <div className="bg-[#09090b] min-h-screen flex flex-col pt-20">
       <Header />
-      
+
       <main className="flex-grow flex items-center justify-center">
         <div className="w-full max-w-6xl mx-auto px-4 py-16 md:py-24 animate-fade-in-up">
           <div className="mb-12 md:mb-16 max-w-2xl text-start">
@@ -85,10 +85,10 @@ export default function Contact() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start">
-            
+
             {/* Left Column: Form / Success State */}
             <div className="lg:col-span-3 bg-neutral-900/40 border border-white/10 rounded-3xl p-6 sm:p-8 md:p-10 shadow-xl relative overflow-hidden min-h-[450px] flex flex-col">
-              
+
               {isSuccess ? (
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8 bg-neutral-900/95 backdrop-blur-md z-10 animate-scale-in">
                   <div className="w-20 h-20 bg-green-500/10 border border-green-500/20 rounded-full flex items-center justify-center mb-6 shadow-sm">
@@ -100,7 +100,7 @@ export default function Contact() {
                   <p className="text-neutral-400 mb-10 max-w-sm font-light">
                     {t.form.successDesc.replace('{name}', formData.name.split(' ')[0] || '')}
                   </p>
-                  
+
                   <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 px-5 py-2.5 rounded-full text-sm font-medium text-neutral-300 shadow-sm">
                     <Iconify icon="solar:hourglass-linear" width={18} className="animate-spin" style={{ animationDuration: '3s' }} />
                     {t.form.redirect.replace('{seconds}', countdown.toString())}
@@ -184,8 +184,8 @@ export default function Contact() {
                       ) : (
                         <>
                           {t.form.submit}
-                          <Iconify 
-                            icon={isRTL ? "solar:arrow-left-linear" : "solar:arrow-right-linear"} 
+                          <Iconify
+                            icon={isRTL ? "solar:arrow-left-linear" : "solar:arrow-right-linear"}
                             width={18}
                           />
                         </>
@@ -203,7 +203,7 @@ export default function Contact() {
                 <h3 className="text-lg font-medium tracking-tight text-white mb-6">
                   {t.info.title}
                 </h3>
-                
+
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400 shrink-0">
@@ -224,7 +224,7 @@ export default function Contact() {
                     <div>
                       <p className="text-sm font-medium text-white">{t.info.visitTitle}</p>
                       <p className="text-sm text-neutral-400 mt-0.5 leading-relaxed">
-                        Runaki Street, Erbil 44001<br/>Kurdistan Region, Iraq
+                        Runaki Street, Erbil 44001<br />Kurdistan Region, Iraq
                       </p>
                     </div>
                   </div>
@@ -247,18 +247,18 @@ export default function Contact() {
               {/* Map Embed Card */}
               <div className="bg-neutral-900/40 border border-white/10 rounded-3xl overflow-hidden shadow-xl h-[260px] relative group cursor-pointer">
                 <div className="absolute inset-0 bg-neutral-950/0 group-hover:bg-neutral-950/10 transition-colors z-10 pointer-events-none"></div>
-                <iframe 
-                  src="https://maps.google.com/maps?q=Runaki%20street,%20Erbil,%20Iraq&t=&z=15&ie=UTF8&iwloc=&output=embed" 
-                  width="100%" 
-                  height="100%" 
-                  style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) contrast(1.1) grayscale(0.2)' }} 
-                  allowFullScreen={false} 
-                  loading="lazy" 
+                <iframe
+                  src="https://maps.google.com/maps?q=Runaki%20street,%20Erbil,%20Iraq&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) contrast(1.1) grayscale(0.2)' }}
+                  allowFullScreen={false}
+                  loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   className="absolute inset-0 z-0"
                   title="Chya Group Headquarters Location"
                 ></iframe>
-                
+
                 {/* Subtle overlay badge */}
                 <div className={cn(
                   "absolute bottom-4 z-20 bg-neutral-950/90 backdrop-blur-sm border border-white/10 px-3 py-1.5 rounded-full shadow-sm flex items-center gap-2",
@@ -271,7 +271,7 @@ export default function Contact() {
                   <span className="text-xs font-medium text-white tracking-tight">{t.info.hqErbil}</span>
                 </div>
               </div>
-              
+
             </div>
           </div>
         </div>
