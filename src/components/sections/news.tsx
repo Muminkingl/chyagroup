@@ -16,7 +16,7 @@ export default function LatestNewsSection({ posts }: LatestNewsSectionProps) {
   const t = translations[locale];
 
   return (
-    <section className="w-full py-24 md:py-32 relative overflow-hidden" style={{ background: '#f5f0ea' }}>
+    <section className="w-full py-24 md:py-32 relative overflow-hidden" style={{ background: '#faf9f6' }}>
       {/* Decorative arc grid — top right corner */}
       <svg
         className={`absolute top-0 ${isRTL ? 'left-0 scale-x-[-1]' : 'right-0'} w-[250px] h-[250px] opacity-[0.07] pointer-events-none z-0`}
@@ -41,7 +41,7 @@ export default function LatestNewsSection({ posts }: LatestNewsSectionProps) {
             {/* Headline */}
             <h2 className="text-4xl sm:text-5xl md:text-[3.5rem] font-bold tracking-tight text-[#0c1a2e] leading-[1.1] mb-5">
               {t.news.headline}{' '}
-              <span className="font-light italic text-[#0c1a2e]/50">{t.news.headlineAccent}</span>
+              <span className="font-semibold italic text-[#162d4f]">{t.news.headlineAccent}</span>
             </h2>
 
             {/* Subtitle */}

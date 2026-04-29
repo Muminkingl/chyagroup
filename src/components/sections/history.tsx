@@ -11,90 +11,179 @@ export default function ChyaHistorySection() {
   const { locale, isRTL } = useLanguage();
   const t = translations[locale].history;
 
-  const [ref, isVisible] = useIntersectionObserver({ threshold: 0.2, triggerOnce: true });
+  const [ref, isVisible] = useIntersectionObserver({ threshold: 0.15, triggerOnce: true });
 
   return (
-    <section
-      id="history"
-      ref={ref}
-      className="relative w-full min-h-[700px] lg:min-h-[85vh] overflow-hidden -mt-1 z-10"
-      style={{ background: '#f5f0ea' }}
-    >
-      {/* Top blend gradient to hide hero seam and integrate with Earth atmosphere */}
-      <div className="absolute -top-6 left-0 right-0 h-18 bg-gradient-to-b from-transparent via-[#f5f0ea]/50 to-[#f5f0ea] z-30 pointer-events-none" />
+    <>
+      <style>{`
+        @keyframes historyImageIn {
+          0%   { opacity: 0; transform: translateX(${isRTL ? '-4%' : '4%'}) scale(1.04); }
+          100% { opacity: 1; transform: translateX(0%) scale(1); }
+        }
+        @keyframes historyLineGrow {
+          0%   { transform: scaleX(0); opacity: 0; }
+          100% { transform: scaleX(1); opacity: 1; }
+        }
+        @keyframes historyShimmer {
+          0%   { background-position: -200% center; }
+          100% { background-position: 200% center; }
+        }
 
-      {/* Skyscraper image — right side */}
-      <div
-        className={`absolute bottom-0 top-0 ${isRTL ? 'left-0' : 'right-0'} w-full sm:w-[65%] lg:w-[55%] h-full`}
+        .history-image-wrap {
+          opacity: 0;
+          transform: translateX(${isRTL ? '-4%' : '4%'}) scale(1.04);
+          transition: opacity 1.3s cubic-bezier(0.22, 1, 0.36, 1),
+                      transform 1.3s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .history-image-wrap.visible {
+          opacity: 1;
+          transform: translateX(0%) scale(1);
+        }
+
+        .history-line {
+          transform-origin: ${isRTL ? 'right' : 'left'};
+          transform: scaleX(0);
+          opacity: 0;
+          transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.2s,
+                      opacity 0.5s ease 0.2s;
+        }
+        .history-line.visible {
+          transform: scaleX(1);
+          opacity: 1;
+        }
+
+        .history-badge {
+          opacity: 0;
+          transform: translateY(14px) scale(0.95);
+          transition: opacity 0.7s ease 0.1s, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.1s;
+        }
+        .history-badge.visible {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+
+        .history-title {
+          opacity: 0;
+          transform: translateY(28px);
+          transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.25s,
+                      transform 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.25s;
+        }
+        .history-title.visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        .history-title-italic {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.4s,
+                      transform 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.4s;
+        }
+        .history-title-italic.visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        .history-desc {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.55s,
+                      transform 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.55s;
+        }
+        .history-desc.visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        .history-cta {
+          opacity: 0;
+          transform: translateY(16px);
+          transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.72s,
+                      transform 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.72s;
+        }
+        .history-cta.visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      `}</style>
+
+      <section
+        id="history"
+        ref={ref}
+        className="relative w-full min-h-[700px] lg:min-h-[85vh] overflow-hidden -mt-1 z-10"
+        style={{ background: '#faf9f6' }}
       >
-        <img
-          src="/sky.jpg"
-          alt="Modern City Skyline"
-          className={`w-full h-full object-cover ${isRTL ? 'object-left' : 'object-right'}`}
-          style={{
-            maskImage: `linear-gradient(to ${isRTL ? 'right' : 'left'}, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%), linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%)`,
-            WebkitMaskImage: `linear-gradient(to ${isRTL ? 'right' : 'left'}, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%), linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%)`,
-            maskComposite: 'intersect',
-            WebkitMaskComposite: 'destination-in',
-            filter: 'brightness(1.05) contrast(1.05)',
-          }}
-        />
-      </div>
+        {/* Top blend gradient */}
+        <div className="absolute -top-6 left-0 right-0 h-18 bg-gradient-to-b from-transparent via-[#faf9f6]/50 to-[#faf9f6] z-30 pointer-events-none" />
 
-      {/* Content — left aligned */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 flex items-center min-h-[700px] lg:min-h-[85vh]">
-        <div className={`max-w-lg py-24 lg:py-32 ${isRTL ? 'ms-auto text-right' : 'text-left'}`}>
+        {/* Skyscraper image — animated entrance */}
+        <div
+          className={`history-image-wrap${isVisible ? ' visible' : ''} absolute bottom-0 top-0 ${isRTL ? 'left-0' : 'right-0'} w-full sm:w-[65%] lg:w-[55%] h-full`}
+        >
+          <img
+            src="/sky.jpg"
+            alt="Modern City Skyline"
+            className={`w-full h-full object-cover ${isRTL ? 'object-left' : 'object-right'}`}
+            style={{
+              maskImage: `linear-gradient(to ${isRTL ? 'right' : 'left'}, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%), linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%)`,
+              WebkitMaskImage: `linear-gradient(to ${isRTL ? 'right' : 'left'}, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%), linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%)`,
+              maskComposite: 'intersect',
+              WebkitMaskComposite: 'destination-in',
+              filter: 'brightness(1.05) contrast(1.05)',
+            }}
+          />
+        </div>
 
-          {/* Eyebrow badge */}
-          <div className={cn(
-            "inline-flex items-center gap-2 px-4 py-1.5 mb-8 rounded-full border border-[#0c1a2e]/10 bg-[#0c1a2e]/5 transition-all duration-1000",
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          )}>
-            <Iconify icon="solar:buildings-linear" className="text-[#0c1a2e]/60" width={16} />
-            <span className="text-xs font-medium text-[#0c1a2e]/70 uppercase tracking-widest">{t.eyebrow}</span>
-          </div>
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 flex items-center min-h-[700px] lg:min-h-[85vh]">
+          <div className={`max-w-lg py-24 lg:py-32 ${isRTL ? 'ms-auto text-right' : 'text-left'}`}>
 
-          {/* Main headline */}
-          <h2 className={cn(
-            "text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold tracking-tight text-[#0c1a2e] leading-[1.08] transition-all duration-1000 delay-150",
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-          )}>
-            {t.title}
-            <span className="block mt-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light italic text-[#0c1a2e]/40">
-              {t.since}
-            </span>
-          </h2>
+            {/* Animated accent line */}
+            <div
+              className={`history-line${isVisible ? ' visible' : ''} h-[2px] w-12 bg-[#0c1a2e]/20 mb-6 rounded-full`}
+            />
 
-          {/* Description */}
-          <p className={cn(
-            "mt-8 text-base md:text-lg text-[#0c1a2e]/55 font-light leading-relaxed max-w-md transition-all duration-1000 delay-300",
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-          )}>
-            {t.description}
-          </p>
+            {/* Eyebrow badge */}
+            <div className={`history-badge${isVisible ? ' visible' : ''} inline-flex items-center gap-2 px-4 py-1.5 mb-8 rounded-full border border-[#0c1a2e]/10 bg-[#0c1a2e]/5`}>
+              <Iconify icon="solar:buildings-linear" className="text-[#0c1a2e]/60" width={16} />
+              <span className="text-xs font-medium text-[#0c1a2e]/70 uppercase tracking-widest">{t.eyebrow}</span>
+            </div>
 
-          {/* CTA Button */}
-          <div className={cn(
-            "mt-10 transition-all duration-1000 delay-500",
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-          )}>
-            <Link
-              href="/about#history"
-              className={`group inline-flex items-center justify-center gap-2 bg-[#0c1a2e] text-white font-semibold h-[46px] rounded-full ps-6 pe-5 text-sm hover:bg-[#162d4f] transition-all duration-300 shadow-sm hover:shadow-md`}
-            >
-              <span className="text-nowrap">{t.readMore}</span>
-              {isRTL ? (
-                <Iconify icon="solar:alt-arrow-left-linear" className="ms-1 w-4 h-4 transition-transform duration-300 group-hover:-translate-x-0.5" />
-              ) : (
-                <Iconify icon="solar:alt-arrow-right-linear" width={16} className="ms-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-              )}
-            </Link>
+            {/* Main headline */}
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold tracking-tight text-[#0c1a2e] leading-[1.08]">
+              <span className={`block history-title${isVisible ? ' visible' : ''}`}>
+                {t.title}
+              </span>
+              <span className={`block mt-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium italic text-[#162d4f] history-title-italic${isVisible ? ' visible' : ''}`}>
+                {t.since}
+              </span>
+            </h2>
+
+            {/* Description */}
+            <p className={`history-desc${isVisible ? ' visible' : ''} mt-8 text-base md:text-lg text-[#0c1a2e]/55 font-light leading-relaxed max-w-md`}>
+              {t.description}
+            </p>
+
+            {/* CTA Button */}
+            <div className={`history-cta${isVisible ? ' visible' : ''} mt-10`}>
+              <Link
+                href="/about#history"
+                className="group inline-flex items-center justify-center gap-2 bg-[#0c1a2e] text-white font-semibold h-[46px] rounded-full ps-6 pe-5 text-sm hover:bg-[#162d4f] transition-all duration-300 shadow-sm hover:shadow-md"
+              >
+                <span className="text-nowrap">{t.readMore}</span>
+                {isRTL ? (
+                  <Iconify icon="solar:alt-arrow-left-linear" className="ms-1 w-4 h-4 transition-transform duration-300 group-hover:-translate-x-0.5" />
+                ) : (
+                  <Iconify icon="solar:alt-arrow-right-linear" width={16} className="ms-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+                )}
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Soft blend transition to next section */}
-      <div className="absolute -bottom-2 left-0 right-0 h-4 bg-[#f5f0ea] z-30 blur-[2px] pointer-events-none" />
-    </section>
+        {/* Soft blend transition to next section */}
+        <div className="absolute -bottom-2 left-0 right-0 h-4 bg-[#f5f0ea] z-30 blur-[2px] pointer-events-none" />
+      </section>
+    </>
   );
 }

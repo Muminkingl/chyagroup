@@ -122,7 +122,7 @@ export default function HeroSection() {
                                         trigger="mount"
                                     />
                                 </span>
-                                <span className="block font-light italic text-[#0c1a2e]/60 mt-1">
+                                <span className="block font-medium italic text-[#162d4f] mt-1">
                                     <BlurInText
                                         text={t.line2}
                                         blurAmount={10}
@@ -164,7 +164,7 @@ export default function HeroSection() {
                 </div>
 
                 {/* Bottom transition gradient */}
-                <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#f5f0ea] via-[#f5f0ea]/80 to-transparent z-20 pointer-events-none" />
+                <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#faf9f6] via-[#faf9f6]/80 to-transparent z-20 pointer-events-none" />
             </section>
         </>
     );

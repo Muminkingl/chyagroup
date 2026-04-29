@@ -27,16 +27,10 @@ export default function About() {
   };
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-[#0c1a2e]">
+    <div className="relative min-h-screen w-full overflow-hidden bg-[#faf9f6]">
       <Header />
 
-      {/* 
-        Background is now handled by the Hero component
-        to keep the Citadel glow strictly at the top.
-      */}
-      
       <main className="relative z-10 flex-grow">
-        {/* Hero Section - Now transparent to let page background show through */}
         <Hero />
         
         <div className="max-w-7xl mx-auto px-6 py-24 md:py-32">
@@ -47,8 +41,8 @@ export default function About() {
             
             {/* Sticky Sidebar Navigation */}
             <aside className="lg:w-64 flex-shrink-0">
-              <div className="sticky top-32 glass-panel rounded-2xl p-6 border border-white/5 bg-[#0c1a2e]/40 backdrop-blur-md">
-                <h3 className="text-[10px] uppercase tracking-widest text-zinc-400 font-bold mb-6">
+              <div className="sticky top-32 glass-panel rounded-2xl p-6 border border-[#0c1a2e]/10 bg-white/60 backdrop-blur-md shadow-sm">
+                <h3 className="text-[10px] uppercase tracking-widest text-[#3a4f6a] font-bold mb-6">
                   {t.nav.title}
                 </h3>
                 <nav className="flex flex-col gap-4">
@@ -58,19 +52,19 @@ export default function About() {
                     className={clsx(
                       "flex items-center gap-3 text-sm transition-all duration-300",
                       activeSection === 'leadership' 
-                        ? "text-red-500 font-bold" 
-                        : "text-zinc-300 hover:text-white",
+                        ? "text-[#0c1a2e] font-bold" 
+                        : "text-[#3a4f6a] hover:text-[#0c1a2e]",
                       activeSection === 'leadership' && (isRTL ? "-translate-x-2" : "translate-x-2")
                     )}
                   >
                     <div className={clsx(
                       "w-1.5 h-1.5 rounded-full transition-colors",
-                      activeSection === 'leadership' ? "bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.5)]" : "bg-transparent"
+                      activeSection === 'leadership' ? "bg-[#3b82f6] shadow-[0_0_10px_rgba(59,130,246,0.5)]" : "bg-transparent"
                     )} />
                     {t.nav.leadership}
                   </a>
                   
-                  <div className="h-px w-full bg-white/5"></div>
+                  <div className="h-px w-full bg-[#0c1a2e]/5"></div>
                   
                   <a 
                     href="#history"
@@ -78,14 +72,14 @@ export default function About() {
                     className={clsx(
                       "flex items-center gap-3 text-sm transition-all duration-300",
                       activeSection === 'history' 
-                        ? "text-red-500 font-bold" 
-                        : "text-zinc-300 hover:text-white",
+                        ? "text-[#0c1a2e] font-bold" 
+                        : "text-[#3a4f6a] hover:text-[#0c1a2e]",
                       activeSection === 'history' && (isRTL ? "-translate-x-2" : "translate-x-2")
                     )}
                   >
                     <div className={clsx(
                       "w-1.5 h-1.5 rounded-full transition-colors",
-                      activeSection === 'history' ? "bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.5)]" : "bg-transparent"
+                      activeSection === 'history' ? "bg-[#3b82f6] shadow-[0_0_10px_rgba(59,130,246,0.5)]" : "bg-transparent"
                     )} />
                     {t.nav.history}
                   </a>
@@ -94,7 +88,7 @@ export default function About() {
             </aside>
 
             {/* Main Content Area */}
-            <div className="flex-1 min-w-0 flex flex-col gap-32 text-start text-white">
+            <div className="flex-1 min-w-0 flex flex-col gap-32 text-start text-[#0c1a2e]">
               <TeamSection id="leadership" />
               <HistorySection id="history" />
             </div>

@@ -47,7 +47,7 @@ export default async function NewsPage() {
   const allPosts = await getNewsData();
   
   return (
-    <div className="min-h-screen bg-[#09090b] flex flex-col">
+    <div className="min-h-screen bg-[#faf9f6] flex flex-col">
       <Header />
       <NewsArchiveContent initialPosts={allPosts as any} />
       <Footer />

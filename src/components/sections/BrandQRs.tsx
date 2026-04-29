@@ -94,7 +94,7 @@ export default function BrandQRs() {
     const t = translations[locale].hero;
 
     return (
-        <section id="brand-qrs" className="py-24 md:py-32 relative overflow-hidden" style={{ background: '#f5f0ea' }}>
+        <section id="brand-qrs" className="py-24 md:py-32 relative overflow-hidden" style={{ background: '#faf9f6' }}>
             
             {/* Decorative dot grid — top left */}
             <div className={`absolute top-20 ${isRTL ? 'right-10' : 'left-10'} opacity-[0.1] pointer-events-none hidden lg:block`}>
@@ -124,7 +124,7 @@ export default function BrandQRs() {
                         FOLLOW OUR BRANDS
                     </h2>
                     <h3 className="text-4xl md:text-5xl font-bold text-[#0c1a2e] mb-5 tracking-tight">
-                        Brand QR Codes
+                        Official Brand Channels
                     </h3>
                     <p className="text-[15px] text-[#3a4f6a]/80 font-medium max-w-md mx-auto leading-relaxed">
                         Scan to explore our brands and stay connected across our diverse business sectors.

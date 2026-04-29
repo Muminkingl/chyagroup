@@ -48,7 +48,7 @@ export const Footer = () => {
               </div>
             </Link>
             
-            <p className="text-[15px] text-[#3a4f6a]/70 leading-relaxed max-w-sm mb-10 font-medium">
+            <p className="text-[15px] text-[#1e293b] leading-relaxed max-w-sm mb-10 font-medium">
               {t.footer.description}
             </p>
 
@@ -75,22 +75,22 @@ export const Footer = () => {
             </h4>
             <ul className="space-y-4">
               <li>
-                <Link href="/about" className="text-[15px] font-medium text-[#3a4f6a]/60 hover:text-[#0c1a2e] transition-colors">
+                <Link href="/about" className="text-[15px] font-medium text-[#3a4f6a] hover:text-[#2563eb] transition-colors">
                   {t.footer.links.about}
                 </Link>
               </li>
               <li>
-                <Link href="/about#leadership" className="text-[15px] font-medium text-[#3a4f6a]/60 hover:text-[#0c1a2e] transition-colors">
+                <Link href="/about#leadership" className="text-[15px] font-medium text-[#3a4f6a] hover:text-[#2563eb] transition-colors">
                   {t.footer.links.teams}
                 </Link>
               </li>
               <li>
-                <Link href="/about#history" className="text-[15px] font-medium text-[#3a4f6a]/60 hover:text-[#0c1a2e] transition-colors">
+                <Link href="/about#history" className="text-[15px] font-medium text-[#3a4f6a] hover:text-[#2563eb] transition-colors">
                   {t.footer.links.history}
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-[15px] font-medium text-[#3a4f6a]/60 hover:text-[#0c1a2e] transition-colors">
+                <Link href="/contact" className="text-[15px] font-medium text-[#3a4f6a] hover:text-[#2563eb] transition-colors">
                   {t.footer.links.contact}
                 </Link>
               </li>
@@ -106,7 +106,7 @@ export const Footer = () => {
             <ul className="space-y-4">
               {sectorNames.map((name, idx) => (
                 <li key={idx}>
-                  <Link href="/#sectors" className="text-[15px] font-medium text-[#3a4f6a]/60 hover:text-[#0c1a2e] transition-colors">
+                  <Link href="/#sectors" className="text-[15px] font-medium text-[#3a4f6a] hover:text-[#2563eb] transition-colors">
                     {name}
                   </Link>
                 </li>
@@ -121,30 +121,30 @@ export const Footer = () => {
           
           {/* Copyright */}
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full border border-[#0c1a2e]/10 flex items-center justify-center">
-              <Iconify icon="solar:shield-check-linear" className="text-[#0c1a2e]/40" width={14} />
+            <div className="w-8 h-8 rounded-full border border-[#0c1a2e]/20 flex items-center justify-center">
+              <Iconify icon="solar:shield-check-linear" className="text-[#0c1a2e]/70" width={14} />
             </div>
-            <p className="text-xs font-bold uppercase tracking-widest text-[#0c1a2e]/40" dir="ltr">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#0c1a2e]/70" dir="ltr">
               &copy; {currentYear} Chya Group. {t.footer.copyright}
             </p>
           </div>
 
           {/* Location */}
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full border border-[#0c1a2e]/10 flex items-center justify-center">
-              <Iconify icon="solar:map-point-linear" className="text-[#0c1a2e]/40" width={14} />
+            <div className="w-8 h-8 rounded-full border border-[#0c1a2e]/20 flex items-center justify-center">
+              <Iconify icon="solar:map-point-linear" className="text-[#0c1a2e]/70" width={14} />
             </div>
-            <p className="text-xs font-bold uppercase tracking-widest text-[#0c1a2e]/40">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#0c1a2e]/70">
               Erbil, Kurdistan Region, Iraq
             </p>
           </div>
 
           {/* Email */}
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full border border-[#0c1a2e]/10 flex items-center justify-center">
-              <Iconify icon="solar:letter-linear" className="text-[#0c1a2e]/40" width={14} />
+            <div className="w-8 h-8 rounded-full border border-[#0c1a2e]/20 flex items-center justify-center">
+              <Iconify icon="solar:letter-linear" className="text-[#0c1a2e]/70" width={14} />
             </div>
-            <a href="mailto:info@chyagroup.com" className="text-xs font-bold uppercase tracking-widest text-[#0c1a2e]/40 hover:text-[#0c1a2e] transition-colors">
+            <a href="mailto:info@chyagroup.com" className="text-xs font-bold uppercase tracking-widest text-[#0c1a2e]/70 hover:text-[#2563eb] transition-colors">
               info@chyagroup.com
             </a>
           </div>

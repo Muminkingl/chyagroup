@@ -23,10 +23,10 @@ export default function NewsArchiveContent({ initialPosts }: NewsArchiveContentP
     <main className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-start">
       {/* Header Section */}
       <div className="mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
-          {t.title} <span className="text-blue-500">{t.insights}</span>
+        <h1 className="text-4xl md:text-5xl font-bold text-[#0c1a2e] mb-4 tracking-tight">
+          {t.title} <span className="text-[#162d4f]">{t.insights}</span>
         </h1>
-        <p className="text-neutral-400 text-lg max-w-2xl leading-relaxed font-light">
+        <p className="text-[#3a4f6a] text-lg max-w-2xl leading-relaxed font-medium">
           {t.description}
         </p>
       </div>
@@ -34,9 +34,9 @@ export default function NewsArchiveContent({ initialPosts }: NewsArchiveContentP
       {/* Latest News — always 3 featured posts */}
       {featuredPosts.length > 0 && (
         <div className="mb-16">
-          <h2 className="text-[10px] font-bold uppercase tracking-widest text-neutral-500 mb-6 flex items-center gap-3">
+          <h2 className="text-[10px] font-bold uppercase tracking-widest text-[#3a4f6a] mb-6 flex items-center gap-3">
             <span>{t.latest}</span>
-            <div className="h-px bg-white/5 flex-1"></div>
+            <div className="h-px bg-[#0c1a2e]/10 flex-1"></div>
           </h2>
           <FeaturedGrid posts={featuredPosts} />
         </div>
@@ -45,9 +45,9 @@ export default function NewsArchiveContent({ initialPosts }: NewsArchiveContentP
       {/* All News Archive */}
       {initialPosts.length > 3 && (
         <div>
-          <h2 className="text-[10px] font-bold uppercase tracking-widest text-neutral-500 mb-6 flex items-center gap-3">
+          <h2 className="text-[10px] font-bold uppercase tracking-widest text-[#3a4f6a] mb-6 flex items-center gap-3">
             <span>{t.allNews}</span>
-            <div className="h-px bg-white/5 flex-1"></div>
+            <div className="h-px bg-[#0c1a2e]/10 flex-1"></div>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {remainingPosts.map((post) => (
@@ -59,8 +59,8 @@ export default function NewsArchiveContent({ initialPosts }: NewsArchiveContentP
 
       {/* Empty state */}
       {initialPosts.length === 0 && (
-        <div className="py-20 text-center border border-white/5 rounded-3xl bg-white/[0.01]">
-          <p className="text-neutral-500 italic">{t.noPosts}</p>
+        <div className="py-20 text-center border border-[#0c1a2e]/10 rounded-3xl bg-white shadow-sm">
+          <p className="text-[#3a4f6a] italic font-medium">{t.noPosts}</p>
         </div>
       )}
     </main>

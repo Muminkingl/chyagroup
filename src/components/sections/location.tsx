@@ -9,7 +9,7 @@ export default function LocationSection() {
   const t = translations[locale].location;
 
   return (
-    <section className="w-full py-24 md:py-32 relative overflow-hidden" style={{ background: '#f5f0ea' }}>
+    <section className="w-full py-24 md:py-32 relative overflow-hidden" style={{ background: '#faf9f6' }}>
       {/* Decorative arc grid — top right corner */}
       <svg
         className={`absolute top-0 ${isRTL ? 'left-0 scale-x-[-1]' : 'right-0'} w-[400px] h-[400px] opacity-[0.06] pointer-events-none z-0`}
@@ -35,7 +35,7 @@ export default function LocationSection() {
             {/* Headline */}
             <h2 className="text-4xl sm:text-5xl md:text-[3.8rem] font-bold tracking-tight text-[#0c1a2e] leading-[1.05] mb-6">
               {t.title.split(' ').slice(0, -1).join(' ')}{' '}
-              <span className="block font-light italic text-[#0c1a2e]/50">
+              <span className="block font-medium italic text-[#162d4f]">
                 {t.title.split(' ').slice(-1)}
               </span>
             </h2>
@@ -136,7 +136,7 @@ export default function LocationSection() {
       </div>
 
       {/* Bottom transition "glow" to eliminate hard cut before footer */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#f5f0ea] via-[#f5f0ea]/50 to-transparent z-20 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#faf9f6] via-[#faf9f6]/50 to-transparent z-20 pointer-events-none" />
       <div className="absolute -bottom-px left-0 right-0 h-px bg-[#0c1a2e]/5 z-30" />
     </section>
   );

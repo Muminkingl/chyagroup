@@ -45,11 +45,11 @@ export default function TeamSection({ id }: { id: string }) {
   return (
     <section id={id} className="scroll-mt-32">
       <div className="mb-12">
-        <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-white mb-4 flex items-center gap-4">
-          <span className="w-8 h-1 bg-gradient-to-r from-amber-500 to-rose-500 rounded-full"></span>
+        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[#0c1a2e] mb-4 flex items-center gap-4">
+          <span className="w-8 h-[2px] bg-[#3b82f6]"></span>
           {t.title}
         </h2>
-        <p className="text-zinc-400 max-w-2xl font-light">
+        <p className="text-[#3a4f6a] max-w-2xl text-lg leading-relaxed font-medium">
           {t.description}
         </p>
       </div>

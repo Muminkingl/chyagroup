@@ -23,53 +23,53 @@ export default function PostCard({ post, className }: { post: Post, className?: 
     <Link 
       href={`/news/${post.id}`}
       className={clsx(
-        "group flex flex-col rounded-2xl border border-white/5 bg-white/[0.02] overflow-hidden hover:border-white/10 hover:bg-white/[0.04] transition-all duration-300 hover:-translate-y-1",
+        "group flex flex-col rounded-2xl border border-[#0c1a2e]/5 bg-white overflow-hidden hover:border-[#0c1a2e]/10 hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-1",
         className
       )}
     >
       {/* Only render image section if image exists */}
       {hasImage && (
-        <div className="relative h-48 overflow-hidden bg-zinc-900">
+        <div className="relative h-48 overflow-hidden bg-[#f4f7f9]">
           <img 
             src={post.imageUrl} 
             alt={post.title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80 group-hover:opacity-100"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-90 group-hover:opacity-100"
           />
         </div>
       )}
 
       {/* If no image, show a subtle accent bar instead */}
       {!hasImage && (
-        <div className="h-1 w-full bg-gradient-to-r from-amber-500/30 via-blue-500/30 to-transparent" />
+        <div className="h-1 w-full bg-gradient-to-r from-[#162d4f]/30 via-[#3b82f6]/30 to-transparent" />
       )}
       
       <div className="p-5 flex flex-col flex-1 text-start">
-        <div className="flex items-center gap-3 mb-3 text-xs text-neutral-400">
-          <span className="font-semibold text-amber-500/80 uppercase tracking-wider text-[10px]">{post.category}</span>
-          <span className="w-1 h-1 rounded-full bg-neutral-600"></span>
+        <div className="flex items-center gap-3 mb-3 text-xs text-[#3a4f6a]">
+          <span className="font-semibold text-[#3b82f6] uppercase tracking-wider text-[10px]">{post.category}</span>
+          <span className="w-1 h-1 rounded-full bg-[#0c1a2e]/20"></span>
           <span className="flex items-center gap-1">
             <Iconify icon="solar:calendar-linear" width={11} />
             {formattedDate}
           </span>
         </div>
         
-        <h3 className="text-lg font-semibold tracking-tight text-white mb-2 line-clamp-2" dir="auto">
+        <h3 className="text-lg font-semibold tracking-tight text-[#0c1a2e] mb-2 line-clamp-2" dir="auto">
           {post.title}
         </h3>
         
-        <p className="text-sm text-neutral-400 mb-6 line-clamp-2 flex-1 font-light leading-relaxed" dir="auto">
+        <p className="text-sm text-[#3a4f6a] mb-6 line-clamp-2 flex-1 font-medium leading-relaxed" dir="auto">
           {post.excerpt}
         </p>
         
         <div className="flex items-center justify-between mt-auto">
           {/* Author */}
           <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-full bg-zinc-800 border border-white/10 flex items-center justify-center">
-              <span className="text-[9px] font-bold text-zinc-400">CG</span>
+            <div className="w-6 h-6 rounded-full bg-[#f4f7f9] border border-[#0c1a2e]/10 flex items-center justify-center">
+              <span className="text-[9px] font-bold text-[#3a4f6a]">CG</span>
             </div>
-            <span className="text-xs text-neutral-300">{t.author}</span>
+            <span className="text-xs text-[#0c1a2e] font-medium">{t.author}</span>
           </div>
-          <span className="text-xs text-neutral-500 flex items-center gap-1">
+          <span className="text-xs text-[#3a4f6a] flex items-center gap-1">
             <Iconify icon="solar:book-linear" width={14} />
             {t.readTime.replace('{minutes}', post.readTime)}
           </span>

@@ -37,10 +37,11 @@ export default function HistorySection({ id }: { id: string }) {
     <section id={id} className="scroll-mt-32 py-12">
       {/* ── Section Header ── */}
       <div className="mb-20 text-start">
-        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-red-600 mb-6 uppercase">
+        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[#0c1a2e] mb-4 flex items-center gap-4">
+          <span className="w-8 h-[2px] bg-[#ff4d4d]"></span>
           {t.title}
         </h2>
-        <p className="text-zinc-400 max-w-4xl text-lg font-light leading-relaxed">
+        <p className="text-[#3a4f6a] max-w-4xl text-lg font-medium leading-relaxed mt-6">
           {t.summary}
         </p>
       </div>
@@ -49,7 +50,7 @@ export default function HistorySection({ id }: { id: string }) {
       <div className="relative max-w-5xl mx-auto">
         {/* Vertical Line */}
         <div className={cn(
-          "absolute top-0 bottom-0 w-[2px] bg-zinc-800",
+          "absolute top-0 bottom-0 w-[2px] bg-[#0c1a2e]/10",
           isRTL ? "right-8 md:right-10" : "left-8 md:left-10"
         )} />
 
@@ -67,31 +68,29 @@ export default function HistorySection({ id }: { id: string }) {
             >
               {/* Year Circle Indicator */}
               <div className="relative z-10 shrink-0">
-                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-red-600 border-4 border-[#0c1a2e] flex items-center justify-center text-white text-sm md:text-base font-bold shadow-2xl">
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#b91c1c] flex items-center justify-center text-white text-sm md:text-base font-bold shadow-none">
                   {item.yearOnly}
                 </div>
               </div>
 
               {/* Content Block */}
               <div className="flex-1 pt-4 md:pt-6">
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-2 tracking-tight">
+                <h3 className="text-xl md:text-2xl font-bold text-[#0c1a2e] mb-2 tracking-tight">
                   {item.title}
                 </h3>
-                <p className="text-zinc-400 text-sm md:text-base leading-relaxed font-light max-w-2xl">
+                <p className="text-[#3a4f6a] text-sm md:text-base leading-relaxed font-medium max-w-2xl">
                   {item.desc || item.content}
                 </p>
               </div>
 
               {/* Brand Logo */}
-              <div className="hidden sm:flex shrink-0 pt-2 items-center justify-center w-24 h-24 md:w-32 md:h-32">
+              <div className="hidden sm:flex shrink-0 items-center justify-center w-20 h-20 md:w-24 md:h-24">
                 {item.logos && item.logos[0] && (
-                  <div className="bg-white rounded-full p-3 md:p-4 w-full h-full flex items-center justify-center shadow-lg border border-white/5">
-                    <img
-                      src={item.logos[0]}
-                      alt={item.title}
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
+                  <img
+                    src={item.logos[0]}
+                    alt={item.title}
+                    className="w-full h-full object-contain drop-shadow-sm transition-transform duration-500 hover:scale-105"
+                  />
                 )}
               </div>
             </motion.div>
