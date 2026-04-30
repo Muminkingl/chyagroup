@@ -269,7 +269,8 @@ export const translations = {
       hero: {
         eyebrow: "Discover Our Roots",
         title: "About Us",
-        description: "Driven by vision, guided by experience. We are a collective of industry leaders dedicated to shaping the future of global enterprise."
+        description: "Driven by vision, guided by experience. We are a collective of industry leaders dedicated to shaping the future of global enterprise.",
+        buttonText: "Discover Our Journey"
       },
       nav: {
         title: "On this page",
@@ -646,7 +647,8 @@ export const translations = {
       hero: {
         eyebrow: "اكتشف جذورنا",
         title: "من نحن",
-        description: "مدفوعون بالرؤية، ومسترشدون بالخبرة. نحن مجموعة من قادة الصناعة المكرسين لتشكيل مستقبل المشاريع العالمية."
+        description: "مدفوعون بالرؤية، ومسترشدون بالخبرة. نحن مجموعة من قادة الصناعة المكرسين لتشكيل مستقبل المشاريع العالمية.",
+        buttonText: "اكتشف رحلتنا"
       },
       nav: {
         title: "في هذه الصفحة",
@@ -1023,7 +1025,8 @@ export const translations = {
       hero: {
         eyebrow: "ڕەگ و ڕیشەمان بدۆزەرەوە",
         title: "دەربارەی ئێمە",
-        description: "بە دیدگاوە هەنگاو دەنێین، بە ئەزموون ڕێنمایی دەکرێین. ئێمە کۆمەڵێک سەرکردەی پیشەسازین کە بۆ داڕشتنی داهاتووی بزنسە جیهانییەکان تێدەکۆشین."
+        description: "بە دیدگاوە هەنگاو دەنێین، بە ئەزموون ڕێنمایی دەکرێین. ئێمە کۆمەڵێک سەرکردەی پیشەسازین کە بۆ داڕشتنی داهاتووی بزنسە جیهانییەکان تێدەکۆشین.",
+        buttonText: "گەشتەکەمان ببینە"
       },
       nav: {
         title: "لەم لاپەڕەیەدا",
