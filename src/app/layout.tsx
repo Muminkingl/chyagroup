@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter, Playfair_Display } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -53,6 +54,7 @@ export default function RootLayout({
         <LanguageProvider>
           <LanguageWrapper>
             {children}
+            <SpeedInsights />
           </LanguageWrapper>
         </LanguageProvider>
       </body>
