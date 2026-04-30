@@ -115,7 +115,7 @@ export default function ChyaHistorySection() {
         style={{ background: '#faf9f6' }}
       >
         {/* Top blend gradient */}
-        <div className="absolute -top-6 left-0 right-0 h-18 bg-gradient-to-b from-transparent via-[#faf9f6]/50 to-[#faf9f6] z-30 pointer-events-none" />
+        <div className="absolute -top-6 left-0 right-0 h-18 bg-gradient-to-b from-[#faf9f6] via-[#faf9f6]/80 to-transparent z-30 pointer-events-none" />
 
         {/* Skyscraper image — animated entrance, always on the RIGHT */}
         <div
@@ -124,7 +124,7 @@ export default function ChyaHistorySection() {
           <img
             src="/sky.jpg"
             alt="Modern City Skyline"
-            className="w-full h-full object-cover object-right"
+            className="w-full h-full object-cover object-right opacity-[0.45] sm:opacity-100"
             style={{
               maskImage: `linear-gradient(to left, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%), linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%)`,
               WebkitMaskImage: `linear-gradient(to left, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%), linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%)`,
@@ -135,8 +135,11 @@ export default function ChyaHistorySection() {
           />
         </div>
 
+        {/* Mobile readability overlay */}
+        <div className={`absolute inset-0 ${isRTL ? 'bg-gradient-to-l' : 'bg-gradient-to-r'} from-[#faf9f6] via-[#faf9f6]/80 to-transparent sm:hidden z-10 pointer-events-none`} />
+
         {/* Content — dir=ltr keeps layout fixed; individual text uses dir=auto */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 flex items-center min-h-[700px] lg:min-h-[85vh]">
+        <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-12 flex items-center min-h-[700px] lg:min-h-[85vh]">
           <div className="max-w-lg py-24 lg:py-32 text-left">
 
             {/* Eyebrow */}

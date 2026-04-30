@@ -90,7 +90,7 @@ export default function HeroSection() {
 
                     {/* Globe image — animated entrance, always on the RIGHT */}
                     <div
-                        className={`hero-globe${mounted ? ' ready' : ''} absolute bottom-[-5%] right-[-8%] w-[90%] sm:w-[80%] lg:w-[68%] h-[60%] sm:h-[75%] lg:h-[95%]`}
+                        className={`hero-globe${mounted ? ' ready' : ''} absolute bottom-[0%] right-[-15%] sm:bottom-[-5%] sm:right-[-8%] w-[120%] sm:w-[80%] lg:w-[68%] h-[55%] sm:h-[75%] lg:h-[95%] opacity-90 sm:opacity-100 pointer-events-none`}
                     >
                         <img
                             src="/zawe.png"
@@ -108,7 +108,7 @@ export default function HeroSection() {
 
                     {/* Text content — dir=ltr keeps layout fixed; individual text uses dir=auto */}
                     <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 flex items-center min-h-[600px] lg:min-h-[92vh]">
-                        <div className="max-w-2xl pt-32 pb-24 lg:pt-40 lg:pb-32 text-left">
+                        <div className={`max-w-2xl pt-28 pb-40 sm:pt-32 sm:pb-24 lg:pt-40 lg:pb-32 ${isRTL ? 'text-right' : 'text-left'} relative z-20`}>
 
                             {/* Main headline */}
                             <h1 dir="auto" className="text-[2.6rem] sm:text-5xl md:text-6xl xl:text-[4.25rem] font-bold tracking-tight text-[#0c1a2e] leading-[1.08] mb-6">
@@ -143,14 +143,14 @@ export default function HeroSection() {
                             <div className={`hero-fade-up${mounted ? ' ready delay-2' : ''} flex items-center gap-3 flex-wrap`}>
                                 <Link
                                     href="#agents"
-                                    className="flex items-center justify-center bg-[#0c1a2e] text-white font-semibold h-[46px] rounded-full ps-6 pe-5 text-sm hover:bg-[#162d4f] transition-all duration-300 shadow-sm hover:shadow-md"
+                                    className="flex items-center justify-center bg-[#0c1a2e] text-white font-semibold h-[46px] rounded-full ps-6 pe-5 text-sm hover:bg-[#162d4f] transition-all duration-300 shadow-md sm:shadow-sm hover:shadow-lg sm:hover:shadow-md ring-2 ring-white/80 sm:ring-0"
                                 >
                                     <span className="text-nowrap" dir="auto">{t.learnMore}</span>
                                     <Iconify icon="solar:alt-arrow-right-linear" width={16} className="ms-1.5 h-4 w-4" />
                                 </Link>
                                 <Link
                                     href="/contact"
-                                    className="flex items-center justify-center text-[#0c1a2e] border border-[#0c1a2e]/25 h-[46px] rounded-full px-6 text-sm font-medium hover:bg-[#0c1a2e]/5 transition-all duration-300"
+                                    className="flex items-center justify-center text-[#0c1a2e] bg-white sm:bg-transparent border border-[#0c1a2e]/15 sm:border-[#0c1a2e]/25 h-[46px] rounded-full px-6 text-sm font-medium hover:bg-[#0c1a2e]/5 sm:hover:bg-[#0c1a2e]/5 transition-all duration-300 shadow-sm sm:shadow-none"
                                 >
                                     <span className="text-nowrap" dir="auto">{t.contactUs}</span>
                                 </Link>
@@ -160,7 +160,7 @@ export default function HeroSection() {
                 </div>
 
                 {/* Bottom transition gradient */}
-                <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#faf9f6] via-[#faf9f6]/80 to-transparent z-20 pointer-events-none" />
+                <div className="absolute bottom-0 left-0 right-0 h-48 sm:h-40 bg-gradient-to-t from-[#faf9f6] via-[#faf9f6]/90 to-transparent z-20 pointer-events-none" />
             </section>
         </>
     );

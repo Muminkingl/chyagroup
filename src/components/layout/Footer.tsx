@@ -117,7 +117,7 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-24 pt-8 border-t border-[#0c1a2e]/5 flex flex-col md:flex-row justify-between items-center gap-8" dir={isRTL ? 'rtl' : 'ltr'}>
+        <div className="mt-24 pt-8 border-t border-[#0c1a2e]/5 flex flex-col md:flex-row justify-between items-start md:items-center gap-y-5 gap-x-6" dir={isRTL ? 'rtl' : 'ltr'}>
           
           {/* Copyright */}
           <div className="flex items-center gap-3">

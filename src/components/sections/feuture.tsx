@@ -222,11 +222,11 @@ export default function FeatureSection() {
           <img
             src="/chyaa.png"
             alt="Chya Group Background"
-            className={`w-full h-full object-cover object-[85%_0%] transition-all duration-[2500ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${headerVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-[1.05]'}`}
+            className={`w-full h-full object-cover object-[85%_0%] transition-all duration-[2500ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${headerVisible ? 'opacity-[0.6] sm:opacity-100 scale-100' : 'opacity-0 scale-[1.05]'}`}
           />
-          <div className="absolute top-0 left-0 w-full h-48 bg-gradient-to-b from-[#faf9f6] via-[#faf9f6]/60 to-transparent z-10" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#faf9f6] via-[#faf9f6]/5 to-transparent pointer-events-none" />
-          <div className="absolute top-0 left-0 w-[55%] h-full bg-gradient-to-r from-[#faf9f6]/90 via-[#faf9f6]/40 to-transparent pointer-events-none" />
+          <div className="absolute top-0 left-0 w-full h-48 bg-gradient-to-b from-[#faf9f6] via-[#faf9f6]/60 to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#faf9f6] via-[#faf9f6]/5 to-transparent pointer-events-none z-10" />
+          <div className={`absolute top-0 ${isRTL ? 'right-0 bg-gradient-to-l' : 'left-0 bg-gradient-to-r'} w-[90%] sm:w-[65%] h-full from-[#faf9f6]/95 via-[#faf9f6]/70 to-transparent pointer-events-none z-10`} />
         </div>
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 pt-32">
@@ -258,7 +258,7 @@ export default function FeatureSection() {
               </p>
 
               {/* Stats Pill */}
-              <div className={`fs-pill${headerVisible ? ' in' : ''} flex items-center gap-6 md:gap-8 bg-white/95 backdrop-blur-md rounded-[2rem] px-8 py-5 mt-10 border border-[#0c1a2e]/5 shadow-sm w-fit`}>
+              <div className={`fs-pill${headerVisible ? ' in' : ''} flex items-center justify-between sm:justify-start gap-2 sm:gap-6 md:gap-8 bg-white/95 backdrop-blur-md rounded-2xl sm:rounded-[2rem] px-4 sm:px-8 py-4 sm:py-5 mt-10 border border-[#0c1a2e]/5 shadow-sm w-full sm:w-fit overflow-hidden`}>
                 {[
                   {
                     icon: 'solar:buildings-2-linear',
@@ -277,21 +277,22 @@ export default function FeatureSection() {
                   },
                 ].map((stat, i) => (
                   <React.Fragment key={stat.label}>
-                    {i > 0 && <div className="w-px h-10 bg-[#0c1a2e]/10" />}
-                    <div className="fs-stat flex items-center gap-4 cursor-default transition-all duration-200">
-                      <div className="w-11 h-11 rounded-full border-[1.5px] border-[#0c1a2e]/10 flex items-center justify-center text-[#0c1a2e]">
-                        <Iconify icon={stat.icon} width={22} />
+                    {i > 0 && <div className="w-px h-8 sm:h-10 bg-[#0c1a2e]/10" />}
+                    <div className="fs-stat flex flex-col sm:flex-row items-center gap-1 sm:gap-4 cursor-default transition-all duration-200">
+                      <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-full border-[1.5px] border-[#0c1a2e]/10 flex items-center justify-center text-[#0c1a2e]">
+                        <Iconify icon={stat.icon} className="w-4 h-4 sm:w-5 sm:h-5" />
                       </div>
-                      <div className="flex flex-col">
-                        <span dir="auto" className="text-[20px] font-bold text-[#0c1a2e] leading-tight mb-0.5">
+                      <div className="flex flex-col items-center sm:items-start text-center sm:text-start">
+                        <span dir="auto" className="text-[16px] sm:text-[20px] font-bold text-[#0c1a2e] leading-tight mb-0.5">
                           {headerVisible && <Counter value={stat.value} locale={locale} isRTL={isRTL} />}
                         </span>
-                        <span dir="auto" className={`text-[12px] ${isRTL ? 'text-[#0c1a2e] font-bold' : 'text-[#3a4f6a] font-medium'}`}>{stat.label}</span>
+                        <span dir="auto" className={`text-[10px] sm:text-[12px] ${isRTL ? 'text-[#0c1a2e] font-bold' : 'text-[#3a4f6a] font-medium'}`}>{stat.label}</span>
                       </div>
                     </div>
                   </React.Fragment>
                 ))}
               </div>
+
 
               {/* Button */}
               <div className={`fs-btn${headerVisible ? ' in' : ''} mt-10`}>
