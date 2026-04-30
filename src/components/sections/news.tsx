@@ -16,7 +16,7 @@ export default function LatestNewsSection({ posts }: LatestNewsSectionProps) {
   const t = translations[locale];
 
   return (
-    <section className="w-full py-24 md:py-32 relative overflow-hidden" style={{ background: '#faf9f6' }}>
+    <section dir="ltr" className="w-full py-24 md:py-32 relative overflow-hidden" style={{ background: '#faf9f6' }}>
       {/* Decorative arc grid — top right corner */}
       <svg
         className={`absolute top-0 ${isRTL ? 'left-0 scale-x-[-1]' : 'right-0'} w-[250px] h-[250px] opacity-[0.07] pointer-events-none z-0`}
@@ -34,18 +34,21 @@ export default function LatestNewsSection({ posts }: LatestNewsSectionProps) {
         <div className={`flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14 ${isRTL ? 'text-right' : 'text-left'}`}>
           <div className="max-w-xl">
             {/* Eyebrow */}
-            <span className="text-xs font-semibold text-[#0c1a2e]/50 uppercase tracking-[0.2em] mb-4 block">
-              {t.news.eyebrow}
-            </span>
+            <div className={`flex items-center gap-3 mb-5 ${isRTL ? 'flex-row-reverse justify-end' : 'justify-start'}`}>
+              <span className="inline-block w-8 h-[2px] bg-[#2563eb]" />
+              <span dir="auto" className="text-[12px] font-bold tracking-widest text-[#0c1a2e] uppercase">
+                {t.news.eyebrow}
+              </span>
+            </div>
 
             {/* Headline */}
-            <h2 className="text-4xl sm:text-5xl md:text-[3.5rem] font-bold tracking-tight text-[#0c1a2e] leading-[1.1] mb-5">
+            <h2 dir="auto" className="text-4xl sm:text-5xl md:text-[3.5rem] font-bold tracking-tight text-[#0c1a2e] leading-[1.1] mb-5">
               {t.news.headline}{' '}
               <span className="font-semibold italic text-[#162d4f]">{t.news.headlineAccent}</span>
             </h2>
 
             {/* Subtitle */}
-            <p className="text-[15px] text-[#3a4f6a]/70 leading-relaxed max-w-md">
+            <p dir="auto" className={`text-[15px] ${isRTL ? 'text-[#0c1a2e] font-semibold' : 'text-[#3a4f6a]'} leading-relaxed max-w-md ${isRTL ? 'ml-auto' : ''}`}>
               {t.news.subtitle}
             </p>
           </div>
@@ -53,7 +56,7 @@ export default function LatestNewsSection({ posts }: LatestNewsSectionProps) {
           {/* View All button */}
           <Link
             href="/news"
-            className={`group inline-flex items-center gap-2.5 px-6 h-[46px] rounded-full bg-[#0c1a2e] text-white text-sm font-semibold hover:bg-[#162d4f] transition-all duration-300 shadow-sm hover:shadow-md shrink-0 self-start md:self-end ${isRTL ? 'flex-row-reverse' : ''}`}
+            className={`group inline-flex items-center gap-2.5 px-6 h-[46px] rounded-full bg-[#0c1a2e] text-white text-sm font-semibold hover:bg-[#162d4f] transition-all duration-300 shadow-sm hover:shadow-md shrink-0 self-start md:self-end ${isRTL ? 'flex-row-reverse ml-auto md:ml-0' : ''}`}
           >
             <Iconify icon="solar:document-text-linear" className="w-4 h-4 opacity-80" />
             <span className="text-nowrap">{t.news.viewAll}</span>

@@ -34,14 +34,14 @@ export default function HistorySection({ id }: { id: string }) {
   }));
 
   return (
-    <section id={id} className="scroll-mt-32 py-12">
+    <section dir="ltr" id={id} className="scroll-mt-32 py-12">
       {/* ── Section Header ── */}
-      <div className="mb-20 text-start">
-        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[#0c1a2e] mb-4 flex items-center gap-4">
-          <span className="w-8 h-[2px] bg-[#ff4d4d]"></span>
+      <div className="mb-20 text-left">
+        <h2 dir="auto" className="text-4xl md:text-5xl font-bold tracking-tight text-[#0c1a2e] mb-4 flex items-center gap-4">
+          <span className="w-8 h-[2px] bg-[#ff4d4d] shrink-0"></span>
           {t.title}
         </h2>
-        <p className="text-[#3a4f6a] max-w-4xl text-lg font-medium leading-relaxed mt-6">
+        <p dir="auto" className={`max-w-4xl text-lg leading-relaxed mt-6 ${isRTL ? 'text-[#0c1a2e] font-semibold' : 'text-[#3a4f6a] font-medium'}`}>
           {t.summary}
         </p>
       </div>
@@ -49,22 +49,16 @@ export default function HistorySection({ id }: { id: string }) {
       {/* ── Timeline ── */}
       <div className="relative max-w-5xl mx-auto">
         {/* Vertical Line */}
-        <div className={cn(
-          "absolute top-0 bottom-0 w-[2px] bg-[#0c1a2e]/10",
-          isRTL ? "right-8 md:right-10" : "left-8 md:left-10"
-        )} />
+        <div className="absolute top-0 bottom-0 w-[2px] bg-[#0c1a2e]/10 left-8 md:left-10" />
 
         <div className="space-y-16 relative">
           {historyTimeline.map((item, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: isRTL ? 20 : -20 }}
+              initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className={cn(
-                "flex items-start gap-6 md:gap-12",
-                isRTL ? "flex-row-reverse" : "flex-row"
-              )}
+              className="flex flex-row items-start gap-6 md:gap-12"
             >
               {/* Year Circle Indicator */}
               <div className="relative z-10 shrink-0">
@@ -74,11 +68,11 @@ export default function HistorySection({ id }: { id: string }) {
               </div>
 
               {/* Content Block */}
-              <div className="flex-1 pt-4 md:pt-6">
+              <div dir="auto" className="flex-1 pt-4 md:pt-6">
                 <h3 className="text-xl md:text-2xl font-bold text-[#0c1a2e] mb-2 tracking-tight">
                   {item.title}
                 </h3>
-                <p className="text-[#3a4f6a] text-sm md:text-base leading-relaxed font-medium max-w-2xl">
+                <p className={`text-sm md:text-base leading-relaxed max-w-2xl ${isRTL ? 'text-[#0c1a2e] font-semibold' : 'text-[#3a4f6a] font-medium'}`}>
                   {item.desc || item.content}
                 </p>
               </div>

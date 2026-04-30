@@ -2,19 +2,16 @@
 import React from 'react';
 import { Iconify } from '@/components/ui/Iconify';
 import { useLanguage } from '@/context/LanguageContext';
+import { translations } from '@/i18n/translations';
 
-const sectorsData = [
-  {
-    id: 'general-trading',
-    title: 'GENERAL TRADING',
-    icon: 'ph:globe-light',
-    desc: 'Our general trading arm spans a diverse product portfolio, supplying markets across the region with quality and reliability.',
-    items: ['Lammat Al marjan', 'Chyay Mateen', 'Chya amazon']
+const SECTOR_CONFIG = [
+  { 
+    id: 'general-trading', 
+    icon: 'ph:globe-light' 
   },
-  {
-    id: 'money-exchange',
-    title: 'MONEY EXCHANGE &\nFINANCIAL SERVICE',
-    icon: '',
+  { 
+    id: 'money-exchange', 
+    icon: '', 
     customSvg: (
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-white">
         <path
@@ -25,69 +22,59 @@ const sectorsData = [
           strokeLinejoin="round"
         />
       </svg>
-    ),
-    desc: 'Chya Group operates a dedicated money exchange division delivering fast, secure, and competitive financial services.',
-    items: ['Khaki Sarwar', 'Chya', 'Chya gold', 'Lutkay chya', 'Barzy chya', 'Hangaw dibaga station']
+    )
   },
-  {
-    id: 'mobile-tech',
-    title: 'MOBILE &\nTECHNOLOGY',
-    icon: 'solar:smartphone-linear',
-    desc: 'From mobile devices to digital solutions, our technology division powers consumers and enterprises alike.',
-    items: ['Chya phone', 'Chya tech']
-  },
-  {
-    id: 'printing',
-    title: 'PRINTING &\nPHOTOCOPY',
-    icon: 'ph:printer-light',
-    desc: 'Our printing and photocopy center delivers high-quality print solutions for businesses, institutions, and individuals.',
-    items: ['Blue printing']
-  },
-  {
-    id: 'online-trading',
-    title: 'ONLINE TRADING',
-    icon: 'ph:handbag-light',
-    desc: 'Our online trading division operates 3 active digital market channels, giving clients access to global financial opportunities.',
-    items: ['Chya travel', 'Kiva luxury']
-  }
+  { id: 'mobile-tech', icon: 'solar:smartphone-linear' },
+  { id: 'printing', icon: 'ph:printer-light' },
+  { id: 'online-trading', icon: 'ph:handbag-light' },
 ];
 
 export default function TimelineSectors() {
-  const { isRTL } = useLanguage();
+  const { locale, isRTL } = useLanguage();
+  const t = translations[locale].timelineSectors;
+
+  const sectors = SECTOR_CONFIG.map((config, idx) => ({
+    ...config,
+    ...t.sectors[idx]
+  }));
 
   return (
-    <section className="relative w-full bg-[#faf9f6] pt-12 pb-24 z-10 font-sans">
+    <section dir="ltr" className="relative w-full bg-[#faf9f6] pt-12 pb-24 z-10 font-sans">
       <div className="max-w-[1400px] mx-auto px-4 md:px-8">
         
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-16 md:mb-24">
-          <span className="text-[11.5px] font-bold tracking-[0.2em] text-[#3b82f6] uppercase mb-4 block">
-            OUR SECTORS
-          </span>
-          <h2 className="text-[36px] md:text-[46px] font-bold tracking-tight text-[#0c1a2e] mb-5">
-            Diverse Strengths, Unified <span className="text-[#162d4f]">Vision.</span>
+          <div className="flex items-center gap-3 mb-4">
+            <span className="inline-block w-8 h-[2px] bg-[#2563eb]" />
+            <span dir="auto" className="text-[12px] font-bold tracking-widest text-[#0c1a2e] uppercase">
+              {t.eyebrow}
+            </span>
+          </div>
+          <h2 dir="auto" className="text-[36px] md:text-[46px] font-bold tracking-tight text-[#0c1a2e] mb-5 leading-tight">
+            {t.headline.diverse} {t.headline.unified} <span className="text-[#162d4f]">{t.headline.vision}</span>
           </h2>
-          <p className="text-[14px] md:text-[15px] text-[#3a4f6a] max-w-xl leading-relaxed mb-6">
-            Chya Group operates across five dynamic sectors,
-            <br className="hidden md:block" />
-            delivering trusted solutions and creating value in every direction we serve.
+          <p dir="auto" className={`text-[14px] md:text-[15px] ${isRTL ? 'text-[#0c1a2e] font-semibold' : 'text-[#3a4f6a]'} max-w-xl leading-relaxed`}>
+            {t.subtitle}
           </p>
-          <div className="w-10 h-[2px] bg-[#3b82f6] rounded-full" />
         </div>
 
         {/* DESKTOP TIMELINE (lg+) */}
-        <div className={`hidden lg:flex relative w-full items-stretch justify-between ${isRTL ? 'flex-row-reverse' : ''}`}>
+        <div className="hidden lg:flex relative w-full items-stretch justify-between">
           
-          {/* Horizontal dotted line perfectly intersecting the arc ends */}
+          {/* Horizontal dotted line */}
           <div className="absolute left-[10%] right-[10%] top-[100px] h-0 border-t-[1.5px] border-dotted border-[#3b82f6]/50 z-0" />
 
-          {sectorsData.map((sector, index) => (
+          {sectors.map((sector, index) => (
             <div key={sector.id} className="relative z-10 flex flex-col items-center w-[20%] px-2.5 group">
               
               {/* Number Badge */}
               <div className="w-10 h-10 bg-white rounded-full shadow-[0_4px_14px_rgb(0,0,0,0.06)] flex items-center justify-center z-20 transition-transform duration-500 group-hover:-translate-y-1">
                 <span className="text-[#3b82f6] font-bold text-[13px] tracking-wide">
-                  {String(index + 1).padStart(2, '0')}
+                  {isRTL ? (
+                     String(index + 1).replace(/[0-9]/g, w => ({ '1': '١', '2': '٢', '3': '٣', '4': '٤', '5': '٥' }[w] || w))
+                  ) : (
+                    String(index + 1).padStart(2, '0')
+                  )}
                 </span>
               </div>
 
@@ -111,7 +98,9 @@ export default function TimelineSectors() {
                 <div className="relative w-[110px] h-[110px] rounded-full bg-white shadow-[0_8px_30px_rgb(0,0,0,0.08)] flex items-center justify-center z-20 -mt-[24px] transition-transform duration-500 group-hover:-translate-y-1 group-hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)]">
                   <div className="w-[90px] h-[90px] rounded-full bg-[#faf9f6] flex items-center justify-center">
                     <div className="w-[66px] h-[66px] rounded-full bg-[#0c1a2e] flex items-center justify-center shadow-inner transition-colors duration-300 group-hover:bg-[#162d4f]">
-                      <Iconify icon={sector.icon} width={26} className="text-white" />
+                      {sector.customSvg ? sector.customSvg : (
+                        <Iconify icon={sector.icon} width={26} className="text-white" />
+                      )}
                     </div>
                   </div>
                 </div>
@@ -121,7 +110,7 @@ export default function TimelineSectors() {
               <div className="flex-1 w-full bg-white rounded-[24px] p-6 lg:p-7 flex flex-col shadow-[0_4px_20px_rgb(0,0,0,0.03)] border border-[#0c1a2e]/5 transition-transform duration-500 group-hover:-translate-y-1">
                 
                 {/* Title */}
-                <h3 className="text-center font-bold text-[#0c1a2e] text-[14.5px] xl:text-[15.5px] tracking-wide whitespace-pre-line leading-snug h-[44px] flex items-center justify-center mb-4 uppercase">
+                <h3 dir="auto" className={`text-center font-bold text-[#0c1a2e] ${isRTL ? 'text-[15px] xl:text-[16px]' : 'text-[14.5px] xl:text-[15.5px]'} tracking-wide whitespace-pre-line leading-snug h-[44px] flex items-center justify-center mb-4 uppercase`}>
                   {sector.title}
                 </h3>
                 
@@ -129,14 +118,14 @@ export default function TimelineSectors() {
                 <div className="w-6 h-[2px] bg-[#3b82f6] mx-auto mb-6" />
 
                 {/* Description */}
-                <p className={`text-[12.5px] xl:text-[13px] text-[#3a4f6a] leading-relaxed mb-6 w-full ${isRTL ? 'text-right' : 'text-left'}`}>
+                <p dir="auto" className={`text-[12.5px] xl:text-[13px] ${isRTL ? 'text-[#0c1a2e] font-semibold' : 'text-[#3a4f6a]'} leading-relaxed mb-6 w-full`}>
                   {sector.desc}
                 </p>
 
                 {/* Bullet list */}
-                <ul className={`text-[12.5px] xl:text-[13px] text-[#3a4f6a] space-y-2.5 w-full mb-8 flex-1 font-medium ${isRTL ? 'text-right' : 'text-left'}`}>
+                <ul dir="auto" className={`text-[12.5px] xl:text-[13px] ${isRTL ? 'text-[#0c1a2e] font-medium' : 'text-[#3a4f6a]'} space-y-2.5 w-full mb-8 flex-1`}>
                   {sector.items.map((item, i) => (
-                    <li key={i} className={`flex items-start gap-2.5 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                    <li key={i} className="flex items-start gap-2.5">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] flex-shrink-0 mt-[6px]" />
                       <span className="leading-tight">{item}</span>
                     </li>
@@ -144,8 +133,8 @@ export default function TimelineSectors() {
                 </ul>
 
                 {/* Button */}
-                <button className={`w-full flex items-center justify-between px-5 py-3.5 bg-[#f8f5f0] hover:bg-[#eae4dc] transition-colors rounded-full text-[#0c1a2e] text-[13px] font-bold group/btn mt-auto ${isRTL ? 'flex-row-reverse' : ''}`}>
-                  <span>Explore More</span>
+                <button className="w-full flex items-center justify-between px-5 py-3.5 bg-[#f8f5f0] hover:bg-[#eae4dc] transition-colors rounded-full text-[#0c1a2e] text-[13px] font-bold group/btn mt-auto">
+                  <span dir="auto">{t.button}</span>
                   <Iconify icon={isRTL ? "solar:arrow-left-linear" : "solar:arrow-right-linear"} width={16} className={`text-[#0c1a2e] transition-transform ${isRTL ? 'group-hover/btn:-translate-x-1' : 'group-hover/btn:translate-x-1'}`} />
                 </button>
 
@@ -156,13 +145,17 @@ export default function TimelineSectors() {
 
         {/* MOBILE TIMELINE (< lg) */}
         <div className="lg:hidden relative flex flex-col gap-12 max-w-[420px] mx-auto mt-10">
-          {sectorsData.map((sector, index) => (
+          {sectors.map((sector, index) => (
             <div key={sector.id} className="relative z-10 flex flex-col items-center w-full group">
               
               {/* Number Badge */}
               <div className="w-10 h-10 bg-white rounded-full shadow-[0_4px_14px_rgb(0,0,0,0.06)] flex items-center justify-center z-20">
                 <span className="text-[#3b82f6] font-bold text-[13px] tracking-wide">
-                  {String(index + 1).padStart(2, '0')}
+                  {isRTL ? (
+                     String(index + 1).replace(/[0-9]/g, w => ({ '1': '١', '2': '٢', '3': '٣', '4': '٤', '5': '٥' }[w] || w))
+                  ) : (
+                    String(index + 1).padStart(2, '0')
+                  )}
                 </span>
               </div>
 
@@ -186,30 +179,32 @@ export default function TimelineSectors() {
                 <div className="relative w-[100px] h-[100px] rounded-full bg-white shadow-md flex items-center justify-center z-20 -mt-[20px] transition-transform group-hover:scale-105">
                   <div className="w-[82px] h-[82px] rounded-full bg-[#faf9f6] flex items-center justify-center">
                     <div className="w-[60px] h-[60px] rounded-full bg-[#0c1a2e] flex items-center justify-center shadow-inner group-hover:bg-[#162d4f]">
-                      <Iconify icon={sector.icon} width={26} className="text-white" />
+                      {sector.customSvg ? sector.customSvg : (
+                        <Iconify icon={sector.icon} width={26} className="text-white" />
+                      )}
                     </div>
                   </div>
                 </div>
               </div>
 
               <div className="w-full bg-white rounded-[24px] p-7 md:p-8 flex flex-col shadow-sm border border-[#0c1a2e]/5">
-                <h3 className="text-center font-bold text-[#0c1a2e] text-[16px] tracking-wide whitespace-pre-line leading-tight mb-4 uppercase">
+                <h3 dir="auto" className={`text-center font-bold text-[#0c1a2e] ${isRTL ? 'text-[17px]' : 'text-[16px]'} tracking-wide whitespace-pre-line leading-tight mb-4 uppercase`}>
                   {sector.title}
                 </h3>
                 <div className="w-6 h-[2px] bg-[#3b82f6] mx-auto mb-6" />
-                <p className={`text-[13.5px] text-[#3a4f6a] leading-relaxed mb-6 w-full ${isRTL ? 'text-right' : 'text-left'}`}>
+                <p dir="auto" className={`text-[13.5px] ${isRTL ? 'text-[#0c1a2e] font-semibold' : 'text-[#3a4f6a]'} leading-relaxed mb-6 w-full`}>
                   {sector.desc}
                 </p>
-                <ul className={`text-[13.5px] text-[#3a4f6a] space-y-3 w-full mb-8 flex-1 font-medium ${isRTL ? 'text-right' : 'text-left'}`}>
+                <ul dir="auto" className={`text-[13.5px] ${isRTL ? 'text-[#0c1a2e] font-medium' : 'text-[#3a4f6a]'} space-y-3 w-full mb-8 flex-1`}>
                   {sector.items.map((item, i) => (
-                    <li key={i} className={`flex items-start gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                    <li key={i} className="flex items-start gap-3">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] flex-shrink-0 mt-[6px]" />
                       <span className="leading-tight">{item}</span>
                     </li>
                   ))}
                 </ul>
-                <button className={`w-full flex items-center justify-between px-6 py-4 bg-[#f8f5f0] hover:bg-[#eae4dc] transition-colors rounded-full text-[#0c1a2e] text-[14px] font-bold group/btn mt-auto ${isRTL ? 'flex-row-reverse' : ''}`}>
-                  <span>Explore More</span>
+                <button className="w-full flex items-center justify-between px-6 py-4 bg-[#f8f5f0] hover:bg-[#eae4dc] transition-colors rounded-full text-[#0c1a2e] text-[14px] font-bold group/btn mt-auto">
+                  <span dir="auto">{t.button}</span>
                   <Iconify icon={isRTL ? "solar:arrow-left-linear" : "solar:arrow-right-linear"} width={18} className={`text-[#0c1a2e] transition-transform ${isRTL ? 'group-hover/btn:-translate-x-1' : 'group-hover/btn:translate-x-1'}`} />
                 </button>
               </div>

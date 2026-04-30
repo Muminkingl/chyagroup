@@ -33,13 +33,25 @@ export const translations = {
       readArticle: "Read article"
     },
     features: {
+      eyebrow: "OUR SECTORS",
       headline: {
         five: "Five",
         sectors: "sectors,",
         one: "one",
         vision: "vision."
       },
-      description: "Chya Group operates across five dynamic industries, spanning 14 branches with 44 professionals driving growth across the region.",
+      description: "Chya Group operates across five dynamic industries, spanning 15 branches with 45 professionals driving growth across the region.",
+      stats: {
+        branches: "Offices",
+        professionals: "Professionals",
+        vision: "Unified Vision"
+      },
+      button: "Our Journey",
+      quote: {
+        line1: "Diverse expertise.",
+        line2: "Unified purpose.",
+        line3: "Lasting impact."
+      },
       items: [
         {
           id: 'general-trading',
@@ -108,12 +120,91 @@ export const translations = {
         }
       ]
     },
+    timelineSectors: {
+      eyebrow: "OUR SECTORS",
+      headline: {
+        diverse: "Diverse Strengths,",
+        unified: "Unified",
+        vision: "Vision."
+      },
+      subtitle: "Chya Group operates across five dynamic sectors, delivering trusted solutions and creating value in every direction we serve.",
+      button: "Explore More",
+      sectors: [
+        {
+          id: 'general-trading',
+          title: "GENERAL TRADING",
+          desc: "Our general trading arm spans a diverse product portfolio, supplying markets across the region with quality and reliability.",
+          items: ['Lammat Al marjan', 'Chyay Mateen', 'Chya amazon']
+        },
+        {
+          id: 'money-exchange',
+          title: "MONEY EXCHANGE &\nFINANCIAL SERVICE",
+          desc: "Chya Group operates a dedicated money exchange division delivering fast, secure, and competitive financial services.",
+          items: ['Khaki Sarwar', 'Chya', 'Chya gold', 'Lutkay chya', 'Barzy chya', 'Hangaw dibaga station']
+        },
+        {
+          id: 'mobile-tech',
+          title: "MOBILE &\nTECHNOLOGY",
+          desc: "From mobile devices to digital solutions, our technology division powers consumers and enterprises alike.",
+          items: ['Chya phone', 'Chya tech']
+        },
+        {
+          id: 'printing',
+          title: "PRINTING &\nPHOTOCOPY",
+          desc: "Our printing and photocopy center delivers high-quality print solutions for businesses, institutions, and individuals.",
+          items: ['Blue printing']
+        },
+        {
+          id: 'online-trading',
+          title: "ONLINE TRADING",
+          desc: "Our online trading division operates 3 active digital market channels, giving clients access to global financial opportunities.",
+          items: ['Chya travel', 'Kiva luxury']
+        }
+      ]
+    },
     history: {
       eyebrow: "Our Legacy",
       title: "Chya Group",
       since: "since 2019",
       description: "Shaping modern horizons with unparalleled dedication. Discover how our vision evolved into a foundation for tomorrow's infrastructure.",
       readMore: "Read More"
+    },
+    agents: {
+      eyebrow: "AUTHORIZED AGENTS",
+      headline: {
+        excellence: "Excellence in growth,",
+        united: "united by",
+        trust: "trust."
+      },
+      subtitle: "We are the authorized agents for leading financial and technology brands, delivering excellence and driving success across the region."
+    },
+    clients: {
+      eyebrow: "OUR CLIENTS",
+      headline: {
+        trusted: "Trusted by Leading Brands",
+        worldwide: "Worldwide."
+      },
+      subtitle: "We are proud to work with a diverse range of clients across industries. Their trust inspires us to deliver excellence every day."
+    },
+    brandQRs: {
+      eyebrow: "FOLLOW OUR BRANDS",
+      title: "Official Brand Channels",
+      description: "Scan to explore our brands and stay connected across our diverse business sectors.",
+      scanToFollow: "SCAN TO FOLLOW",
+      banner: {
+        title: "One Group. Many Solutions.",
+        subtitle: "Each brand under the Chya Group umbrella is dedicated to delivering excellence in its field.",
+        stats: {
+          sectors: "5",
+          offices: "15",
+          professionals: "45",
+          vision: "1",
+          visionLabel: "Unified Vision",
+          sectorsLabel: "Sectors",
+          officesLabel: "Offices",
+          professionalsLabel: "Professionals"
+        }
+      }
     },
     location: {
       eyebrow: "Global HQ",
@@ -135,7 +226,9 @@ export const translations = {
         history: "History",
         contact: "Contact Us"
       },
-      copyright: "All rights reserved."
+      copyright: "All rights reserved.",
+      followUs: "Follow Us",
+      address: "Erbil, Kurdistan Region, Iraq"
     },
     contact: {
       title: "Let's start a conversation",
@@ -317,13 +410,25 @@ export const translations = {
       readArticle: "اقرأ المقال"
     },
     features: {
+      eyebrow: "قطاعاتنا",
       headline: {
         five: "خمسة",
         sectors: "قطاعات،",
         one: "رؤية",
         vision: "واحدة."
       },
-      description: "تعمل مجموعة چیا عبر خمس صناعات ديناميكية، وتضم 14 فرعاً مع 44 محترفاً يدفعون عجلة النمو في جميع أنحاء المنطقة.",
+      description: "تعمل مجموعة چیا عبر خمسة سێکتەرات ديناميكية، وتضم ١٥ مكتباً مع ٤٥ محترفاً يدفعون عجلة النمو في جميع أنحاء المنطقة.",
+      stats: {
+        branches: "مكاتبنا",
+        professionals: "محترفونا",
+        vision: "رؤية موحدة"
+      },
+      button: "رحلتنا",
+      quote: {
+        line1: "خبرات متنوعة.",
+        line2: "هدف موحد.",
+        line3: "تأثير دائم."
+      },
       items: [
         {
           id: 'general-trading',
@@ -392,12 +497,91 @@ export const translations = {
         }
       ]
     },
+    timelineSectors: {
+      eyebrow: "قطاعاتنا",
+      headline: {
+        diverse: "قدرات متنوعة،",
+        unified: "رؤية",
+        vision: "موحدة."
+      },
+      subtitle: "تعمل مجموعة چیا عبر خمسة قطاعات ديناميكية، وتقدم حلولاً موثوقة وتخلق قيمة في كل اتجاه نخدمه.",
+      button: "استكشف المزيد",
+      sectors: [
+        {
+          id: 'general-trading',
+          title: "التجارة العامة",
+          desc: "يغطي ذراعنا للتجارة العامة مجموعة متنوعة من المنتجات، ويزود الأسواق في جميع أنحاء المنطقة بالجودة والموثوقية.",
+          items: ['لمة المرجان', 'چياي متين', 'چیا أمازون']
+        },
+        {
+          id: 'money-exchange',
+          title: "الصرافة والخدمات المالية",
+          desc: "تدير مجموعة چیا قسماً مخصصاً للصرافة يقدم خدمات مالية سريعة وآمنة وتنافسية.",
+          items: ['خاكي سرور', 'چیا', 'چیا گۆڵد', 'لوتکەی چیا', 'بەرزى چیا', 'منفذ ديکبە هەنگاو']
+        },
+        {
+          id: 'mobile-tech',
+          title: "الموبايل والتكنولوجيا",
+          desc: "من الأجهزة المحمولة إلى الحلول الرقمية، يدعم قسم التكنولوجيا لدينا المستهلكين والشركات على حد سواء.",
+          items: ['چیا فۆن', 'چیا تێك']
+        },
+        {
+          id: 'printing',
+          title: "الطباعة والتصوير",
+          desc: "يوفر مركز الطباعة والتصوير لدينا حلول طباعة عالية الجودة للشركات والمؤسسات والأفراد.",
+          items: ['بلو برێنتینگ']
+        },
+        {
+          id: 'online-trading',
+          title: "التجارة عبر الإنترنت",
+          desc: "يدير قسم التجارة عبر الإنترنت لدينا 3 قنوات نشطة للسوق الرقمي، مما يتيح للعملاء الوصول إلى الفرص المالية العالمية.",
+          items: ['چیا تڕاڤڵ', 'کیڤا لوکژوری']
+        }
+      ]
+    },
     history: {
       eyebrow: "تراثنا",
       title: "مجموعة چیا",
       since: "منذ عام 2019",
       description: "صياغة آفاق حديثة بتفانٍ لا مثيل له. اكتشف كيف تطورت رؤيتنا لتصبح أساساً للبنية التحتية للغد.",
       readMore: "اقرأ المزيد"
+    },
+    agents: {
+      eyebrow: "الوكالات المعتمدة",
+      headline: {
+        excellence: "التميز في النمو،",
+        united: "يجمعه",
+        trust: "الثقة."
+      },
+      subtitle: "نحن الوكلاء المعتمدون للعلامات التجارية الرائدة في مجالات التمويل والتكنولوجيا، ونقدم التميز وندفع النجاح في جميع أنحاء المنطقة."
+    },
+    clients: {
+      eyebrow: "عملاؤنا",
+      headline: {
+        trusted: "موثوقون من قبل العلامات التجارية",
+        worldwide: "الرائدة عالمياً."
+      },
+      subtitle: "نحن فخورون بالعمل مع مجموعة متنوعة من العملاء عبر الصناعات. ثقتهم تلهمنا لتقديم التميز كل يوم."
+    },
+    brandQRs: {
+      eyebrow: "تابع برانداتنا",
+      title: "قنوات البراندات الرسمية",
+      description: "امسح الرمز لاستكشاف برانداتنا والبقاء على اتصال عبر قطاعات أعمالنا المتنوعة.",
+      scanToFollow: "امسح للمتابعة",
+      banner: {
+        title: "مجموعة واحدة. حلول عديدة.",
+        subtitle: "كل براند تحت مظلة مجموعة چیا مكرس لتقديم التميز في مجاله.",
+        stats: {
+          sectors: "٥",
+          offices: "١٥",
+          professionals: "٤٥",
+          vision: "١",
+          visionLabel: "رؤية موحدة",
+          sectorsLabel: "قطاعات",
+          officesLabel: "مكاتبنا",
+          professionalsLabel: "محترفونا"
+        }
+      }
     },
     location: {
       eyebrow: "المقر العالمي",
@@ -419,7 +603,9 @@ export const translations = {
         history: "تاريخنا",
         contact: "اتصل بنا"
       },
-      copyright: "جميع الحقوق محفوظة."
+      copyright: "جميع الحقوق محفوظة.",
+      followUs: "تابعونا",
+      address: "أربيل، إقليم كردستان، العراق"
     },
     contact: {
       title: "لنبدأ محادثة",
@@ -595,19 +781,31 @@ export const translations = {
       all: "هەموو هەواڵەکان",
       eyebrow: "هەواڵ و نوێکارییەکان",
       headline: "دوایین هەواڵەکانی",
-      headlineAccent: "چیا",
+      headlineAccent: "چیا گرووپ",
       subtitle: "لەگەڵ دوایین نوێکارییەکان و دەستکەوتەکانمان بمێنەوە کە کاریگەری واقیعیان لە ناوچەکەدا هەیە.",
       viewAll: "بینینی هەموو هەواڵەکان",
       readArticle: "خوێندنەوەی بابەت"
     },
     features: {
+      eyebrow: "سێکتەرەکانمان",
       headline: {
         five: "پێنج",
         sectors: "سێکتەر،",
         one: "یەک",
         vision: "دیدگا."
       },
-      description: "چیا گرووپ لە پێنج پیشەسازی جیاوازدا کاردەکات، کە 14 لقی هەیە و 44 کەسی پسپۆڕ کاردەکەن بۆ گەشەپێدانی ناوچەکە.",
+      description: "چیا گرووپ لە پێنج سێکتەری جیاوازدا کاردەکات، کە ١٥ نووسینگە و ٤٥ کەسی پسپۆڕ کاردەکەن بۆ گەشەپێدانی ناوچەکە.",
+      stats: {
+        branches: "نووسینگە",
+        professionals: "پسپۆڕ",
+        vision: "دیدگای یەکگرتوو"
+      },
+      button: "گەشتەکەمان",
+      quote: {
+        line1: "پسپۆڕی جۆراوجۆر.",
+        line2: "ئامانجی یەکگرتوو.",
+        line3: "کاریگەری بەردەوام."
+      },
       items: [
         {
           id: 'general-trading',
@@ -624,11 +822,11 @@ export const translations = {
         },
         {
           id: 'money-exchange',
-          tag: 'گۆڕینەوەی دراو',
-          cardTitle: 'گۆڕینەوەی دراو و خزمەتگوزاری دارایی',
+          tag: 'ئاڵوگۆڕی دراو و سێرڤسی دارایی',
+          cardTitle: 'ئاڵوگۆڕی دراو و سێرڤسی دارایی',
           contentLabel: 'خزمەتگوزارییە داراییەکان',
           contentTitle: 'گۆڕینەوە و خزمەتگوزاری دارایی جێی متمانە',
-          contentBody: 'گرووپی چیا 5 نووسینگەی تایبەت بە گۆڕینەوەی دراو بەڕێوەدەبات کە خزمەتگوزاری خێرا و سەلامەت پێشکەش بە تاک و کۆمپانیاکان دەکەن.',
+          contentBody: 'چیا گرووپ 5 نووسینگەی تایبەت بە گۆڕینەوەی دراو بەڕێوەدەبات کە خزمەتگوزاری خێرا و سەلامەت پێشکەش بە تاک و کۆمپانیاکان دەکەن.',
           metrics: [
             { label: 'نووسینگەکان', value: '5' },
             { label: 'دراوەکان', value: '20+' },
@@ -650,7 +848,7 @@ export const translations = {
         },
         {
           id: 'printing',
-          tag: 'چاپەمەنی و کۆپیکردن',
+          tag: 'چاپەمەنی و فۆتۆکۆپی',
           cardTitle: ' چاپەمەنی و فۆتۆکۆپی ',
           contentLabel: 'چاپ و کۆپیکردن',
           contentTitle: 'چاپی کوالێتی بەرز بۆ هەموو پێداویستییەک',
@@ -663,16 +861,58 @@ export const translations = {
         },
         {
           id: 'online-trading',
-          tag: 'بازرگانی ئۆنلاین',
-          cardTitle: 'بازرگانی ئۆنلاین',
+          tag: 'بازرگانی بە ئۆنڵاین',
+          cardTitle: 'بازرگانی بە ئۆنڵاین',
           contentLabel: 'بازرگانی ئۆنلاین',
           contentTitle: 'بازرگانی زیرەک لە بازاڕە دیجیتاڵییەکاندا',
-          contentBody: 'بەشی بازرگانی ئۆنلاینمان 3 کەناڵی بازاڕی دیجیتاڵی کارا بەڕێوەدەبات، کە دەرفەت دەدات بە کڕیاران بۆ دەستڕاگەیشتن بە ئامێرە داراییە جیهانییەکان.',
+          contentBody: 'بەشی بازرگانی بە ئۆنلاینمان 3 کەناڵی بازاڕی دیجیتاڵی کارا بەڕێوەدەبات، کە دەرفەت دەدات بە کڕیاران بۆ دەستڕاگەیشتن بە ئامێرە داراییە جیهانییەکان.',
           metrics: [
             { label: 'کەناڵەکان', value: '3' },
             { label: 'هاوبەشە بانکییەکان', value: '14' },
             { label: 'بەردەوامی', value: '99.9%' }
           ]
+        }
+      ]
+    },
+    timelineSectors: {
+      eyebrow: "سێکتەرەکانمان",
+      headline: {
+        diverse: "توانای جۆراوجۆر،",
+        unified: "دیدگای",
+        vision: "یەکگرتوو."
+      },
+      subtitle: "چیا گرووپ لە پێنج سێکتەری داینامیکیدا کاردەکات، چارەسەری جێی متمانە پێشکەش دەکات و لە هەر ئاراستەیەکدا کە خزمەتی دەکەین، بەها دەخوڵقێنێت.",
+      button: "زیاتر بزانە",
+      sectors: [
+        {
+          id: 'general-trading',
+          title: "بازرگانی گشتی",
+          desc: "بەشی بازرگانی گشتی ئێمە کۆمەڵێک بەرهەمی جۆراوجۆر لەخۆدەگرێت، کە بازاڕەکانی ناوچەکە بە کوالێتی و متمانە دابین دەکات.",
+          items: ['لمة المرجان', 'چیای مەتین', 'چیا ئەمازۆن']
+        },
+        {
+          id: 'money-exchange',
+          title: "ئاڵوگۆڕی دراو و سێرڤسی دارایی",
+          desc: "چیا گرووپ بەشێکی تایبەت بە ئاڵوگۆڕی دراو بەڕێوەدەبات کە خزمەتگوزارییە داراییە خێرا و سەلامەت و ڕکابەرییەکان پێشکەش دەکات.",
+          items: ['خاکی سەروەر', 'چیا', 'چیا گۆڵد', 'لوتکەی چیا', 'بەرزی چیا', 'منفذی دیبگەی هەنگاو']
+        },
+        {
+          id: 'mobile-tech',
+          title: "مۆبایل و تەکنەلۆژیا",
+          desc: "لە ئامێرە مۆبایلەکانەوە تا چارەسەرە دیجیتاڵییەکان، بەشی تەکنەلۆژیای ئێە هێز دەداتە بەکاربەران و کۆمپانیاکان.",
+          items: ['چیا فۆن', 'چیا تێك']
+        },
+        {
+          id: 'printing',
+          title: "چاپەمەنی و فۆتۆکۆپی",
+          desc: "سەنتەری چاپ و فۆتۆکۆپیمان چارەسەری چاپی کوالێتی بەرز بۆ کۆمپانیا و دامەزراوە و تاکەکان دابین دەکات.",
+          items: ['بلو پرێنتینگ']
+        },
+        {
+          id: 'online-trading',
+          title: "بازرگانی بە ئۆنڵاین",
+          desc: "بەشی بازرگانی ئۆنلاینمان ٣ کەناڵی بازاڕی دیجیتاڵی کارا بەڕێوەدەبات، کە دەرفەت دەدات بە کڕیاران بۆ دەستڕاگەیشتن بە هەلە داراییە جیهانییەکان.",
+          items: ['چیا تڕاڤڵ', 'کیڤا لوکژوری']
         }
       ]
     },
@@ -682,6 +922,43 @@ export const translations = {
       since: "لە ساڵی ٢٠١٩وە",
       description: "نەخشاندنی ئاسۆیەکی نوێ بە دڵسۆزییەکی بێوێنە. بزانە چۆن دیدگای ئێمە بوو بە بناغەیەک بۆ ژێرخانی بەیانی.",
       readMore: "زیاتر بزانە"
+    },
+    agents: {
+      eyebrow: "وەکالەکان",
+      headline: {
+        excellence: "گەشەپێدانێکی ناوازە،",
+        united: "لەسەر بنەمای",
+        trust: "متمانە."
+      },
+      subtitle: "ئێمە وەکالەتی پەسەندکراوی براندە پێشەنگەکانی دارایی و تەکنەلۆژیان، باشترینەکان پێشکەش دەکەین و سەرکەوتن لە ناوچەکەدا بەدی دەهێنین."
+    },
+    clients: {
+      eyebrow: "کڕیارەکانمان",
+      headline: {
+        trusted: "جێگەی متمانەی براندە",
+        worldwide: "پێشەنگەکانی جیهانین."
+      },
+      subtitle: "ئێمە شانازی دەکەین بە کارکردن لەگەڵ کۆمەڵێکی بەرفراوان لە کڕیاران لە بوارە جیاوازەکاندا. متمانەی ئەوان هاندەرمانە بۆ پێشکەشکردنی باشترینەکان."
+    },
+    brandQRs: {
+      eyebrow: "فۆڵۆی براندەکانمان بکەن",
+      title: "کەناڵی فەرمی بڕاندەکانمان",
+      description: "سکان بکە بۆ گەڕان لە ناو براندەکانمان و پەیوەندی بەردەوام لە سێکتەرە جیاوازەکانمانەوە.",
+      scanToFollow: "سکان بکە بۆ فۆڵۆو",
+      banner: {
+        title: "یەک گرووپ. چەندین چارەسەر.",
+        subtitle: "هەر براندێک لەژێر سایەی چیا گرووپدا کاردەکات بۆ پێشکەشکردنی باشترین خزمەتگوزاری لە بوارەکەیدا.",
+        stats: {
+          sectors: "٥",
+          offices: "١٥ ",
+          professionals: "٤٥",
+          vision: "١",
+          visionLabel: "دیدگای یەکگرتوو",
+          sectorsLabel: "سێکتەر",
+          officesLabel: "نووسینگە",
+          professionalsLabel: "پسپۆڕ"
+        }
+      }
     },
     location: {
       eyebrow: "بارەگای سەرەکی",
@@ -699,11 +976,13 @@ export const translations = {
       sectors: "سێکتەرەکان",
       links: {
         about: "دەربارەی ئێمە",
-        teams: "تیمەکان",
+        teams: "تیمەکانمان",
         history: "مێژووەکەمان",
         contact: "پەیوەندیمان پێوە بکەن"
       },
-      copyright: "هەموو مافەکان پارێزراون."
+      copyright: "هەموو مافەکان پارێزراون.",
+      followUs: "فۆڵۆومان بکەن",
+      address: "هەولێر، هەرێمی کوردستان، عێراق"
     },
     contact: {
       title: "با دەست بکەین بە گفتوگۆ",

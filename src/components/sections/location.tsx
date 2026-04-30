@@ -22,18 +22,20 @@ export default function LocationSection() {
         ))}
       </svg>
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-        <div className={`grid lg:grid-cols-[0.85fr_1.15fr] gap-12 lg:gap-20 items-center ${isRTL ? 'direction-rtl' : ''}`}>
+            <div className={`grid lg:grid-cols-[0.85fr_1.15fr] gap-12 lg:gap-20 items-center`} dir={isRTL ? 'rtl' : 'ltr'}>
 
-          {/* Left — Content */}
-          <div className={`flex flex-col justify-center ${isRTL ? 'text-right' : 'text-left'}`}>
+          {/* Right/Left — Content */}
+          <div className={`flex flex-col justify-center`}>
             {/* Eyebrow */}
-            <div className={`inline-flex items-center gap-2 mb-8 ${isRTL ? 'flex-row-reverse self-end' : 'self-start'}`}>
-              <Iconify icon="solar:globus-linear" className="w-4 h-4 text-[#0c1a2e]/50" />
-              <span className="text-xs font-semibold text-[#0c1a2e]/50 uppercase tracking-[0.2em]">{t.eyebrow}</span>
+            <div className={`flex items-center gap-3 mb-8`}>
+              <span className="inline-block w-8 h-[2px] bg-[#0c1a2e]" />
+              <span dir="auto" className="text-[12px] font-bold tracking-widest text-[#0c1a2e] uppercase">
+                {t.eyebrow}
+              </span>
             </div>
 
             {/* Headline */}
-            <h2 className="text-4xl sm:text-5xl md:text-[3.8rem] font-bold tracking-tight text-[#0c1a2e] leading-[1.05] mb-6">
+            <h2 dir="auto" className="text-4xl sm:text-5xl md:text-[3.8rem] font-bold tracking-tight text-[#0c1a2e] leading-[1.05] mb-6">
               {t.title.split(' ').slice(0, -1).join(' ')}{' '}
               <span className="block font-medium italic text-[#162d4f]">
                 {t.title.split(' ').slice(-1)}
@@ -41,33 +43,33 @@ export default function LocationSection() {
             </h2>
 
             {/* Description */}
-            <p className="text-[15px] text-[#3a4f6a]/70 leading-relaxed max-w-sm mb-12">
+            <p dir="auto" className={`text-[15px] ${isRTL ? 'text-[#0c1a2e] font-semibold' : 'text-[#3a4f6a]/70'} leading-relaxed max-w-sm mb-12`}>
               {t.description}
             </p>
 
             {/* Contact info items */}
             <div className="space-y-7 mb-12">
               {/* Address */}
-              <div className={`flex items-start gap-5 ${isRTL ? 'flex-row-reverse' : ''}`}>
+              <div className={`flex items-start gap-5`}>
                 <div className="w-12 h-12 rounded-full bg-[#0c1a2e]/[0.04] border border-[#0c1a2e]/10 flex items-center justify-center flex-shrink-0">
                   <Iconify icon="solar:buildings-2-linear" className="text-[#0c1a2e]/60 text-lg" />
                 </div>
-                <div className={isRTL ? 'text-right' : 'text-left'}>
-                  <h4 className="text-base font-bold text-[#0c1a2e] mb-1">{t.hqTitle}</h4>
-                  <p className="text-[15px] font-semibold text-[#3a4f6a]/80 leading-relaxed">{t.hqAddress}</p>
+                <div>
+                  <h4 dir="auto" className="text-base font-bold text-[#0c1a2e] mb-1">{t.hqTitle}</h4>
+                  <p dir="auto" className={`text-[15px] ${isRTL ? 'text-[#0c1a2e] font-semibold' : 'text-[#3a4f6a]/80'} leading-relaxed`}>{t.hqAddress}</p>
                 </div>
               </div>
 
               {/* Email */}
-              <div className={`flex items-start gap-5 ${isRTL ? 'flex-row-reverse' : ''}`}>
+              <div className={`flex items-start gap-5`}>
                 <div className="w-12 h-12 rounded-full bg-[#0c1a2e]/[0.04] border border-[#0c1a2e]/10 flex items-center justify-center flex-shrink-0">
                   <Iconify icon="solar:letter-linear" className="text-[#0c1a2e]/60 text-lg" />
                 </div>
-                <div className={isRTL ? 'text-right' : 'text-left'}>
-                  <h4 className="text-base font-bold text-[#0c1a2e] mb-1">{t.email}</h4>
+                <div>
+                  <h4 dir="auto" className="text-base font-bold text-[#0c1a2e] mb-1">{t.email}</h4>
                   <a
                     href="mailto:chyagroup2019@gmail.com"
-                    className="text-[15px] font-semibold text-[#3a4f6a]/80 hover:text-[#0c1a2e] transition-colors"
+                    className={`text-[15px] ${isRTL ? 'text-[#0c1a2e] font-semibold' : 'text-[#3a4f6a]/80'} hover:text-[#0c1a2e] transition-colors`}
                   >
                     chyagroup2019@gmail.com
                   </a>
@@ -75,23 +77,23 @@ export default function LocationSection() {
               </div>
 
               {/* Phone */}
-              <div className={`flex items-start gap-5 ${isRTL ? 'flex-row-reverse' : ''}`}>
+              <div className={`flex items-start gap-5`}>
                 <div className="w-12 h-12 rounded-full bg-[#0c1a2e]/[0.04] border border-[#0c1a2e]/10 flex items-center justify-center flex-shrink-0">
                   <Iconify icon="solar:phone-linear" className="text-[#0c1a2e]/60 text-lg" />
                 </div>
-                <div className={isRTL ? 'text-right' : 'text-left'}>
-                  <h4 className="text-base font-bold text-[#0c1a2e] mb-1">{t.phone}</h4>
+                <div>
+                  <h4 dir="auto" className="text-base font-bold text-[#0c1a2e] mb-1">{t.phone}</h4>
                   <div className="flex flex-col gap-1">
                     <a
                       href="tel:+9647504798788"
-                      className="text-[15px] font-bold text-[#3a4f6a]/80 hover:text-[#0c1a2e] transition-colors"
+                      className={`text-[15px] ${isRTL ? 'text-[#0c1a2e] font-bold' : 'text-[#3a4f6a]/80'} hover:text-[#0c1a2e] transition-colors`}
                       dir="ltr"
                     >
                       +964 750 479 8788
                     </a>
                     <a
                       href="tel:+9647504442688"
-                      className="text-[15px] font-bold text-[#3a4f6a]/80 hover:text-[#0c1a2e] transition-colors"
+                      className={`text-[15px] ${isRTL ? 'text-[#0c1a2e] font-bold' : 'text-[#3a4f6a]/80'} hover:text-[#0c1a2e] transition-colors`}
                       dir="ltr"
                     >
                       +964 750 444 2688
@@ -104,14 +106,13 @@ export default function LocationSection() {
             {/* CTA Button */}
             <Link
               href="/contact"
-              className={`group inline-flex items-center gap-2 bg-[#0c1a2e] text-white font-semibold h-[48px] rounded-full ps-7 pe-6 text-sm hover:bg-[#162d4f] transition-all duration-300 shadow-sm hover:shadow-md w-fit ${isRTL ? 'flex-row-reverse' : ''}`}
+              className={`group inline-flex items-center gap-2 bg-[#0c1a2e] text-white font-semibold h-[48px] rounded-full ps-7 pe-6 text-sm hover:bg-[#162d4f] transition-all duration-300 shadow-sm hover:shadow-md w-fit`}
             >
-              <span className="text-nowrap">{t.contactBtn}</span>
-              {isRTL ? (
-                <Iconify icon="solar:arrow-left-linear" className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-0.5" />
-              ) : (
-                <Iconify icon="solar:arrow-right-linear" className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-              )}
+              <span dir="auto" className="text-nowrap">{t.contactBtn}</span>
+              <Iconify 
+                icon={isRTL ? "solar:arrow-left-linear" : "solar:arrow-right-linear"} 
+                className={`w-4 h-4 transition-transform duration-300 ${isRTL ? 'group-hover:-translate-x-0.5' : 'group-hover:translate-x-0.5'}`} 
+              />
             </Link>
           </div>
 

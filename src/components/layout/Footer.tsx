@@ -13,9 +13,9 @@ export const Footer = () => {
   const sectorNames = t.features.items.map(item => item.tag);
 
   return (
-    <footer className="relative w-full overflow-hidden" style={{ background: '#f5f0ea' }}>
+    <footer className="relative w-full overflow-hidden" style={{ background: '#faf9f6' }}>
       {/* Top transition glow to bridge from the map section */}
-      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#f5f0ea] via-[#f5f0ea]/50 to-transparent z-20 pointer-events-none" />
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#faf9f6] via-[#faf9f6]/50 to-transparent z-20 pointer-events-none" />
       
       {/* Decorative dot grid — top left */}
       <div className={`absolute top-10 ${isRTL ? 'right-10' : 'left-10'} opacity-[0.15] pointer-events-none`}>
@@ -48,18 +48,18 @@ export const Footer = () => {
               </div>
             </Link>
             
-            <p className="text-[15px] text-[#1e293b] leading-relaxed max-w-sm mb-10 font-medium">
+            <p className={`text-[15px] ${isRTL ? 'text-[#0c1a2e] font-bold' : 'text-[#0c1a2e] font-semibold'} leading-relaxed max-w-sm mb-10`}>
               {t.footer.description}
             </p>
 
             <div className="flex flex-col items-start gap-4">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#0c1a2e] mb-2">Follow Us</span>
+              <span dir="auto" className="text-xs font-bold uppercase tracking-widest text-[#0c1a2e] mb-2">{t.footer.followUs}</span>
               <div className="flex gap-3">
                 <Link 
                   href="https://www.instagram.com/chyagroup.iq?igsh=MXdrMWo3MWFidmkxaw%3D%3D&utm_source=qr" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full border border-[#0c1a2e]/10 flex items-center justify-center text-[#0c1a2e]/60 hover:bg-[#0c1a2e] hover:text-white hover:border-[#0c1a2e] transition-all duration-300"
+                  className="w-10 h-10 rounded-full border border-[#0c1a2e]/10 flex items-center justify-center text-[#0c1a2e] hover:bg-[#0c1a2e] hover:text-white transition-all duration-300"
                 >
                   <Iconify icon="ri:instagram-line" width={18} />
                 </Link>
@@ -75,22 +75,22 @@ export const Footer = () => {
             </h4>
             <ul className="space-y-4">
               <li>
-                <Link href="/about" className="text-[15px] font-medium text-[#3a4f6a] hover:text-[#2563eb] transition-colors">
+                <Link href="/about" className={`text-[15px] font-bold text-[#0c1a2e] hover:opacity-70 transition-opacity`}>
                   {t.footer.links.about}
                 </Link>
               </li>
               <li>
-                <Link href="/about#leadership" className="text-[15px] font-medium text-[#3a4f6a] hover:text-[#2563eb] transition-colors">
+                <Link href="/about#leadership" className={`text-[15px] font-bold text-[#0c1a2e] hover:opacity-70 transition-opacity`}>
                   {t.footer.links.teams}
                 </Link>
               </li>
               <li>
-                <Link href="/about#history" className="text-[15px] font-medium text-[#3a4f6a] hover:text-[#2563eb] transition-colors">
+                <Link href="/about#history" className={`text-[15px] font-bold text-[#0c1a2e] hover:opacity-70 transition-opacity`}>
                   {t.footer.links.history}
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-[15px] font-medium text-[#3a4f6a] hover:text-[#2563eb] transition-colors">
+                <Link href="/contact" className={`text-[15px] font-bold text-[#0c1a2e] hover:opacity-70 transition-opacity`}>
                   {t.footer.links.contact}
                 </Link>
               </li>
@@ -106,7 +106,7 @@ export const Footer = () => {
             <ul className="space-y-4">
               {sectorNames.map((name, idx) => (
                 <li key={idx}>
-                  <Link href="/#sectors" className="text-[15px] font-medium text-[#3a4f6a] hover:text-[#2563eb] transition-colors">
+                  <Link href="/#sectors" className={`text-[15px] font-bold text-[#0c1a2e] hover:opacity-70 transition-opacity`}>
                     {name}
                   </Link>
                 </li>
@@ -122,9 +122,9 @@ export const Footer = () => {
           {/* Copyright */}
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-full border border-[#0c1a2e]/20 flex items-center justify-center">
-              <Iconify icon="solar:shield-check-linear" className="text-[#0c1a2e]/70" width={14} />
+              <Iconify icon="solar:shield-check-linear" className="text-[#0c1a2e]" width={14} />
             </div>
-            <p className="text-xs font-bold uppercase tracking-widest text-[#0c1a2e]/70" dir="ltr">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#0c1a2e]" dir="ltr">
               &copy; {currentYear} Chya Group. {t.footer.copyright}
             </p>
           </div>
@@ -132,20 +132,20 @@ export const Footer = () => {
           {/* Location */}
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-full border border-[#0c1a2e]/20 flex items-center justify-center">
-              <Iconify icon="solar:map-point-linear" className="text-[#0c1a2e]/70" width={14} />
+              <Iconify icon="solar:map-point-linear" className="text-[#0c1a2e]" width={14} />
             </div>
-            <p className="text-xs font-bold uppercase tracking-widest text-[#0c1a2e]/70">
-              Erbil, Kurdistan Region, Iraq
+            <p dir="auto" className="text-xs font-bold uppercase tracking-widest text-[#0c1a2e]">
+              {t.footer.address}
             </p>
           </div>
 
           {/* Email */}
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-full border border-[#0c1a2e]/20 flex items-center justify-center">
-              <Iconify icon="solar:letter-linear" className="text-[#0c1a2e]/70" width={14} />
+              <Iconify icon="solar:letter-linear" className="text-[#0c1a2e]" width={14} />
             </div>
-            <a href="mailto:info@chyagroup.com" className="text-xs font-bold uppercase tracking-widest text-[#0c1a2e]/70 hover:text-[#2563eb] transition-colors">
-              info@chyagroup.com
+            <a href="mailto:chyagroup2019@gmail.com" className="text-xs font-bold uppercase tracking-widest text-[#0c1a2e] hover:opacity-70 transition-opacity">
+              chyagroup2019@gmail.com
             </a>
           </div>
 

@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import { useLanguage } from '@/context/LanguageContext';
+import { translations } from '@/i18n/translations';
 
 const actualLogos = [
   { name: "FIB", logo: "/fib.png" },
@@ -19,7 +20,7 @@ const actualLogos = [
   { name: "Dubairemit", logo: "/dubairemit.png" },
 ];
 
-// Duplicate logos to fill the 40+ brands UI requirement
+// Duplicate logos to fill the grid
 const brands = [...actualLogos, ...actualLogos, ...actualLogos];
 
 const BrandCard = ({ name, logo }: { name: string, logo: string }) => {
@@ -35,28 +36,31 @@ const BrandCard = ({ name, logo }: { name: string, logo: string }) => {
 };
 
 export default function ClientsSection() {
-  const { isRTL } = useLanguage();
+  const { locale, isRTL } = useLanguage();
+  const t = translations[locale].clients;
 
   return (
-    <section id="clients" className="bg-[#faf9f6] py-20 md:py-28 z-10 font-sans border-t border-[#0c1a2e]/5">
+    <section dir="ltr" id="clients" className="bg-[#faf9f6] py-20 md:py-28 z-10 font-sans border-t border-[#0c1a2e]/5">
       <div className="max-w-[1400px] mx-auto px-4 md:px-8">
         
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-14 md:mb-16">
-          <span className="text-[11px] md:text-[12px] font-bold tracking-[0.2em] text-[#3b82f6] uppercase mb-4 block">
-            OUR CLIENTS
-          </span>
-          <h2 className="text-[32px] md:text-[40px] lg:text-[46px] font-bold tracking-tight text-[#0c1a2e] mb-5">
-            Trusted by Leading Brands <span className="text-[#162d4f]">Worldwide.</span>
+          <div className="flex items-center gap-3 mb-4">
+            <span className="inline-block w-8 h-[2px] bg-[#2563eb]" />
+            <span dir="auto" className="text-[12px] font-bold tracking-widest text-[#0c1a2e] uppercase">
+              {t.eyebrow}
+            </span>
+          </div>
+          <h2 dir="auto" className="text-[32px] md:text-[40px] lg:text-[46px] font-bold tracking-tight text-[#0c1a2e] mb-5">
+            {t.headline.trusted} <span className="text-[#162d4f]">{t.headline.worldwide}</span>
           </h2>
-          <p className="text-[14px] md:text-[15px] text-[#3a4f6a] max-w-2xl leading-relaxed">
-            We are proud to work with a diverse range of clients across industries.<br className="hidden md:block" />
-            Their trust inspires us to deliver excellence every day.
+          <p dir="auto" className={`text-[14px] md:text-[15px] ${isRTL ? 'text-[#0c1a2e] font-semibold' : 'text-[#3a4f6a]'} max-w-2xl leading-relaxed`}>
+            {t.subtitle}
           </p>
         </div>
 
         {/* Grid */}
-        <div className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-3 md:gap-4 lg:gap-5 ${isRTL ? 'rtl' : 'ltr'}`}>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-3 md:gap-4 lg:gap-5">
           {brands.map((brand, index) => (
             <BrandCard key={index} name={brand.name} logo={brand.logo} />
           ))}

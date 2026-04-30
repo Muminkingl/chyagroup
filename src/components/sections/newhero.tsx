@@ -58,10 +58,10 @@ export default function HeroSection() {
                 .hero-fade-up.ready.delay-2 { animation-delay: 0.72s; }
             `}</style>
 
-            <section className="relative w-full overflow-hidden" style={{ background: '#f5f0ea' }}>
+            <section dir="ltr" className="relative w-full overflow-hidden" style={{ background: '#faf9f6' }}>
                 {/* Decorative arc grid — top right corner */}
                 <svg
-                    className={`hero-arc-grid${mounted ? ' ready' : ''} absolute top-0 ${isRTL ? 'left-0 scale-x-[-1]' : 'right-0'} w-[300px] h-[300px] pointer-events-none z-0`}
+                    className={`hero-arc-grid${mounted ? ' ready' : ''} absolute top-0 right-0 w-[300px] h-[300px] pointer-events-none z-0`}
                     viewBox="0 0 300 300"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -88,17 +88,17 @@ export default function HeroSection() {
                 {/* Main hero area */}
                 <div className="relative min-h-[600px] lg:min-h-[92vh]">
 
-                    {/* Globe image — animated entrance */}
+                    {/* Globe image — animated entrance, always on the RIGHT */}
                     <div
-                        className={`hero-globe${mounted ? ' ready' : ''} absolute bottom-[-5%] ${isRTL ? 'left-[-8%]' : 'right-[-8%]'} w-[90%] sm:w-[80%] lg:w-[68%] h-[60%] sm:h-[75%] lg:h-[95%]`}
+                        className={`hero-globe${mounted ? ' ready' : ''} absolute bottom-[-5%] right-[-8%] w-[90%] sm:w-[80%] lg:w-[68%] h-[60%] sm:h-[75%] lg:h-[95%]`}
                     >
                         <img
                             src="/zawe.png"
                             alt="Global connections"
-                            className={`w-full h-full object-contain ${isRTL ? 'object-left' : 'object-right'}`}
+                            className="w-full h-full object-contain object-right"
                             style={{
-                                maskImage: `linear-gradient(to ${isRTL ? 'right' : 'left'}, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%), linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 12%, rgba(0,0,0,1) 88%, rgba(0,0,0,0) 100%)`,
-                                WebkitMaskImage: `linear-gradient(to ${isRTL ? 'right' : 'left'}, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%), linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 12%, rgba(0,0,0,1) 88%, rgba(0,0,0,0) 100%)`,
+                                maskImage: `linear-gradient(to left, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%), linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 12%, rgba(0,0,0,1) 88%, rgba(0,0,0,0) 100%)`,
+                                WebkitMaskImage: `linear-gradient(to left, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%), linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 12%, rgba(0,0,0,1) 88%, rgba(0,0,0,0) 100%)`,
                                 maskComposite: 'intersect',
                                 WebkitMaskComposite: 'destination-in',
                                 filter: 'brightness(1.1) contrast(1.05)',
@@ -106,12 +106,12 @@ export default function HeroSection() {
                         />
                     </div>
 
-                    {/* Text content */}
+                    {/* Text content — dir=ltr keeps layout fixed; individual text uses dir=auto */}
                     <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 flex items-center min-h-[600px] lg:min-h-[92vh]">
-                        <div className={`max-w-2xl pt-32 pb-24 lg:pt-40 lg:pb-32 ${isRTL ? 'ms-auto text-right' : 'text-left'}`}>
+                        <div className="max-w-2xl pt-32 pb-24 lg:pt-40 lg:pb-32 text-left">
 
-                            {/* Main headline — BlurInText already handles its own entrance */}
-                            <h1 className="text-[2.6rem] sm:text-5xl md:text-6xl xl:text-[4.25rem] font-bold tracking-tight text-[#0c1a2e] leading-[1.08] mb-6">
+                            {/* Main headline */}
+                            <h1 dir="auto" className="text-[2.6rem] sm:text-5xl md:text-6xl xl:text-[4.25rem] font-bold tracking-tight text-[#0c1a2e] leading-[1.08] mb-6">
                                 <span className="block lg:whitespace-nowrap">
                                     <BlurInText
                                         text={t.line1}
@@ -135,28 +135,24 @@ export default function HeroSection() {
                             </h1>
 
                             {/* Subtitle */}
-                            <p className={`hero-fade-up${mounted ? ' ready delay-1' : ''} text-[15px] sm:text-base text-[#3a4f6a] max-w-sm leading-relaxed font-normal mb-10`}>
+                            <p dir="auto" className={`hero-fade-up${mounted ? ' ready delay-1' : ''} text-[15px] sm:text-base ${isRTL ? 'text-[#0c1a2e] font-semibold' : 'text-[#3a4f6a] font-normal'} max-w-sm leading-relaxed mb-10`}>
                                 {t.description}
                             </p>
 
                             {/* Buttons */}
-                            <div className={`hero-fade-up${mounted ? ' ready delay-2' : ''} flex items-center gap-3 flex-wrap ${isRTL ? 'flex-row-reverse' : ''}`}>
+                            <div className={`hero-fade-up${mounted ? ' ready delay-2' : ''} flex items-center gap-3 flex-wrap`}>
                                 <Link
                                     href="#agents"
                                     className="flex items-center justify-center bg-[#0c1a2e] text-white font-semibold h-[46px] rounded-full ps-6 pe-5 text-sm hover:bg-[#162d4f] transition-all duration-300 shadow-sm hover:shadow-md"
                                 >
-                                    <span className="text-nowrap">{t.learnMore}</span>
-                                    {isRTL ? (
-                                        <Iconify icon="solar:alt-arrow-left-linear" className="ms-1.5 w-4 h-4" />
-                                    ) : (
-                                        <Iconify icon="solar:alt-arrow-right-linear" width={16} className="ms-1.5 h-4 w-4" />
-                                    )}
+                                    <span className="text-nowrap" dir="auto">{t.learnMore}</span>
+                                    <Iconify icon="solar:alt-arrow-right-linear" width={16} className="ms-1.5 h-4 w-4" />
                                 </Link>
                                 <Link
                                     href="/contact"
                                     className="flex items-center justify-center text-[#0c1a2e] border border-[#0c1a2e]/25 h-[46px] rounded-full px-6 text-sm font-medium hover:bg-[#0c1a2e]/5 transition-all duration-300"
                                 >
-                                    <span className="text-nowrap">{t.contactUs}</span>
+                                    <span className="text-nowrap" dir="auto">{t.contactUs}</span>
                                 </Link>
                             </div>
                         </div>
