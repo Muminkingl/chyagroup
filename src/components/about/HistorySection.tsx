@@ -16,7 +16,7 @@ export default function HistorySection({ id }: { id: string }) {
     { key: 'travel', year: "Jan 2020", logos: ["/brands/CHYA travel-1.png"] },
     { key: 'exchange', year: "Jun 2021", logos: ["/brands/chyaexchnage.png"] },
     { key: 'luxury', year: "Jan 2022", logos: ["/brands/kivaluxary.png"] },
-    { key: 'gold', year: "Aug 2023", logos: ["/brands/chyaexchnage.png"] },
+    { key: 'gold', year: "Aug 2023", logos: ["/brands/qapat-1.png"] },
     { key: 'hangaw', year: "Mar 2024", logos: ["/brands/hangawexchange.png"] },
     { key: 'lutkay', year: "Oct 2024", logos: ["/brands/lutkay chya-1.png"] },
     { key: 'khaki', year: "Feb 2025", logos: ["/brands/khakisarwar.png"] },
@@ -34,56 +34,71 @@ export default function HistorySection({ id }: { id: string }) {
   }));
 
   return (
-    <section dir="ltr" id={id} className="scroll-mt-32 py-12">
+    <section dir={isRTL ? "rtl" : "ltr"} id={id} className="scroll-mt-32 py-12">
       {/* ── Section Header ── */}
-      <div className="mb-20 text-left">
+      <div className={cn("mb-20", isRTL ? "text-right" : "text-left")}>
         <h2 dir="auto" className="text-4xl md:text-5xl font-bold tracking-tight text-[#0c1a2e] mb-4 flex items-center gap-4">
-          <span className="w-8 h-[2px] bg-[#ff4d4d] shrink-0"></span>
+          {!isRTL && <span className="w-8 h-[2px] bg-[#ff4d4d] shrink-0"></span>}
           {t.title}
+          {isRTL && <span className="w-8 h-[2px] bg-[#ff4d4d] shrink-0"></span>}
         </h2>
-        <p dir="auto" className={`max-w-4xl text-lg leading-relaxed mt-6 ${isRTL ? 'text-[#0c1a2e] font-semibold' : 'text-[#3a4f6a] font-medium'}`}>
+        <p dir="auto" className={cn(
+          "max-w-4xl text-lg leading-relaxed mt-6",
+          isRTL ? "text-[#0c1a2e] font-semibold" : "text-[#3a4f6a] font-medium"
+        )}>
           {t.summary}
         </p>
       </div>
 
       {/* ── Timeline ── */}
       <div className="relative max-w-5xl mx-auto">
-        {/* Vertical Line */}
-        <div className="absolute top-0 bottom-0 w-[2px] bg-[#0c1a2e]/10 left-8 md:left-10" />
+        {/* Vertical Line — centered through the w-14 (56px) circle, so left/right = 28px - 1px (half linewidth) = 27px */}
+        <div className={cn(
+          "absolute top-0 bottom-0 w-[2px] bg-[#0c1a2e]/10",
+          isRTL ? "right-[27px]" : "left-[27px]"
+        )} />
 
-        <div className="space-y-16 relative">
+        <div className="space-y-10 relative">
           {historyTimeline.map((item, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: isRTL ? 20 : -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="flex flex-row items-start gap-6 md:gap-12"
+              transition={{ duration: 0.5, delay: index * 0.04 }}
+              className="flex flex-row items-center gap-4 sm:gap-6 md:gap-10"
             >
-              {/* Year Circle Indicator */}
+              {/* Year Circle Indicator — compact */}
               <div className="relative z-10 shrink-0">
-                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#b91c1c] flex items-center justify-center text-white text-sm md:text-base font-bold shadow-none">
+                <div className="w-14 h-14 rounded-full bg-[#b91c1c] flex items-center justify-center text-white text-sm font-bold shadow-md">
                   {item.yearOnly}
                 </div>
               </div>
 
               {/* Content Block */}
-              <div dir="auto" className="flex-1 pt-4 md:pt-6">
-                <h3 className="text-xl md:text-2xl font-bold text-[#0c1a2e] mb-2 tracking-tight">
+              <div dir="auto" className="flex-1 py-3">
+                <h3 className="text-lg md:text-xl font-bold text-[#0c1a2e] mb-1 tracking-tight">
                   {item.title}
                 </h3>
-                <p className={`text-sm md:text-base leading-relaxed max-w-2xl ${isRTL ? 'text-[#0c1a2e] font-semibold' : 'text-[#3a4f6a] font-medium'}`}>
+                <p className={cn(
+                  "text-sm leading-relaxed max-w-xl",
+                  isRTL ? "text-[#0c1a2e] font-semibold" : "text-[#3a4f6a] font-medium"
+                )}>
                   {item.desc || item.content}
                 </p>
               </div>
 
-              {/* Brand Logo */}
-              <div className="hidden sm:flex shrink-0 items-center justify-center w-20 h-20 md:w-24 md:h-24">
+              {/* Brand Logo — clearly visible */}
+              <div className={cn(
+                "flex shrink-0 items-center justify-center transition-all duration-300",
+                index === 2 ? "w-16 h-16 sm:w-40 sm:h-40" : index < 3 ? "w-20 h-20 sm:w-44 sm:h-44" : "w-16 h-16 sm:w-36 sm:h-36"
+              )}>
                 {item.logos && item.logos[0] && (
                   <img
                     src={item.logos[0]}
                     alt={item.title}
-                    className="w-full h-full object-contain drop-shadow-sm transition-transform duration-500 hover:scale-105"
+                    style={index === 2 ? { transform: 'scale(1.6)' } : undefined}
+                    className="w-full h-full object-contain transition-transform duration-500 hover:scale-110"
                   />
                 )}
               </div>

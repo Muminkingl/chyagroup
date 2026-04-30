@@ -15,9 +15,9 @@ export default function Hero() {
     }, []);
 
     return (
-        <section dir="ltr" className="relative w-full min-h-[60vh] md:min-h-[80vh] flex items-center overflow-hidden bg-[#f4f7f9]">
+        <section dir="ltr" className="relative w-full min-h-[60vh] md:min-h-[80vh] flex items-center overflow-hidden bg-[#faf9f6]">
             {/* Background Image of Citadel */}
-            <div 
+            <div
                 className={`absolute inset-0 z-0 bg-cover transition-opacity duration-1000 scale-110 ${mounted ? 'opacity-100' : 'opacity-0'}`}
                 style={{
                     backgroundImage: 'url("/cit.png")',
@@ -26,21 +26,21 @@ export default function Hero() {
             />
 
             {/* Gradients to fade image to white on the left and bottom — inline style so dir=ltr has no effect */}
-            <div 
+            <div
                 className="absolute inset-0 z-10"
-                style={{ background: 'linear-gradient(to right, #f4f7f9 0%, rgba(244,247,249,0.95) 35%, rgba(244,247,249,0.4) 60%, rgba(244,247,249,0) 100%)' }}
+                style={{ background: 'linear-gradient(to right, #faf9f6 0%, rgba(250,249,246,0.95) 35%, rgba(250,249,246,0.4) 60%, rgba(250,249,246,0) 100%)' }}
             />
-            
+
             {/* Bottom cloud-like fade to match page background if needed, or white */}
-            <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#f4f7f9] via-[#f4f7f9]/80 to-transparent z-10 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#faf9f6] via-[#faf9f6]/80 to-transparent z-10 pointer-events-none" />
 
             {/* Main Content Area */}
             <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-12 w-full pt-32 pb-24 md:pt-40 md:pb-32 flex justify-start">
                 <div className="max-w-xl text-left" style={{ textAlign: 'left', marginLeft: 0, marginRight: 'auto' }}>
-                    
+
                     {/* Eyebrow */}
                     <div dir="auto" className={`flex items-center gap-4 mb-6 transition-all duration-700 delay-100 transform ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
-                        <span className="w-8 h-[2px] bg-[#3b82f6]"></span>
+                        <span className="w-8 h-[2px] bg-[#b91c1c]"></span>
                         <span className="text-[11px] md:text-xs font-bold tracking-[0.25em] text-[#3a4f6a] uppercase">
                             {t.eyebrow}
                         </span>

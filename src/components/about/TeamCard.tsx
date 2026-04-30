@@ -39,7 +39,7 @@ export default function TeamCard({ member, featured = false }: { member: any, fe
             "opacity-0 group-hover:opacity-100",
             isRTL ? "translate-x-4 group-hover:translate-x-0" : "-translate-x-4 group-hover:translate-x-0"
           )}>
-            <Iconify icon="solar:buildings-2-bold-duotone" className="text-[#3b82f6]" width={16} />
+            <Iconify icon="solar:buildings-2-bold-duotone" className="text-[#b91c1c]" width={16} />
             <span className="text-[10px] uppercase tracking-[0.2em] text-[#3a4f6a] font-bold">Leadership</span>
           </div>
           
@@ -51,7 +51,7 @@ export default function TeamCard({ member, featured = false }: { member: any, fe
           </h3>
           
           <p className={clsx(
-            "text-[#3b82f6] font-semibold",
+            "text-[#b91c1c] font-semibold",
             featured ? "text-lg" : "text-sm"
           )}>
             {member.role}

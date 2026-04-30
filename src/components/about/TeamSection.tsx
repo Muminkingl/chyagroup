@@ -3,9 +3,10 @@
 import TeamCard from './TeamCard';
 import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/i18n/translations';
+import { cn } from '@/lib/utils';
 
 export default function TeamSection({ id }: { id: string }) {
-  const { locale } = useLanguage();
+  const { locale, isRTL } = useLanguage();
   const t = translations[locale].about.team;
 
   // Map the dictionary members to an array for easier rendering
@@ -43,13 +44,17 @@ export default function TeamSection({ id }: { id: string }) {
   const board = teamData.filter(m => !m.featured);
 
   return (
-    <section id={id} className="scroll-mt-32">
-      <div className="mb-12">
+    <section dir={isRTL ? "rtl" : "ltr"} id={id} className="scroll-mt-32">
+      <div className={cn("mb-12", isRTL ? "text-right" : "text-left")}>
         <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[#0c1a2e] mb-4 flex items-center gap-4">
-          <span className="w-8 h-[2px] bg-[#3b82f6]"></span>
+          {!isRTL && <span className="w-8 h-[2px] bg-[#b91c1c]"></span>}
           {t.title}
+          {isRTL && <span className="w-8 h-[2px] bg-[#b91c1c]"></span>}
         </h2>
-        <p className="text-[#3a4f6a] max-w-2xl text-lg leading-relaxed font-medium">
+        <p className={cn(
+          "max-w-2xl text-lg leading-relaxed font-medium",
+          isRTL ? "text-[#0c1a2e] font-semibold" : "text-[#3a4f6a] font-medium"
+        )}>
           {t.description}
         </p>
       </div>
@@ -57,7 +62,7 @@ export default function TeamSection({ id }: { id: string }) {
       <div className="flex flex-col gap-8">
         {/* Featured Founder Card */}
         {founder && (
-          <div className="w-full lg:w-2/3">
+          <div className={cn("w-full lg:w-2/3", isRTL ? "mr-0 ml-auto" : "ml-0 mr-auto")}>
             <TeamCard member={founder} featured={true} />
           </div>
         )}

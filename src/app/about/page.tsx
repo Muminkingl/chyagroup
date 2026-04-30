@@ -27,7 +27,7 @@ export default function About() {
   };
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-[#faf9f6]">
+    <div className="relative min-h-screen w-full bg-[#faf9f6]">
       <Header />
 
       <main className="relative z-10 flex-grow">
@@ -40,9 +40,9 @@ export default function About() {
           )}>
             
             {/* Sticky Sidebar Navigation */}
-            <aside className="lg:w-64 flex-shrink-0">
-              <div className="sticky top-32 glass-panel rounded-2xl p-6 border border-[#0c1a2e]/10 bg-white/60 backdrop-blur-md shadow-sm">
-                <h3 className="text-[10px] uppercase tracking-widest text-[#3a4f6a] font-bold mb-6">
+            <aside className="lg:w-72 flex-shrink-0">
+              <div className="sticky top-32 bg-[#f4f7fa] rounded-[2rem] p-8 border border-[#0c1a2e]/5 shadow-[0_20px_50px_rgba(12,26,46,0.04)] transition-all duration-500">
+                <h3 className="text-[11px] uppercase tracking-[0.2em] text-[#b91c1c] font-bold mb-8">
                   {t.nav.title}
                 </h3>
                 <nav className="flex flex-col gap-4">
@@ -59,7 +59,7 @@ export default function About() {
                   >
                     <div className={clsx(
                       "w-1.5 h-1.5 rounded-full transition-colors",
-                      activeSection === 'leadership' ? "bg-[#3b82f6] shadow-[0_0_10px_rgba(59,130,246,0.5)]" : "bg-transparent"
+                      activeSection === 'leadership' ? "bg-[#b91c1c] shadow-[0_0_10px_rgba(185,28,28,0.5)]" : "bg-transparent"
                     )} />
                     {t.nav.leadership}
                   </a>
@@ -79,7 +79,7 @@ export default function About() {
                   >
                     <div className={clsx(
                       "w-1.5 h-1.5 rounded-full transition-colors",
-                      activeSection === 'history' ? "bg-[#3b82f6] shadow-[0_0_10px_rgba(59,130,246,0.5)]" : "bg-transparent"
+                      activeSection === 'history' ? "bg-[#b91c1c] shadow-[0_0_10px_rgba(185,28,28,0.5)]" : "bg-transparent"
                     )} />
                     {t.nav.history}
                   </a>
