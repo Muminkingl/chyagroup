@@ -28,7 +28,7 @@ export default async function Home() {
       </div>
 
       <AgentLoop />
-      
+
       <ClientsSection />
 
       <LatestNewsSection posts={latestPosts} />
