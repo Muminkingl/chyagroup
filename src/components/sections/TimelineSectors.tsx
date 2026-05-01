@@ -115,18 +115,23 @@ function ItemRow({ item, sectorId }: { item: string; sectorId: string }) {
     <li className="flex items-center gap-3">
       <span className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] flex-shrink-0" />
       {logo ? (
-        <div className="flex-shrink-0 flex items-center justify-center" style={{ width: 40, height: 32 }}>
+        <div className="flex-shrink-0 flex items-center justify-center w-[54px] h-10">
           <Image
             src={logo}
             alt={item}
-            width={80}
-            height={32}
-            className="object-contain"
-            style={{ maxWidth: 40, maxHeight: 32, width: 'auto', height: 32 }}
+            width={120}
+            height={60}
+            className={`w-full h-full object-contain ${
+              logo.endsWith('.svg')
+                ? ''
+                : logo.includes('kiva')
+                  ? 'scale-[1.1] origin-center'
+                  : 'scale-[1.65] origin-center'
+            }`}
           />
         </div>
       ) : (
-        <div className="flex-shrink-0 flex items-center justify-center" style={{ width: 40 }}>
+        <div className="flex-shrink-0 flex items-center justify-center w-[54px]">
           <span className="text-[11px] font-bold text-gray-400">{item.charAt(0)}</span>
         </div>
       )}
