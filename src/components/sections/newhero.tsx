@@ -111,7 +111,7 @@ export default function HeroSection() {
                         <div className={`max-w-2xl pt-28 pb-40 sm:pt-32 sm:pb-24 lg:pt-40 lg:pb-32 ${isRTL ? 'text-right' : 'text-left'} relative z-20`}>
 
                             {/* Main headline */}
-                            <h1 dir="auto" className="text-[2.6rem] sm:text-5xl md:text-6xl xl:text-[4.25rem] font-bold tracking-tight text-[#0c1a2e] leading-[1.08] mb-6">
+                            <h1 dir="auto" className="text-[2.15rem] xs:text-[2.4rem] sm:text-5xl md:text-6xl xl:text-[4.25rem] font-bold tracking-tight text-[#0c1a2e] leading-[1.1] mb-6 break-keep">
                                 <span className="block lg:whitespace-nowrap">
                                     <BlurInText
                                         text={t.line1}
