@@ -43,7 +43,7 @@ export default function HistorySection({ id }: { id: string }) {
           {isRTL && <span className="w-8 h-[2px] bg-[#ff4d4d] shrink-0"></span>}
         </h2>
         <p dir="auto" className={cn(
-          "max-w-4xl text-lg leading-relaxed mt-6",
+          "max-w-4xl text-lg leading-relaxed mt-6 text-justify",
           isRTL ? "text-[#0c1a2e] font-semibold" : "text-[#3a4f6a] font-medium"
         )}>
           {t.summary}
@@ -81,7 +81,7 @@ export default function HistorySection({ id }: { id: string }) {
                   {item.title}
                 </h3>
                 <p className={cn(
-                  "text-sm leading-relaxed max-w-xl",
+                  "text-sm leading-relaxed max-w-xl text-justify",
                   isRTL ? "text-[#0c1a2e] font-semibold" : "text-[#3a4f6a] font-medium"
                 )}>
                   {item.desc || item.content}

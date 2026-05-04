@@ -161,7 +161,7 @@ export default function ChyaHistorySection() {
             </h2>
 
             {/* Description */}
-            <p dir="auto" className={`history-desc${isVisible ? ' visible' : ''} mt-8 text-base md:text-lg ${isRTL ? 'text-[#0c1a2e] font-semibold' : 'text-[#0c1a2e]/55 font-light'} leading-relaxed max-w-md`}>
+            <p dir="auto" className={`history-desc${isVisible ? ' visible' : ''} mt-8 text-base md:text-lg ${isRTL ? 'text-[#0c1a2e] font-semibold' : 'text-[#0c1a2e]/55 font-light'} leading-relaxed max-w-md text-justify`}>
               {t.description}
             </p>
 

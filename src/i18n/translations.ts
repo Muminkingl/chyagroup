@@ -40,7 +40,7 @@ export const translations = {
         one: "one",
         vision: "vision."
       },
-      description: "Chya Group operates across five dynamic industries, spanning 15 branches with 45 professionals driving growth across the region.",
+      description: "Chya Group Operates Across Five Dynamic Industries, Spanning 15 Branches With 47 Professionals Driving Growth Across The Region.",
       stats: {
         branches: "Offices",
         professionals: "Professionals",
@@ -62,13 +62,13 @@ export const translations = {
           contentBody: 'Our general trading arm spans a diverse product portfolio, supplying markets across the region with reliability and scale. With 14 branches and deep supplier networks, we keep commerce moving.',
           metrics: [
             { label: 'Branches', value: '14' },
-            { label: 'Employees', value: '44' },
+            { label: 'Employees', value: '47' },
             { label: 'Companies', value: '3' }
           ]
         },
         {
           id: 'money-exchange',
-          tag: 'Money Exchange',
+          tag: 'Money Exchange & Financial Service',
           cardTitle: 'MONEY EXCHANGE & FINANCIAL SERVICE',
           contentLabel: 'FINANCIAL SERVICES',
           contentTitle: 'Trusted financial exchange & services',
@@ -81,7 +81,7 @@ export const translations = {
         },
         {
           id: 'mobile-tech',
-          tag: 'Mobile & Tech',
+          tag: 'Mobile & Technology',
           cardTitle: 'MOBILE & TECHNOLOGY',
           contentLabel: 'MOBILE & TECHNOLOGY',
           contentTitle: 'Connecting people through technology',
@@ -94,7 +94,7 @@ export const translations = {
         },
         {
           id: 'printing',
-          tag: 'Printing',
+          tag: 'Printing and Photocopy',
           cardTitle: 'PRINTING & PHOTOCOPY',
           contentLabel: 'PRINTING & PHOTOCOPY',
           contentTitle: 'Professional printing for every need',
@@ -197,7 +197,7 @@ export const translations = {
         stats: {
           sectors: "5",
           offices: "15",
-          professionals: "45",
+          professionals: "47",
           vision: "1",
           visionLabel: "Unified Vision",
           sectorsLabel: "Sectors",
@@ -269,7 +269,7 @@ export const translations = {
       hero: {
         eyebrow: "Discover Our Roots",
         title: "About Us",
-        description: "Driven by vision, guided by experience. We are a collective of industry leaders dedicated to shaping the future of global enterprise.",
+        description: "Driven By Vision, Guided By Experience. We Are A Collective Of Industry Leaders Dedicated To Shaping The Future Of Global Enterprise.",
         buttonText: "Discover Our Journey"
       },
       nav: {
@@ -279,99 +279,99 @@ export const translations = {
       },
       team: {
         title: "Ownership Team",
-        description: "Meet the visionary leadership driving our strategic direction and operational excellence.",
+        description: "Meet The Visionary Leadership Driving Our Strategic Direction And Operational Excellence.",
         members: {
           haji: "Haji Muzafer Al Sarraf",
           hajiRole: "Founder & Honorary Chairman",
           ibrahim: "Ibrahim Haji Muzafer",
-          ibrahimRole: "Board Chairman & General Manager",
+          ibrahimRole: "Chairman of The Board & CEO",
           bashir: "Bashir Al-Rajih",
-          bashirRole: "Board Member & CEO",
-          ali: "Ali Nuaman Haddad",
-          aliRole: "Board Member & Operations Manager",
+          bashirRole: "Board Member & COO",
+          ali: "Ali Naaman",
+          aliRole: "Board Member & CMO",
           qasim: "Qasim Ali Othman",
-          qasimRole: "Management Manager"
+          qasimRole: "General Manager"
         }
       },
       history: {
         title: "Our History",
-        summary: "Chya Group: Established in 2019, providing 7 years of service in Erbil across 5 different sectors (General Trading, Currency Exchange and Financial Services, Mobile and Technology, Printing and Photocopying, Online Trading). Our team consists of 44 members, and we own 3 companies, 5 currency exchange offices, 1 printing and photocopying office, 1 salary disbursement outlet, 1 project, 1 exhibition, 3 online businesses, and serve as agents for 14 banks and companies.",
+        summary: "Chya Group: Established In 2019, Providing 7 Years Of Service In Erbil Across 5 Different Sectors (General Trading, Currency Exchange And Financial Services, Mobile And Technology, Printing And Photocopying, Online Trading). Our Team Consists Of 47 Members, And We Own (3 Company, 5 Currency Exchange Office, 1 Printing And Photocopying Office, 1 Salary Disbursement Outlet, 1 Project, 1 Store, 3 Online Business), And Serve As Agents For 14 Banks And Companies.",
         explore: "Click to explore",
         timeline: {
           foundation: {
-            title: "Lamaat Al Marjan Company",
-            desc: "Lamaat Al Marjan Company for General Trading is the first company in the Chya Group general trading sector. Founded on 2019/11/30, it specializes in construction materials such as (wood, MDF, furniture, steel, fugue, cement, and concrete).",
-            content: "Lamaat Al Marjan Company for General Trading is the first company in the Chya Group general trading sector. Founded on 2019/11/30, it specializes in construction materials such as (wood, MDF, furniture, steel, fugue, cement, and concrete)."
+            title: "Lamaat Al Marjan CO.",
+            desc: "Lamaat Al Marjan CO. For General Trading Is The First Company In The Chya Group General Trading Sector. Founded On 30/11/2019, It Specializes In Construction Materials Such As (Wood, MDF, Furniture, Steel, Fugue, Cement, And Concrete).",
+            content: "Lamaat Al Marjan CO. For General Trading Is The First Company In The Chya Group General Trading Sector. Founded On 30/11/2019, It Specializes In Construction Materials Such As (Wood, MDF, Furniture, Steel, Fugue, Cement, And Concrete)."
           },
           travel: {
             title: "Chya Travel",
-            desc: "Chya Travel for tickets and visas belongs to the online trading sector of Chya Group. Founded on 2020/01/22, its work consists of tourist tickets and visas, booking hotels, cars, tourist places, patient guidance, and language translation.",
-            content: "Chya Travel for tickets and visas belongs to the online trading sector of Chya Group. Founded on 2020/01/22, its work consists of tourist tickets and visas, booking hotels, cars, tourist places, patient guidance, and language translation."
+            desc: "Chya Travel For Tickets And Visas Belongs To The Online Trading Sector Of Chya Group. Founded On 22/01/2020, Its Work Consists Of Tourist Tickets And Visas, Booking Hotels, Cars, Tourist Places, Patient Guidance, And Language Translation.",
+            content: "Chya Travel For Tickets And Visas Belongs To The Online Trading Sector Of Chya Group. Founded On 22/01/2020, Its Work Consists Of Tourist Tickets And Visas, Booking Hotels, Cars, Tourist Places, Patient Guidance, And Language Translation."
           },
           exchange: {
-            title: "Chya Office",
-            desc: "Chya Office for Currency Exchange is the first branch of the currency exchange and financial services sector of Chya Group. Founded on 2021/06/14 in the Old Bourse of Erbil city, it works in exchanging all types of currencies and sending money to all countries of the world in cash and bank accounts, and sending money to all local and international bank cards.",
-            content: "Chya Office for Currency Exchange is the first branch of the currency exchange and financial services sector of Chya Group. Founded on 2021/06/14 in the Old Bourse of Erbil city, it works in exchanging all types of currencies and sending money to all countries of the world in cash and bank accounts, and sending money to all local and international bank cards."
+            title: "Chya Exchange",
+            desc: "Chya Exchange For Currency Exchange Is The First Branch Of The Currency Exchange And Financial Services Sector Of Chya Group. Founded On 14/06/2021 In The Old Bourse Of Erbil City, It Works In Exchanging All Types Of Currencies And Sending Money To All Countries Of The World In Cash And Bank Accounts, And Sending Money To All Local And International Bank Cards.",
+            content: "Chya Exchange For Currency Exchange Is The First Branch Of The Currency Exchange And Financial Services Sector Of Chya Group. Founded On 14/06/2021 In The Old Bourse Of Erbil City, It Works In Exchanging All Types Of Currencies And Sending Money To All Countries Of The World In Cash And Bank Accounts, And Sending Money To All Local And International Bank Cards."
           },
           luxury: {
             title: "Kiva Luxury",
-            desc: "Kiva Luxury for jewelry and accessories belongs to the online trading sector of Chya Group. Founded on 2022/01/20, its work consists of trading jewelry, accessories, watches, and perfumes from global brands.",
-            content: "Kiva Luxury for jewelry and accessories belongs to the online trading sector of Chya Group. Founded on 2022/01/20, its work consists of trading jewelry, accessories, watches, and perfumes from global brands."
+            desc: "Kiva Luxury For Jewelry And Accessories Belongs To The Online Trading Sector Of Chya Group. Founded On 20/01/2022, Its Work Consists Of Trading Jewelry, Accessories, Watches, And Perfumes From Global Brands.",
+            content: "Kiva Luxury For Jewelry And Accessories Belongs To The Online Trading Sector Of Chya Group. Founded On 20/01/2022, Its Work Consists Of Trading Jewelry, Accessories, Watches, And Perfumes From Global Brands."
           },
           gold: {
-            title: "Chya Gold Office",
-            desc: "Chya Gold Office for Currency Exchange is the second branch of the currency exchange and financial services sector of Chya Group. Founded on 2023/08/28 in the Silopi district of Sirnak city in Turkey, it works in exchanging all types of currencies and sending money to all cities and bank accounts within Turkey.",
-            content: "Chya Gold Office for Currency Exchange is the second branch of the currency exchange and financial services sector of Chya Group. Founded on 2023/08/28 in the Silopi district of Sirnak city in Turkey, it works in exchanging all types of currencies and sending money to all cities and bank accounts within Turkey."
+            title: "Chya Gold Exchange",
+            desc: "Chya Gold Exchange For Currency Exchange Is The Second Branch Of The Currency Exchange And Financial Services Sector Of Chya Group. Founded On 28/08/2023 In The Silopi District Of Sirnak City In Turkey, It Works In Exchanging All Types Of Currencies And Sending Money To All Cities And Bank Accounts Within Turkey.",
+            content: "Chya Gold Exchange For Currency Exchange Is The Second Branch Of The Currency Exchange And Financial Services Sector Of Chya Group. Founded On 28/08/2023 In The Silopi District Of Sirnak City In Turkey, It Works In Exchanging All Types Of Currencies And Sending Money To All Cities And Bank Accounts Within Turkey."
           },
           hangaw: {
-            title: "Hangaw Office",
-            desc: "Hangaw Office for Currency Exchange is the third branch of the currency exchange and financial services sector of Chya Group. Founded on 2024/03/21 on the two-way Runaki street in Erbil city, it works in exchanging all types of currencies and sending money to all countries of the world in cash and bank accounts, and sending money to all local and international bank cards.",
-            content: "Hangaw Office for Currency Exchange is the third branch of the currency exchange and financial services sector of Chya Group. Founded on 2024/03/21 on the two-way Runaki street in Erbil city, it works in exchanging all types of currencies and sending money to all countries of the world in cash and bank accounts, and sending money to all local and international bank cards."
+            title: "Hangaw Exchange",
+            desc: "Hangaw Exchange For Currency Exchange Is The Third Branch Of The Currency Exchange And Financial Services Sector Of Chya Group. Founded On 21/03/2024 On The Two-Way Runaki Street In Erbil City, It Works In Exchanging All Types Of Currencies And Sending Money To All Countries Of The World In Cash And Bank Accounts, And Sending Money To All Local And International Bank Cards.",
+            content: "Hangaw Exchange For Currency Exchange Is The Third Branch Of The Currency Exchange And Financial Services Sector Of Chya Group. Founded On 21/03/2024 On The Two-Way Runaki Street In Erbil City, It Works In Exchanging All Types Of Currencies And Sending Money To All Countries Of The World In Cash And Bank Accounts, And Sending Money To All Local And International Bank Cards."
           },
           lutkay: {
             title: "Lutkay Chya Office",
-            desc: "Lutkay Chya Office for Currency Exchange is the fifth branch of the currency exchange and financial services sector of Chya Group. Founded on 2024/10/20 in Ankawa neighborhood in Erbil city, it works in exchanging all types of currencies and sending money to all countries of the world in cash and bank accounts, and sending money to all local and international bank cards.",
-            content: "Lutkay Chya Office for Currency Exchange is the fifth branch of the currency exchange and financial services sector of Chya Group. Founded on 2024/10/20 in Ankawa neighborhood in Erbil city, it works in exchanging all types of currencies and sending money to all countries of the world in cash and bank accounts, and sending money to all local and international bank cards."
+            desc: "Lutkay Chya Office For Currency Exchange Is The Fifth Branch Of The Currency Exchange And Financial Services Sector Of Chya Group. Founded On 20/10/2024 In Ankawa Neighborhood In Erbil City, It Works In Exchanging All Types Of Currencies And Sending Money To All Countries Of The World In Cash And Bank Accounts, And Sending Money To All Local And International Bank Cards.",
+            content: "Lutkay Chya Office For Currency Exchange Is The Fifth Branch Of The Currency Exchange And Financial Services Sector Of Chya Group. Founded On 20/10/2024 In Ankawa Neighborhood In Erbil City, It Works In Exchanging All Types Of Currencies And Sending Money To All Countries Of The World In Cash And Bank Accounts, And Sending Money To All Local And International Bank Cards."
           },
           khaki: {
-            title: "Khaki Sarwar Company",
-            desc: "Khaki Sarwar Company for Currency Exchange is the fourth branch of the currency exchange and financial services sector of Chya Group. Founded on 2025/02/16 on Pirmam road inside BM2 petrol station in Erbil city, it works in exchanging all types of currencies and sending money to all countries of the world in cash and bank accounts, and sending money to all local and international bank cards.",
-            content: "Khaki Sarwar Company for Currency Exchange is the fourth branch of the currency exchange and financial services sector of Chya Group. Founded on 2025/02/16 on Pirmam road inside BM2 petrol station in Erbil city, it works in exchanging all types of currencies and sending money to all countries of the world in cash and bank accounts, and sending money to all local and international bank cards."
+            title: "Khaki Sarwar CO.",
+            desc: "Khaki Sarwar CO. For Currency Exchange Is The Fourth Branch Of The Currency Exchange And Financial Services Sector Of Chya Group. Founded On 16/02/2025 On Pirmam Road Inside BM2 Petrol Station In Erbil City, It Works In Exchanging All Types Of Currencies And Sending Money To All Countries Of The World In Cash And Bank Accounts, And Sending Money To All Local And International Bank Cards.",
+            content: "Khaki Sarwar CO. For Currency Exchange Is The Fourth Branch Of The Currency Exchange And Financial Services Sector Of Chya Group. Founded On 16/02/2025 On Pirmam Road Inside BM2 Petrol Station In Erbil City, It Works In Exchanging All Types Of Currencies And Sending Money To All Countries Of The World In Cash And Bank Accounts, And Sending Money To All Local And International Bank Cards."
           },
           barzy: {
             title: "Barzy Chya Office",
-            desc: "Barzy Chya Office for Currency Exchange is the sixth branch of the currency exchange and financial services sector of Chya Group. Founded on 2025/03/06 in the independent administration of Soran in the city center opposite the Langa market, it works in exchanging all types of currencies and sending money to all countries of the world in cash and bank accounts, and sending money to all local and international bank cards.",
-            content: "Barzy Chya Office for Currency Exchange is the sixth branch of the currency exchange and financial services sector of Chya Group. Founded on 2025/03/06 in the independent administration of Soran in the city center opposite the Langa market, it works in exchanging all types of currencies and sending money to all countries of the world in cash and bank accounts, and sending money to all local and international bank cards."
+            desc: "Barzy Chya Office For Currency Exchange Is The Sixth Branch Of The Currency Exchange And Financial Services Sector Of Chya Group. Founded On 06/03/2025 In The Independent Administration Of Soran In The City Center Opposite The Langa Market, It Works In Exchanging All Types Of Currencies And Sending Money To All Countries Of The World In Cash And Bank Accounts, And Sending Money To All Local And International Bank Cards.",
+            content: "Barzy Chya Office For Currency Exchange Is The Sixth Branch Of The Currency Exchange And Financial Services Sector Of Chya Group. Founded On 06/03/2025 In The Independent Administration Of Soran In The City Center Opposite The Langa Market, It Works In Exchanging All Types Of Currencies And Sending Money To All Countries Of The World In Cash And Bank Accounts, And Sending Money To All Local And International Bank Cards."
           },
           dibaga: {
-            title: "Hangaw Dibaga Station",
-            desc: "Hangaw Dibaga Station for Salary Disbursement is affiliated with Hangaw Office in the currency exchange and financial services sector of Chya Group. Founded on 2025/08/01 on the two-way Runaki street inside Hangaw Office, its work consists of disbursing military, civil, and retirement salaries, and executing services (Qi Card, Super Qi, Master Card) and sending and withdrawing money in it.",
-            content: "Hangaw Dibaga Station for Salary Disbursement is affiliated with Hangaw Office in the currency exchange and financial services sector of Chya Group. Founded on 2025/08/01 on the two-way Runaki street inside Hangaw Office, its work consists of disbursing military, civil, and retirement salaries, and executing services (Qi Card, Super Qi, Master Card) and sending and withdrawing money in it."
+            title: "Manfaz Dibaga",
+            desc: "Manfaz Dibaga For Salary Disbursement Is Affiliated With Hangaw Exchange In The Currency Exchange And Financial Services Sector Of Chya Group. Founded On 01/08/2025 On The Two-Way Runaki Street Inside Hangaw Exchange, Its Work Consists Of Disbursing Military, Civil, And Retirement Salaries, And Executing Services (Qi Card, Super Qi, Master Card) And Sending And Withdrawing Money In It.",
+            content: "Manfaz Dibaga For Salary Disbursement Is Affiliated With Hangaw Exchange In The Currency Exchange And Financial Services Sector Of Chya Group. Founded On 01/08/2025 On The Two-Way Runaki Street Inside Hangaw Exchange, Its Work Consists Of Disbursing Military, Civil, And Retirement Salaries, And Executing Services (Qi Card, Super Qi, Master Card) And Sending And Withdrawing Money In It."
           },
           tech: {
             title: "Chya Tech",
-            desc: "Chya Tech for systems and computers belongs to the online trading sector of Chya Group. Founded on 2025/08/11, its work consists of installing accounting, statistical, archiving, and personnel systems, and selling all electronic devices.",
-            content: "Chya Tech for systems and computers belongs to the online trading sector of Chya Group. Founded on 2025/08/11, its work consists of installing accounting, statistical, archiving, and personnel systems, and selling all electronic devices."
+            desc: "Chya Tech For Systems And Computers Belongs To The Online Trading Sector Of Chya Group. Founded On 11/08/2025, Its Work Consists Of Installing Accounting, Statistical, Archiving, And Personnel Systems, And Selling All Electronic Devices.",
+            content: "Chya Tech For Systems And Computers Belongs To The Online Trading Sector Of Chya Group. Founded On 11/08/2025, Its Work Consists Of Installing Accounting, Statistical, Archiving, And Personnel Systems, And Selling All Electronic Devices."
           },
           blueprint: {
             title: "Blue Printing Office",
-            desc: "Blue Printing Office for Printing and Photocopying belongs to the printing and photocopying sector of Chya Group. Founded on 2025/10/19, it works in the field of printing, photography, managing passport and national card department fees, and booking passport department dates.",
-            content: "Blue Printing Office for Printing and Photocopying belongs to the printing and photocopying sector of Chya Group. Founded on 2025/10/19, it works in the field of printing, photography, managing passport and national card department fees, and booking passport department dates."
+            desc: "Blue Printing Office For Printing And Photocopying Belongs To The Printing And Photocopying Sector Of Chya Group. Founded On 19/10/2025, It Works In The Field Of Printing, Photography, Managing Passport And National Card Department Fees, And Booking Passport Department Dates.",
+            content: "Blue Printing Office For Printing And Photocopying Belongs To The Printing And Photocopying Sector Of Chya Group. Founded On 19/10/2025, It Works In The Field Of Printing, Photography, Managing Passport And National Card Department Fees, And Booking Passport Department Dates."
           },
           mateen: {
-            title: "Chyay Mateen Company",
-            desc: "Chyay Mateen Company for General Trading is the second company in the Chya Group general trading sector. Founded on 2026/03/01, it specializes in (electronic devices, household items, clothing, and second-hand goods).",
-            content: "Chyay Mateen Company for General Trading is the second company in the Chya Group general trading sector. Founded on 2026/03/01, it specializes in (electronic devices, household items, clothing, and second-hand goods)."
+            title: "Chyay Mateen CO.",
+            desc: "Chyay Mateen CO. For General Trading Is The Second Company In The Chya Group General Trading Sector. Founded On 01/03/2026, It Specializes In (Electronic Devices, Household Items, Clothing, And Second-Hand Goods).",
+            content: "Chyay Mateen CO. For General Trading Is The Second Company In The Chya Group General Trading Sector. Founded On 01/03/2026, It Specializes In (Electronic Devices, Household Items, Clothing, And Second-Hand Goods)."
           },
           amazon: {
-            title: "Chya Amazon Project",
-            desc: "Chya Amazon Project for retail and wholesale second-hand goods belongs to the general trading sector of Chya Group. Founded on 2026/03/01 on Rawanduz road in the independent administration of Soran, its work consists of buying and selling retail and wholesale second-hand goods according to the legitimate (Halal) system.",
-            content: "Chya Amazon Project for retail and wholesale second-hand goods belongs to the general trading sector of Chya Group. Founded on 2026/03/01 on Rawanduz road in the independent administration of Soran, its work consists of buying and selling retail and wholesale second-hand goods according to the legitimate (Halal) system."
+            title: "Chya Amazon",
+            desc: "Chya Amazon For Retail And Wholesale Second-Hand Goods Belongs To The General Trading Sector Of Chya Group. Founded On 01/03/2026 On Rawanduz Road In The Independent Administration Of Soran, Its Work Consists Of Buying And Selling Retail And Wholesale Second-Hand Goods According To The Legitimate (Halal) System.",
+            content: "Chya Amazon For Retail And Wholesale Second-Hand Goods Belongs To The General Trading Sector Of Chya Group. Founded On 01/03/2026 On Rawanduz Road In The Independent Administration Of Soran, Its Work Consists Of Buying And Selling Retail And Wholesale Second-Hand Goods According To The Legitimate (Halal) System."
           },
           phone: {
-            title: "Chya Phone Exhibition",
-            desc: "Chya Phone Exhibition for mobile trading belongs to the mobile and technology sector of Chya Group. Founded on 2026/03/24 in the city center in the independent administration of Soran, its work consists of buying and selling mobiles, iPads, laptops, computers, and all electronic devices and accessories.",
-            content: "Chya Phone Exhibition for mobile trading belongs to the mobile and technology sector of Chya Group. Founded on 2026/03/24 in the city center in the independent administration of Soran, its work consists of buying and selling mobiles, iPads, laptops, computers, and all electronic devices and accessories."
+            title: "Chya Phone",
+            desc: "Chya Phone For Mobile Trading Belongs To The Mobile And Technology Sector Of Chya Group. Founded On 24/03/2026 In The City Center In The Independent Administration Of Soran, Its Work Consists Of Buying And Selling Mobiles, IPads, Laptops, Computers, And All Electronic Devices And Accessories.",
+            content: "Chya Phone For Mobile Trading Belongs To The Mobile And Technology Sector Of Chya Group. Founded On 24/03/2026 In The City Center In The Independent Administration Of Soran, Its Work Consists Of Buying And Selling Mobiles, IPads, Laptops, Computers, And All Electronic Devices And Accessories."
           }
         }
       }
@@ -418,7 +418,7 @@ export const translations = {
         one: "رؤية",
         vision: "واحدة."
       },
-      description: "تعمل مجموعة چیا عبر خمسة سێکتەرات ديناميكية، وتضم ١٥ مكتباً مع ٤٥ محترفاً يدفعون عجلة النمو في جميع أنحاء المنطقة.",
+      description: "تعمل مجموعة چیا عبر خمسة سێکتەرات ديناميكية، وتضم ١٥ مكتباً مع ٤٧ محترفاً يدفعون عجلة النمو في جميع أنحاء المنطقة.",
       stats: {
         branches: "مكاتبنا",
         professionals: "محترفونا",
@@ -440,7 +440,7 @@ export const translations = {
           contentBody: 'تمتد تجاراتنا العامة عبر مجموعة متنوعة من المنتجات، حيث نوفر للأسواق في جميع أنحاء المنطقة الموثوقية والحجم. مع 14 فرعاً وشبكات موردين عميقة، نحافظ على حركة التجارة.',
           metrics: [
             { label: 'الفروع', value: '14' },
-            { label: 'الموظفون', value: '44' },
+            { label: 'الموظفون', value: '٤٧' },
             { label: 'الشركات', value: '3' }
           ]
         },
@@ -575,7 +575,7 @@ export const translations = {
         stats: {
           sectors: "٥",
           offices: "١٥",
-          professionals: "٤٥",
+          professionals: "٤٧",
           vision: "١",
           visionLabel: "رؤية موحدة",
           sectorsLabel: "قطاعات",
@@ -673,83 +673,83 @@ export const translations = {
       },
       history: {
         title: "تاريخنا",
-        summary: "مجموعة چیا: تأسست عام 2019 وتخدم منذ 7 سنوات في أربيل عبر 5 قطاعات متنوعة (التجارة العامة، الصيرفة والخدمات المالية، الموبايل والتكنولوجيا، الطباعة والاستنساخ، التجارة الإلكترونية). يتكون فريقنا من 44 عضواً، ونمتلك 3 شركات، و5 مكاتب صيرفة، ومكتب طباعة واحد، ومركز صرف رواتب واحد، ومشروع واحد، ومعرض واحد، و3 أعمال إلكترونية، ونعمل كوكلاء لـ 14 بنكاً وشركة.",
+        summary: "مجموعة چیا: تأسست عام ٢٠١٩ وتخدم منذ ٧ سنوات في أربيل عبر ٥ قطاعات متنوعة ( التجارة العامة، الصيرفة والخدمات المالية، الموبايل والتكنولوجيا، الطباعة والاستنساخ، التجارة الإلكترونية ). يتكون فريقنا من ٤٧ عضواً، ونمتلك ٣ شركات، و٥ مكاتب صيرفة، ومكتب طباعة واحد، ومركز صرف رواتب واحد، ومشروع واحد، ومعرض واحد، و٣ أعمال إلكترونية، ونعمل كوكلاء لـ ١٤ بنكاً وشركة.",
         explore: "انقر للاكتشاف",
         timeline: {
           foundation: {
             title: "شركة لمعة المرجان",
-            desc: "شركة لمعة المرجان للتجارة العامة، هي أول شركة تابعة لقطاع التجارة العامة في مجموعة چیا. تأسست في 2019/11/30 وتعمل في مواد البناء مثل (الخشب، خشب MDF، الأثاث، الحديد، الفوكة، الإسمنت، والخرسانة).",
-            content: "شركة لمعة المرجان للتجارة العامة، هي أول شركة تابعة لقطاع التجارة العامة في مجموعة چیا. تأسست في 2019/11/30 وتعمل في مواد البناء مثل (الخشب، خشب MDF، الأثاث، الحديد، الفوكة، الإسمنت، والخرسانة)."
+            desc: "شركة لمعة المرجان للتجارة العامة، هي أول شركة تابعة لقطاع التجارة العامة في مجموعة چیا. تأسست في 30/11/2019 وتعمل في مواد البناء مثل ( الخشب، خشب MDF، الأثاث، الحديد، الفوكة، الإسمنت، والخرسانة ).",
+            content: "شركة لمعة المرجان للتجارة العامة، هي أول شركة تابعة لقطاع التجارة العامة في مجموعة چیا. تأسست في 30/11/2019 وتعمل في مواد البناء مثل ( الخشب، خشب MDF، الأثاث، الحديد، الفوكة، الإسمنت، والخرسانة )."
           },
           travel: {
             title: "چيا ترافيل",
-            desc: "چيا ترافيل للتذاكر والفيزا، التابع لقطاع التجارة عبر الإنترنت في مجموعة چیا. تأسس في 2020/01/22، وتتكون أعماله من التذاكر السياحية والفيزا وحجز الفنادق والسيارات والأماكن السياحية وتوجيه المرضى والترجمة اللغوية.",
-            content: "چيا ترافيل للتذاكر والفيزا، التابع لقطاع التجارة عبر الإنترنت في مجموعة چیا. تأسس في 2020/01/22، وتتكون أعماله من التذاكر السياحية والفيزا وحجز الفنادق والسيارات والأماكن السياحية وتوجيه المرضى والترجمة اللغوية."
+            desc: "چيا ترافيل للتذاكر والفيزا، التابع لقطاع التجارة عبر الإنترنت في مجموعة چیا. تأسس في 22/01/2020، وتتكون أعماله من التذاكر السياحية والفيزا وحجز الفنادق والسيارات والأماكن السياحية وتوجيه المرضى والترجمة اللغوية.",
+            content: "چيا ترافيل للتذاكر والفيزا، التابع لقطاع التجارة عبر الإنترنت في مجموعة چیا. تأسس في 22/01/2020، وتتكون أعماله من التذاكر السياحية والفيزا وحجز الفنادق والسيارات والأماكن السياحية وتوجيه المرضى والترجمة اللغوية."
           },
           exchange: {
             title: "مكتب چيا",
-            desc: "مكتب چيا لتبادل العملات، هو الفرع الأول التابع لقطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسس في 2021/06/14 في بورصة أربيل القديمة، ويعمل في مجال تبادل جميع أنواع العملات وإرسال الأموال إلى جميع دول العالم نقداً وعبر الحسابات البنكية وإرسال الأموال إلى جميع البطاقات البنكية المحلية والدولية.",
-            content: "مكتب چيا لتبادل العملات، هو الفرع الأول التابع لقطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسس في 2021/06/14 في بورصة أربيل القديمة، ويعمل في مجال تبادل جميع أنواع العملات وإرسال الأموال إلى جميع دول العالم نقداً وعبر الحسابات البنكية وإرسال الأموال إلى جميع البطاقات البنكية المحلية والدولية."
+            desc: "مكتب چيا لتبادل العملات، هو الفرع الأول التابع لقطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسس في 14/06/2021 في بورصة أربيل القديمة، ويعمل في مجال تبادل جميع أنواع العملات وإرسال الأموال إلى جميع دول العالم نقداً وعبر الحسابات البنكية وإرسال الأموال إلى جميع البطاقات البنكية المحلية والدولية.",
+            content: "مكتب چيا لتبادل العملات، هو الفرع الأول التابع لقطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسس في 14/06/2021 في بورصة أربيل القديمة، ويعمل في مجال تبادل جميع أنواع العملات وإرسال الأموال إلى جميع دول العالم نقداً وعبر الحسابات البنكية وإرسال الأموال إلى جميع البطاقات البنكية المحلية والدولية."
           },
           luxury: {
             title: "كيفا لوكجوري",
-            desc: "كيفا لوكجوري للمجوهرات والإكسسوارات تتبع قطاع التجارة عبر الإنترنت في مجموعة چيا. تأسست في 2022/01/20 وتتكون أعمالها من تجارة المجوهرات والإكسسوارات والساعات والعطور من الماركات العالمية.",
-            content: "كيفا لوكجوري للمجوهرات والإكسسوارات تتبع قطاع التجارة عبر الإنترنت في مجموعة چيا. تأسست في 2022/01/20 وتتكون أعمالها من تجارة المجوهرات والإكسسوارات والساعات والعطور من الماركات العالمية."
+            desc: "كيفا لوكجوري للمجوهرات والإكسسوارات تتبع قطاع التجارة عبر الإنترنت في مجموعة چيا. تأسست في 20/01/2022 وتتكون أعمالها من تجارة المجوهرات والإكسسوارات والساعات والعطور من الماركات العالمية.",
+            content: "كيفا لوكجوري للمجوهرات والإكسسوارات تتبع قطاع التجارة عبر الإنترنت في مجموعة چيا. تأسست في 20/01/2022 وتتكون أعمالها من تجارة المجوهرات والإكسسوارات والساعات والعطور من الماركات العالمية."
           },
           gold: {
             title: "مكتب چيا غولد",
-            desc: "مكتب چيا غولد لتبادل العملات، هو الفرع الثاني التابع لقطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسس في 2023/08/28 في منطقة سيلوبي بمدينة شرناق في تركيا، ويعمل في مجال تبادل جميع أنواع العملات وإرسال الأموال إلى جميع المدن والحسابات البنكية داخل تركيا.",
-            content: "مكتب چيا غولد لتبادل العملات، هو الفرع الثاني التابع لقطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسس في 2023/08/28 في منطقة سيلوبي بمدينة شرناق في تركيا، ويعمل في مجال تبادل جميع أنواع العملات وإرسال الأموال إلى جميع المدن والحسابات البنكية داخل تركيا."
+            desc: "مكتب چيا غولد لتبادل العملات، هو الفرع الثاني التابع لقطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسس في 28/08/2023 في منطقة سيلوبي بمدينة شرناق في تركيا، ويعمل في مجال تبادل جميع أنواع العملات وإرسال الأموال إلى جميع المدن والحسابات البنكية داخل تركيا.",
+            content: "مكتب چيا غولد لتبادل العملات، هو الفرع الثاني التابع لقطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسس في 28/08/2023 في منطقة سيلوبي بمدينة شرناق في تركيا، ويعمل في مجال تبادل جميع أنواع العملات وإرسال الأموال إلى جميع المدن والحسابات البنكية داخل تركيا."
           },
           hangaw: {
             title: "مكتب هەنگاو",
-            desc: "مكتب هەنگاو لتبادل العملات، هو الفرع الثالث التابع لقطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسس في 2024/03/21 في شارع روناکی (السايدين) في مدينة أربيل، ويعمل في مجال تبادل جميع أنواع العملات وإرسال الأموال إلى جميع دول العالم نقداً وعبر الحسابات البنكية وإرسال الأموال إلى جميع البطاقات البنكية المحلية والدولية.",
-            content: "مكتب هەنگاو لتبادل العملات، هو الفرع الثالث التابع لقطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسس في 2024/03/21 في شارع روناکی (السايدين) في مدينة أربيل، ويعمل في مجال تبادل جميع أنواع العملات وإرسال الأموال إلى جميع دول العالم نقداً وعبر الحسابات البنكية وإرسال الأموال إلى جميع البطاقات البنكية المحلية والدولية."
+            desc: "مكتب هەنگاو لتبادل العملات، هو الفرع الثالث التابع لقطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسس في 21/03/2024 في شارع روناکی ( السايدين ) في مدينة أربيل، ويعمل في مجال تبادل جميع أنواع العملات وإرسال الأموال إلى جميع دول العالم نقداً وعبر الحسابات البنكية وإرسال الأموال إلى جميع البطاقات البنكية المحلية والدولية.",
+            content: "مكتب هەنگاو لتبادل العملات، هو الفرع الثالث التابع لقطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسس في 21/03/2024 في شارع روناکی ( السايدين ) في مدينة أربيل، ويعمل في مجال تبادل جميع أنواع العملات وإرسال الأموال إلى جميع دول العالم نقداً وعبر الحسابات البنكية وإرسال الأموال إلى جميع البطاقات البنكية المحلية والدولية."
           },
           lutkay: {
             title: "مكتب لوتکەی چيا",
-            desc: "مكتب لوتکەی چيا لتبادل العملات، هو الفرع الخامس التابع لقطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسس في 2024/10/20 في حي عنكاوا بمدينة أربيل، ويعمل في مجال تبادل جميع أنواع العملات وإرسال الأموال إلى جميع دول العالم نقداً وعبر الحسابات البنكية وإرسال الأموال إلى جميع البطاقات البنكية المحلية والدولية.",
-            content: "مكتب لوتکەی چيا لتبادل العملات، هو الفرع الخامس التابع لقطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسس في 2024/10/20 في حي عنكاوا بمدينة أربيل، ويعمل في مجال تبادل جميع أنواع العملات وإرسال الأموال إلى جميع دول العالم نقداً وعبر الحسابات البنكية وإرسال الأموال إلى جميع البطاقات البنكية المحلية والدولية."
+            desc: "مكتب لوتکەی چيا لتبادل العملات، هو الفرع الخامس التابع لقطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسس في 20/10/2024 في حي عنكاوا بمدينة أربيل، ويعمل في مجال تبادل جميع أنواع العملات وإرسال الأموال إلى جميع دول العالم نقداً وعبر الحسابات البنكية وإرسال الأموال إلى جميع البطاقات البنكية المحلية والدولية.",
+            content: "مكتب لوتکەی چيا لتبادل العملات، هو الفرع الخامس التابع لقطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسس في 20/10/2024 في حي عنكاوا بمدينة أربيل، ويعمل في مجال تبادل جميع أنواع العملات وإرسال الأموال إلى جميع دول العالم نقداً وعبر الحسابات البنكية وإرسال الأموال إلى جميع البطاقات البنكية المحلية والدولية."
           },
           khaki: {
             title: "شركة خاکی سەروەر",
-            desc: "شركة خاکی سەروەر لتبادل العملات، هو الفرع الرابع التابع لقطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسست في 2025/02/16 على طريق بيرمام داخل محطة وقود BM2 في مدينة أربيل، وتعمل في مجال تبادل جميع أنواع العملات وإرسال الأموال إلى جميع دول العالم نقداً وعبر الحسابات البنكية وإرسال الأموال إلى جميع البطاقات البنكية المحلية والدولية.",
-            content: "شركة خاکی سەروەر لتبادل العملات، هو الفرع الرابع التابع لقطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسست في 2025/02/16 على طريق بيرمام داخل محطة وقود BM2 في مدينة أربيل، وتعمل في مجال تبادل جميع أنواع العملات وإرسال الأموال إلى جميع دول العالم نقداً وعبر الحسابات البنكية وإرسال الأموال إلى جميع البطاقات البنكية المحلية والدولية."
+            desc: "شركة خاکی سەروەر لتبادل العملات، هو الفرع الرابع التابع لقطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسست في 16/02/2025 على طريق بيرمام داخل محطة وقود BM2 في مدينة أربيل، وتعمل في مجال تبادل جميع أنواع العملات وإرسال الأموال إلى جميع دول العالم نقداً وعبر الحسابات البنكية وإرسال الأموال إلى جميع البطاقات البنكية المحلية والدولية.",
+            content: "شركة خاکی سەروەر لتبادل العملات، هو الفرع الرابع التابع لقطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسست في 16/02/2025 على طريق بيرمام داخل محطة وقود BM2 في مدينة أربيل، وتعمل في مجال تبادل جميع أنواع العملات وإرسال الأموال إلى جميع دول العالم نقداً وعبر الحسابات البنكية وإرسال الأموال إلى جميع البطاقات البنكية المحلية والدولية."
           },
           barzy: {
             title: "مكتب بـەرزی چيا",
-            desc: "مكتب بـەرزی چيا لتبادل العملات، هو الفرع السادس التابع لقطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسس في 2025/03/06 في الإدارة المستقلة لسوران في مركز المدينة مقابل سوق اللنگة، ويعمل في مجال تبادل جميع أنواع العملات وإرسال الأموال إلى جميع دول العالم نقداً وعبر الحسابات البنكية وإرسال الأموال إلى جميع البطاقات البنكية المحلية والدولية.",
-            content: "مكتب بـەرزی چيا لتبادل العملات، هو الفرع السادس التابع لقطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسس في 2025/03/06 في الإدارة المستقلة لسوران في مركز المدينة مقابل سوق اللنگة، ويعمل في مجال تبادل جميع أنواع العملات وإرسال الأموال إلى جميع دول العالم نقداً وعبر الحسابات البنكية وإرسال الأموال إلى جميع البطاقات البنكية المحلية والدولية."
+            desc: "مكتب بـەرزی چيا لتبادل العملات، هو الفرع السادس التابع لقطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسس في 06/03/2025 في الإدارة المستقلة لسوران في مركز المدينة مقابل سوق اللنگة، ويعمل في مجال تبادل جميع أنواع العملات وإرسال الأموال إلى جميع دول العالم نقداً وعبر الحسابات البنكية وإرسال الأموال إلى جميع البطاقات البنكية المحلية والدولية.",
+            content: "مكتب بـەرزی چيا لتبادل العملات، هو الفرع السادس التابع لقطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسس في 06/03/2025 في الإدارة المستقلة لسوران في مركز المدينة مقابل سوق اللنگة، ويعمل في مجال تبادل جميع أنواع العملات وإرسال الأموال إلى جميع دول العالم نقداً وعبر الحسابات البنكية وإرسال الأموال إلى جميع البطاقات البنكية المحلية والدولية."
           },
           dibaga: {
             title: "منفذ ديبكة هەنگاو",
-            desc: "منفذ ديبكة هەنگاو لصرف الرواتب، التابع لمكتب هەنگاو في قطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسس في 2025/08/01 في شارع روناکی داخل مكتب هەنگاو، وتتكون أعماله من صرف الرواتب العسكرية والمدنية والتقاعد وتنفيذ خدمات (كي كارد، سوبر كي، ماستر كارد) وإرسال وسحب الأموال فيها.",
-            content: "منفذ ديبكة هەنگاو لصرف الرواتب، التابع لمكتب هەنگاو في قطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسس في 2025/08/01 في شارع روناکی داخل مكتب هەنگاو، وتتكون أعماله من صرف الرواتب العسكرية والمدنية والتقاعد وتنفيذ خدمات (كي كارد، سوبر كي، ماستر كارد) وإرسال وسحب الأموال فيها."
+            desc: "منفذ ديبكة هەنگاو لصرف الرواتب، التابع لمكتب هەنگاو في قطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسس في 01/08/2025 في شارع روناکی داخل مكتب هەنگاو، وتتكون أعماله من صرف الرواتب العسكرية والمدنية والتقاعد وتنفيذ خدمات ( كي كارد، سوبر كي، ماستر كارد ) وإرسال وسحب الأموال فيها.",
+            content: "منفذ ديبكة هەنگاو لصرف الرواتب، التابع لمكتب هەنگاو في قطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسس في 01/08/2025 في شارع روناکی داخل مكتب هەنگاو، وتتكون أعماله من صرف الرواتب العسكرية والمدنية والتقاعد وتنفيذ خدمات ( كي كارد، سوبر كي، ماستر كارد ) وإرسال وسحب الأموال فيها."
           },
           tech: {
             title: "چيا تيك",
-            desc: "چيا تيك للأنظمة والكمبيوتر تتبع قطاع التجارة عبر الإنترنت في مجموعة چيا. تأسست في 2025/08/11 وتتكون أعمالها من تركيب أنظمة المحاسبة والإحصاء والأرشفة والموظفين وبيع جميع الأجهزة الإلكترونية.",
-            content: "چيا تيك للأنظمة والكمبيوتر تتبع قطاع التجارة عبر الإنترنت في مجموعة چيا. تأسست في 2025/08/11 وتتكون أعمالها من تركيب أنظمة المحاسبة والإحصاء والأرشفة والموظفين وبيع جميع الأجهزة الإلكترونية."
+            desc: "چيا تيك للأنظمة والكمبيوتر تتبع قطاع التجارة عبر الإنترنت في مجموعة چیا. تأسست في 11/08/2025 وتتكون أعمالها من تركيب أنظمة المحاسبة والإحصاء والأرشفة والموظفين وبيع جميع الأجهزة الإلكترونية.",
+            content: "چيا تيك للأنظمة والكمبيوتر تتبع قطاع التجارة عبر الإنترنت في مجموعة چيا. تأسست في 11/08/2025 وتتكون أعمالها من تركيب أنظمة المحاسبة والإحصاء والأرشفة والموظفين وبيع جميع الأجهزة الإلكترونية."
           },
           blueprint: {
             title: "مكتب بلو برينتينغ",
-            desc: "مكتب بلو برينتينغ للطباعة والاستنساخ، تابع لقطاع الطباعة والاستنساخ في مجموعة چیا. تأسس في 2025/10/19 ويعمل في مجال الطباعة والتصوير وإدارة رسوم دائرة الجوازات والبطاقة الوطنية وحجز مواعيد دائرة الجوازات.",
-            content: "مكتب بلو برينتينغ للطباعة والاستنساخ، تابع لقطاع الطباعة والاستنساخ في مجموعة چیا. تأسس في 2025/10/19 ويعمل في مجال الطباعة والتصوير وإدارة رسوم دائرة الجوازات والبطاقة الوطنية وحجز مواعيد دائرة الجوازات."
+            desc: "مكتب بلو برينتينغ للطباعة والاستنساخ، تابع لقطاع الطباعة والاستنساخ في مجموعة چیا. تأسس في 19/10/2025 ويعمل في مجال الطباعة والتصوير وإدارة رسوم دائرة الجوازات والبطاقة الوطنية وحجز مواعيد دائرة الجوازات.",
+            content: "مكتب بلو برينتينغ للطباعة والاستنساخ، تابع لقطاع الطباعة والاستنساخ في مجموعة چیا. تأسس في 19/10/2025 ويعمل في مجال الطباعة والتصوير وإدارة رسوم دائرة الجوازات والبطاقة الوطنية وحجز مواعيد دائرة الجوازات."
           },
           mateen: {
             title: "شركة چيای مەتین",
-            desc: "شركة چيای مەتین للتجارة العامة، هي الشركة الثانية التابعة لقطاع التجارة العامة في مجموعة چیا. تأسست في 2026/03/01 وتعمل في (الأجهزة الإلكترونية، الأدوات المنزلية، الملابس، والسلع المستعملة \"البالة\").",
-            content: "شركة چيای مەتین للتجارة العامة، هي الشركة الثانية التابعة لقطاع التجارة العامة في مجموعة چیا. تأسست في 2026/03/01 وتعمل في (الأجهزة الإلكترونية، الأدوات المنزلية، الملابس، والسلع المستعملة \"البالة\")."
+            desc: "شركة چيای مەتین للتجارة العامة، هي الشركة الثانية التابعة لقطاع التجارة العامة في مجموعة چیا. تأسست في 01/03/2026 وتعمل في ( الأجهزة الإلكترونية، الأدوات المنزلية، الملابس، والسلع المستعملة \"البالة\" ).",
+            content: "شركة چيای مەتین للتجارة العامة، هي الشركة الثانية التابعة لقطاع التجارة العامة في مجموعة چیا. تأسست في 01/03/2026 وتعمل في ( الأجهزة الإلكترونية، الأدوات المنزلية، الملابس، والسلع المستعملة \"البالة\" )."
           },
           amazon: {
             title: "مشروع چيا أمازون",
-            desc: "مشروع چيا أمازون للسلع المستعملة (البالة) بالمفرد والجملة، التابع لقطاع التجارة العامة في مجموعة چیا. تأسس في 2026/03/01 على طريق رواندوز في الإدارة المستقلة لسوران، وتتكون أعماله من بيع وشراء السلع المستعملة (البالة) بالمفرد والجملة وفقاً للنظام الشرعي (الحلال).",
-            content: "مشروع چيا أمازون للسلع المستعملة (البالة) بالمفرد والجملة، التابع لقطاع التجارة العامة في مجموعة چیا. تأسس في 2026/03/01 على طريق رواندوز في الإدارة المستقلة لسوران، وتتكون أعماله من بيع وشراء السلع المستعملة (البالة) بالمفرد والجملة وفقاً للنظام الشرعي (الحلال)."
+            desc: "مشروع چيا أمازون للسلع المستعملة (البالة) بالمفرد والجملة، التابع لقطاع التجارة العامة في مجموعة چیا. تأسس في 01/03/2026 على طريق رواندوز في الإدارة المستقلة لسوران، وتتكون أعماله من بيع وشراء السلع المستعملة (البالة) بالمفرد والجملة وفقاً للنظام الشرعي (الحلال).",
+            content: "مشروع چيا أمازون للسلع المستعملة (البالة) بالمفرد والجملة، التابع لقطاع التجارة العامة في مجموعة چیا. تأسس في 01/03/2026 على طريق رواندوز في الإدارة المستقلة لسوران، وتتكون أعماله من بيع وشراء السلع المستعملة (البالة) بالمفرد والجملة وفقاً للنظام الشرعي (الحلال)."
           },
           phone: {
             title: "معرض چيا فون",
-            desc: "معرض چيا فون لتجارة الموبايلات، التابع لقطاع الموبايل والتكنولوجيا في مجموعة چیا. تأسس في 2026/03/24 في مركز المدينة في الإدارة المستقلة لسوران، وتتكون أعماله من بيع وشراء الموبايلات والآيبادات واللابتوبات وأجهزة الكمبيوتر وجميع الأجهزة الإلكترونية والإكسسوارات.",
-            content: "معرض چيا فون لتجارة الموبايلات، التابع لقطاع الموبايل والتكنولوجيا في مجموعة چیا. تأسس في 2026/03/24 في مركز المدينة في الإدارة المستقلة لسوران، وتتكون أعماله من بيع وشراء الموبايلات والآيبادات واللابتوبات وأجهزة الكمبيوتر وجميع الأجهزة الإلكترونية والإكسسوارات."
+            desc: "معرض چيا فون لتجارة الموبايلات، التابع لقطاع الموبايل والتكنولوجيا في مجموعة چیا. تأسس في 24/03/2026 في مركز المدينة في الإدارة المستقلة لسوران، وتتكون أعماله من بيع وشراء الموبايلات والآيبادات واللابتوبات وأجهزة الكمبيوتر وجميع الأجهزة الإلكترونية والإكسسوارات.",
+            content: "معرض چيا فون لتجارة الموبايلات، التابع لقطاع الموبايل والتكنولوجيا في مجموعة چیا. تأسس في 24/03/2026 في مركز المدينة في الإدارة المستقلة لسوران، وتتكون أعماله من بيع وشراء الموبايلات والآيبادات واللابتوبات وأجهزة الكمبيوتر وجميع الأجهزة الإلكترونية والإكسسوارات."
           }
         }
       }
@@ -818,7 +818,7 @@ export const translations = {
           contentBody: 'بەشی بازرگانی گشتی ئێمە چەندین جۆری بەرهەم لەخۆدەگرێت، کە بازاڕەکانی ناوچەکە دابین دەکات. بە 14 لق و تۆڕێکی بەهێزی دابینکەران، بازرگانی بەردەوام دەکەین.',
           metrics: [
             { label: 'لقەکان', value: '14' },
-            { label: 'کارمەندان', value: '44' },
+            { label: 'کارمەندان', value: '٤٧' },
             { label: 'کۆمپانیاکان', value: '3' }
           ]
         },
@@ -953,7 +953,7 @@ export const translations = {
         stats: {
           sectors: "٥",
           offices: "١٥ ",
-          professionals: "٤٥",
+          professionals: "٤٧",
           vision: "١",
           visionLabel: "دیدگای یەکگرتوو",
           sectorsLabel: "سێکتەر",
@@ -967,7 +967,7 @@ export const translations = {
       title: "سەردانی بارەگای سەرەکیمان بکەن",
       description: "لە شوێنێکی ستراتیژی لە هەولێر. وەرن بۆ بینینی داهاتووی بازرگانی و پیشەسازی لە نزیکەوە.",
       hqTitle: "بارەگای هەولێر",
-      hqAddress: "شەقامی ڕووناکی، هەولێر ٤٤٠٠١ ، هەرێمی کوردستان ، عێراق",
+      hqAddress: "شەقامی ڕووناکی، هەولێر ٤٧ ، هەرێمی کوردستان ، عێراق",
       email: "ئیمەیڵ",
       phone: "مۆبایل",
       contactBtn: "پەیوەندیمان پێوە بکەن"
@@ -1051,83 +1051,83 @@ export const translations = {
       },
       history: {
         title: "مێژووەکەمان",
-        summary: "چیا گروپ : لە ساڵی 2019 دامەزراوە و 7 ساڵە خزمەت دەکەن لە شاری هەولێر لە 5 سێکتەری جیاواز ( بازرگانی گشتی ، ئاڵوگۆڕی دراو و سێرڤسی دارایی ، مۆبایل و تەکنەلۆژیا ، چاپەمەنی و فۆتۆکۆپی ، بازرگانی ئۆنڵاین ) و ئەندامانی پێکهاتوون لە 44 کەس و خاوەنداریەتی 3 کۆمپانیا و 5 نووسینگەی ئاڵوگۆڕی دراو و 1 نووسینگەی چاپەمەنی و فۆتۆکۆپی و 1 منفذ ی صرفی رواتب و 1 مشروع و 1 پێشانگا و 3 کاری ئۆنڵاین و 14 بریکاری بانک و کۆمپانیا دەکەن",
+        summary: "چیا گروپ : لە ساڵی ٢٠١٩ دامەزراوە و ٧ ساڵە خزمەت دەکەن لە شاری هەولێر لە ٥ سێکتەری جیاواز ( بازرگانی گشتی ، ئاڵوگۆڕی دراو و سێرڤسی دارایی ، مۆبایل و تەکنەلۆژیا ، چاپەمەنی و فۆتۆکۆپی ، بازرگانی ئۆنڵاین ) و ئەندامانی پێکهاتوون لە ٤٧ کەس و خاوەنداریەتی ٣ کۆمپانیا و ٥ نووسینگەی ئاڵوگۆڕی دراو و ١ نووسینگەی چاپەمەنی و فۆتۆکۆپی و ١ منفذ ی صرفی رواتب و ١ مشروع و ١ پێشانگا و ٣ کاری ئۆنڵاین و ١٤ بریکاری بانک و کۆمپانیا دەکەن",
         explore: "کرتە بکە بۆ زیاتر",
         timeline: {
           foundation: {
             title: "کۆمپانیای لمعة المرجان",
-            desc: "کۆمپانیای لمعة المرجان بۆ بازرگانی گشتی ، یەکەم کۆمپانیای سەر بە سێکتەری بازرگانی گشتی چیا گروپە و لە 2019/11/30 دامەزراوە و کار دەکات لە  کەرەستەی بیناسازی وەک ( دار و داری MDF و مۆبیلیات و ستیل و فوگە و چیمەنتۆ و کۆنکرێت )",
-            content: "کۆمپانیای لمعة المرجان بۆ بازرگانی گشتی ، یەکەم کۆمپانیای سەر بە سێکتەری بازرگانی گشتی چیا گروپە و لە 2019/11/30 دامەزراوە و کار دەکات لە  کەرەستەی بیناسازی وەک ( دار و داری MDF و مۆبیلیات و ستیل و فوگە و چیمەنتۆ و کۆنکرێت )"
+            desc: "کۆمپانیای لمعة المرجان بۆ بازرگانی گشتی ، یەکەم کۆمپانیای سەر بە سێکتەری بازرگانی گشتی چیا گروپە و لە 30/11/2019 دامەزراوە و کار دەکات لە  کەرەستەی بیناسازی وەک ( دار و داری MDF و مۆبیلیات و ستیل و فوگە و چیمەنتۆ و کۆنکرێت )",
+            content: "کۆمپانیای لمعة المرجان بۆ بازرگانی گشتی ، یەکەم کۆمپانیای سەر بە سێکتەری بازرگانی گشتی چیا گروپە و لە 30/11/2019 دامەزراوە و کار دەکات لە  کەرەستەی بیناسازی وەک ( دار و داری MDF و مۆبیلیات و ستیل و فوگە و چیمەنتۆ و کۆنکرێت )"
           },
           travel: {
             title: "کاری چیا تڕاڤل",
-            desc: "چیا تڕاڤل بۆ تکت و ڤیزە سەر بە سێکتەری بازرگانی ئۆنڵاینی چیا گروپە و لە 2020/01/22 دامەزراوە و کارەکانی پێک دێت لە تکت و ڤیزەی گەشتیاری و حجزی هۆتێل و ئۆتۆمبێل و شوێنە گەشتیاریەکان و ڕێنمویی نەخۆش و وەرگێڕی زمان.",
-            content: "چیا تڕاڤل بۆ تکت و ڤیزە سەر بە سێکتەری بازرگانی ئۆنڵاینی چیا گروپە و لە 2020/01/22 دامەزراوە و کارەکانی پێک دێت لە تکت و ڤیزەی گەشتیاری و حجزی هۆتێل و ئۆتۆمبێل و شوێنە گەشتیاریەکان و ڕێنمویی نەخۆش و وەرگێڕی زمان."
+            desc: "چیا تڕاڤل بۆ تکت و ڤیزە سەر بە سێکتەری بازرگانی ئۆنڵاینی چیا گروپە و لە 22/01/2020 دامەزراوە و کارەکانی پێک دێت لە تکت و ڤیزەی گەشتیاری و حجزی هۆتێل و ئۆتۆمبێل و شوێنە گەشتیاریەکان و ڕێنمویی نەخۆش و وەرگێڕی زمان.",
+            content: "چیا تڕاڤل بۆ تکت و ڤیزە سەر بە سێکتەری بازرگانی ئۆنڵاینی چیا گروپە و لە 22/01/2020 دامەزراوە و کارەکانی پێک دێت لە تکت و ڤیزەی گەشتیاری و حجزی هۆتێل و ئۆتۆمبێل و شوێنە گەشتیاریەکان و ڕێنمویی نەخۆش و وەرگێڕی زمان."
           },
           exchange: {
             title: "نووسینگەی چیا",
-            desc: "نووسینگەی چیا بۆ ئاڵوگۆڕی دراو ، یەکەم لقی سەر بە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 2021/06/14 لە بۆرسەی کۆن ی شاری هەولێر دامەزراوە و کار دەکات لە بواری ئاڵوگۆڕی هەموو جۆرە دراوێك و ناردنی پارە بۆ هەموو وڵاتانی جیهان بە کاش و حسابی بانکی و ناردنی پارە بۆ هەموو کارتە بانکیە نێوخۆیی و نێودەوڵەتیەکان.",
-            content: "نووسینگەی چیا بۆ ئاڵوگۆڕی دراو ، یەکەم لقی سەر بە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 2021/06/14 لە بۆرسەی کۆن ی شاری هەولێر دامەزراوە و کار دەکات لە بواری ئاڵوگۆڕی هەموو جۆرە دراوێك و ناردنی پارە بۆ هەموو وڵاتانی جیهان بە کاش و حسابی بانکی و ناردنی پارە بۆ هەموو کارتە بانکیە نێوخۆیی و نێودەوڵەتیەکان."
+            desc: "نووسینگەی چیا بۆ ئاڵوگۆڕی دراو ، یەکەم لقی سەر بە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 14/06/2021 لە بۆرسەی کۆن ی شاری هەولێر دامەزراوە و کار دەکات لە بواری ئاڵوگۆڕی هەموو جۆرە دراوێك و ناردنی پارە بۆ هەموو وڵاتانی جیهان بە کاش و حسابی بانکی و ناردنی پارە بۆ هەموو کارتە بانکیە نێوخۆیی و نێودەوڵەتیەکان.",
+            content: "نووسینگەی چیا بۆ ئاڵوگۆڕی دراو ، یەکەم لقی سەر بە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 14/06/2021 لە بۆرسەی کۆن ی شاری هەولێر دامەزراوە و کار دەکات لە بواری ئاڵوگۆڕی هەموو جۆرە دراوێك و ناردنی پارە بۆ هەموو وڵاتانی جیهان بە کاش و حسابی بانکی و ناردنی پارە بۆ هەموو کارتە بانکیە نێوخۆیی و نێودەوڵەتیەکان."
           },
           luxury: {
             title: "کیڤا لوکژوری",
-            desc: "کاری کیڤا لوکژوری : کیڤا لوکژوری بۆ گەوهەر و ئێکسسوارات سەر بە سێکتەری بازرگانی ئۆنڵاینی چیا گروپە و لە 2022/01/20 دامەزراوە و کارەکانی پێک دێت لە بازرگانی گەوهەر و ئێکسسوارات و کاتژمێر و بۆن ی بڕاندی جیهانی.",
-            content: "کاری کیڤا لوکژوری : کیڤا لوکژوری بۆ گەوهەر و ئێکسسوارات سەر بە سێکتەری بازرگانی ئۆنڵاینی چیا گروپە و لە 2022/01/20 دامەزراوە و کارەکانی پێک دێت لە بازرگانی گەوهەر و ئێکسسوارات و کاتژمێر و بۆن ی بڕاندی جیهانی."
+            desc: "کاری کیڤا لوکژوری : کیڤا لوکژوری بۆ گەوهەر و ئێکسسوارات سەر بە سێکتەری بازرگانی ئۆنڵاینی چیا گروپە و لە 20/01/2022 دامەزراوە و کارەکانی پێک دێت لە بازرگانی گەوهەر و ئێکسسوارات و کاتژمێر و بۆن ی بڕاندی جیهانی.",
+            content: "کاری کیڤا لوکژوری : کیڤا لوکژوری بۆ گەوهەر و ئێکسسوارات سەر بە سێکتەری بازرگانی ئۆنڵاینی چیا گروپە و لە 20/01/2022 دامەزراوە و کارەکانی پێک دێت لە بازرگانی گەوهەر و ئێکسسوارات و کاتژمێر و بۆن ی بڕاندی جیهانی."
           },
           gold: {
             title: "نووسینگەی چیا گۆڵد",
-            desc: "نووسینگەی چیا گۆڵد بۆ ئاڵوگۆڕی دراو ، دووەم لقی سەر بە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 2023/08/28 لە ناوچەی سلۆپی شاری شرناغ لە وڵاتی تورکیا دامەزراوە و کار دەکات لە بواری ئاڵوگۆڕی هەموو جۆرە دراوێك و ناردنی پارە بۆ هەموو شارەکان و حساب بانکیەکانی نێو وڵاتی تورکیا.",
-            content: "نووسینگەی چیا گۆڵد بۆ ئاڵوگۆڕی دراو ، دووەم لقی سەر بە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 2023/08/28 لە ناوچەی سلۆپی شاری شرناغ لە وڵاتی تورکیا دامەزراوە و کار دەکات لە بواری ئاڵوگۆڕی هەموو جۆرە دراوێك و ناردنی پارە بۆ هەموو شارەکان و حساب بانکیەکانی نێو وڵاتی تورکیا."
+            desc: "نووسینگەی چیا گۆڵد بۆ ئاڵوگۆڕی دراو ، دووەم لقی سەر بە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 28/08/2023 لە ناوچەی سلۆپی شاری شرناغ لە وڵاتی تورکیا دامەزراوە و کار دەکات لە بواری ئاڵوگۆڕی هەموو جۆرە دراوێك و ناردنی پارە بۆ هەموو شارەکان و حساب بانکیەکانی نێو وڵاتی تورکیا.",
+            content: "نووسینگەی چیا گۆڵد بۆ ئاڵوگۆڕی دراو ، دووەم لقی سەر بە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 28/08/2023 لە ناوچەی سلۆپی شاری شرناغ لە وڵاتی تورکیا دامەزراوە و کار دەکات لە بواری ئاڵوگۆڕی هەموو جۆرە دراوێك و ناردنی پارە بۆ هەموو شارەکان و حساب بانکیەکانی نێو وڵاتی تورکیا."
           },
           hangaw: {
             title: "نووسینگەی هەنگاو",
-            desc: "نووسینگەی هەنگاو بۆ ئاڵوگۆڕی دراو ، سێیەم لقی سەر بە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 2024/03/21 لە جووت سایدی ڕووناکی شاری هەولێر دامەزراوە و کار دەکات لە بواری ئاڵوگۆڕی هەموو جۆرە دراوێك و ناردنی پارە بۆ هەموو وڵاتانی جیهان بە کاش و حسابی بانکی و ناردنی پارە بۆ هەموو کارتە بانکیە نێوخۆیی و نێودەوڵەتیەکان.",
-            content: "نووسینگەی هەنگاو بۆ ئاڵوگۆڕی دراو ، سێیەم لقی سەر بە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 2024/03/21 لە جووت سایدی ڕووناکی شاری هەولێر دامەزراوە و کار دەکات لە بواری ئاڵوگۆڕی هەموو جۆرە دراوێك و ناردنی پارە بۆ هەموو وڵاتانی جیهان بە کاش و حسابی بانکی و ناردنی پارە بۆ هەموو کارتە بانکیە نێوخۆیی و نێودەوڵەتیەکان."
+            desc: "نووسینگەی هەنگاو بۆ ئاڵوگۆڕی دراو ، سێیەم لقی سەر بە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 21/03/2024 لە جووت سایدی ڕووناکی شاری هەولێر دامەزراوە و کار دەکات لە بواری ئاڵوگۆڕی هەموو جۆرە دراوێك و ناردنی پارە بۆ هەموو وڵاتانی جیهان بە کاش و حسابی بانکی و ناردنی پارە بۆ هەموو کارتە بانکیە نێوخۆیی و نێودەوڵەتیەکان.",
+            content: "نووسینگەی هەنگاو بۆ ئاڵوگۆڕی دراو ، سێیەم لقی سەر بە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 21/03/2024 لە جووت سایدی ڕووناکی شاری هەولێر دامەزراوە و کار دەکات لە بواری ئاڵوگۆڕی هەموو جۆرە دراوێك و ناردنی پارە بۆ هەموو وڵاتانی جیهان بە کاش و حسابی بانکی و ناردنی پارە بۆ هەموو کارتە بانکیە نێوخۆیی و نێودەوڵەتیەکان."
           },
           lutkay: {
             title: "نووسینگەی لوتکەی چیا",
-            desc: "نووسینگەی لوتکەی چیا بۆ ئاڵوگۆڕی دراو ، پێنجەم لقی سەر بە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 2024/10/20 لە گەڕەکی عەنکاوەی شاری هەولێر دامەزراوە و کار دەکات لە بواری ئاڵوگۆڕی هەموو جۆرە دراوێك و ناردنی پارە بۆ هەموو وڵاتانی جیهان بە کاش و حسابی بانکی و ناردنی پارە بۆ هەموو کارتە بانکیە نێوخۆیی و نێودەوڵەتیەکان.",
-            content: "نووسینگەی لوتکەی چیا بۆ ئاڵوگۆڕی دراو ، پێنجەم لقی سەر بە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 2024/10/20 لە گەڕەکی عەنکاوەی شاری هەولێر دامەزراوە و کار دەکات لە بواری ئاڵوگۆڕی هەموو جۆرە دراوێك و ناردنی پارە بۆ هەموو وڵاتانی جیهان بە کاش و حسابی بانکی و ناردنی پارە بۆ هەموو کارتە بانکیە نێوخۆیی و نێودەوڵەتیەکان."
+            desc: "نووسینگەی لوتکەی چیا بۆ ئاڵوگۆڕی دراو ، پێنجەم لقی سەر بە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 20/10/2024 لە گەڕەکی عەنکاوەی شاری هەولێر دامەزراوە و کار دەکات لە بواری ئاڵوگۆڕی هەموو جۆرە دراوێك و ناردنی پارە بۆ هەموو وڵاتانی جیهان بە کاش و حسابی بانکی و ناردنی پارە بۆ هەموو کارتە بانکیە نێوخۆیی و نێودەوڵەتیەکان.",
+            content: "نووسینگەی لوتکەی چیا بۆ ئاڵوگۆڕی دراو ، پێنجەم لقی سەر بە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 20/10/2024 لە گەڕەکی عەنکاوەی شاری هەولێر دامەزراوە و کار دەکات لە بواری ئاڵوگۆڕی هەموو جۆرە دراوێك و ناردنی پارە بۆ هەموو وڵاتانی جیهان بە کاش و حسابی بانکی و ناردنی پارە بۆ هەموو کارتە بانکیە نێوخۆیی و نێودەوڵەتیەکان."
           },
           khaki: {
             title: "کۆمپانیای خاکی سەروەر",
-            desc: "کۆمپانیای خاکی سەروەر بۆ ئاڵوگۆڕی دراو ، چوارەم لقی سەر بە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 2025/02/16 لە ڕێگای پیرمام نێو بەنزینخانەی بی ئێم ٢ لە شاری هەولێر دامەزراوە و کار دەکات لە بواری ئاڵوگۆڕی هەموو جۆرە دراوێك و ناردنی پارە بۆ هەموو وڵاتانی جیهان بە کاش و حسابی بانکی و ناردنی پارە بۆ هەموو کارتە بانکیە نێوخۆیی و نێودەوڵەتیەکان.",
-            content: "کۆمپانیای خاکی سەروەر بۆ ئاڵوگۆڕی دراو ، چوارەم لقی سەر بە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 2025/02/16 لە ڕێگای پیرمام نێو بەنزینخانەی بی ئێم ٢ لە شاری هەولێر دامەزراوە و کار دەکات لە بواری ئاڵوگۆڕی هەموو جۆرە دراوێك و ناردنی پارە بۆ هەموو وڵاتانی جیهان بە کاش و حسابی بانکی و ناردنی پارە بۆ هەموو کارتە بانکیە نێوخۆیی و نێودەوڵەتیەکان."
+            desc: "کۆمپانیای خاکی سەروەر بۆ ئاڵوگۆڕی دراو ، چوارەم لقی سەر بە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 16/02/2025 لە ڕێگای پیرمام نێو بەنزینخانەی بی ئێم ٢ لە شاری هەولێر دامەزراوە و کار دەکات لە بواری ئاڵوگۆڕی هەموو جۆرە دراوێك و ناردنی پارە بۆ هەموو وڵاتانی جیهان بە کاش و حسابی بانکی و ناردنی پارە بۆ هەموو کارتە بانکیە نێوخۆیی و نێودەوڵەتیەکان.",
+            content: "کۆمپانیای خاکی سەروەر بۆ ئاڵوگۆڕی دراو ، چوارەم لقی سەر بە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 16/02/2025 لە ڕێگای پیرمام نێو بەنزینخانەی بی ئێم ٢ لە شاری هەولێر دامەزراوە و کار دەکات لە بواری ئاڵوگۆڕی هەموو جۆرە دراوێك و ناردنی پارە بۆ هەموو وڵاتانی جیهان بە کاش و حسابی بانکی و ناردنی پارە بۆ هەموو کارتە بانکیە نێوخۆیی و نێودەوڵەتیەکان."
           },
           barzy: {
             title: "نووسینگەی بەرزی چیا",
-            desc: "نووسینگەی بەرزی چیا بۆ ئاڵوگۆڕی دراو ، شەشەم لقی سەر بە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 2025/03/06 لە ئیدارەی سەربەخۆی سۆران لە سەنتەری شار بەرامبەر بازاڕی لەنگە دامەزراوە و کار دەکات لە بواری ئاڵوگۆڕی هەموو جۆرە دراوێك و ناردنی پارە بۆ هەموو وڵاتانی جیهان بە کاش و حسابی بانکی و ناردنی پارە بۆ هەموو کارتە بانکیە نێوخۆیی و نێودەوڵەتیەکان.",
-            content: "نووسینگەی بەرزی چیا بۆ ئاڵوگۆڕی دراو ، شەشەم لقی سەر بە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 2025/03/06 لە ئیدارەی سەربەخۆی سۆران لە سەنتەری شار بەرامبەر بازاڕی لەنگە دامەزراوە و کار دەکات لە بواری ئاڵوگۆڕی هەموو جۆرە دراوێك و ناردنی پارە بۆ هەموو وڵاتانی جیهان بە کاش و حسابی بانکی و ناردنی پارە بۆ هەموو کارتە بانکیە نێوخۆیی و نێودەوڵەتیەکان."
+            desc: "نووسینگەی بەرزی چیا بۆ ئاڵوگۆڕی دراو ، شەشەم لقی سەر بە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 06/03/2025 لە ئیدارەی سەربەخۆی سۆران لە سەنتەری شار بەرامبەر بازاڕی لەنگە دامەزراوە و کار دەکات لە بواری ئاڵوگۆڕی هەموو جۆرە دراوێك و ناردنی پارە بۆ هەموو وڵاتانی جیهان بە کاش و حسابی بانکی و ناردنی پارە بۆ هەموو کارتە بانکیە نێوخۆیی و نێودەوڵەتیەکان.",
+            content: "نووسینگەی بەرزی چیا بۆ ئاڵوگۆڕی دراو ، شەشەم لقی سەر بە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 06/03/2025 لە ئیدارەی سەربەخۆی سۆران لە سەنتەری شار بەرامبەر بازاڕی لەنگە دامەزراوە و کار دەکات لە بواری ئاڵوگۆڕی هەموو جۆرە دراوێك و ناردنی پارە بۆ هەموو وڵاتانی جیهان بە کاش و حسابی بانکی و ناردنی پارە بۆ هەموو کارتە بانکیە نێوخۆیی و نێودەوڵەتیەکان."
           },
           dibaga: {
             title: "منفذ ديبكة ى هەنگاو",
-            desc: "منفذ دیبكة ی هەنگاو بۆ صرفی رواتب سەر بە نووسینگەی هەنگاو لە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 2025/08/01 لە جووت سایدی ڕووناکی لە نێو نووسینگەی هەنگاو دامەزراوە و کارەکانی پێک دێت لە صرفی رواتب عسکری و مدنی و تقاعد و جێبەجێکردنی سێرڤسی ( کی کارد ، سوپەر کی ، ماستەر کارد ) و ناردن و ڕاکێشانی پارە تیایدا.",
-            content: "منفذ دیبكة ی هەنگاو بۆ صرفی رواتب سەر بە نووسینگەی هەنگاو لە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 2025/08/01 لە جووت سایدی ڕووناکی لە نێو نووسینگەی هەنگاو دامەزراوە و کارەکانی پێک دێت لە صرفی رواتب عسکری و مدنی و تقاعد و جێبەجێکردنی سێرڤسی ( کی کارد ، سوپەر کی ، ماستەر کارد ) و ناردن و ڕاکێشانی پارە تیایدا."
+            desc: "منفذ دیبكة ی هەنگاو بۆ صرفی رواتب سەر بە نووسینگەی هەنگاو لە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 01/08/2025 لە جووت سایدی ڕووناکی لە نێو نووسینگەی هەنگاو دامەزراوە و کارەکانی پێک دێت لە صرفی رواتب عسکری و مدنی و تقاعد و جێبەجێکردنی سێرڤسی ( کی کارد ، سوپەر کی ، ماستەر کارد ) و ناردن و ڕاکێشانی پارە تیایدا.",
+            content: "منفذ دیبكة ی هەنگاو بۆ صرفی رواتب سەر بە نووسینگەی هەنگاو لە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 01/08/2025 لە جووت سایدی ڕووناکی لە نێو نووسینگەی هەنگاو دامەزراوە و کارەکانی پێک دێت لە صرفی رواتب عسکری و مدنی و تقاعد و جێبەجێکردنی سێرڤسی ( کی کارد ، سوپەر کی ، ماستەر کارد ) و ناردن و ڕاکێشانی پارە تیایدا."
           },
           tech: {
             title: "چیا تێك",
-            desc: "کاری چیا تێك : چیا تێك بۆ دانانی سیستەم و کۆمپیتەر سەر بە سێکتەری بازرگانی ئۆنڵاینی چیا گروپە و لە 2025/08/11 دامەزراوە و کارەکانی پێک دێت لە دانانی سیستەمی ژمێریاری و ئامار و ئەرشیف و کارمەند و فرۆشتنی هەموو ئامێرە ئەلیکتڕۆنیەکان",
-            content: "کاری چیا تێك : چیا تێك بۆ دانانی سیستەم و کۆمپیتەر سەر بە سێکتەری بازرگانی ئۆنڵاینی چیا گروپە و لە 2025/08/11 دامەزراوە و کارەکانی پێک دێت لە دانانی سیستەمی ژمێریاری و ئامار و ئەرشیف و کارمەند و فرۆشتنی هەموو ئامێرە ئەلیکتڕۆنیەکان"
+            desc: "کاری چیا تێك : چیا تێك بۆ دانانی سیستەم و کۆمپیتەر سەر بە سێکتەری بازرگانی ئۆنڵاینی چیا گروپە و لە 11/08/2025 دامەزراوە و کارەکانی پێک دێت لە دانانی سیستەمی ژمێریاری و ئامار و ئەرشیف و کارمەند و فرۆشتنی هەموو ئامێرە ئەلیکتڕۆنیەکان",
+            content: "کاری چیا تێك : چیا تێك بۆ دانانی سیستەم و کۆمپیتەر سەر بە سێکتەری بازرگانی ئۆنڵاینی چیا گروپە و لە 11/08/2025 دامەزراوە و کارەکانی پێک دێت لە دانانی سیستەمی ژمێریاری و ئامار و ئەرشیف و کارمەند و فرۆشتنی هەموو ئامێرە ئەلیکتڕۆنیەکان"
           },
           blueprint: {
             title: "نووسینگەی بلو پرێنتینگ",
-            desc: "نووسینگەی بلو پرێنتینگ بۆ چاپەمەنی و فۆتۆکۆپی سەر بە سێکتەری چاپەمەنی و فۆتۆکۆپی چیا گروپە و لە 2025/10/19 دامەزراوە و کار دەکات لە بواری چاپ کردن و وێنە گرتن و بەڕێوەبردنی رسوماتی دائرەی پاسپۆرت و کارتی نیشتیمانی و حجز کردنی ڕێکەوتی دائرە پاسپۆرت.",
-            content: "نووسینگەی بلو پرێنتینگ بۆ چاپەمەنی و فۆتۆکۆپی سەر بە سێکتەری چاپەمەنی و فۆتۆکۆپی چیا گروپە و لە 2025/10/19 دامەزراوە و کار دەکات لە بواری چاپ کردن و وێنە گرتن و بەڕێوەبردنی رسوماتی دائرەی پاسپۆرت و کارتی نیشتیمانی و حجز کردنی ڕێکەوتی دائرە پاسپۆرت."
+            desc: "نووسینگەی بلو پرێنتینگ بۆ چاپەمەنی و فۆتۆکۆپی سەر بە سێکتەری چاپەمەنی و فۆتۆکۆپی چیا گروپە و لە 19/10/2025 دامەزراوە و کار دەکات لە بواری چاپ کردن و وێنە گرتن و بەڕێوەبردنی رسوماتی دائرەی پاسپۆرت و کارتی نیشتیمانی و حجز کردنی ڕێکەوتی دائرە پاسپۆرت.",
+            content: "نووسینگەی بلو پرێنتینگ بۆ چاپەمەنی و فۆتۆکۆپی سەر بە سێکتەری چاپەمەنی و فۆتۆکۆپی چیا گروپە و لە 19/10/2025 دامەزراوە و کار دەکات لە بواری چاپ کردن و وێنە گرتن و بەڕێوەبردنی رسوماتی دائرەی پاسپۆرت و کارتی نیشتیمانی و حجز کردنی ڕێکەوتی دائرە پاسپۆرت."
           },
           mateen: {
             title: "کۆمپانیای چیای مەتین",
-            desc: "کۆمپانیای چیای مەتین بۆ بازرگانی گشتی ، دووەم کۆمپانیای سەر بە سێکتەری بازرگانی گشتی چیا گروپە و لە 2026/03/01 دامەزراوە و کار دەکات لە ( ئامێرە ئەلیکتڕۆنیەکان و کەل و پەلی ناو ماڵ و جل و بەرگ و کەل و پەلی بالە).",
-            content: "کۆمپانیای چیای مەتین بۆ بازرگانی گشتی ، دووەم کۆمپانیای سەر بە سێکتەری بازرگانی گشتی چیا گروپە و لە 2026/03/01 دامەزراوە و کار دەکات لە ( ئامێرە ئەلیکتڕۆنیەکان و کەل و پەلی ناو ماڵ و جل و بەرگ و کەل و پەلی بالە)."
+            desc: "کۆمپانیای چیای مەتین بۆ بازرگانی گشتی ، دووەم کۆمپانیای سەر بە سێکتەری بازرگانی گشتی چیا گروپە و لە 01/03/2026 دامەزراوە و کار دەکات لە ( ئامێرە ئەلیکتڕۆنیەکان و کەل و پەلی ناو ماڵ و جل و بەرگ و کەل و پەلی بالە).",
+            content: "کۆمپانیای چیای مەتین بۆ بازرگانی گشتی ، دووەم کۆمپانیای سەر بە سێکتەری بازرگانی گشتی چیا گروپە و لە 01/03/2026 دامەزراوە و کار دەکات لە ( ئامێرە ئەلیکتڕۆنیەکان و کەل و پەلی ناو ماڵ و جل و بەرگ و کەل و پەلی بالە)."
           },
           amazon: {
             title: "مشروع چیا ئەمازۆن",
-            desc: "مشروع چیا ئەمازۆن بۆ کەل و پەلی بالە بە تاک و بە کۆ سەر بە سێکتەری بازرگانی گشتی چیا گروپە و لە 2026/03/01 لە ڕێگای ڕەواندوز لە ئیدارە سەربەخۆی سۆران دامەزراوە و کارەکانی پێک دێت لە کڕین و فرۆشتنی کەل و پەلی بالە بە تاک و بە کۆ بە پێی سیستەمی شرعی ( حەلال ).",
-            content: "مشروع چیا ئەمازۆن بۆ کەل و پەلی بالە بە تاک و بە کۆ سەر بە سێکتەری بازرگانی گشتی چیا گروپە و لە 2026/03/01 لە ڕێگای ڕەواندوز لە ئیدارە سەربەخۆی سۆران دامەزراوە و کارەکانی پێک دێت لە کڕین و فرۆشتنی کەل و پەلی بالە بە تاک و بە کۆ بە پێی سیستەمی شرعی ( حەلال )."
+            desc: "مشروع چیا ئەمازۆن بۆ کەل و پەلی بالە بە تاک و بە کۆ سەر بە سێکتەری بازرگانی گشتی چیا گروپە و لە 01/03/2026 لە ڕێگای ڕەواندوز لە ئیدارە سەربەخۆی سۆران دامەزراوە و کارەکانی پێک دێت لە کڕین و فرۆشتنی کەل و پەلی بالە بە تاک و بە کۆ بە پێی سیستەمی شرعی ( حەلال ).",
+            content: "مشروع چیا ئەمازۆن بۆ کەل و پەلی بالە بە تاک و بە کۆ سەر بە سێکتەری بازرگانی گشتی چیا گروپە و لە 01/03/2026 لە ڕێگای ڕەواندوز لە ئیدارە سەربەخۆی سۆران دامەزراوە و کارەکانی پێک دێت لە کڕین و فرۆشتنی کەل و پەلی بالە بە تاک و بە کۆ بە پێی سیستەمی شرعی ( حەلال )."
           },
           phone: {
             title: "پێشانگای چیا فۆن",
-            desc: "پێشانگای چیا فۆن بۆ بازرگانی مۆبایل سەر بە سێکتەری مۆبایل و تەکنەلۆژیای چیا گروپە و لە 2026/03/24 لە سەنتەری شار لە ئیدارەی سەربەخۆی سۆران دامەزراوە و کارەکانی پێک دێت لە کڕین و فرۆشتنی مۆبایل و ئایپاد و لاپتۆپ و کۆمپیتەر و هەموو ئامێرێکی ئەلیکتڕۆنی و ئێکسسوارات.",
-            content: "پێشانگای چیا فۆن بۆ بازرگانی مۆبایل سەر بە سێکتەری مۆبایل و تەکنەلۆژیای چیا گروپە و لە 2026/03/24 لە سەنتەری شار لە ئیدارەی سەربەخۆی سۆران دامەزراوە و کارەکانی پێک دێت لە کڕین و فرۆشتنی مۆبایل و ئایپاد و لاپتۆپ و کۆمپیتەر و هەموو ئامێرێکی ئەلیکتڕۆنی و ئێکسسوارات."
+            desc: "پێشانگای چیا فۆن بۆ بازرگانی مۆبایل سەر بە سێکتەری مۆبایل و تەکنەلۆژیای چیا گروپە و لە 24/03/2026 لە سەنتەری شار لە ئیدارەی سەربەخۆی سۆران دامەزراوە و کارەکانی پێک دێت لە کڕین و فرۆشتنی مۆبایل و ئایپاد و لاپتۆپ و کۆمپیتەر و هەموو ئامێرێکی ئەلیکتڕۆنی و ئێکسسوارات.",
+            content: "پێشانگای چیا فۆن بۆ بازرگانی مۆبایل سەر بە سێکتەری مۆبایل و تەکنەلۆژیای چیا گروپە و لە 24/03/2026 لە سەنتەری شار لە ئیدارەی سەربەخۆی سۆران دامەزراوە و کارەکانی پێک دێت لە کڕین و فرۆشتنی مۆبایل و ئایپاد و لاپتۆپ و کۆمپیتەر و هەموو ئامێرێکی ئەلیکتڕۆنی و ئێکسسوارات."
           }
         }
       }

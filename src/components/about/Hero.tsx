@@ -18,10 +18,10 @@ export default function Hero() {
         <section dir="ltr" className="relative w-full min-h-[60vh] md:min-h-[80vh] flex items-center overflow-hidden bg-[#faf9f6]">
             {/* Background Image of Citadel */}
             <div
-                className={`absolute inset-0 z-0 bg-cover transition-opacity duration-1000 scale-110 ${mounted ? 'opacity-100' : 'opacity-0'}`}
+                className={`absolute inset-0 z-0 bg-cover transition-opacity duration-1000 ${mounted ? 'opacity-100' : 'opacity-0'}`}
                 style={{
-                    backgroundImage: 'url("/cit.png")',
-                    backgroundPosition: '100% center', // Using percentage to be more robust
+                    backgroundImage: 'url("https://i.postimg.cc/fW8f0xXg/image.png")',
+                    backgroundPosition: '40% center',
                 }}
             />
 

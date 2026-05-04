@@ -59,20 +59,12 @@ export default function TeamSection({ id }: { id: string }) {
         </p>
       </div>
 
-      <div className="flex flex-col gap-8">
-        {/* Featured Founder Card */}
-        {founder && (
-          <div className={cn("w-full lg:w-2/3", isRTL ? "mr-0 ml-auto" : "ml-0 mr-auto")}>
-            <TeamCard member={founder} featured={true} />
+      <div className="flex flex-col gap-6">
+        {teamData.map((member, idx) => (
+          <div key={idx} className={cn("w-full lg:w-3/4", isRTL ? "mr-0 ml-auto" : "ml-0 mr-auto")}>
+            <TeamCard member={member} featured={true} />
           </div>
-        )}
-
-        {/* Rest of the board grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {board.map((member, idx) => (
-            <TeamCard key={idx} member={member} />
-          ))}
-        </div>
+        ))}
       </div>
     </section>
   );
