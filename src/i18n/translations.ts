@@ -14,7 +14,7 @@ export const translations = {
     hero: {
       line1: "Strength in Numbers,",
       line2: "Power in Unity.",
-      description: "Connecting markets, empowering industries, and shaping the future of commerce and finance across the region.",
+      description: "Connecting Markets, Empowering Industries, And Shaping The Future Of Commerce And Finance Across The Region.",
       learnMore: "Learn More",
       contactUs: "Contact Us",
       partners: "Our Partners",
@@ -40,11 +40,11 @@ export const translations = {
         one: "one",
         vision: "vision."
       },
-      description: "Chya Group Operates Across Five Dynamic Industries, Spanning 15 Branches With 47 Professionals Driving Growth Across The Region.",
+      description: "Chya Group Operates Across Five Dynamic Industries, Spanning 16 Works With 47 Members Driving Growth Across The Region.",
       stats: {
-        branches: "Offices",
-        professionals: "Professionals",
-        vision: "Unified Vision"
+        branches: "Works",
+        professionals: "Members",
+        vision: "United Vision"
       },
       button: "Our Journey",
       quote: {
@@ -59,9 +59,9 @@ export const translations = {
           cardTitle: 'GENERAL TRADING',
           contentLabel: 'GENERAL TRADING',
           contentTitle: 'Powering commerce across the region',
-          contentBody: 'Our general trading arm spans a diverse product portfolio, supplying markets across the region with reliability and scale. With 14 branches and deep supplier networks, we keep commerce moving.',
+          contentBody: 'Our general trading arm spans a diverse product portfolio, supplying markets across the region with reliability and scale. With extensive branches and deep supplier networks, we keep commerce moving.',
           metrics: [
-            { label: 'Branches', value: '14' },
+            { label: 'Branches', value: '16' },
             { label: 'Employees', value: '47' },
             { label: 'Companies', value: '3' }
           ]
@@ -72,9 +72,9 @@ export const translations = {
           cardTitle: 'MONEY EXCHANGE & FINANCIAL SERVICE',
           contentLabel: 'FINANCIAL SERVICES',
           contentTitle: 'Trusted financial exchange & services',
-          contentBody: 'Chya Group operates 5 dedicated money exchange offices delivering fast, secure, and competitive currency exchange alongside comprehensive financial services for individuals and businesses.',
+          contentBody: 'Chya Group operates a dedicated money exchange division delivering fast, secure, and competitive currency services. Backed by 14 bank & company agents, we ensure seamless global transactions.',
           metrics: [
-            { label: 'Offices', value: '5' },
+            { label: 'Agents', value: '14' },
             { label: 'Currencies', value: '20+' },
             { label: 'Daily Ops', value: '24/7' }
           ]
@@ -85,7 +85,7 @@ export const translations = {
           cardTitle: 'MOBILE & TECHNOLOGY',
           contentLabel: 'MOBILE & TECHNOLOGY',
           contentTitle: 'Connecting people through technology',
-          contentBody: 'From mobile devices to digital solutions, our technology division serves consumers and enterprises alike. We bridge the gap between cutting-edge tech and everyday needs across the region.',
+          contentBody: 'Empowering your digital future with high-speed performance and advanced cybersecurity. We provide secure, cutting-edge technology solutions designed to keep you safe and connected in a fast-paced world.',
           metrics: [
             { label: 'Online Ops', value: '3' },
             { label: 'Partners', value: '10+' },
@@ -98,7 +98,7 @@ export const translations = {
           cardTitle: 'PRINTING & PHOTOCOPY',
           contentLabel: 'PRINTING & PHOTOCOPY',
           contentTitle: 'Professional printing for every need',
-          contentBody: 'Our printing and photocopy center delivers high-quality print solutions for businesses, institutions, and individuals. From documents to banners, we handle it all with precision and speed.',
+          contentBody: 'Our printing and photocopy office delivers comprehensive document and print solutions for businesses, institutions, and individuals covering official forms, document processing, and secure transaction support with accuracy and reliability.',
           metrics: [
             { label: 'Office', value: '1' },
             { label: 'Formats', value: 'All' },
@@ -111,7 +111,7 @@ export const translations = {
           cardTitle: 'ONLINE TRADING',
           contentLabel: 'ONLINE TRADING',
           contentTitle: 'Smart trading in digital markets',
-          contentBody: 'Our online trading division operates 3 active digital market channels, giving clients access to global financial instruments. Backed by 14 bank & company partnerships for seamless execution.',
+          contentBody: 'Our online trading division connects clients across active digital marketplaces, making buying and selling seamless. Powered by a trusted network of allies, we bring fast and reliable digital commerce to everyone.',
           metrics: [
             { label: 'Channels', value: '3' },
             { label: 'Bank Partners', value: '14' },
@@ -163,10 +163,10 @@ export const translations = {
       ]
     },
     history: {
-      eyebrow: "Our Legacy",
-      title: "Chya Group",
-      since: "since 2019",
-      description: "Shaping modern horizons with unparalleled dedication. Discover how our vision evolved into a foundation for tomorrow's infrastructure.",
+      eyebrow: "OUR HISTORY",
+      title: "CHYA GROUP",
+      since: "Since 2019",
+      description: "Shaping Modern Horizons With Unparalleled Dedication. Discover How Our Vision Evolved Into A Foundation For Tomorrow's Infrastructure.",
       readMore: "Read More"
     },
     agents: {
@@ -196,13 +196,13 @@ export const translations = {
         subtitle: "Each brand under the Chya Group umbrella is dedicated to delivering excellence in its field.",
         stats: {
           sectors: "5",
-          offices: "15",
+          offices: "16",
           professionals: "47",
           vision: "1",
           visionLabel: "Unified Vision",
           sectorsLabel: "Sectors",
-          officesLabel: "Offices",
-          professionalsLabel: "Professionals"
+          officesLabel: "Works",
+          professionalsLabel: "Members"
         }
       }
     },
@@ -437,11 +437,11 @@ export const translations = {
           cardTitle: 'التجارة العامة',
           contentLabel: 'التجارة العامة',
           contentTitle: 'دعم التجارة في جميع أنحاء المنطقة',
-          contentBody: 'تمتد تجاراتنا العامة عبر مجموعة متنوعة من المنتجات، حيث نوفر للأسواق في جميع أنحاء المنطقة الموثوقية والحجم. مع 14 فرعاً وشبكات موردين عميقة، نحافظ على حركة التجارة.',
+          contentBody: 'تمتد تجاراتنا العامة عبر مجموعة متنوعة من المنتجات، حيث نوفر للأسواق في جميع أنحاء المنطقة الموثوقية والحجم. مع فروع واسعة وشبكات موردين عميقة، نحافظ على حركة التجارة.',
           metrics: [
-            { label: 'الفروع', value: '14' },
+            { label: 'الفروع', value: '١٦' },
             { label: 'الموظفون', value: '٤٧' },
-            { label: 'الشركات', value: '3' }
+            { label: 'الشركات', value: '٣' }
           ]
         },
         {
@@ -450,9 +450,9 @@ export const translations = {
           cardTitle: 'الصرافة والخدمات المالية',
           contentLabel: 'الخدمات المالية',
           contentTitle: 'صرافة وخدمات مالية موثوقة',
-          contentBody: 'تدير مجموعة چیا 5 مكاتب صرافة مخصصة لتقديم صرف عمالت سريع وآمن وتنافسي إلى جانب خدمات مالية شاملة للأفراد والشركات.',
+          contentBody: 'تدير مجموعة چیا قسماً مخصصاً للصرافة يقدم خدمات عملات سريعة وآمنة وتنافسية. وبدعم من ١٤ وكيلاً من البنوك والشركات، نضمن معاملات عالمية سلسة.',
           metrics: [
-            { label: 'المكاتب', value: '5' },
+            { label: 'الوكلاء', value: '١٤' },
             { label: 'العملات', value: '20+' },
             { label: 'العمليات', value: '24/7' }
           ]
@@ -463,7 +463,7 @@ export const translations = {
           cardTitle: 'الموبايل والتكنولوجيا',
           contentLabel: 'الموبايل والتكنولوجيا',
           contentTitle: 'ربط الناس من خلال التكنولوجيا',
-          contentBody: 'من الأجهزة المحمولة إلى الحلول الرقمية، يخدم قسم التكنولوجيا لدينا المستهلكين والمؤسسات على حد سواء. نحن نسد الفجوة بين التكنولوجيا المتقدمة والاحتياجات اليومية.',
+          contentBody: 'نعمل على تمكين مستقبلك الرقمي بأداء عالٍ وأمن سيبراني متطور. نحن نقدم حلولاً تكنولوجية آمنة ومبتكرة مصممة لتبقيك آمناً ومتصلاً في عالم سريع التغير.',
           metrics: [
             { label: 'عمليات أونلاين', value: '3' },
             { label: 'الشركاء', value: '10+' },
@@ -476,7 +476,7 @@ export const translations = {
           cardTitle: 'الطباعة والاستنساخ',
           contentLabel: 'الطباعة والاستنساخ',
           contentTitle: 'طباعة احترافية لكل الاحتياجات',
-          contentBody: 'يقدم مركز الطباعة والاستنساخ لدينا حلول طباعة عالية الجودة للشركات والمؤسسات والأفراد. من المستندات إلى اللافتات، نتعامل مع كل شيء بدقة وسرعة.',
+          contentBody: 'يقدم مكتبنا للطباعة والتصوير حلولاً شاملة للمستندات والطباعة للشركات والمؤسسات والأفراد، تشمل النماذج الرسمية ومعالجة الوثائق ودعم المعاملات الآمنة بدقة وموثوقية.',
           metrics: [
             { label: 'المكتب', value: '1' },
             { label: 'التنسيقات', value: 'الكل' },
@@ -489,7 +489,7 @@ export const translations = {
           cardTitle: 'التداول عبر الإنترنت',
           contentLabel: 'التداول عبر الإنترنت',
           contentTitle: 'تداول ذكي في الأسواق الرقمية',
-          contentBody: 'يدير قسم التداول عبر الإنترنت 3 قنوات سوق رقمية نشطة، مما يتيح للعملاء الوصول إلى الأدوات المالية العالمية والشركات.',
+          contentBody: 'يربط قسم التجارة الإلكترونية لدينا العملاء بأسواق رقمية نشطة، مما يجعل الشراء والبيع سهلاً. بدعم شبكة حلفاء موثوقين، نقدم تجارة رقمية سريعة وموثوقة للجميع.',
           metrics: [
             { label: 'القنوات', value: '3' },
             { label: 'شركاء بنكيون', value: '14' },
@@ -774,7 +774,7 @@ export const translations = {
       learnMore: "زیاتر بزانە",
       contactUs: "پەیوەندیمان پێوە بکەن",
       partners: "هاوبەشەکانمان",
-      agentLoop: "وەکالەکان",
+      agentLoop: "بریکارەکان",
       clients: "کڕیارەکانمان",
       brandQRs: "کۆدەکانی QRی براندەکان"
     },
@@ -796,10 +796,10 @@ export const translations = {
         one: "یەک",
         vision: "دیدگا."
       },
-      description: "چیا گرووپ لە پێنج سێکتەری جیاوازدا کاردەکات، کە ١٥ نووسینگە و ٤٥ کەسی پسپۆڕ کاردەکەن بۆ گەشەپێدانی ناوچەکە.",
+      description: "چیا گرووپ لە پێنج سێکتەری جیاوازدا کاردەکات، کە ١٦ نووسینگە و ٤٧ کەسی ئەندام کاردەکەن بۆ گەشەپێدانی ناوچەکە.",
       stats: {
-        branches: "نووسینگە",
-        professionals: "پسپۆڕ",
+        branches: "کار",
+        professionals: "ئەندام",
         vision: "دیدگای یەکگرتوو"
       },
       button: "گەشتەکەمان",
@@ -815,11 +815,11 @@ export const translations = {
           cardTitle: 'بازرگانی گشتی',
           contentLabel: 'بازرگانی گشتی',
           contentTitle: 'بەهێزکردنی بازرگانی لە ناوچەکەدا',
-          contentBody: 'بەشی بازرگانی گشتی ئێمە چەندین جۆری بەرهەم لەخۆدەگرێت، کە بازاڕەکانی ناوچەکە دابین دەکات. بە 14 لق و تۆڕێکی بەهێزی دابینکەران، بازرگانی بەردەوام دەکەین.',
+          contentBody: 'بەشی بازرگانی گشتی ئێمە چەندین جۆری بەرهەم لەخۆدەگرێت، کە بازاڕەکانی ناوچەکە دابین دەکات. بە لقە بەرفراوانەکان و تۆڕێکی بەهێزی دابینکەران، بازرگانی بەردەوام دەکەین.',
           metrics: [
-            { label: 'لقەکان', value: '14' },
+            { label: 'لقەکان', value: '١٦' },
             { label: 'کارمەندان', value: '٤٧' },
-            { label: 'کۆمپانیاکان', value: '3' }
+            { label: 'کۆمپانیاکان', value: '٣' }
           ]
         },
         {
@@ -828,9 +828,9 @@ export const translations = {
           cardTitle: 'ئاڵوگۆڕی دراو و سێرڤسی دارایی',
           contentLabel: 'خزمەتگوزارییە داراییەکان',
           contentTitle: 'گۆڕینەوە و خزمەتگوزاری دارایی جێی متمانە',
-          contentBody: 'چیا گرووپ 5 نووسینگەی تایبەت بە گۆڕینەوەی دراو بەڕێوەدەبات کە خزمەتگوزاری خێرا و سەلامەت پێشکەش بە تاک و کۆمپانیاکان دەکەن.',
+          contentBody: 'چیا گرووپ بەشێکی تایبەت بە ئاڵوگۆڕی دراو و سێرڤسی دارایی بەڕێوەدەبات کە خزمەتگوزارییەکی خێرا و سەلامەت و ڕکابەری دابین دەکات. بە پشتگیری ١٤ بریکاری بانک و کۆمپانیا، مامەڵەی دارایی جیهانی ئاسان دەکەین.',
           metrics: [
-            { label: 'نووسینگەکان', value: '5' },
+            { label: 'بریکارەکان', value: '١٤' },
             { label: 'دراوەکان', value: '20+' },
             { label: 'کارکردن', value: '24/7' }
           ]
@@ -841,7 +841,7 @@ export const translations = {
           cardTitle: 'مۆبایل و تەکنەلۆژیا',
           contentLabel: 'مۆبایل و تەکنەلۆژیا',
           contentTitle: 'بەستنەوەی خەڵک لە ڕێگەی تەکنەلۆژیاوە',
-          contentBody: 'لە ئامێرە مۆبایلەکانەوە تا چارەسەرە دیجیتاڵییەکان، بەشی تەکنەلۆژیای ئێمە خزمەت بە کڕیاران و کۆمپانیاکان دەکات.',
+          contentBody: 'داهاتووی دیجیتاڵیت بەهێز دەکەین بە خێراییەکی بێ وێنە و سایبەر سیکویریتییەکی پێشکەوتوو. ئێمە چارەسەری تەکنەلۆژی پارێزراو و سەردەمیانە دابین دەکەین بۆ ئەوەی هەمیشە بە پارێزراوی بمێنیتەوە.',
           metrics: [
             { label: 'کارکردنی ئۆنلاین', value: '3' },
             { label: 'هاوبەشەکان', value: '10+' },
@@ -854,7 +854,7 @@ export const translations = {
           cardTitle: ' چاپەمەنی و فۆتۆکۆپی ',
           contentLabel: 'چاپ و کۆپیکردن',
           contentTitle: 'چاپی کوالێتی بەرز بۆ هەموو پێداویستییەک',
-          contentBody: 'سەنتەری چاپ و کۆپیکردنمان چارەسەری چاپی کوالێتی بەرز بۆ کۆمپانیا و دامەزراوە و تاکەکان دابین دەکات.',
+          contentBody: 'نووسینگەی چاپ و فۆتۆکۆپیمان چارەسەری تەواوی بۆ بەڵگەنامە و چاپ دابین دەکات — لەوانەش فۆرمە فەرمییەکان، پرۆسەکردنی بەڵگەنامە و پشتیوانی مامەڵەی پارێزراو بە ڕێک و پێکی و متمانەپێکردنەوە.',
           metrics: [
             { label: 'نووسینگە', value: '1' },
             { label: 'جۆرەکان', value: 'هەموو' },
@@ -867,7 +867,7 @@ export const translations = {
           cardTitle: 'بازرگانی بە ئۆنڵاین',
           contentLabel: 'بازرگانی ئۆنلاین',
           contentTitle: 'بازرگانی زیرەک لە بازاڕە دیجیتاڵییەکاندا',
-          contentBody: 'بەشی بازرگانی بە ئۆنلاینمان 3 کەناڵی بازاڕی دیجیتاڵی کارا بەڕێوەدەبات، کە دەرفەت دەدات بە کڕیاران بۆ دەستڕاگەیشتن بە ئامێرە داراییە جیهانییەکان.',
+          contentBody: 'بەشی بازرگانی ئۆنلاینمان کڕیاران لە بازاڕە دیجیتاڵییە کاراکاندا دەبەستێتەوە، کە کڕین و فرۆشتن ئاسان دەکات. بە پشتبەستن بە تۆڕێکی هاوبەشانی متمانەپێکراو، بازرگانی دیجیتاڵی خێرا و پشتێوان بۆ هەمەکان دەکەین.',
           metrics: [
             { label: 'کەناڵەکان', value: '3' },
             { label: 'هاوبەشە بانکییەکان', value: '14' },
@@ -926,13 +926,13 @@ export const translations = {
       readMore: "زیاتر بزانە"
     },
     agents: {
-      eyebrow: "وەکالەکان",
+      eyebrow: "بریکارەکان",
       headline: {
         excellence: "گەشەپێدانێکی ناوازە،",
         united: "لەسەر بنەمای",
         trust: "متمانە."
       },
-      subtitle: "ئێمە وەکالەتی پەسەندکراوی براندە پێشەنگەکانی دارایی و تەکنەلۆژیان، باشترینەکان پێشکەش دەکەین و سەرکەوتن لە ناوچەکەدا بەدی دەهێنین."
+      subtitle: "ئێمە بریکاری پەسەندکراوی براندە پێشەنگەکانی دارایی و تەکنەلۆژیان، باشترینەکان پێشکەش دەکەین و سەرکەوتن لە ناوچەکەدا بەدی دەهێنین."
     },
     clients: {
       eyebrow: "کڕیارەکانمان",
@@ -952,12 +952,12 @@ export const translations = {
         subtitle: "هەر براندێک لەژێر سایەی چیا گرووپدا کاردەکات بۆ پێشکەشکردنی باشترین خزمەتگوزاری لە بوارەکەیدا.",
         stats: {
           sectors: "٥",
-          offices: "١٥ ",
+          offices: "١٦ ",
           professionals: "٤٧",
           vision: "١",
           visionLabel: "دیدگای یەکگرتوو",
           sectorsLabel: "سێکتەر",
-          officesLabel: "نووسینگە",
+          officesLabel: "کار",
           professionalsLabel: "پسپۆڕ"
         }
       }

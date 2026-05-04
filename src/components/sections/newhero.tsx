@@ -111,7 +111,7 @@ export default function HeroSection() {
                         <div className={`max-w-2xl pt-28 pb-40 sm:pt-32 sm:pb-24 lg:pt-40 lg:pb-32 ${isRTL ? 'text-right' : 'text-left'} relative z-20`}>
 
                             {/* Main headline */}
-                            <h1 dir="auto" className="text-[2.15rem] xs:text-[2.4rem] sm:text-5xl md:text-6xl xl:text-[4.25rem] font-bold tracking-tight text-[#0c1a2e] leading-[1.1] mb-6 break-keep">
+                            <h1 dir="auto" className="text-[2.15rem] xs:text-[2.4rem] sm:text-5xl md:text-6xl xl:text-[4.25rem] font-bold tracking-tight text-[#0a2a56] leading-[1.1] mb-6 break-keep">
                                 <span className="block lg:whitespace-nowrap">
                                     <BlurInText
                                         text={t.line1}
@@ -122,7 +122,7 @@ export default function HeroSection() {
                                         trigger="mount"
                                     />
                                 </span>
-                                <span className="block font-medium italic text-[#162d4f] mt-1">
+                                <span className="block font-medium italic text-[#e84040] mt-1">
                                     <BlurInText
                                         text={t.line2}
                                         blurAmount={10}
@@ -135,7 +135,7 @@ export default function HeroSection() {
                             </h1>
 
                             {/* Subtitle */}
-                            <p dir="auto" className={`hero-fade-up${mounted ? ' ready delay-1' : ''} text-[15px] sm:text-base ${isRTL ? 'text-[#0c1a2e] font-semibold' : 'text-[#3a4f6a] font-normal'} max-w-sm leading-relaxed mb-10`}>
+                            <p dir="auto" className={`hero-fade-up${mounted ? ' ready delay-1' : ''} text-[15px] sm:text-base ${isRTL ? 'text-[#0c1a2e] font-semibold' : 'text-[#3a4f6a] font-normal'} max-w-sm leading-relaxed mb-10 text-justify`}>
                                 {t.description}
                             </p>
 

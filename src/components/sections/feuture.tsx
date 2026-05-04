@@ -59,27 +59,27 @@ const FEATURE_CONFIG = [
   },
   {
     id: 'money-exchange',
-    icon: 'solar:wallet-linear',
-    image: 'https://images.unsplash.com/photo-1553729459-efe14ef6055d?q=80&w=600&auto=format&fit=crop',
-    accent: '#2e9e6b',
+    icon: 'solar:hand-money-linear',
+    image: 'https://i.postimg.cc/1zkMz6gd/image.png',
+    accent: '#2a7a56',
   },
   {
     id: 'mobile-tech',
-    icon: 'solar:smartphone-linear',
-    image: 'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?q=80&w=600&auto=format&fit=crop',
-    accent: '#8b5cf6',
+    icon: 'tabler:device-mobile-cog',
+    image: 'https://i.postimg.cc/JzcBXk2n/image.png',
+    accent: '#e84040',
   },
   {
     id: 'printing',
     icon: 'solar:printer-linear',
-    image: 'https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?q=80&w=600&auto=format&fit=crop',
-    accent: '#e07b39',
+    image: 'https://i.postimg.cc/c4H2KR9P/5f2e6a0d-6336-4c92-8c1e-5495307119ee-(1).jpg',
+    accent: '#d4a017',
   },
   {
     id: 'online-trading',
-    icon: 'solar:cart-linear',
+    icon: 'solar:bag-2-bold-duotone',
     image: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=600&auto=format&fit=crop',
-    accent: '#e84040',
+    accent: '#8b5cf6',
   },
 ];
 
@@ -247,10 +247,10 @@ export default function FeatureSection() {
                 </span>
               </div>
 
-              <h2 dir="auto" className={`fs-headline${headerVisible ? ' in' : ''} text-5xl md:text-6xl lg:text-[4.5rem] font-bold text-[#0c1a2e] leading-[1.05] tracking-tight mb-6`}>
+              <h2 dir="auto" className={`fs-headline${headerVisible ? ' in' : ''} text-5xl md:text-6xl lg:text-[4.5rem] font-bold text-[#0a2a56] leading-[1.05] tracking-tight mb-6`}>
                 {t.headline.five} {t.headline.sectors}
                 <br />
-                {t.headline.one} <span className="text-[#162d4f]">{t.headline.vision}</span>
+                {t.headline.one} <span className="text-[#e84040]">{t.headline.vision}</span>
               </h2>
 
               <p dir="auto" className={`fs-desc${headerVisible ? ' in' : ''} ${isRTL ? 'text-[#0c1a2e] font-semibold' : 'text-[#1e293b] font-medium'} text-[16px] leading-[1.7] max-w-[480px]`}>
@@ -261,19 +261,19 @@ export default function FeatureSection() {
               <div className={`fs-pill${headerVisible ? ' in' : ''} flex items-center justify-between sm:justify-start gap-2 sm:gap-6 md:gap-8 bg-white/95 backdrop-blur-md rounded-2xl sm:rounded-[2rem] px-4 sm:px-8 py-4 sm:py-5 mt-10 border border-[#0c1a2e]/5 shadow-sm w-full sm:w-fit overflow-hidden`}>
                 {[
                   {
+                    icon: 'solar:medal-ribbon-linear',
+                    value: isRTL ? '١' : 'One',
+                    label: t.stats.vision
+                  },
+                  {
                     icon: 'solar:buildings-2-linear',
-                    value: 15,
+                    value: 16,
                     label: t.stats.branches
                   },
                   {
                     icon: 'solar:users-group-rounded-linear',
-                    value: 45,
+                    value: 47,
                     label: t.stats.professionals
-                  },
-                  {
-                    icon: 'solar:medal-ribbon-linear',
-                    value: isRTL ? '١' : 'One',
-                    label: t.stats.vision
                   },
                 ].map((stat, i) => (
                   <React.Fragment key={stat.label}>

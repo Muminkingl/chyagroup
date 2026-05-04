@@ -76,19 +76,19 @@ export const Header = () => {
               {locale === 'en' && (
                 <div className="flex items-center gap-1.5">
                   <span className="text-[17px] font-black tracking-[0.05em] uppercase text-[#e84040]">CHYA</span>
-                  <span className="text-[17px] font-black tracking-[0.05em] uppercase text-[#0c1a2e]">GROUP</span>
+                  <span className="text-[17px] font-black tracking-[0.05em] uppercase text-[#0a2a56]">GROUP</span>
                 </div>
               )}
               {locale === 'ar' && (
                 <div className="flex items-center gap-1.5">
                   <span className="text-[18px] font-black tracking-normal text-[#e84040]">چیا</span>
-                  <span className="text-[18px] font-black tracking-normal text-[#0c1a2e]">مجموعة</span>
+                  <span className="text-[18px] font-black tracking-normal text-[#0a2a56]">مجموعة</span>
                 </div>
               )}
               {locale === 'ku' && (
                 <div className="flex items-center gap-1.5">
                   <span className="text-[18px] font-black tracking-normal text-[#e84040]">چیا</span>
-                  <span className="text-[18px] font-black tracking-normal text-[#0c1a2e]">گرووپ</span>
+                  <span className="text-[18px] font-black tracking-normal text-[#0a2a56]">گرووپ</span>
                 </div>
               )}
             </div>

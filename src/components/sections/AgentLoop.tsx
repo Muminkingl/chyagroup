@@ -6,20 +6,20 @@ import { translations } from '@/i18n/translations';
 import { Iconify } from '@/components/ui/Iconify';
 
 const agents = [
-    { name: "FIB", logo: "/fib.png", url: "https://fib.iq/" },
-    { name: "Switch", logo: "/switch.png", url: "https://switch.com.iq/" },
-    { name: "Zain Cash", logo: "https://zaincash.com/static/media/ZainCashLogo.fea8cf3bb90421f45dd384d6afc6fe3b.svg", url: "https://zaincash.com/" },
-    { name: "Qi Card", logo: "/qi.png", url: "https://qi.iq/en/home" },
-    { name: "AIIB", logo: "/aiib.png", url: "https://aiib.iq/" },
-    { name: "Blue", logo: "/blue.jpg", url: "https://blue.com.iq/en/home/" },
-    { name: "Aciapay", logo: "/aciapay.png", url: "https://www.asiapay.iq/" },
-    { name: "Fast Pay", logo: "https://www.fast-pay.iq/img/clogo.png", url: "https://www.fast-pay.iq/" },
-    { name: "Bazarcard", logo: "/bazarcard.jpg", url: "#" },
-    { name: "Houzz", logo: "/houzz.png", url: "https://shophouzz.com/pages/creditcard" },
-    { name: "Nassepayment", logo: "/nassepay.png", url: "#" },
-    { name: "Nasswallet", logo: "/nass.png", url: "https://nw.iq/" },
-    { name: "Shift", logo: "/shiftt.png", url: "https://www.shifttransfer.com/" },
-    { name: "Dubairemit", logo: "/dubairemit.png", url: "#" },
+    { name: "FIB Bank", logo: "/fib.png", url: "https://fib.iq/" },
+    { name: "Qi Card co.", logo: "/qi.png", url: "https://qi.iq/en/home" },
+    { name: "Zain Cash co.", logo: "https://zaincash.com/static/media/ZainCashLogo.fea8cf3bb90421f45dd384d6afc6fe3b.svg", url: "https://zaincash.com/" },
+    { name: "Switch co.", logo: "/switch.png", url: "https://switch.com.iq/" },
+    { name: "Fastpay co.", logo: "https://www.fast-pay.iq/img/clogo.png", url: "https://www.fast-pay.iq/" },
+    { name: "AsiaPay co.", logo: "/aciapay.png", url: "https://www.asiapay.iq/" },
+    { name: "Nasspay co.", logo: "/nassepay.png", url: "#" },
+    { name: "Nasswallet bank", logo: "/nass.png", url: "https://nw.iq/" },
+    { name: "Houzz Card co.", logo: "/houzz.png", url: "https://shophouzz.com/pages/creditcard" },
+    { name: "BazarCards co.", logo: "/bazarcard.jpg", url: "#" },
+    { name: "AIIB Bank", logo: "/aiib.png", url: "https://aiib.iq/" },
+    { name: "Blue co.", logo: "/blue.jpg", url: "https://blue.com.iq/en/home/" },
+    { name: "Shift Int co.", logo: "/shiftt.png", url: "https://www.shifttransfer.com/" },
+    { name: "DubaiRemit Int co.", logo: "/dubairemit.png", url: "#" },
 ];
 
 const AgentLogo = ({ name, logo, url }: { name: string, logo: string, url: string }) => (

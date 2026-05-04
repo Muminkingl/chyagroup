@@ -151,11 +151,26 @@ export default function ChyaHistorySection() {
             </div>
 
             {/* Main headline */}
-            <h2 dir="auto" className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold tracking-tight text-[#0c1a2e] leading-[1.08]">
+            <h2 dir="auto" className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold tracking-tight leading-[1.08]">
               <span className={`block history-title${isVisible ? ' visible' : ''}`}>
-                {t.title}
+                {locale === 'en' ? (
+                  <>
+                    <span className="text-[#e84040]">CHYA</span>{' '}
+                    <span className="text-[#0a2a56]">GROUP</span>
+                  </>
+                ) : locale === 'ar' ? (
+                  <>
+                    <span className="text-[#0a2a56]">مجموعة</span>{' '}
+                    <span className="text-[#e84040]">چیا</span>
+                  </>
+                ) : (
+                  <>
+                    <span className="text-[#e84040]">چیا</span>{' '}
+                    <span className="text-[#0a2a56]">گرووپ</span>
+                  </>
+                )}
               </span>
-              <span className={`block mt-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium italic text-[#162d4f] history-title-italic${isVisible ? ' visible' : ''}`}>
+              <span className={`block mt-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium italic text-[#0a2a56] history-title-italic${isVisible ? ' visible' : ''}`}>
                 {t.since}
               </span>
             </h2>
