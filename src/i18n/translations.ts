@@ -17,10 +17,11 @@ export const translations = {
       description: "Connecting Markets, Empowering Industries, And Shaping The Future Of Commerce And Finance Across The Region.",
       learnMore: "Learn More",
       contactUs: "Contact Us",
-      partners: "Our Partners",
+      partners: "Partners",
       agentLoop: "Our Agents",
       clients: "Our Clients",
-      brandQRs: "Brand QR Codes"
+      brandQRs: "Brand QRs",
+      certifications: "Our Certifications"
     },
     news: {
       latest: "Latest News",
@@ -168,6 +169,49 @@ export const translations = {
       since: "Since 2019",
       description: "Shaping Modern Horizons With Unparalleled Dedication. Discover How Our Vision Evolved Into A Foundation For Tomorrow's Infrastructure.",
       readMore: "Read More"
+    },
+    certifications: {
+      eyebrow: "OUR CERTIFICATIONS",
+      headline: {
+        part1: "Certifications that",
+        part2: "reflect our commitment",
+        part3: "to excellence."
+      },
+      subtitle: "Our certifications demonstrate our dedication to quality, compliance, and continuous improvement across all areas of our work.",
+      items: [
+        {
+          title: "ISO 9001:2015",
+          subtitle: "Quality Management System"
+        },
+        {
+          title: "IAF",
+          subtitle: "International Accreditation Forum Organization"
+        },
+        {
+          title: "OSS",
+          subtitle: "Middle East Certification Organization"
+        },
+        {
+          title: "EGAC",
+          subtitle: "Egyptian General Authority for Accreditation and Certification"
+        },
+        {
+          title: "Ficho International",
+          subtitle: "Ficho International Organization"
+        },
+        {
+          title: "Karlsruhe University",
+          subtitle: "Hochschule Karlsruhe University of Applied Sciences"
+        }
+      ]
+    },
+    partners: {
+      eyebrow: "OUR AGENTS",
+      headline: {
+        part1: "Empowering payments,",
+        part2: "together."
+      },
+      subtitle: "We collaborate with trusted financial technology partners to deliver secure, seamless, and innovative payment solutions across the region."
     },
     agents: {
       eyebrow: "AUTHORIZED AGENTS",
@@ -398,7 +442,8 @@ export const translations = {
       partners: "شركاؤنا",
       agentLoop: "وكالاتنا",
       clients: "عملاؤنا",
-      brandQRs: "رموز QR للعلامات التجارية"
+      brandQRs: "رموز QR للعلامات التجارية",
+      certifications: "شهاداتنا"
     },
     news: {
       latest: "أحدث الأخبار",
@@ -546,6 +591,49 @@ export const translations = {
       since: "منذ عام 2019",
       description: "صياغة آفاق حديثة بتفانٍ لا مثيل له. اكتشف كيف تطورت رؤيتنا لتصبح أساساً للبنية التحتية للغد.",
       readMore: "اقرأ المزيد"
+    },
+    certifications: {
+      eyebrow: "شهاداتنا",
+      headline: {
+        part1: "شهادات",
+        part2: "تعكس التزامنا",
+        part3: "بالتميز."
+      },
+      subtitle: "تُظهر شهاداتنا تفانينا في الجودة والامتثال والتحسين المستمر في جميع مجالات عملنا.",
+      items: [
+        {
+          title: "ISO 9001:2015",
+          subtitle: "نظام إدارة الجودة"
+        },
+        {
+          title: "IAF",
+          subtitle: "المنتدى الدولي للاعتماد"
+        },
+        {
+          title: "OSS",
+          subtitle: "منظمة اعتماد الشرق الأوسط"
+        },
+        {
+          title: "EGAC",
+          subtitle: "المجلس الوطني للاعتماد (مصر)"
+        },
+        {
+          title: "Ficho International",
+          subtitle: "منظمة فيتشو الدولية"
+        },
+        {
+          title: "Karlsruhe University",
+          subtitle: "جامعة كارلسروه للعلوم التطبيقية"
+        }
+      ]
+    },
+    partners: {
+      eyebrow: "شركاؤنا",
+      headline: {
+        part1: "تمكين المدفوعات،",
+        part2: "معاً."
+      },
+      subtitle: "نتعاون مع شركاء موثوقين في مجال التكنولوجيا المالية لتقديم حلول دفع آمنة وسلسة ومبتكرة في جميع أنحاء المنطقة."
     },
     agents: {
       eyebrow: "الوكالات المعتمدة",
@@ -776,7 +864,8 @@ export const translations = {
       partners: "هاوبەشەکانمان",
       agentLoop: "بریکارەکان",
       clients: "کڕیارەکانمان",
-      brandQRs: "کۆدەکانی QRی براندەکان"
+      brandQRs: "کۆدەکانی QRی براندەکان",
+      certifications: "بڕوانامەکانمان"
     },
     news: {
       latest: "دوایین هەواڵەکان",
@@ -924,6 +1013,49 @@ export const translations = {
       since: "لە ساڵی ٢٠١٩وە",
       description: "نەخشاندنی ئاسۆیەکی نوێ بە دڵسۆزییەکی بێوێنە. بزانە چۆن دیدگای ئێمە بوو بە بناغەیەک بۆ ژێرخانی بەیانی.",
       readMore: "زیاتر بزانە"
+    },
+    certifications: {
+      eyebrow: "بڕوانامەکانمان",
+      headline: {
+        part1: "بڕوانامەکانمان",
+        part2: "ڕەنگدانەوەی پابەندبوونمانن",
+        part3: "بە نایابی."
+      },
+      subtitle: "بڕوانامەکانمان پابەندبوونمان بە کوالێتی و باشترکردنی بەردەوام لە سەرجەم بوارەکانی کارکردنمان نیشان دەدەن.",
+      items: [
+        {
+          title: "ISO 9001:2015",
+          subtitle: "سیستەمی بەڕێوەبردنی کوالێتی"
+        },
+        {
+          title: "IAF",
+          subtitle: "کۆڕبەندی نێودەوڵەتی بۆ متمانەپێدان"
+        },
+        {
+          title: "OSS",
+          subtitle: "ڕێکخراوی متمانەپێدانی ڕۆژهەڵاتی ناوەڕاست"
+        },
+        {
+          title: "EGAC",
+          subtitle: "دەستەی نیشتمانی بۆ متمانەپێدان (میسر)"
+        },
+        {
+          title: "Ficho International",
+          subtitle: "ڕێکخراوی نێودەوڵەتی فیچۆ"
+        },
+        {
+          title: "Karlsruhe University",
+          subtitle: "زانکۆی کارلسروه بۆ زانستە پراکتیکییەکان"
+        }
+      ]
+    },
+    partners: {
+      eyebrow: "بریکارەکان",
+      headline: {
+        part1: "بەهێزکردنی پارەدان،",
+        part2: "پێکەوە."
+      },
+      subtitle: "ئێمە هاوکاری لەگەڵ بریکارە باوەڕپێکراوەکانی تەکنەلۆژیای دارایی دەکەین بۆ پێشکەشکردنی چارەسەری پارەدانی پارێزراو، بێ کێشە و داهێنەرانە لە سەرانسەری ناوچەکەدا."
     },
     agents: {
       eyebrow: "بریکارەکان",

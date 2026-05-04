@@ -6,6 +6,8 @@ import TimelineSectors from "@/components/sections/TimelineSectors";
 import ChyaHistorySection from "@/components/sections/history";
 import LatestNewsSection from "@/components/sections/news";
 import LocationSection from "@/components/sections/location";
+import CertificationsSection from "@/components/sections/Certifications";
+import PartnersSection from "@/components/sections/PartnersSection";
 import AgentLoop from "@/components/sections/AgentLoop";
 import ClientsSection from "@/components/sections/Clients";
 import BrandQRs from "@/components/sections/BrandQRs";
@@ -27,6 +29,8 @@ export default async function Home() {
         <TimelineSectors />
       </div>
 
+      <CertificationsSection />
+      <PartnersSection />
       <AgentLoop />
 
       <ClientsSection />
