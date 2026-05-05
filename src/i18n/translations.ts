@@ -135,13 +135,13 @@ export const translations = {
           id: 'general-trading',
           title: "GENERAL TRADING",
           desc: "Our general trading arm spans a diverse product portfolio, supplying markets across the region with quality and reliability.",
-          items: ['Lammat Al marjan', 'Chyay Mateen', 'Chya amazon']
+          items: ['Lammat Al marjan co.', 'Chyay Mateen co.', 'Chya Amazon']
         },
         {
           id: 'money-exchange',
           title: "MONEY EXCHANGE &\nFINANCIAL SERVICE",
           desc: "Chya Group operates a dedicated money exchange division delivering fast, secure, and competitive financial services.",
-          items: ['Khaki Sarwar', 'Chya', 'Chya gold', 'Lutkay chya', 'Barzy chya', 'Hangaw dibaga station']
+          items: ['Khaki Sarwar co.', 'Chya Exchange', 'Chya Gold', 'Lutkay chya', 'Barzy chya', 'Hangaw Exchange', 'Manfaz Dibaga']
         },
         {
           id: 'mobile-tech',
@@ -557,13 +557,13 @@ export const translations = {
           id: 'general-trading',
           title: "التجارة العامة",
           desc: "يغطي ذراعنا للتجارة العامة مجموعة متنوعة من المنتجات، ويزود الأسواق في جميع أنحاء المنطقة بالجودة والموثوقية.",
-          items: ['لمة المرجان', 'چياي متين', 'چیا أمازون']
+          items: ['شركة لمة المرجان', 'شركة چياي متين', 'چیا أمازون']
         },
         {
           id: 'money-exchange',
           title: "الصرافة والخدمات المالية",
           desc: "تدير مجموعة چیا قسماً مخصصاً للصرافة يقدم خدمات مالية سريعة وآمنة وتنافسية.",
-          items: ['خاكي سرور', 'چیا', 'چیا گۆڵد', 'لوتکەی چیا', 'بەرزى چیا', 'منفذ ديکبە هەنگاو']
+          items: ['شركة خاكي سرور', 'چيا إكسجينج', 'چيا غولد', 'لوتكاي چيا', 'برزي چيا', 'هنگاو إكسجينج', 'منفذ دیبگة']
         },
         {
           id: 'mobile-tech',
@@ -979,13 +979,13 @@ export const translations = {
           id: 'general-trading',
           title: "بازرگانی گشتی",
           desc: "بەشی بازرگانی گشتی ئێمە کۆمەڵێک بەرهەمی جۆراوجۆر لەخۆدەگرێت، کە بازاڕەکانی ناوچەکە بە کوالێتی و متمانە دابین دەکات.",
-          items: ['لمة المرجان', 'چیای مەتین', 'چیا ئەمازۆن']
+          items: ['کۆمپانیای لةمة ئةلمةرجان', 'کۆمپانیای چیای مەتین', 'چیا ئەمازۆن']
         },
         {
           id: 'money-exchange',
           title: "ئاڵوگۆڕی دراو و سێرڤسی دارایی",
           desc: "چیا گرووپ بەشێکی تایبەت بە ئاڵوگۆڕی دراو بەڕێوەدەبات کە خزمەتگوزارییە داراییە خێرا و سەلامەت و ڕکابەرییەکان پێشکەش دەکات.",
-          items: ['خاکی سەروەر', 'چیا', 'چیا گۆڵد', 'لوتکەی چیا', 'بەرزی چیا', 'منفذی دیبگەی هەنگاو']
+          items: ['کۆمپانیای خاکی سەروەر', 'چیا ئێکستێنج', 'چیا گۆڵد', 'لوتکەی چیا', 'بەرزى چیا', 'هەنگاو ئێکستێنج', 'منفذ ديبكة']
         },
         {
           id: 'mobile-tech',

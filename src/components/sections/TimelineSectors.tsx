@@ -59,8 +59,13 @@ const BRAND_LOGOS: Record<string, string> = {
   'خاکی': '/brands/khakisarwar.png',
   'hangaw': '/brands/hangawexchange.png',
   'هەنگاو': '/brands/hangawexchange.png',
+  'exchange': '/brands/chyaexchnage.png',
+  'إكسجينج': '/brands/chyaexchnage.png',
+  'ئێکستێنج': '/brands/chyaexchnage.png',
   'dibaga': '/brands/Manfaz Dibaga-1.png',
   'ديبكة': '/brands/Manfaz Dibaga-1.png',
+  'دیبگة': '/brands/Manfaz Dibaga-1.png',
+  'دیبگەی': '/brands/Manfaz Dibaga-1.png',
   'ديکبە': '/brands/Manfaz Dibaga-1.png',
   'lutkay': '/brands/lutkay chya-1.png',
   'لوتکەی': '/brands/lutkay chya-1.png',
@@ -101,9 +106,9 @@ function getLogoSrc(item: string, sectorId: string): string | null {
   if (sectorId === 'money-exchange' && (lower === 'chya' || item === 'چیا' || item === 'چيا')) {
     return '/logo.svg';
   }
-  // Chya gold  = no dedicated logo → use chyaexchange as closest
+  // Chya gold -> qapat logo
   if ((lower.includes('gold') || item.includes('گۆڵد') || item.includes('غولد'))) {
-    return '/brands/chyaexchnage.png';
+    return '/brands/qapat-1.png';
   }
 
   return null;
@@ -124,7 +129,7 @@ function ItemRow({ item, sectorId }: { item: string; sectorId: string }) {
             className={`w-full h-full object-contain ${
               logo.endsWith('.svg')
                 ? ''
-                : logo.includes('kiva')
+                : logo.includes('kiva') || logo.includes('Dibaga')
                   ? 'scale-[1.1] origin-center'
                   : 'scale-[1.65] origin-center'
             }`}
@@ -172,8 +177,14 @@ export default function TimelineSectors() {
         {/* ── DESKTOP TIMELINE (lg+) ── */}
         <div className="hidden lg:flex relative w-full items-stretch justify-between">
 
-          {/* Horizontal dotted line */}
-          <div className="absolute left-[10%] right-[10%] top-[100px] h-0 border-t-[1.5px] border-dotted border-[#3b82f6]/40 z-0" />
+          {/* Horizontal solid line with middle dots */}
+          <div className="absolute left-[10%] right-[10%] top-[126px] h-0 z-0 flex items-center pointer-events-none">
+            <div className="absolute left-0 right-0 h-[1px] bg-[#cbd5e1]" />
+            <div className="absolute left-[12.5%] -translate-x-1/2 w-[4px] h-[4px] rounded-full bg-[#3b82f6]" />
+            <div className="absolute left-[37.5%] -translate-x-1/2 w-[4px] h-[4px] rounded-full bg-[#3b82f6]" />
+            <div className="absolute left-[62.5%] -translate-x-1/2 w-[4px] h-[4px] rounded-full bg-[#3b82f6]" />
+            <div className="absolute left-[87.5%] -translate-x-1/2 w-[4px] h-[4px] rounded-full bg-[#3b82f6]" />
+          </div>
 
           {sectors.map((sector, index) => (
             <div key={sector.id} className="relative z-10 flex flex-col items-center w-[20%] px-2.5 group">
@@ -187,22 +198,22 @@ export default function TimelineSectors() {
                 </span>
               </div>
 
-              {/* Vertical dotted line */}
-              <div className="w-0 h-[14px] border-l-[1.5px] border-dotted border-[#3b82f6]/70 z-10" />
+              {/* Vertical solid line */}
+              <div className="w-[1px] h-[12px] bg-[#3b82f6] z-10" />
 
               {/* Arc + Icon */}
-              <div className="relative flex flex-col items-center mb-6">
-                <div className="w-[140px] h-[46px] relative z-10 pointer-events-none">
-                  <svg viewBox="0 0 140 46" className="w-full h-full overflow-visible">
-                    <path d="M 10 46 C 10 8, 130 8, 130 46" fill="none" stroke="#3b82f6" strokeWidth="1.2" />
-                    <circle cx="70" cy="17.5" r="3" fill="#3b82f6" />
-                    <circle cx="10" cy="46" r="2.5" fill="#3b82f6" />
-                    <circle cx="130" cy="46" r="2.5" fill="#3b82f6" />
+              <div className="relative flex flex-col items-center mb-6 w-full">
+                <div className="w-[160px] h-[80px] relative z-10 pointer-events-none">
+                  <svg viewBox="0 0 160 80" className="w-full h-full overflow-visible">
+                    <path d="M 10 74 A 70 70 0 0 1 150 74" fill="none" stroke="#3b82f6" strokeWidth="1" />
+                    <circle cx="80" cy="4" r="2.5" fill="#3b82f6" />
+                    <circle cx="10" cy="74" r="2.5" fill="#3b82f6" />
+                    <circle cx="150" cy="74" r="2.5" fill="#3b82f6" />
                   </svg>
                 </div>
 
                 {/* Icon — 3-layer ring: white outer → cream ring → dark navy inner */}
-                <div className="relative w-[120px] h-[120px] rounded-full bg-white shadow-[0_8px_30px_rgb(0,0,0,0.08)] flex items-center justify-center z-20 -mt-[24px] transition-transform duration-500 group-hover:-translate-y-1 group-hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)]">
+                <div className="relative w-[120px] h-[120px] rounded-full bg-white shadow-[0_8px_30px_rgb(0,0,0,0.08)] flex items-center justify-center z-20 -mt-[66px] transition-transform duration-500 group-hover:-translate-y-1 group-hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)]">
                   <div className="w-[94px] h-[94px] rounded-full bg-[#f0f2f5] flex items-center justify-center">
                     <div className="w-[72px] h-[72px] rounded-full bg-[#0c1a2e] flex items-center justify-center transition-colors duration-300 group-hover:bg-[#162d4f] text-white">
                       {sector.customSvg ?? <Iconify icon={sector.icon} width={28} />}
@@ -268,19 +279,19 @@ export default function TimelineSectors() {
                 </span>
               </div>
 
-              <div className="w-0 h-[14px] border-l-[1.5px] border-dotted border-[#3b82f6]/70 z-10" />
+              <div className="w-[1px] h-[12px] bg-[#3b82f6] z-10" />
 
-              <div className="relative flex flex-col items-center mb-6">
-                <div className="w-[120px] h-[40px] relative z-10 pointer-events-none">
-                  <svg viewBox="0 0 120 40" className="w-full h-full overflow-visible">
-                    <path d="M 10 40 C 10 8, 110 8, 110 40" fill="none" stroke="#3b82f6" strokeWidth="1.2" />
-                    <circle cx="60" cy="16" r="3" fill="#3b82f6" />
-                    <circle cx="10" cy="40" r="2.5" fill="#3b82f6" />
-                    <circle cx="110" cy="40" r="2.5" fill="#3b82f6" />
+              <div className="relative flex flex-col items-center mb-6 w-full">
+                <div className="w-[140px] h-[70px] relative z-10 pointer-events-none">
+                  <svg viewBox="0 0 140 70" className="w-full h-full overflow-visible">
+                    <path d="M 10 64 A 60 60 0 0 1 130 64" fill="none" stroke="#3b82f6" strokeWidth="1" />
+                    <circle cx="70" cy="4" r="2.5" fill="#3b82f6" />
+                    <circle cx="10" cy="64" r="2.5" fill="#3b82f6" />
+                    <circle cx="130" cy="64" r="2.5" fill="#3b82f6" />
                   </svg>
                 </div>
 
-                <div className="relative w-[100px] h-[100px] rounded-full bg-white shadow-[0_6px_20px_rgb(0,0,0,0.05)] flex items-center justify-center z-20 -mt-[20px] transition-transform group-hover:scale-105">
+                <div className="relative w-[100px] h-[100px] rounded-full bg-white shadow-[0_6px_20px_rgb(0,0,0,0.05)] flex items-center justify-center z-20 -mt-[56px] transition-transform group-hover:scale-105">
                   <div
                     className="w-[66px] h-[66px] rounded-full bg-[#0c1a2e] flex items-center justify-center transition-colors group-hover:bg-[#162d4f] text-white"
                   >
