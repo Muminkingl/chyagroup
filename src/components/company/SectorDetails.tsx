@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/i18n/translations";
+import { sectorTranslations } from "@/i18n/sector-translations";
 import { Iconify } from "@/components/ui/Iconify";
 import { cn } from "@/lib/utils";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
@@ -46,6 +47,7 @@ const SECTOR_EMAILS: Record<string, string[]> = {
 export default function SectorDetails({ id }: { id: string }) {
   const { locale, isRTL } = useLanguage();
   const t = translations[locale];
+  const st = sectorTranslations[locale];
   
   const activeSection = useScrollSpy(['history', 'president', 'vision', 'branches', 'links'], 200);
 
@@ -63,24 +65,31 @@ export default function SectorDetails({ id }: { id: string }) {
   if (!featureItem) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#faf9f6]">
-        <h1 className="text-2xl text-[#0c1a2e] font-bold">Sector not found</h1>
+        <h1 className="text-2xl text-[#0c1a2e] font-bold">{st.ui.sectorNotFound}</h1>
       </div>
     );
   }
 
   const bgImage = SECTOR_IMAGES[id] || SECTOR_IMAGES["general-trading"];
   const currentEmails = SECTOR_EMAILS[id] || ["chyagroup2019@gmail.com"];
+  const currentHistory = st.history[id as keyof typeof st.history] || [featureItem.contentBody];
+  const currentBranches = st.branches[id as keyof typeof st.branches] || [];
+  
+  const currentSectorData = (st as any).sectorData?.[id];
+  const currentPresidentQuote = currentSectorData?.presidentQuote || st.ui.presidentQuote;
+  const currentVision = currentSectorData?.visionStatement || st.ui.visionStatement;
+  const currentMission = currentSectorData?.missionStatement || st.ui.missionStatement;
 
   const sidebarLinks = [
-    { id: 'history', label: 'History' },
-    { id: 'president', label: "President's Message" },
-    { id: 'vision', label: 'Vision & Mission' },
-    { id: 'branches', label: 'Branches & Locations' },
-    { id: 'links', label: 'Links' },
+    { id: 'history', label: st.ui.history },
+    { id: 'president', label: st.ui.president },
+    { id: 'vision', label: st.ui.visionMission },
+    { id: 'branches', label: st.ui.branches },
+    { id: 'links', label: st.ui.links },
   ];
 
   return (
-    <div className="min-h-screen bg-[#faf9f6]">
+    <div className="min-h-screen bg-[#faf9f6]" dir={isRTL ? "rtl" : "ltr"}>
       {/* Hero Banner */}
       <div className="relative w-full h-[40vh] min-h-[300px] flex items-center justify-center overflow-hidden">
         <div 
@@ -89,7 +98,7 @@ export default function SectorDetails({ id }: { id: string }) {
         />
         <div className="absolute inset-0 z-10 bg-[#0c1a2e]/60" />
         <div className="relative z-20 text-center px-6">
-          <h1 dir="auto" className="text-4xl md:text-5xl font-extrabold text-white tracking-tight drop-shadow-md">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight drop-shadow-md">
             {featureItem.tag}
           </h1>
         </div>
@@ -100,12 +109,12 @@ export default function SectorDetails({ id }: { id: string }) {
           <Link 
             href="/ourcompany"
             className={cn(
-              "inline-flex items-center gap-2 text-sm font-semibold text-[#3a4f6a] hover:text-[#e84040] transition-colors",
+              "inline-flex items-center gap-2 text-sm font-semibold text-[#3a4f6a] hover:text-[#b91c1c] transition-colors",
               isRTL ? "flex-row-reverse" : ""
             )}
           >
             <Iconify icon={isRTL ? "solar:arrow-right-linear" : "solar:arrow-left-linear"} width={18} />
-            Back to Sectors
+            {st.ui.back}
           </Link>
         </div>
 
@@ -147,35 +156,28 @@ export default function SectorDetails({ id }: { id: string }) {
           </aside>
 
           {/* Main Content Area */}
-          <main className="flex-1 min-w-0 flex flex-col gap-24 text-start text-[#0c1a2e] pt-4">
+          <main className={cn("flex-1 min-w-0 flex flex-col gap-24 text-[#0c1a2e] pt-4", isRTL ? "text-right" : "text-left")}>
             
             {/* History Section */}
             <section id="history" className="scroll-mt-32">
               <div className="flex items-center gap-3 mb-8">
                 <Iconify icon="solar:document-text-bold-duotone" width={32} className="text-[#b91c1c]" />
-                <h2 className="text-3xl font-bold">History</h2>
+                <h2 className={cn("text-3xl font-bold", isRTL ? "font-extrabold" : "font-bold")}>
+                  {st.ui.history}
+                </h2>
               </div>
               
-              <div className="space-y-4">
-                <p className="text-[16px] leading-relaxed text-[#3a4f6a] font-medium">
-                  {t.about.history.summary}
-                </p>
-                <p className="text-[16px] leading-relaxed text-[#3a4f6a]">
-                  {featureItem.contentBody}
-                </p>
-                <p className="text-[16px] leading-relaxed text-[#3a4f6a]">
-                  We operate across five dynamic sectors, bringing specialized solutions to the market. Our commitment to excellence drives us to continually expand our services and ensure the highest quality in every transaction.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-10">
-                {featureItem.metrics.map((metric, idx) => (
-                  <div key={idx} className="bg-white rounded-2xl p-8 text-center border border-[#0c1a2e]/5 shadow-[0_4px_24px_rgba(12,26,46,0.04)] hover:shadow-[0_8px_30px_rgba(12,26,46,0.08)] transition-all duration-300 hover:-translate-y-1">
-                    <div className="text-4xl font-extrabold text-[#2563eb] mb-3">{metric.value}</div>
-                    <div className="text-[13px] font-bold text-[#0c1a2e] tracking-wider uppercase">
-                      {metric.label}
-                    </div>
-                  </div>
+              <div className="space-y-5">
+                {currentHistory.map((para, idx) => (
+                  <p 
+                    key={idx} 
+                    className={cn(
+                      "text-[16px] text-[#3a4f6a]",
+                      isRTL ? "font-semibold leading-[1.8] text-[17px]" : "leading-relaxed"
+                    )}
+                  >
+                    {para}
+                  </p>
                 ))}
               </div>
             </section>
@@ -184,10 +186,15 @@ export default function SectorDetails({ id }: { id: string }) {
             <section id="president" className="scroll-mt-32">
               <div className="flex items-center gap-3 mb-8">
                 <Iconify icon="solar:letter-bold-duotone" width={32} className="text-[#b91c1c]" />
-                <h2 className="text-3xl font-bold">President's Message</h2>
+                <h2 className={cn("text-3xl font-bold", isRTL ? "font-extrabold" : "font-bold")}>
+                  {st.ui.president}
+                </h2>
               </div>
-              <p className="text-[16px] leading-relaxed text-[#3a4f6a]">
-                We believe in ourselves and are convinced that Nothing is Impossible to stay ahead of competition and of our times. We have always taken pride in ourselves in our services and continuously striving to take it to the next level.
+              <p className={cn(
+                "text-[16px] text-[#3a4f6a]",
+                isRTL ? "font-semibold leading-[1.8] text-[17px]" : "leading-relaxed"
+              )}>
+                {currentPresidentQuote}
               </p>
             </section>
 
@@ -195,19 +202,31 @@ export default function SectorDetails({ id }: { id: string }) {
             <section id="vision" className="scroll-mt-32">
               <div className="flex items-center gap-3 mb-8">
                 <Iconify icon="solar:target-bold-duotone" width={32} className="text-[#b91c1c]" />
-                <h2 className="text-3xl font-bold">Vision & Mission</h2>
+                <h2 className={cn("text-3xl font-bold", isRTL ? "font-extrabold" : "font-bold")}>
+                  {st.ui.visionMission}
+                </h2>
               </div>
               <div className="space-y-6">
                 <div>
-                  <h4 className="text-lg font-bold text-[#0c1a2e] mb-2">Vision</h4>
-                  <p className="text-[16px] leading-relaxed text-[#3a4f6a]">
-                    Providing high quality products to all over the world.
+                  <h4 className={cn("text-lg font-bold text-[#0c1a2e] mb-2", isRTL ? "font-extrabold" : "font-bold")}>
+                    {st.ui.vision}
+                  </h4>
+                  <p className={cn(
+                    "text-[16px] text-[#3a4f6a]",
+                    isRTL ? "font-semibold leading-[1.8] text-[17px]" : "leading-relaxed"
+                  )}>
+                    {currentVision}
                   </p>
                 </div>
                 <div>
-                  <h4 className="text-lg font-bold text-[#0c1a2e] mb-2">Mission</h4>
-                  <p className="text-[16px] leading-relaxed text-[#3a4f6a]">
-                    We ensure that our products in the market meet the global standards.
+                  <h4 className={cn("text-lg font-bold text-[#0c1a2e] mb-2", isRTL ? "font-extrabold" : "font-bold")}>
+                    {st.ui.mission}
+                  </h4>
+                  <p className={cn(
+                    "text-[16px] text-[#3a4f6a]",
+                    isRTL ? "font-semibold leading-[1.8] text-[17px]" : "leading-relaxed"
+                  )}>
+                    {currentMission}
                   </p>
                 </div>
               </div>
@@ -217,59 +236,21 @@ export default function SectorDetails({ id }: { id: string }) {
             <section id="branches" className="scroll-mt-32">
               <div className="flex items-center gap-3 mb-8">
                 <Iconify icon="solar:map-point-bold-duotone" width={32} className="text-[#b91c1c]" />
-                <h2 className="text-3xl font-bold">Branches & Locations</h2>
+                <h2 className="text-3xl font-bold">{st.ui.branches}</h2>
               </div>
               
-              <div className="space-y-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {/* Headquarters */}
-                  <div className="bg-white p-6 rounded-2xl border border-[#0c1a2e]/5 shadow-sm group hover:border-[#b91c1c]/20 transition-colors">
-                    <h5 className="font-bold text-[#0c1a2e] mb-3 flex items-center gap-2">
-                      <Iconify icon="solar:buildings-bold-duotone" className="text-[#b91c1c]" />
-                      Global Headquarters
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {currentBranches.map((branch: any, idx: number) => (
+                  <div key={idx} className="bg-white p-6 rounded-2xl border border-[#0c1a2e]/5 shadow-sm group hover:border-[#b91c1c]/20 transition-colors">
+                    <h5 className={cn("text-[#0c1a2e] mb-3 flex items-center gap-2", isRTL ? "font-extrabold text-lg" : "font-bold")}>
+                      <Iconify icon={branch.icon || (branch.city.includes("Turkey") ? "solar:earth-bold-duotone" : "solar:map-bold-duotone")} className="text-[#b91c1c]" />
+                      {branch.city}
                     </h5>
-                    <p className="text-sm text-[#3a4f6a] leading-relaxed">
-                      Runaki Street, Erbil 44001<br />
-                      Kurdistan Region, Iraq
+                    <p className={cn("text-sm text-[#3a4f6a] leading-relaxed", isRTL ? "font-medium text-[15px]" : "")}>
+                      {branch.address}
                     </p>
                   </div>
-                  
-                  {/* Local Branches */}
-                  <div className="bg-white p-6 rounded-2xl border border-[#0c1a2e]/5 shadow-sm group hover:border-[#b91c1c]/20 transition-colors">
-                    <h5 className="font-bold text-[#0c1a2e] mb-3 flex items-center gap-2">
-                      <Iconify icon="solar:map-bold-duotone" className="text-[#b91c1c]" />
-                      Erbil Branches
-                    </h5>
-                    <p className="text-sm text-[#3a4f6a] leading-relaxed">
-                      Old Bourse, Two-Way Runaki Street,<br />
-                      Ankawa Neighborhood, Pirmam Road
-                    </p>
-                  </div>
-
-                  {/* Soran Branches */}
-                  <div className="bg-white p-6 rounded-2xl border border-[#0c1a2e]/5 shadow-sm group hover:border-[#b91c1c]/20 transition-colors">
-                    <h5 className="font-bold text-[#0c1a2e] mb-3 flex items-center gap-2">
-                      <Iconify icon="solar:map-bold-duotone" className="text-[#b91c1c]" />
-                      Soran Region
-                    </h5>
-                    <p className="text-sm text-[#3a4f6a] leading-relaxed">
-                      Soran City Center,<br />
-                      Rawanduz Road
-                    </p>
-                  </div>
-
-                  {/* International Branches */}
-                  <div className="bg-white p-6 rounded-2xl border border-[#0c1a2e]/5 shadow-sm group hover:border-[#b91c1c]/20 transition-colors">
-                    <h5 className="font-bold text-[#0c1a2e] mb-3 flex items-center gap-2">
-                      <Iconify icon="solar:earth-bold-duotone" className="text-[#b91c1c]" />
-                      Turkey Branch
-                    </h5>
-                    <p className="text-sm text-[#3a4f6a] leading-relaxed">
-                      Silopi District,<br />
-                      Sirnak City, Turkey
-                    </p>
-                  </div>
-                </div>
+                ))}
               </div>
             </section>
 
@@ -277,7 +258,7 @@ export default function SectorDetails({ id }: { id: string }) {
             <section id="links" className="scroll-mt-32 mb-24">
               <div className="flex items-center gap-3 mb-8">
                 <Iconify icon="solar:link-bold-duotone" width={32} className="text-[#b91c1c]" />
-                <h2 className="text-3xl font-bold">Links</h2>
+                <h2 className="text-3xl font-bold">{st.ui.links}</h2>
               </div>
               
               <div className="flex flex-col gap-4">
@@ -287,7 +268,7 @@ export default function SectorDetails({ id }: { id: string }) {
                     <span className="font-semibold">chyagroup.com/</span>
                   </div>
                   <div className="bg-[#faf9f6] text-[#b91c1c] w-12 h-12 rounded-xl flex items-center justify-center transition-transform group-hover:bg-[#b91c1c] group-hover:text-white">
-                    <Iconify icon="solar:arrow-right-up-linear" width={20} />
+                    <Iconify icon={isRTL ? "solar:arrow-left-up-linear" : "solar:arrow-right-up-linear"} width={20} />
                   </div>
                 </a>
 
@@ -298,20 +279,10 @@ export default function SectorDetails({ id }: { id: string }) {
                       <span className="font-semibold">{email}</span>
                     </div>
                     <div className="bg-[#faf9f6] text-[#b91c1c] w-12 h-12 rounded-xl flex items-center justify-center transition-transform group-hover:bg-[#b91c1c] group-hover:text-white">
-                      <Iconify icon="solar:arrow-right-up-linear" width={20} />
+                      <Iconify icon={isRTL ? "solar:arrow-left-up-linear" : "solar:arrow-right-up-linear"} width={20} />
                     </div>
                   </a>
                 ))}
-
-                <a href="#" className="flex items-center justify-between bg-white text-[#0c1a2e] border border-[#0c1a2e]/5 p-5 rounded-2xl group transition-all duration-300 hover:shadow-md hover:border-[#b91c1c]/20">
-                  <div className="flex items-center gap-4">
-                    <Iconify icon="mdi:facebook" width={24} className="text-[#b91c1c]" />
-                    <span className="font-semibold">facebook.com/chyagroup</span>
-                  </div>
-                  <div className="bg-[#faf9f6] text-[#b91c1c] w-12 h-12 rounded-xl flex items-center justify-center transition-transform group-hover:bg-[#b91c1c] group-hover:text-white">
-                    <Iconify icon="solar:arrow-right-up-linear" width={20} />
-                  </div>
-                </a>
 
                 <a href="https://www.instagram.com/chyagroup.iq?igsh=MXdrMWo3MWFidmkxaw%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between bg-white text-[#0c1a2e] border border-[#0c1a2e]/5 p-5 rounded-2xl group transition-all duration-300 hover:shadow-md hover:border-[#b91c1c]/20">
                   <div className="flex items-center gap-4">
@@ -319,7 +290,7 @@ export default function SectorDetails({ id }: { id: string }) {
                     <span className="font-semibold">instagram.com/chyagroup.iq</span>
                   </div>
                   <div className="bg-[#faf9f6] text-[#b91c1c] w-12 h-12 rounded-xl flex items-center justify-center transition-transform group-hover:bg-[#b91c1c] group-hover:text-white">
-                    <Iconify icon="solar:arrow-right-up-linear" width={20} />
+                    <Iconify icon={isRTL ? "solar:arrow-left-up-linear" : "solar:arrow-right-up-linear"} width={20} />
                   </div>
                 </a>
               </div>
@@ -331,3 +302,4 @@ export default function SectorDetails({ id }: { id: string }) {
     </div>
   );
 }
+

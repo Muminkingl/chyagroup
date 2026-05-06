@@ -1,10 +1,14 @@
-okay now look in that details page we need to ocsu on texts and data ! /ourcompany/general-trading
+thanks so much now lets go to another section which is /ourcompany/online-trading
 
+so for the data we have this : 
+`
 
-look in general trading we only have 3 works okay 
-`lamatalmarjan`  `IT IS COMPANY!` 
-`chyaymateen`  `IT IS COMPANY!` 
-`chyaamazon`  `just regular works no office !` 
+Chya travel
+Kiva luxury
+`
 
-so we need to make the datas texts in that page real and match our brand rights !
-so 
+so do the same thing what we did for the previous section and the data MUST BE REAL I HAVE TO USE THE REAL DATES AND STUFF like that !! for history ! 
+
+so use fresh formal and engaged texts !! 
+
+and for president and mission vision must be engaged as well 
