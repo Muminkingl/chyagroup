@@ -158,7 +158,7 @@ export default function SectorDetails({ id }: { id: string }) {
               
               <div className="space-y-4">
                 <p className="text-[16px] leading-relaxed text-[#3a4f6a] font-medium">
-                  {t.history.summary}
+                  {t.about.history.summary}
                 </p>
                 <p className="text-[16px] leading-relaxed text-[#3a4f6a]">
                   {featureItem.contentBody}
