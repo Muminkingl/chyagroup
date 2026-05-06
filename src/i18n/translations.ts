@@ -419,6 +419,12 @@ export const translations = {
           }
         }
       }
+    },
+
+    ourCompany: {
+      eyebrow: "OUR COMPANIES",
+      headline: "We serve in 5 sectors",
+      subtitle: "Diverse solutions. One commitment."
     }
   },
   ar: {
@@ -841,6 +847,11 @@ export const translations = {
           }
         }
       }
+    },
+    ourCompany: {
+      eyebrow: "شركاتنا",
+      headline: "نعمل في 5 قطاعات",
+      subtitle: "حلول متنوعة. التزام واحد."
     }
   },
   ku: {
@@ -1263,6 +1274,11 @@ export const translations = {
           }
         }
       }
+    },
+    ourCompany: {
+      eyebrow: "کۆمپانیاکانمان",
+      headline: "لە ٥ سێکتەردا کاردەکەین",
+      subtitle: "چارەسەری هەمەجۆر. یەک بەڵێن."
     }
   }
 };

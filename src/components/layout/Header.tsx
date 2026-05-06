@@ -54,6 +54,7 @@ export const Header = () => {
 
   const navLinks = [
     { name: t.about, href: "/about" },
+    { name: t.company, href: "/ourcompany" },
     { name: t.history, href: "/about#history" },
     { name: t.news, href: "/news" },
   ];

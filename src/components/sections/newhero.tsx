@@ -93,14 +93,10 @@ export default function HeroSection() {
                         className={`hero-globe${mounted ? ' ready' : ''} absolute bottom-[0%] right-[-15%] sm:bottom-[-5%] sm:right-[-8%] w-[120%] sm:w-[80%] lg:w-[68%] h-[55%] sm:h-[75%] lg:h-[95%] opacity-90 sm:opacity-100 pointer-events-none`}
                     >
                         <img
-                            src="/zawe.png"
+                            src="/maybenew.png"
                             alt="Global connections"
                             className="w-full h-full object-contain object-right"
                             style={{
-                                maskImage: `linear-gradient(to left, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%), linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 12%, rgba(0,0,0,1) 88%, rgba(0,0,0,0) 100%)`,
-                                WebkitMaskImage: `linear-gradient(to left, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%), linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 12%, rgba(0,0,0,1) 88%, rgba(0,0,0,0) 100%)`,
-                                maskComposite: 'intersect',
-                                WebkitMaskComposite: 'destination-in',
                                 filter: 'brightness(1.1) contrast(1.05)',
                             }}
                         />
