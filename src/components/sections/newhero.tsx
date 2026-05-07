@@ -88,14 +88,14 @@ export default function HeroSection() {
                 {/* Main hero area */}
                 <div className="relative min-h-[600px] lg:min-h-[92vh]">
 
-                    {/* Globe image — animated entrance, always on the RIGHT */}
+                    {/* Globe image — adjusted to be fully visible and slightly smaller */}
                     <div
-                        className={`hero-globe${mounted ? ' ready' : ''} absolute bottom-[0%] right-[-15%] sm:bottom-[-5%] sm:right-[-8%] w-[120%] sm:w-[80%] lg:w-[68%] h-[55%] sm:h-[75%] lg:h-[95%] opacity-90 sm:opacity-100 pointer-events-none`}
+                        className={`hero-globe${mounted ? ' ready' : ''} absolute bottom-[-5%] left-0 right-0 sm:bottom-0 sm:right-0 lg:left-auto lg:bottom-[-2%] lg:right-[4%] w-full sm:w-[90%] md:w-[75%] lg:w-[48%] h-[35%] sm:h-[50%] md:h-[65%] lg:h-[85%] opacity-100 pointer-events-none z-20`}
                     >
                         <img
                             src="/maybenew.png"
                             alt="Global connections"
-                            className="w-full h-full object-contain object-right"
+                            className="w-full h-full object-contain object-bottom"
                             style={{
                                 filter: 'brightness(1.1) contrast(1.05)',
                             }}
@@ -156,7 +156,7 @@ export default function HeroSection() {
                 </div>
 
                 {/* Bottom transition gradient */}
-                <div className="absolute bottom-0 left-0 right-0 h-48 sm:h-40 bg-gradient-to-t from-[#faf9f6] via-[#faf9f6]/90 to-transparent z-20 pointer-events-none" />
+                <div className="absolute bottom-0 left-0 right-0 h-48 sm:h-40 bg-gradient-to-t from-[#faf9f6] via-[#faf9f6]/90 to-transparent z-0 pointer-events-none" />
             </section>
         </>
     );
