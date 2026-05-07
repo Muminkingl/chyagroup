@@ -190,6 +190,19 @@ export default function BrandQRs() {
 
                     <div className="flex flex-wrap items-center justify-center gap-10 md:gap-14">
 
+                        {/* Vision Stat */}
+                        <div className={`flex items-center gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                            <Iconify icon="solar:medal-ribbon-linear" className="text-[#0c1a2e]" width={28} />
+                            <div className={isRTL ? 'text-right' : 'text-left'}>
+                                <div className="text-[20px] font-bold text-[#0c1a2e] leading-none mb-1">
+                                    <Counter value={t.banner.stats.vision} isRTL={isRTL} inView={isInView} />
+                                </div>
+                                <div dir="auto" className="text-[12px] font-bold text-[#0c1a2e]">
+                                    {t.banner.stats.visionLabel}
+                                </div>
+                            </div>
+                        </div>
+
                         {/* Sectors Stat */}
                         <div className={`flex items-center gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
                             <Iconify icon="solar:city-linear" className="text-[#0c1a2e]" width={28} />
@@ -225,19 +238,6 @@ export default function BrandQRs() {
                                 </div>
                                 <div dir="auto" className="text-[12px] font-bold text-[#0c1a2e]">
                                     {t.banner.stats.professionalsLabel}
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Vision Stat */}
-                        <div className={`flex items-center gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                            <Iconify icon="solar:user-circle-linear" className="text-[#0c1a2e]" width={28} />
-                            <div className={isRTL ? 'text-right' : 'text-left'}>
-                                <div className="text-[20px] font-bold text-[#0c1a2e] leading-none mb-1">
-                                    <Counter value={t.banner.stats.vision} isRTL={isRTL} inView={isInView} />
-                                </div>
-                                <div dir="auto" className="text-[12px] font-bold text-[#0c1a2e]">
-                                    {t.banner.stats.visionLabel}
                                 </div>
                             </div>
                         </div>

@@ -1,5 +1,6 @@
 "use client";
 import React, { useRef } from 'react';
+import Link from 'next/link';
 import { Iconify } from '@/components/ui/Iconify';
 import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/i18n/translations';
@@ -13,8 +14,8 @@ function Counter({ value, locale, isRTL }: { value: number | string, locale: str
   const convertToEn = (str: string) => str.replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d).toString());
 
   React.useEffect(() => {
-    const numericValue = typeof value === 'string' 
-      ? parseInt(convertToEn(value).replace(/[^0-9]/g, '')) 
+    const numericValue = typeof value === 'string'
+      ? parseInt(convertToEn(value).replace(/[^0-9]/g, ''))
       : value;
 
     if (isNaN(numericValue as number)) {
@@ -385,12 +386,13 @@ export default function FeatureSection() {
                   </div>
 
                   {/* Arrow button — accent colored */}
-                  <button
-                    className="absolute bottom-6 left-6 w-8 h-8 rounded-full flex items-center justify-center text-white transition-all duration-300 shadow-lg z-10 scale-90 group-hover:scale-100"
+                  <Link
+                    href={`/ourcompany/${feature.id}`}
+                    className="absolute bottom-6 left-6 w-8 h-8 rounded-full flex items-center justify-center text-white transition-all duration-300 shadow-lg z-10 scale-90 group-hover:scale-100 cursor-pointer"
                     style={{ background: feature.accent }}
                   >
-                    <Iconify icon="solar:arrow-right-linear" width={14} />
-                  </button>
+                    <Iconify icon={isRTL ? "solar:arrow-left-linear" : "solar:arrow-right-linear"} width={14} />
+                  </Link>
                 </div>
 
                 {/* Bottom accent line that grows on hover */}

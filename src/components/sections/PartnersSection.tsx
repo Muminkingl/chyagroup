@@ -59,11 +59,8 @@ export default function PartnersSection() {
                 {/* Grid of Partners */}
                 <div className="flex flex-wrap justify-center gap-4 md:gap-6">
                     {partners.map((partner, index) => (
-                        <a 
+                        <div 
                             key={index}
-                            href={partner.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
                             className="flex items-center justify-center bg-white h-[120px] md:h-[140px] w-[calc(50%-0.5rem)] md:w-[calc(25%-1.125rem)] rounded-2xl shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-[#0c1a2e]/5 transition-all duration-300 hover:-translate-y-1 p-6"
                         >
                             <img 
@@ -74,7 +71,7 @@ export default function PartnersSection() {
                                     (e.target as HTMLImageElement).src = `https://placehold.co/200x100/ffffff/0c1a2e?text=${encodeURIComponent(partner.name)}`;
                                 }}
                             />
-                        </a>
+                        </div>
                     ))}
                 </div>
 

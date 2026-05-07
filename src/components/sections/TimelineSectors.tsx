@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Iconify } from '@/components/ui/Iconify';
 import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/i18n/translations';
@@ -25,9 +26,9 @@ const SECTOR_CONFIG = [
   },
   {
     id: 'mobile-tech',
-    icon: 'solar:smartphone-linear',
-    color: '#a855f7',
-    bgColor: '#faf5ff',
+    icon: 'tabler:device-mobile-cog',
+    color: '#ef4444',
+    bgColor: '#fef2f2',
   },
   {
     id: 'printing',
@@ -38,8 +39,8 @@ const SECTOR_CONFIG = [
   {
     id: 'online-trading',
     icon: 'ph:handbag-light',
-    color: '#ef4444',
-    bgColor: '#fef2f2',
+    color: '#a855f7',
+    bgColor: '#faf5ff',
   },
 ];
 
@@ -253,14 +254,14 @@ export default function TimelineSectors() {
                 </ul>
 
                 {/* Button */}
-                <button className="w-full flex items-center justify-between px-5 py-3.5 bg-[#f4f5f7] hover:bg-[#e9ecef] transition-colors rounded-full text-[#0c1a2e] text-[13px] font-bold group/btn mt-auto">
+                <Link href={`/ourcompany/${sector.id}`} className="w-full flex items-center justify-between px-5 py-3.5 bg-[#f4f5f7] hover:bg-[#e9ecef] transition-colors rounded-full text-[#0c1a2e] text-[13px] font-bold group/btn mt-auto">
                   <span dir="auto">{t.button}</span>
                   <Iconify
                     icon={isRTL ? 'solar:arrow-left-linear' : 'solar:arrow-right-linear'}
                     width={16}
                     className={`text-[#0c1a2e] transition-transform ${isRTL ? 'group-hover/btn:-translate-x-1' : 'group-hover/btn:translate-x-1'}`}
                   />
-                </button>
+                </Link>
               </div>
             </div>
           ))}
@@ -325,14 +326,14 @@ export default function TimelineSectors() {
                   ))}
                 </ul>
 
-                <button className="w-full flex items-center justify-between px-6 py-4 bg-[#f4f5f7] hover:bg-[#e9ecef] transition-colors rounded-full text-[#0c1a2e] text-[14px] font-bold group/btn mt-auto">
+                <Link href={`/ourcompany/${sector.id}`} className="w-full flex items-center justify-between px-6 py-4 bg-[#f4f5f7] hover:bg-[#e9ecef] transition-colors rounded-full text-[#0c1a2e] text-[14px] font-bold group/btn mt-auto">
                   <span dir="auto">{t.button}</span>
                   <Iconify
                     icon={isRTL ? 'solar:arrow-left-linear' : 'solar:arrow-right-linear'}
                     width={18}
                     className={`text-[#0c1a2e] transition-transform ${isRTL ? 'group-hover/btn:-translate-x-1' : 'group-hover/btn:translate-x-1'}`}
                   />
-                </button>
+                </Link>
               </div>
             </div>
           ))}

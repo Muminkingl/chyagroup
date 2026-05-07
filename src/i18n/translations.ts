@@ -668,13 +668,13 @@ export const translations = {
         subtitle: "كل براند تحت مظلة مجموعة چیا مكرس لتقديم التميز في مجاله.",
         stats: {
           sectors: "٥",
-          offices: "١٥",
+          offices: "١٦",
           professionals: "٤٧",
           vision: "١",
           visionLabel: "رؤية موحدة",
           sectorsLabel: "قطاعات",
           officesLabel: "مكاتبنا",
-          professionalsLabel: "محترفونا"
+          professionalsLabel: "أعضاء"
         }
       }
     },
@@ -1095,13 +1095,13 @@ export const translations = {
         subtitle: "هەر براندێک لەژێر سایەی چیا گرووپدا کاردەکات بۆ پێشکەشکردنی باشترین خزمەتگوزاری لە بوارەکەیدا.",
         stats: {
           sectors: "٥",
-          offices: "١٦ ",
+          offices: "١٦",
           professionals: "٤٧",
           vision: "١",
           visionLabel: "دیدگای یەکگرتوو",
           sectorsLabel: "سێکتەر",
           officesLabel: "کار",
-          professionalsLabel: "پسپۆڕ"
+          professionalsLabel: "ئەندام"
         }
       }
     },
