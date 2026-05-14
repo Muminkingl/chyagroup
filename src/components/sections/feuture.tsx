@@ -61,13 +61,13 @@ const FEATURE_CONFIG = [
   {
     id: 'money-exchange',
     icon: 'solar:hand-money-linear',
-    image: 'https://i.postimg.cc/1zkMz6gd/image.png',
+    image: '/money.png',
     accent: '#2a7a56',
   },
   {
     id: 'mobile-tech',
     icon: 'tabler:device-mobile-cog',
-    image: 'https://i.postimg.cc/JzcBXk2n/image.png',
+    image: '/hmmphone.png',
     accent: '#e84040',
   },
   {

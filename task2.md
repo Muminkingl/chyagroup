@@ -1,14 +1,9 @@
-thanks so much now lets go to another section which is /ourcompany/online-trading
+# Issue Description
 
-so for the data we have this : 
-`
+There is one issue in the **Certification** section.
 
-Chya travel
-Kiva luxury
-`
+When clicking on each certification, it correctly redirects to the related PDF file, and the overall style/design looks perfect.
 
-so do the same thing what we did for the previous section and the data MUST BE REAL I HAVE TO USE THE REAL DATES AND STUFF like that !! for history ! 
+However, the problem is that the PDF opens by default at **100% zoom**, which causes the certificate image/content to not appear fully on the screen.
 
-so use fresh formal and engaged texts !! 
-
-and for president and mission vision must be engaged as well 
+The current experience does not feel fullscreen or properly fitted to the user’s display.

@@ -7,27 +7,27 @@ import { translations } from '@/i18n/translations';
 const certData = [
   {
     image: "https://sqm.com/wp-content/uploads/2023/11/iso_9001_2015.png",
-    link: "/certificate/ISO9001_2015.pdf"
+    link: "/certificate/ISO9001_2015.pdf#view=Fit"
   },
   {
     image: "https://upload.wikimedia.org/wikipedia/en/b/b9/International_Accreditation_Forum_Logo.svg",
-    link: "/certificate/ISO9001_2015.pdf"
+    link: "/certificate/ISO9001_2015.pdf#view=Fit"
   },
   {
     image: "https://ossmideast.com/wp-content/uploads/2019/05/ossme-logo.jpg",
-    link: "/certificate/ISO9001_2015.pdf"
+    link: "/certificate/ISO9001_2015.pdf#view=Fit"
   },
   {
     image: "https://sscert-eg.com/wp-content/uploads/2023/03/egacc0.png",
-    link: "/certificate/ISO9001_2015.pdf"
+    link: "/certificate/ISO9001_2015.pdf#view=Fit"
   },
   {
-    image: "https://i.postimg.cc/mrKLSKSS/image.png",
-    link: "/certificate/Ficho.pdf"
+    image: "https://i.postimg.cc/hvD7WjTb/image-Photoroom.png",
+    link: "/certificate/Ficho.pdf#view=Fit"
   },
   {
-    image: "https://upload.wikimedia.org/wikipedia/commons/1/13/HKA_Logo_Logoleiste_RGB.png",
-    link: "/certificate/Karlsruhe-University.pdf"
+    image: "./ika.png",
+    link: "/certificate/Karlsruhe-University.pdf#view=Fit"
   }
 ];
 
@@ -55,8 +55,8 @@ export default function CertificationsSection() {
                             </span>
                         </div>
                         <h2 dir="auto" className="text-4xl md:text-5xl font-bold tracking-tight text-[#0c1a2e] leading-[1.2]">
-                            {t.headline.part1} {t.headline.part2}<br />
-                            {t.headline.part3}
+                            {t.headline.part1} {t.headline.part2}
+                            {t.headline.part3 && <><br />{t.headline.part3}</>}
                         </h2>
                     </div>
 
@@ -79,11 +79,11 @@ export default function CertificationsSection() {
                             className="flex flex-col bg-white p-8 rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-[#0c1a2e]/5 transition-all duration-300 hover:-translate-y-1 cursor-pointer block"
                         >
                             {/* Logo Area */}
-                            <div className="h-[100px] flex items-center justify-center mb-8">
+                            <div className="h-[100px] w-full flex items-center justify-center mb-8">
                                 <img 
                                     src={certData[index].image} 
                                     alt={cert.title}
-                                    className={`max-w-full max-h-full object-contain mix-blend-multiply ${index === 5 ? 'scale-125' : ''}`}
+                                    className={`max-w-full max-h-full object-contain mix-blend-multiply ${(index === 3 || index === 5) ? 'scale-115 origin-center' : ''}`}
                                     onError={(e) => {
                                         // Fallback if image doesn't exist yet
                                         (e.target as HTMLImageElement).src = `https://placehold.co/200x100/ffffff/0c1a2e?text=${encodeURIComponent(cert.title)}`;

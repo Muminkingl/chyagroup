@@ -33,7 +33,7 @@ export default function PartnersSection() {
             </div>
 
             <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12">
-                
+
                 {/* Header Section */}
                 <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 mb-16">
                     <div className="max-w-2xl">
@@ -59,18 +59,41 @@ export default function PartnersSection() {
                 {/* Grid of Partners */}
                 <div className="flex flex-wrap justify-center gap-4 md:gap-6">
                     {partners.map((partner, index) => (
-                        <div 
+                        <div
                             key={index}
                             className="flex items-center justify-center bg-white h-[120px] md:h-[140px] w-[calc(50%-0.5rem)] md:w-[calc(25%-1.125rem)] rounded-2xl shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-[#0c1a2e]/5 transition-all duration-300 hover:-translate-y-1 p-6"
                         >
-                            <img 
-                                src={partner.logo} 
-                                alt={`${partner.name} Logo`}
-                                className="max-w-[180px] max-h-[85px] w-full h-full object-contain transition-transform duration-300 hover:scale-105"
-                                onError={(e) => {
-                                    (e.target as HTMLImageElement).src = `https://placehold.co/200x100/ffffff/0c1a2e?text=${encodeURIComponent(partner.name)}`;
-                                }}
-                            />
+                            {(index === 0 || index === 7 || index === 5 || index === 6 || index === 1) ? (
+                                <img
+                                    src={partner.logo}
+                                    alt={`${partner.name} Logo`}
+                                    style={{ 
+                                        width: index === 0 ? '92%' : index === 7 ? '100%' : index === 5 ? '94%' : index === 6 ? '95%' : '68%', 
+                                        height: 'auto' 
+                                    }}
+                                    className={`object-contain mix-blend-multiply transition-transform duration-300 hover:scale-110 ${index === 0 ? 'translate-x-[1%] translate-y-[6%]' : ''}`}
+                                    onError={(e) => {
+                                        (e.target as HTMLImageElement).src = `https://placehold.co/200x100/ffffff/0c1a2e?text=${encodeURIComponent(partner.name)}`;
+                                    }}
+                                />
+                            ) : (
+                                <img
+                                    src={partner.logo}
+                                    alt={`${partner.name} Logo`}
+                                    className={`object-contain transition-transform duration-300 mix-blend-multiply ${
+                                        index === 10 
+                                            ? 'scale-[1.45] hover:scale-[1.55] origin-center w-full h-full' 
+                                            : index === 2
+                                                ? 'scale-[0.75] hover:scale-[0.85] origin-center w-full h-full' 
+                                                : index === 13 
+                                                    ? 'scale-[1.05] hover:scale-[1.15] origin-center w-full h-full' 
+                                                    : 'max-w-[180px] max-h-[85px] w-full h-full hover:scale-110'
+                                    }`}
+                                    onError={(e) => {
+                                        (e.target as HTMLImageElement).src = `https://placehold.co/200x100/ffffff/0c1a2e?text=${encodeURIComponent(partner.name)}`;
+                                    }}
+                                />
+                            )}
                         </div>
                     ))}
                 </div>

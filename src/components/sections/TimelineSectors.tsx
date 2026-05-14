@@ -47,6 +47,7 @@ const SECTOR_CONFIG = [
 // Map each brand name keyword to the correct logo file
 const BRAND_LOGOS: Record<string, string> = {
   'lammat': '/brands/lamatalmarjan.png',
+  'lamat': '/brands/lamatalmarjan.png',
   'لمة': '/brands/lamatalmarjan.png',
   'لمعة': '/brands/lamatalmarjan.png',
   'mateen': '/brands/chyaymaten.png',
@@ -60,6 +61,17 @@ const BRAND_LOGOS: Record<string, string> = {
   'خاکی': '/brands/khakisarwar.png',
   'hangaw': '/brands/hangawexchange.png',
   'هەنگاو': '/brands/hangawexchange.png',
+  'gold': '/brands/qapat-1.png',
+  'غولد': '/brands/qapat-1.png',
+  'گۆڵد': '/brands/qapat-1.png',
+  // lutkay & barzy MUST be before 'exchange' so they match their specific logo first
+  'lutkay': '/brands/lutkay chya-1.png',
+  'لوتکەی': '/brands/lutkay chya-1.png',
+  'لوتكاي': '/brands/lutkay chya-1.png',
+  'barzy': '/brands/BARZY CHYAY-1.png',
+  'بەرزى': '/brands/BARZY CHYAY-1.png',
+  'بەرزی': '/brands/BARZY CHYAY-1.png',
+  'بـەرزى': '/brands/BARZY CHYAY-1.png',
   'exchange': '/brands/chyaexchnage.png',
   'إكسجينج': '/brands/chyaexchnage.png',
   'ئێکستێنج': '/brands/chyaexchnage.png',
@@ -68,13 +80,6 @@ const BRAND_LOGOS: Record<string, string> = {
   'دیبگة': '/brands/Manfaz Dibaga-1.png',
   'دیبگەی': '/brands/Manfaz Dibaga-1.png',
   'ديکبە': '/brands/Manfaz Dibaga-1.png',
-  'lutkay': '/brands/lutkay chya-1.png',
-  'لوتکەی': '/brands/lutkay chya-1.png',
-  'لوتكاي': '/brands/lutkay chya-1.png',
-  'barzy': '/brands/BARZY CHYAY-1.png',
-  'بەرزى': '/brands/BARZY CHYAY-1.png',
-  'بەرزی': '/brands/BARZY CHYAY-1.png',
-  'بـەرزى': '/brands/BARZY CHYAY-1.png',
   // Money exchange standalone "Chya" = chyaexchange
   // We handle this below with index logic; fallback to chyaexchange for 'chya' in money-exchange
   'phone': '/brands/chya phone-1.png',
@@ -118,7 +123,7 @@ function getLogoSrc(item: string, sectorId: string): string | null {
 function ItemRow({ item, sectorId }: { item: string; sectorId: string }) {
   const logo = getLogoSrc(item, sectorId);
   return (
-    <li className="flex items-center gap-3">
+    <li className="flex items-center gap-2">
       <span className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] flex-shrink-0" />
       {logo ? (
         <div className="flex-shrink-0 flex items-center justify-center w-[54px] h-10">
@@ -127,13 +132,12 @@ function ItemRow({ item, sectorId }: { item: string; sectorId: string }) {
             alt={item}
             width={120}
             height={60}
-            className={`w-full h-full object-contain ${
-              logo.endsWith('.svg')
-                ? ''
-                : logo.includes('kiva') || logo.includes('Dibaga')
-                  ? 'scale-[1.1] origin-center'
-                  : 'scale-[1.65] origin-center'
-            }`}
+            className={`w-full h-full object-contain ${logo.endsWith('.svg')
+              ? ''
+              : logo.includes('kiva') || logo.includes('Dibaga')
+                ? 'scale-[1.1] origin-center'
+                : 'scale-[1.65] origin-center'
+              }`}
           />
         </div>
       ) : (
@@ -141,7 +145,7 @@ function ItemRow({ item, sectorId }: { item: string; sectorId: string }) {
           <span className="text-[11px] font-bold text-gray-400">{item.charAt(0)}</span>
         </div>
       )}
-      <span className="leading-tight text-[#0c1a2e] font-medium text-[12.5px] xl:text-[13px]">{item}</span>
+      <span className="text-[#0c1a2e] font-medium text-[11px] xl:text-[12px] leading-none whitespace-nowrap tracking-tight">{item}</span>
     </li>
   );
 }
@@ -224,7 +228,7 @@ export default function TimelineSectors() {
               </div>
 
               {/* Card */}
-              <div className="flex-1 w-full bg-white rounded-[24px] p-6 lg:p-7 flex flex-col shadow-[0_2px_16px_rgb(0,0,0,0.04)] border border-gray-100 transition-transform duration-500 group-hover:-translate-y-1">
+              <div className="flex-1 w-full bg-white rounded-[24px] p-6 lg:px-4 xl:px-6 lg:py-7 flex flex-col shadow-[0_2px_16px_rgb(0,0,0,0.04)] border border-gray-100 transition-transform duration-500 group-hover:-translate-y-1">
 
                 {/* Coloured sector icon inside card */}
                 <div

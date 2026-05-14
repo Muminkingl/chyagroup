@@ -135,13 +135,13 @@ export const translations = {
           id: 'general-trading',
           title: "GENERAL TRADING",
           desc: "Our general trading arm spans a diverse product portfolio, supplying markets across the region with quality and reliability.",
-          items: ['Lammat Al marjan co.', 'Chyay Mateen co.', 'Chya Amazon']
+          items: ['Lamat Al marjan co.', 'Chyay Mateen co.', 'Chya Amazon']
         },
         {
           id: 'money-exchange',
           title: "MONEY EXCHANGE &\nFINANCIAL SERVICE",
           desc: "Chya Group operates a dedicated money exchange division delivering fast, secure, and competitive financial services.",
-          items: ['Khaki Sarwar co.', 'Chya Exchange', 'Chya Gold', 'Lutkay chya', 'Barzy chya', 'Hangaw Exchange', 'Manfaz Dibaga']
+          items: ['Khaki Sarwar co.', 'Chya Exchange', 'Chya Gold Exchange', 'Lutkay Chya Exchange', 'Barzy Chya Exchange', 'Hangaw Exchange', 'Manfaz Dibaga']
         },
         {
           id: 'mobile-tech',
@@ -173,9 +173,9 @@ export const translations = {
     certifications: {
       eyebrow: "OUR CERTIFICATIONS",
       headline: {
-        part1: "Certifications that",
-        part2: "reflect our commitment",
-        part3: "to excellence."
+        part1: "Organizations",
+        part2: "That Trust Us",
+        part3: ""
       },
       subtitle: "Our certifications demonstrate our dedication to quality, compliance, and continuous improvement across all areas of our work.",
       items: [
@@ -601,9 +601,9 @@ export const translations = {
     certifications: {
       eyebrow: "شهاداتنا",
       headline: {
-        part1: "شهادات",
-        part2: "تعكس التزامنا",
-        part3: "بالتميز."
+        part1: "المنظمات التي",
+        part2: "تثق بنا",
+        part3: ""
       },
       subtitle: "تُظهر شهاداتنا تفانينا في الجودة والامتثال والتحسين المستمر في جميع مجالات عملنا.",
       items: [
@@ -1028,9 +1028,9 @@ export const translations = {
     certifications: {
       eyebrow: "بڕوانامەکانمان",
       headline: {
-        part1: "بڕوانامەکانمان",
-        part2: "ڕەنگدانەوەی پابەندبوونمانن",
-        part3: "بە نایابی."
+        part1: "ئەو ڕێکخراوانەی",
+        part2: "باوەڕیان بە ئێمە هێناوە",
+        part3: ""
       },
       subtitle: "بڕوانامەکانمان پابەندبوونمان بە کوالێتی و باشترکردنی بەردەوام لە سەرجەم بوارەکانی کارکردنمان نیشان دەدەن.",
       items: [
