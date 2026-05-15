@@ -106,6 +106,22 @@ export default function FeatureSection() {
     };
   });
 
+  const scrollToFeatures = () => {
+    const element = document.getElementById('features-grid');
+    if (element) {
+      const offset = 100; // Offset to show some of the header
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <>
       <style>{`
@@ -297,7 +313,10 @@ export default function FeatureSection() {
 
               {/* Button */}
               <div className={`fs-btn${headerVisible ? ' in' : ''} mt-10`}>
-                <button className="group px-8 py-3.5 bg-[#0c1a2e] hover:bg-[#162d4f] text-white rounded-full text-sm font-medium transition-all shadow-sm flex items-center gap-2">
+                <button
+                  onClick={scrollToFeatures}
+                  className="group px-8 py-3.5 bg-[#0c1a2e] hover:bg-[#162d4f] text-white rounded-full text-sm font-medium transition-all shadow-sm flex items-center gap-2"
+                >
                   <span dir="auto">{t.button}</span>
                   <Iconify
                     icon="solar:arrow-right-linear"
@@ -329,6 +348,7 @@ export default function FeatureSection() {
 
           {/* ── Cards Grid ── */}
           <div
+            id="features-grid"
             ref={cardsRef}
             className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-5 mt-16 lg:mt-24"
           >
