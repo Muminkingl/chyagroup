@@ -122,30 +122,81 @@ function getLogoSrc(item: string, sectorId: string): string | null {
 
 function ItemRow({ item, sectorId }: { item: string; sectorId: string }) {
   const logo = getLogoSrc(item, sectorId);
+  const isGeneralTrading = sectorId === 'general-trading';
+
+  /* ── General Trading: strict alignment ── */
+  if (isGeneralTrading && logo) {
+    let logoTransform = '';
+
+    if (logo.includes('lamatalmarjan')) {
+      logoTransform = 'translate-x-1'; // Native size (smaller), shifted slightly right to align
+    } else if (logo.includes('chyaymaten')) {
+      logoTransform = 'translate-x-0.5'; // Shift Mateen slightly right (tiny bit)
+    }
+
+    return (
+      <li className="flex items-center gap-1.5 w-full min-w-0">
+        <span className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] flex-shrink-0 z-10" />
+        <div className="flex-shrink-0 flex items-center justify-center w-[80px] h-[48px] me-1.5">
+          <Image
+            src={logo}
+            alt={item}
+            width={160}
+            height={80}
+            className={`w-full h-full object-contain ${logoTransform}`.trim()}
+          />
+        </div>
+        <span className="text-[#0c1a2e] font-medium text-[9.5px] lg:text-[10px] xl:text-[10.5px] leading-none tracking-tight whitespace-nowrap z-10">
+          {item}
+        </span>
+      </li>
+    );
+  }
+
+  /* ── All other sectors: default styling ── */
+  let defaultScale = '';
+  let textClasses = 'text-[11px] xl:text-[12px] tracking-tight'; // Standard text size
+
+  if (logo && logo.includes('BARZY')) {
+    defaultScale = 'scale-[0.85]'; // Zoom out Barzy specifically
+    textClasses = 'text-[11px] xl:text-[11px] tracking-tighter'; // Smaller text for long name
+  } else if (logo && logo.includes('lutkay')) {
+    textClasses = 'text-[11px] xl:text-[11px] tracking-tighter'; // Smaller text for long name
+  } else if (logo && logo.includes('qapat-1')) {
+    textClasses = 'text-[11px] xl:text-[11px] tracking-tighter'; // Apply same tiny font size to Chya Gold
+  } else if (logo && logo.includes('chyatech')) {
+    defaultScale = 'scale-[1.65]'; // Zoom in Chya Tech even more
+  } else if (logo && logo.includes('BLUE PRINT')) {
+    defaultScale = 'scale-[1.5]'; // Zoom in Blue Printing
+  } else if (logo && logo.includes('travel')) {
+    defaultScale = 'scale-[1.8]'; // Zoom in Chya Travel specifically
+  } else if (logo && logo.includes('kiva')) {
+    defaultScale = 'scale-[1.2]'; // Zoom in Kiva Luxury slightly
+  } else if (logo && (logo.includes('chyaexchnage') || logo.includes('khakisarwar'))) {
+    defaultScale = 'scale-[0.85]'; // Zoom out Chya Exchange and Khaki Sarwar
+  }
+
   return (
-    <li className="flex items-center gap-2">
-      <span className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] flex-shrink-0" />
+    <li className="flex items-center gap-2 w-full min-w-0">
+      <span className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] flex-shrink-0 z-10" />
       {logo ? (
-        <div className="flex-shrink-0 flex items-center justify-center w-[54px] h-10">
+        <div className="flex-shrink-0 flex items-center justify-center w-[72px] h-[48px]">
           <Image
             src={logo}
             alt={item}
             width={120}
             height={60}
-            className={`w-full h-full object-contain ${logo.endsWith('.svg')
-              ? ''
-              : logo.includes('kiva') || logo.includes('Dibaga')
-                ? 'scale-[1.1] origin-center'
-                : 'scale-[1.65] origin-center'
-              }`}
+            className={`w-full h-full object-contain ${defaultScale}`.trim()}
           />
         </div>
       ) : (
-        <div className="flex-shrink-0 flex items-center justify-center w-[54px]">
+        <div className="flex-shrink-0 flex items-center justify-center w-[72px]">
           <span className="text-[11px] font-bold text-gray-400">{item.charAt(0)}</span>
         </div>
       )}
-      <span className="text-[#0c1a2e] font-medium text-[11px] xl:text-[12px] leading-none whitespace-nowrap tracking-tight">{item}</span>
+      <span className={`text-[#0c1a2e] font-medium leading-none whitespace-nowrap ${textClasses}`}>
+        {item}
+      </span>
     </li>
   );
 }
