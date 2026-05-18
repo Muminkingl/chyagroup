@@ -97,7 +97,15 @@ export default function HistorySection({ id }: { id: string }) {
                   <img
                     src={item.logos[0]}
                     alt={item.title}
-                    style={index === 2 ? { transform: 'scale(1.6)' } : undefined}
+                    style={
+                      item.logos[0].includes('chyaexchnage')
+                        ? { transform: 'scale(1.05)' }
+                        : item.logos[0].includes('kivaluxary')
+                        ? { transform: 'scale(0.85)' }
+                        : item.logos[0].includes('Dibaga')
+                        ? { transform: 'scale(0.75)' }
+                        : undefined
+                    }
                     className="w-full h-full object-contain transition-transform duration-500 hover:scale-110"
                   />
                 )}
