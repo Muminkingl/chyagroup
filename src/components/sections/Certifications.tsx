@@ -22,7 +22,7 @@ const certData = [
     link: "/certificate/ISO9001_2015.pdf#view=Fit"
   },
   {
-    image: "https://i.postimg.cc/hvD7WjTb/image-Photoroom.png",
+    image: "/ficho.png",
     link: "/certificate/Ficho.pdf#view=Fit"
   },
   {

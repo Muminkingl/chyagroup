@@ -20,7 +20,7 @@ export default function Hero() {
             <div
                 className={`absolute inset-0 z-0 bg-cover transition-opacity duration-1000 ${mounted ? 'opacity-100' : 'opacity-0'}`}
                 style={{
-                    backgroundImage: 'url("https://i.postimg.cc/fW8f0xXg/image.png")',
+                    backgroundImage: 'url("/citadel.png")',
                     backgroundPosition: '40% center',
                 }}
             />

@@ -73,7 +73,7 @@ const FEATURE_CONFIG = [
   {
     id: 'printing',
     icon: 'solar:printer-linear',
-    image: 'https://i.postimg.cc/c4H2KR9P/5f2e6a0d-6336-4c92-8c1e-5495307119ee-(1).jpg',
+    image: '/printing.jpg',
     accent: '#d4a017',
   },
   {
