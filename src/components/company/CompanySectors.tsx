@@ -12,8 +12,8 @@ export default function CompanySectors() {
 
   const sectorImages = [
     "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600&auto=format&fit=crop",
-    "/money-bg.png",
-    "/tech-bg.png",
+    "/money.png",
+    "/hmmphone.png",
     "/printing.jpg",
     "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=600&auto=format&fit=crop",
   ];

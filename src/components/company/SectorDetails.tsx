@@ -10,8 +10,8 @@ import { useScrollSpy } from "@/hooks/useScrollSpy";
 
 const SECTOR_IMAGES: Record<string, string> = {
   "general-trading": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop",
-  "money-exchange": "/money-bg.png",
-  "mobile-tech": "/tech-bg.png",
+  "money-exchange": "/money.png",
+  "mobile-tech": "/hmmphone.png",
   "printing": "/printing.jpg",
   "online-trading": "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=1200&auto=format&fit=crop",
 };
