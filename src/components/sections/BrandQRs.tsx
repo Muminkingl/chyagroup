@@ -1,55 +1,431 @@
 "use client";
 import React, { useRef } from 'react';
+import Image from 'next/image';
 import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/i18n/translations';
 import { Iconify } from '@/components/ui/Iconify';
 import { motion, animate, useInView } from 'framer-motion';
+import * as QRLib from 'qrcode';
+
+const parentBrand = {
+    id: "chyagroup",
+    logo: "/logo.svg",
+    logoScale: 1.2,
+    qrLink: "https://www.instagram.com/chyagroup.iq/",
+    name: {
+        en: "CHYA GROUP",
+        ar: "مجموعة چیا",
+        ku: "چیا گرووپ"
+    },
+    tagline: {
+        en: "Strength in Numbers, Power in Unity",
+        ar: "القوة في الأرقام، والقوة في الاتحاد",
+        ku: "هێز لە ژمارەدا، دەسەڵات لە یەکێتیدا"
+    }
+};
 
 const brands = [
-    { name: "CHYA EXCHANGE", tagline: "Financial Solutions" },
-    { name: "CHYA GROUP", tagline: "General Trading" },
-    { name: "CHYA TECHNOLOGY", tagline: "Mobile & Tech" },
-    { name: "CHYA PRINT", tagline: "Printing Solutions" },
-    { name: "CHYA ENERGY", tagline: "Energy Solutions" },
-    { name: "CHYA LOGISTICS", tagline: "Logistics & Transport" },
-    { name: "CHYA INVEST", tagline: "Investment Services" },
-    { name: "CHYA REAL ESTATE", tagline: "Real Estate Development" },
+    // Row 1
+    {
+        id: "marjan",
+        logo: "/brands/lamattt.png",
+        logoScale: 1.45,
+        qrLink: "https://www.instagram.com/stories/highlights/17995436114584820/",
+        name: {
+            en: "Lamat Al Marjan",
+            ar: "شركة لمعة المرجان",
+            ku: "کۆمپانیای لمعة المرجان"
+        },
+        tagline: {
+            en: "General Trading",
+            ar: "تجارة عامة",
+            ku: "بازرگانی گشتی"
+        }
+    },
+    {
+        id: "chyaymaten",
+        logo: "/brands/chyaymat.png",
+        logoScale: 1.50,
+        qrLink: "https://www.instagram.com/stories/highlights/17944275234139225/",
+        name: {
+            en: "Chyay Mateen",
+            ar: "شركة جياى متين",
+            ku: "کۆمپانیای چیای مەتین"
+        },
+        tagline: {
+            en: "General Trading",
+            ar: "تجارة عامة",
+            ku: "بازرگانی گشتی"
+        }
+    },
+    {
+        id: "khakesarwar",
+        logo: "/brands/khakisarwar.png",
+        logoScale: 1.25,
+        qrLink: "https://www.instagram.com/stories/highlights/18042769181590578/",
+        name: {
+            en: "Khaki Sarwar",
+            ar: "شركة خاكى سەروەر",
+            ku: "کۆمپانیای خاکی سەروەر"
+        },
+        tagline: {
+            en: "Financial Services",
+            ar: "الخدمات المالية",
+            ku: "ئاڵوگۆڕی دراو و دارایی"
+        }
+    },
+    // Row 2
+    {
+        id: "blueprinting",
+        logo: "/brands/BLUE PRINT-1.png",
+        logoScale: 1.8,
+        qrLink: "https://www.instagram.com/stories/highlights/18044251298348270/",
+        name: {
+            en: "Blue Printing",
+            ar: "مکتب بلو طباعە",
+            ku: "نووسینگەی بلو پرێنتینگ"
+        },
+        tagline: {
+            en: "Printing & Photocopy",
+            ar: "الطباعة والتصوير",
+            ku: "چاپەمەنی و فۆتۆکۆپی"
+        }
+    },
+    {
+        id: "hangaw",
+        logo: "/brands/hangawexchange.png",
+        logoScale: 1.45,
+        qrLink: "https://www.instagram.com/stories/highlights/17942265878828194/",
+        name: {
+            en: "Hangaw Exchange",
+            ar: "مکتب هەنگاو",
+            ku: "نووسینگەی هەنگاو"
+        },
+        tagline: {
+            en: "Financial Services",
+            ar: "الخدمات المالية",
+            ku: "ئاڵوگۆڕی دراو و دارایی"
+        }
+    },
+    {
+        id: "ChyaExchnage",
+        logo: "/brands/chyaexchnage.png",
+        logoScale: 1.25,
+        qrLink: "https://www.instagram.com/stories/highlights/17996902628095288/",
+        name: {
+            en: "Chya Exchange",
+            ar: "مكتب جيا",
+            ku: "نووسینگەی چیا"
+        },
+        tagline: {
+            en: "Financial Services",
+            ar: "الخدمات المالية",
+            ku: "ئاڵوگۆڕی دراو و دارایی"
+        }
+    },
+    // Row 3
+    {
+        id: "Chyagold",
+        logo: "/brands/qapat-1.png",
+        logoScale: 1.50,
+        qrLink: "https://www.instagram.com/stories/highlights/17899778525848610/",
+        name: {
+            en: "Chya Gold",
+            ar: "مكتب جيا كولد",
+            ku: "نووسینگەی چیا گۆڵد"
+        },
+        tagline: {
+            en: "Financial Services",
+            ar: "الخدمات المالية",
+            ku: "ئاڵوگۆڕی دراو و دارایی"
+        }
+    },
+    {
+        id: "Lutkay chya",
+        logo: "/brands/lutkay chya-1.png",
+        logoScale: 1.30,
+        qrLink: "https://www.instagram.com/chyagroup.iq/",
+        name: {
+            en: "Lutkay Chya",
+            ar: "مكتب لوتكەی جيا",
+            ku: "نووسینگەی لوتکەی چیا"
+        },
+        tagline: {
+            en: "Financial Services",
+            ar: "الخدمات المالية",
+            ku: "ئاڵوگۆڕی دراو و دارایی"
+        }
+    },
+    {
+        id: "Barzy chya",
+        logo: "/brands/BARZY CHYAY-1.png",
+        logoScale: 1.15,
+        qrLink: "https://www.instagram.com/stories/highlights/18054758936001033/",
+        name: {
+            en: "Barzy Chya",
+            ar: "مکتب بەرزی جيا",
+            ku: "نووسینگەی بەرزی چیا"
+        },
+        tagline: {
+            en: "Financial Services",
+            ar: "الخدمات المالية",
+            ku: "ئاڵوگۆڕی دراو و دارایی"
+        }
+    },
+    // Row 4
+    {
+        id: "Manfazdebaga",
+        logo: "/brands/Manfaz Dibaga-1.png",
+        logoScale: 1.20,
+        qrLink: "https://www.instagram.com/stories/highlights/18370259290144648/",
+        name: {
+            en: "Manfaz Dibaga",
+            ar: "منفذ ديبكة",
+            ku: "منفذ دیبەگە"
+        },
+        tagline: {
+            en: "Financial Services",
+            ar: "الخدمات المالية",
+            ku: "ئاڵوگۆڕی دراو و دارایی"
+        }
+    },
+    {
+        id: "Chya amazone",
+        logo: "/brands/Chya Amazon-1.png",
+        logoScale: 1.25,
+        qrLink: "https://www.instagram.com/stories/highlights/18064953236338441/",
+        name: {
+            en: "Chya Amazon",
+            ar: "مشروع جيا أمازون",
+            ku: "چیا ئەمازۆن"
+        },
+        tagline: {
+            en: "General Trading",
+            ar: "تجارة عامة",
+            ku: "بازرگانی گشتی"
+        }
+    },
+    {
+        id: "Chya phone",
+        logo: "/brands/chya phone-1.png",
+        logoScale: 1.25,
+        qrLink: "https://www.instagram.com/stories/highlights/18117259981565509/",
+        name: {
+            en: "Chya Phone",
+            ar: "محل جيا فون",
+            ku: "پێشانگای چیا فۆن"
+        },
+        tagline: {
+            en: "Mobile & Technology",
+            ar: "الموبايل والتكنولوجيا",
+            ku: "مۆبایل و تەکنەلۆژیا"
+        }
+    },
+    // Row 5
+    {
+        id: "Chya trael",
+        logo: "/brands/CHYA travel-1.png",
+        logoScale: 2.0,
+        qrLink: "https://www.instagram.com/chyagroup.iq/",
+        name: {
+            en: "Chya Travel",
+            ar: "جيا تراڤل",
+            ku: "کاری چیا تڕاڤل"
+        },
+        tagline: {
+            en: "Online Trading",
+            ar: "التداول الإلكتروني",
+            ku: "بازرگانی ئۆنلاین"
+        }
+    },
+    {
+        id: "chya tech",
+        logo: "/brands/chyatech.png",
+        logoScale: 2.15,
+        qrLink: "https://www.instagram.com/stories/highlights/18050822432554852/",
+        name: {
+            en: "Chya Tech",
+            ar: "جيا تيك",
+            ku: "کاری چیا تێك"
+        },
+        tagline: {
+            en: "Mobile & Technology",
+            ar: "الموبايل والتكنولوجيا",
+            ku: "مۆبایل و تەکنەلۆژیا"
+        }
+    },
+    {
+        id: "kivaluxury",
+        logo: "/brands/kivaluxary.png",
+        logoScale: 1.30,
+        qrLink: "https://www.instagram.com/stories/highlights/18484877713047686/",
+        name: {
+            en: "Kiva Luxury",
+            ar: "كيفا لوكزوري",
+            ku: "کاری کیڤا لوکژوری"
+        },
+        tagline: {
+            en: "Online Trading",
+            ar: "التداول الإلكتروني",
+            ku: "بازرگانی ئۆنلاین"
+        }
+    }
 ];
 
-const QRCodeSVG = () => (
-    <svg viewBox="0 0 100 100" className="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="100" height="100" rx="8" fill="#F8FAFC" />
-        <path fillRule="evenodd" clipRule="evenodd" d="M15 15H35V35H15V15ZM20 20H30V30H20V20Z" fill="#0C1A2E" />
-        <path fillRule="evenodd" clipRule="evenodd" d="M65 15H85V35H65V15ZM70 20H80V30H70V20Z" fill="#0C1A2E" />
-        <path fillRule="evenodd" clipRule="evenodd" d="M15 65H35V85H15V65ZM20 70H30V80H20V70Z" fill="#0C1A2E" />
-        <rect x="22.5" y="22.5" width="5" height="5" fill="#0C1A2E" />
-        <rect x="72.5" y="22.5" width="5" height="5" fill="#0C1A2E" />
-        <rect x="22.5" y="72.5" width="5" height="5" fill="#0C1A2E" />
-        <rect x="40" y="15" width="5" height="5" fill="#0C1A2E" />
-        <rect x="50" y="15" width="10" height="5" fill="#0c1a2e" />
-        <rect x="40" y="25" width="15" height="5" fill="#0C1A2E" />
-        <rect x="55" y="30" width="5" height="10" fill="#0c1a2e" />
-        <rect x="15" y="40" width="10" height="5" fill="#0C1A2E" />
-        <rect x="30" y="40" width="5" height="5" fill="#0c1a2e" />
-        <rect x="15" y="50" width="5" height="10" fill="#0C1A2E" />
-        <rect x="75" y="40" width="10" height="5" fill="#0C1A2E" />
-        <rect x="65" y="45" width="5" height="10" fill="#0c1a2e" />
-        <rect x="80" y="55" width="5" height="5" fill="#0C1A2E" />
-        <rect x="40" y="70" width="5" height="5" fill="#0C1A2E" />
-        <rect x="50" y="75" width="15" height="5" fill="#0c1a2e" />
-        <rect x="45" y="80" width="5" height="5" fill="#0C1A2E" />
-        <rect x="60" y="65" width="5" height="10" fill="#0C1A2E" />
-        <rect x="70" y="75" width="10" height="10" fill="#0C1A2E" />
-        <rect x="35" y="60" width="5" height="5" fill="#0c1a2e" />
-        <rect x="40" y="50" width="5" height="5" fill="#0C1A2E" />
-        <rect x="55" y="50" width="5" height="5" fill="#0C1A2E" />
-        <rect x="35" y="45" width="5" height="5" fill="#0C1A2E" />
-        <rect x="60" y="40" width="5" height="5" fill="#0c1a2e" />
-        <rect x="42.5" y="42.5" width="15" height="15" fill="white" />
-        <path d="M44 44H56V56H44V44Z" stroke="#0c1a2e" strokeWidth="1.5" fill="none" />
-        <path d="M46 54V48L50 51L54 48V54" stroke="#0c1a2e" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
+const FinderPattern = ({ x, y }: { x: number; y: number }) => (
+    <g>
+        {/* Outer Ring - squircle */}
+        <rect
+            x={x + 0.5}
+            y={y + 0.5}
+            width={6.0}
+            height={6.0}
+            rx={1.5}
+            fill="none"
+            stroke="#0c1a2e"
+            strokeWidth={1.0}
+        />
+        {/* Inner Dot - squircle */}
+        <rect
+            x={x + 2.0}
+            y={y + 2.0}
+            width={3.0}
+            height={3.0}
+            rx={0.6}
+            fill="#0c1a2e"
+        />
+    </g>
 );
+
+// Generate QR matrix using qrcode library (guaranteed to be valid and scannable)
+function buildMatrix(value: string): boolean[][] {
+    const qr = QRLib.create(value, { errorCorrectionLevel: 'M', version: 4 });
+    const n = qr.modules.size;
+    const matrix: boolean[][] = [];
+    for (let r = 0; r < n; r++) {
+        matrix[r] = [];
+        for (let c = 0; c < n; c++) {
+            matrix[r][c] = qr.modules.get(r, c) === 1;
+        }
+    }
+    return matrix;
+}
+
+const QRCodeSVG = ({ value, logo }: { value: string; logo: string }) => {
+    const matrix = buildMatrix(value);
+    const size = matrix.length;
+    const padding = 4;
+    const boardSize = size + padding * 2;
+    const center = Math.floor(size / 2);
+
+    const dots: React.ReactNode[] = [];
+
+    const isFinder = (r: number, c: number) => {
+        if (r < 7 && c < 7) return true;
+        if (r < 7 && c >= size - 7) return true;
+        if (r >= size - 7 && c < 7) return true;
+        return false;
+    };
+
+    const isCenterMask = (r: number, c: number) => {
+        const rowDiff = Math.abs(r - center);
+        const colDiff = Math.abs(c - center);
+        return rowDiff <= 2 && colDiff <= 4; // Clears exactly 5 rows and 9 columns in the center
+    };
+
+    for (let r = 0; r < size; r++) {
+        for (let c = 0; c < size; c++) {
+            if (matrix[r][c]) {
+                if (isFinder(r, c)) continue;
+                if (isCenterMask(r, c)) continue;
+
+                // Render as separate rounded squares filled with a premium luxury gradient
+                // (Size 0.84, rx 0.25 provides maximum binarization contrast for scanners like ZXing)
+                dots.push(
+                    <rect
+                        key={`${r}-${c}`}
+                        x={c + padding + 0.08}
+                        y={r + padding + 0.08}
+                        width={0.84}
+                        height={0.84}
+                        rx={0.25}
+                        fill="url(#qr-dot-gradient)"
+                    />
+                );
+            }
+        }
+    }
+
+    const clipId = `clip-${logo.replace(/[^a-zA-Z0-9]/g, '')}`;
+
+    return (
+        <svg
+            viewBox={`0 0 ${boardSize} ${boardSize}`}
+            className="w-full h-full"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <defs>
+                {/* Premium satin bronze-gold linear gradient for data dots */}
+                <linearGradient id="qr-dot-gradient" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="#0c1a2e" />
+                    <stop offset="100%" stopColor="#4a5b70" />
+                </linearGradient>
+
+                {/* Floating drop shadow filter for central landscape logo card */}
+                <filter id="qr-shadow" x="-30%" y="-30%" width="160%" height="160%">
+                    <feDropShadow dx="0" dy="0.35" stdDeviation="0.45" floodColor="#0c1a2e" floodOpacity="0.14" />
+                </filter>
+
+                <clipPath id={clipId}>
+                    <rect
+                        x={boardSize / 2 - 4.3}
+                        y={boardSize / 2 - 2.3}
+                        width={8.6}
+                        height={4.6}
+                        rx={0.8}
+                    />
+                </clipPath>
+            </defs>
+
+            {/* Pure white card background */}
+            <rect width={boardSize} height={boardSize} rx={boardSize * 0.08} fill="#ffffff" />
+
+            {/* Perfect Squircle Finder Corners */}
+            <FinderPattern x={padding} y={padding} />
+            <FinderPattern x={size - 7 + padding} y={padding} />
+            <FinderPattern x={padding} y={size - 7 + padding} />
+
+            {/* Circular Dots Matrix */}
+            {dots}
+
+            {/* Floating central landscape logo card */}
+            <g filter="url(#qr-shadow)">
+                <rect
+                    x={boardSize / 2 - 4.5}
+                    y={boardSize / 2 - 2.5}
+                    width={9}
+                    height={5}
+                    rx={1}
+                    fill="white"
+                    stroke="#0c1a2e"
+                    strokeWidth={0.12}
+                    strokeOpacity={0.1}
+                />
+                <g clipPath={`url(#${clipId})`}>
+                    <image
+                        href={logo}
+                        x={boardSize / 2 - 4.1}
+                        y={boardSize / 2 - 2.1}
+                        width={8.2}
+                        height={4.2}
+                        preserveAspectRatio="xMidYMid meet"
+                    />
+                </g>
+            </g>
+        </svg>
+    );
+};
 
 function Counter({ value, isRTL, inView }: { value: number | string, isRTL: boolean, inView: boolean }) {
     const [displayValue, setDisplayValue] = React.useState("0");
@@ -98,16 +474,23 @@ function Counter({ value, isRTL, inView }: { value: number | string, isRTL: bool
     return <span>{displayValue}</span>;
 }
 
-const BrandCard = ({ brand, scanText }: { brand: typeof brands[0], scanText: string }) => {
+const BrandCard = ({ brand, locale, scanText }: { brand: typeof brands[0], locale: 'en' | 'ku' | 'ar', scanText: string }) => {
     return (
         <div className="bg-white rounded-[2rem] p-8 shadow-[0_8px_30px_rgb(12,26,46,0.04)] border border-[#0c1a2e]/[0.02] flex flex-col items-center text-center transition-transform duration-300 hover:-translate-y-1">
-            <div className="w-10 h-10 mb-4 bg-white border border-[#0c1a2e]/10 rounded-xl flex items-center justify-center shadow-sm">
-                <Iconify icon="solar:graph-up-linear" className="text-[#0c1a2e]" width={20} />
+            <div className="w-20 h-12 mb-4 flex items-center justify-center flex-shrink-0">
+                <Image
+                    src={brand.logo}
+                    alt={brand.name[locale]}
+                    width={100}
+                    height={50}
+                    className="w-full h-full object-contain"
+                    style={{ transform: `scale(${brand.logoScale})` }}
+                />
             </div>
-            <h3 className="text-[15px] font-bold text-[#0c1a2e] mb-1 tracking-wide uppercase">{brand.name}</h3>
-            <p className="text-xs text-[#3a4f6a]/70 font-medium mb-6">{brand.tagline}</p>
+            <h3 className="text-[15px] font-bold text-[#0c1a2e] mb-1 tracking-wide uppercase">{brand.name[locale]}</h3>
+            <p className="text-xs text-[#3a4f6a]/70 font-medium mb-6">{brand.tagline[locale]}</p>
             <div className="w-32 h-32 mb-6">
-                <QRCodeSVG />
+                <QRCodeSVG value={brand.qrLink} logo={brand.logo} />
             </div>
             <div className="flex items-center gap-2 text-[10.5px] font-bold text-[#0c1a2e] uppercase tracking-widest mt-auto pt-2">
                 <Iconify icon="solar:smartphone-linear" width={14} className="text-[#0c1a2e]/70" />
@@ -163,10 +546,39 @@ export default function BrandQRs() {
                     </p>
                 </div>
 
+                {/* Center parent brand card */}
+                <div className="flex justify-center mb-16">
+                    <div className="w-full max-w-[340px] bg-white rounded-[2rem] p-8 shadow-[0_8px_30px_rgb(12,26,46,0.04)] border border-[#0c1a2e]/[0.02] flex flex-col items-center text-center transition-transform duration-300 hover:-translate-y-1">
+                        <div className="w-20 h-12 mb-4 flex items-center justify-center flex-shrink-0">
+                            <Image
+                                src={parentBrand.logo}
+                                alt={parentBrand.name[locale]}
+                                width={100}
+                                height={50}
+                                className="w-full h-full object-contain"
+                                style={{ transform: `scale(${parentBrand.logoScale})` }}
+                            />
+                        </div>
+                        <h3 className="text-[15px] font-bold text-[#0c1a2e] mb-1 tracking-wide uppercase">
+                            {parentBrand.name[locale]}
+                        </h3>
+                        <p className="text-xs text-[#3a4f6a]/70 font-medium mb-6">
+                            {parentBrand.tagline[locale]}
+                        </p>
+                        <div className="w-32 h-32 mb-6">
+                            <QRCodeSVG value={parentBrand.qrLink} logo={parentBrand.logo} />
+                        </div>
+                        <div className="flex items-center gap-2 text-[10.5px] font-bold text-[#0c1a2e] uppercase tracking-widest mt-auto pt-2">
+                            <Iconify icon="solar:smartphone-linear" width={14} className="text-[#0c1a2e]/70" />
+                            <span dir="auto">{t.scanToFollow}</span>
+                        </div>
+                    </div>
+                </div>
+
                 {/* Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
                     {brands.map((brand) => (
-                        <BrandCard key={brand.name} brand={brand} scanText={t.scanToFollow} />
+                        <BrandCard key={brand.id} brand={brand} locale={locale as 'en' | 'ku' | 'ar'} scanText={t.scanToFollow} />
                     ))}
                 </div>
 

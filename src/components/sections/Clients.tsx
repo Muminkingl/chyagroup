@@ -4,32 +4,59 @@ import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/i18n/translations';
 
 const actualLogos = [
-  { name: "FIB", logo: "/fib.png" },
-  { name: "Switch", logo: "/switch.png" },
-  { name: "Zain Cash", logo: "https://zaincash.com/static/media/ZainCashLogo.fea8cf3bb90421f45dd384d6afc6fe3b.svg" },
-  { name: "Qi Card", logo: "/qi.png" },
-  { name: "AIIB", logo: "/aiib.png" },
-  { name: "Blue", logo: "/blue.jpg" },
-  { name: "Aciapay", logo: "/aciapay.png" },
-  { name: "Fast Pay", logo: "https://www.fast-pay.iq/img/clogo.png" },
-  { name: "Bazarcard", logo: "/bazarcard.jpg" },
-  { name: "Houzz", logo: "/houzz.png" },
-  { name: "Nassepayment", logo: "/nassepay.png" },
-  { name: "Nasswallet", logo: "/nass.png" },
-  { name: "Shift", logo: "/shiftt.png" },
-  { name: "Dubairemit", logo: "/dubairemit.png" },
+  { name: "Tip Top", logo: "/clients/tiptop.png", scale: 1.20 },
+  { name: "Huawei", logo: "/clients/huawei.png", scale: 1.35 },
+  { name: "Team Mart", logo: "/clients/teammart.png", scale: 1.3 },
+  { name: "Swiss Market", logo: "/clients/swissmarket.png", scale: 1.5 },
+  { name: "Mini Slava", logo: "/clients/minislava.png", scale: 1.14 },
+  { name: "UTEST Group", logo: "/clients/utest.png", scale: 1.20 },
+  { name: "King İnşaat", logo: "/clients/kinginsaat.png", scale: 1.15 },
+  { name: "King Natural", logo: "/clients/kingnature.png", scale: 1.3 },
+  { name: "BRZ", logo: "/clients/brz.png", scale: 1.45 },
+  { name: "Kadeer", logo: "/clients/kadeer.png", scale: 1.15 },
+  { name: "Max Motors", logo: "/clients/1A.png", scale: 1.2 },
+  { name: "Al Essam Cars", logo: "/clients/alessam.png", scale: 1.2 },
+  { name: "Hersh", logo: "/clients/hersh.png", scale: 1.2 },
+  { name: "Auto Plus", logo: "/clients/autoplus.png", scale: 1.2 },
+  { name: "Super Star", logo: "/clients/superstar.png", scale: 1.6 },
+  { name: "Terrapack", logo: "/clients/terrapack.png", scale: 1.59 },
+  { name: "Dyar", logo: "/clients/dyarrealestate.png", scale: 1.3 },
+  { name: "Haji Hussein", logo: "/clients/hajihussin.png", scale: 1.35 },
+  { name: "Jihany Camera", logo: "/clients/cameraworld.png", scale: 1.5 },
+  { name: "M One Store", logo: "/clients/mone.png", scale: 1.3 },
+  { name: "Optimal Krd", logo: "/clients/target.png", scale: 1.5 },
+  { name: "Maowj Al Dawa", logo: "/clients/maowialdawa.png", scale: 1.21 },
+  { name: "Pharmatech", logo: "/clients/pharmatech.png", scale: 1.3 },
+  { name: "Rose Land", logo: "/clients/rosaland.png", scale: 1.15 },
+  { name: "Modest Art", logo: "/clients/xx.png", scale: 1.20 },
+  { name: "Dol", logo: "/clients/dolcom.png", scale: 1.18 },
+  { name: "Mashkaly Mall", logo: "/clients/mashxal.png", scale: 1.3 },
+  { name: "House Care", logo: "/clients/housecare.png", scale: 1.35 },
+  { name: "Rotana Erbil", logo: "/clients/rotanaerbil.png", scale: 1.2 },
+  { name: "Velora Travel", logo: "/clients/verola.png", scale: 1.40 },
+  { name: "Jaffa Travel", logo: "/clients/jaffa.png", scale: 1.25 },
+  { name: "Skip City", logo: "/clients/skipcity.png", scale: 1.2 },
+  { name: "Business Class", logo: "/clients/businssclas.png", scale: 1.55 },
+  { name: "Delman Brand", logo: "/clients/delman.png", scale: 1.3 },
+  { name: "Peak Sport", logo: "/clients/peak.png", scale: 1.3 },
+  { name: "Milan Class", logo: "/clients/milan.png", scale: 1.35 },
+  { name: "Samen", logo: "/clients/samen.png", scale: 1.3 },
+  { name: "Banaz Drug Store", logo: "/clients/banaz.png", scale: 1.28 },
+  { name: "Wrdilan", logo: "/clients/wrdilan.png", scale: 1.25 },
+  { name: "Bey Zade", logo: "/clients/beyzada.png", scale: 1.2 }
 ];
 
-// Duplicate logos to fill the grid
-const brands = [...actualLogos, ...actualLogos, ...actualLogos];
+// Use the 40 unique logos directly without duplication
+const brands = actualLogos;
 
-const BrandCard = ({ name, logo }: { name: string, logo: string }) => {
+const BrandCard = ({ name, logo, scale = 1 }: { name: string, logo: string, scale?: number }) => {
   return (
-    <div className="flex items-center justify-center bg-white rounded-[12px] border border-[#0c1a2e]/[0.04] p-4 h-[75px] md:h-[85px] lg:h-[95px] shadow-[0_2px_10px_rgb(0,0,0,0.02)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 group cursor-pointer">
-      <img 
-        src={logo} 
-        alt={`${name} Logo`} 
-        className="max-w-[75%] max-h-[70%] object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+    <div className="flex items-center justify-center bg-white rounded-[12px] border border-[#0c1a2e]/[0.04] p-1 md:p-1.5 h-[100px] md:h-[115px] lg:h-[125px] shadow-[0_2px_10px_rgb(0,0,0,0.02)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 group cursor-pointer overflow-hidden">
+      <img
+        src={logo}
+        alt={`${name} Logo`}
+        style={{ transform: `scale(${scale})` }}
+        className="w-full h-full max-w-[96%] max-h-[92%] object-contain opacity-95 group-hover:opacity-100 transition-all duration-300"
       />
     </div>
   );
@@ -42,7 +69,7 @@ export default function ClientsSection() {
   return (
     <section dir="ltr" id="clients" className="bg-[#faf9f6] py-20 md:py-28 z-10 font-sans border-t border-[#0c1a2e]/5">
       <div className="max-w-[1400px] mx-auto px-4 md:px-8">
-        
+
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-14 md:mb-16">
           <div className="flex items-center gap-3 mb-4">
@@ -62,7 +89,7 @@ export default function ClientsSection() {
         {/* Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-3 md:gap-4 lg:gap-5">
           {brands.map((brand, index) => (
-            <BrandCard key={index} name={brand.name} logo={brand.logo} />
+            <BrandCard key={index} name={brand.name} logo={brand.logo} scale={brand.scale} />
           ))}
         </div>
 

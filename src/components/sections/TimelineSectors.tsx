@@ -46,19 +46,22 @@ const SECTOR_CONFIG = [
 
 // Map each brand name keyword to the correct logo file
 const BRAND_LOGOS: Record<string, string> = {
-  'lammat': '/brands/lamatalmarjan.png',
-  'lamat': '/brands/lamatalmarjan.png',
-  'لمة': '/brands/lamatalmarjan.png',
-  'لمعة': '/brands/lamatalmarjan.png',
-  'mateen': '/brands/chyaymaten.png',
-  'متين': '/brands/chyaymaten.png',
-  'مەتین': '/brands/chyaymaten.png',
+  'lammat': '/brands/lamattt.png',
+  'lamat': '/brands/lamattt.png',
+  'لمة': '/brands/lamattt.png',
+  'لمعة': '/brands/lamattt.png',
+  'mateen': '/brands/chyaymat.png',
+  'متين': '/brands/chyaymat.png',
+  'مەتین': '/brands/chyaymat.png',
   'amazon': '/brands/Chya Amazon-1.png',
   'أمازون': '/brands/Chya Amazon-1.png',
   'ئەمازۆن': '/brands/Chya Amazon-1.png',
   'khaki': '/brands/khakisarwar.png',
   'خاكي': '/brands/khakisarwar.png',
   'خاکی': '/brands/khakisarwar.png',
+  'خاكى': '/brands/khakisarwar.png',
+  'سەروەر': '/brands/khakisarwar.png',
+  'سرور': '/brands/khakisarwar.png',
   'hangaw': '/brands/hangawexchange.png',
   'هەنگاو': '/brands/hangawexchange.png',
   'gold': '/brands/qapat-1.png',
@@ -87,7 +90,13 @@ const BRAND_LOGOS: Record<string, string> = {
   'فون': '/brands/chya phone-1.png',
   'tech': '/brands/chyatech.png',
   'تێك': '/brands/chyatech.png',
+  'تێک': '/brands/chyatech.png',
   'تيك': '/brands/chyatech.png',
+  'تيک': '/brands/chyatech.png',
+  'تیك': '/brands/chyatech.png',
+  'تیک': '/brands/chyatech.png',
+  'تىك': '/brands/chyatech.png',
+  'تىک': '/brands/chyatech.png',
   'blue print': '/brands/BLUE PRINT-1.png',
   'بلو برێنتینگ': '/brands/BLUE PRINT-1.png',
   'بلو پرێنتینگ': '/brands/BLUE PRINT-1.png',
@@ -98,6 +107,16 @@ const BRAND_LOGOS: Record<string, string> = {
   'kiva': '/brands/kivaluxary.png',
   'کیڤا': '/brands/kivaluxary.png',
   'كيفا': '/brands/kivaluxary.png',
+  'كولد': '/brands/qapat-1.png',
+  'لوتكەی': '/brands/lutkay chya-1.png',
+  'دیبەگە': '/brands/Manfaz Dibaga-1.png',
+  'بلو طباعە': '/brands/BLUE PRINT-1.png',
+  'طباعە': '/brands/BLUE PRINT-1.png',
+  'تڕاڤل': '/brands/CHYA travel-1.png',
+  'تراڤل': '/brands/CHYA travel-1.png',
+  'کیفا': '/brands/kivaluxary.png',
+  'نووسینگەی چیا': '/brands/chyaexchnage.png',
+  'مكتب جيا': '/brands/chyaexchnage.png',
 };
 
 function getLogoSrc(item: string, sectorId: string): string | null {
@@ -128,21 +147,26 @@ function ItemRow({ item, sectorId }: { item: string; sectorId: string }) {
   if (isGeneralTrading && logo) {
     let logoTransform = '';
 
-    if (logo.includes('lamatalmarjan')) {
-      logoTransform = 'translate-x-1'; // Native size (smaller), shifted slightly right to align
-    } else if (logo.includes('chyaymaten')) {
-      logoTransform = 'translate-x-0.5'; // Shift Mateen slightly right (tiny bit)
+    if (logo.includes('lamattt')) {
+      logoTransform = 'scale-[1.18] translate-x-[4px]'; // Slightly smaller to prevent text label overflow
+    } else if (logo.includes('chyaymat')) {
+      logoTransform = 'scale-[1.23] translate-x-[4px]'; // Perfectly sized and balanced
+    } else if (logo.toLowerCase().includes('amazon')) {
+      logoTransform = 'scale-[1.05] translate-x-[6px]'; // Gentle size boost and shifted right to avoid bullet overlap
     }
 
     return (
       <li className="flex items-center gap-1.5 w-full min-w-0">
         <span className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] flex-shrink-0 z-10" />
-        <div className="flex-shrink-0 flex items-center justify-center w-[80px] h-[48px] me-1.5">
+        <div
+          className="flex-shrink-0 flex items-center justify-center"
+          style={{ width: '80px', height: '48px', marginRight: '12px' }}
+        >
           <Image
             src={logo}
             alt={item}
             width={160}
-            height={80}
+            height={96}
             className={`w-full h-full object-contain ${logoTransform}`.trim()}
           />
         </div>
@@ -154,26 +178,34 @@ function ItemRow({ item, sectorId }: { item: string; sectorId: string }) {
   }
 
   /* ── All other sectors: default styling ── */
-  let defaultScale = '';
+  let logoScale = 1.0;
+  let logoTranslateX = 0;
   let textClasses = 'text-[11px] xl:text-[12px] tracking-tight'; // Standard text size
 
   if (logo && logo.includes('BARZY')) {
-    defaultScale = 'scale-[0.85]'; // Zoom out Barzy specifically
+    logoScale = 0.95; // Zoom out Barzy specifically
     textClasses = 'text-[11px] xl:text-[11px] tracking-tighter'; // Smaller text for long name
   } else if (logo && logo.includes('lutkay')) {
+    logoScale = 1.08;
+    logoTranslateX = 4;
     textClasses = 'text-[11px] xl:text-[11px] tracking-tighter'; // Smaller text for long name
   } else if (logo && logo.includes('qapat-1')) {
+    logoScale = 1.25; // Perfectly sized and balanced center-aligned logo
     textClasses = 'text-[11px] xl:text-[11px] tracking-tighter'; // Apply same tiny font size to Chya Gold
   } else if (logo && logo.includes('chyatech')) {
-    defaultScale = 'scale-[1.65]'; // Zoom in Chya Tech even more
+    logoScale = 1.85; // Zoom in Chya Tech to match Chya Phone size perfectly
   } else if (logo && logo.includes('BLUE PRINT')) {
-    defaultScale = 'scale-[1.5]'; // Zoom in Blue Printing
+    logoScale = 1.5; // Zoom in Blue Printing
   } else if (logo && logo.includes('travel')) {
-    defaultScale = 'scale-[1.8]'; // Zoom in Chya Travel specifically
+    logoScale = 1.72; // Increased scale to make it beautifully large and clear
   } else if (logo && logo.includes('kiva')) {
-    defaultScale = 'scale-[1.2]'; // Zoom in Kiva Luxury slightly
-  } else if (logo && (logo.includes('chyaexchnage') || logo.includes('khakisarwar'))) {
-    defaultScale = 'scale-[0.85]'; // Zoom out Chya Exchange and Khaki Sarwar
+    logoScale = 1.08; // Decreased scale since it is a large solid square natively
+  } else if (logo && logo.includes('khakisarwar')) {
+    logoScale = 1.05; // Perfectly sized and balanced center-aligned logo
+  } else if (logo && logo.includes('chyaexchnage')) {
+    logoScale = 1.0; // Perfectly sized and balanced center-aligned logo
+  } else if (logo && logo.toLowerCase().includes('dibaga')) {
+    logoScale = 1.18; // Perfectly sized and balanced center-aligned logo
   }
 
   return (
@@ -186,7 +218,8 @@ function ItemRow({ item, sectorId }: { item: string; sectorId: string }) {
             alt={item}
             width={120}
             height={60}
-            className={`w-full h-full object-contain ${defaultScale}`.trim()}
+            className="w-full h-full object-contain"
+            style={{ transform: `scale(${logoScale}) translateX(${logoTranslateX}px)` }}
           />
         </div>
       ) : (
@@ -302,7 +335,7 @@ export default function TimelineSectors() {
                 <div className="w-full h-px bg-gray-100 mb-6" />
 
                 {/* Items with real brand logos */}
-                <ul dir="auto" className="space-y-3.5 w-full mb-8 flex-1 text-left">
+                <ul dir="ltr" className="space-y-3.5 w-full mb-8 flex-1 text-left ltr">
                   {sector.items.map((item, i) => (
                     <ItemRow key={i} item={item} sectorId={sector.id} />
                   ))}
@@ -375,7 +408,7 @@ export default function TimelineSectors() {
 
                 <div className="w-full h-px bg-gray-100 mb-6" />
 
-                <ul dir="auto" className="space-y-4 w-full mb-8 flex-1 text-left">
+                <ul dir="ltr" className="space-y-4 w-full mb-8 flex-1 text-left ltr">
                   {sector.items.map((item, i) => (
                     <ItemRow key={i} item={item} sectorId={sector.id} />
                   ))}
