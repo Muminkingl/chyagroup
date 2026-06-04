@@ -143,7 +143,7 @@ function ItemRow({ item, sectorId }: { item: string; sectorId: string }) {
   const logo = getLogoSrc(item, sectorId);
   const isGeneralTrading = sectorId === 'general-trading';
 
-  /* ── General Trading: strict alignment ── */
+  /* ── General Trading: center alignment ── */
   if (isGeneralTrading && logo) {
     let logoTransform = '';
 
@@ -156,11 +156,10 @@ function ItemRow({ item, sectorId }: { item: string; sectorId: string }) {
     }
 
     return (
-      <li className="flex items-center gap-1.5 w-full min-w-0">
-        <span className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] flex-shrink-0 z-10" />
+      <li className="flex items-center justify-center w-full min-w-0">
         <div
           className="flex-shrink-0 flex items-center justify-center"
-          style={{ width: '80px', height: '48px', marginRight: '12px' }}
+          style={{ width: '80px', height: '48px' }}
         >
           <Image
             src={logo}
@@ -170,14 +169,11 @@ function ItemRow({ item, sectorId }: { item: string; sectorId: string }) {
             className={`w-full h-full object-contain ${logoTransform}`.trim()}
           />
         </div>
-        <span className="text-[#0c1a2e] font-medium text-[9.5px] lg:text-[10px] xl:text-[10.5px] leading-none tracking-tight whitespace-nowrap z-10">
-          {item}
-        </span>
       </li>
     );
   }
 
-  /* ── All other sectors: default styling ── */
+  /* ── All other sectors: default center styling ── */
   let logoScale = 1.0;
   let logoTranslateX = 0;
   let textClasses = 'text-[11px] xl:text-[12px] tracking-tight'; // Standard text size
@@ -209,8 +205,7 @@ function ItemRow({ item, sectorId }: { item: string; sectorId: string }) {
   }
 
   return (
-    <li className="flex items-center gap-2 w-full min-w-0">
-      <span className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] flex-shrink-0 z-10" />
+    <li className="flex items-center justify-center w-full min-w-0">
       {logo ? (
         <div className="flex-shrink-0 flex items-center justify-center w-[72px] h-[48px]">
           <Image
@@ -227,9 +222,6 @@ function ItemRow({ item, sectorId }: { item: string; sectorId: string }) {
           <span className="text-[11px] font-bold text-gray-400">{item.charAt(0)}</span>
         </div>
       )}
-      <span className={`text-[#0c1a2e] font-medium leading-none whitespace-nowrap ${textClasses}`}>
-        {item}
-      </span>
     </li>
   );
 }
@@ -251,7 +243,7 @@ export default function TimelineSectors() {
         <div className="flex flex-col items-center text-center mb-16 md:mb-24">
           <div className="flex items-center gap-3 mb-4">
             <span className="inline-block w-8 h-[2px] bg-[#2563eb]" />
-            <span dir="auto" className="text-[12px] font-bold tracking-widest text-[#0c1a2e] uppercase">
+            <span dir="auto" className={`font-bold text-[#0c1a2e] uppercase ${isRTL ? 'text-[15px] tracking-normal' : 'text-[12px] tracking-widest'}`}>
               {t.eyebrow}
             </span>
           </div>
@@ -281,9 +273,7 @@ export default function TimelineSectors() {
               {/* Number Badge */}
               <div className="w-10 h-10 bg-white rounded-full shadow-[0_4px_14px_rgb(0,0,0,0.06)] flex items-center justify-center z-20 transition-transform duration-500 group-hover:-translate-y-1">
                 <span className="text-[#3b82f6] font-bold text-[13px] tracking-wide">
-                  {isRTL
-                    ? String(index + 1).replace(/[0-9]/g, w => ({ '1': '١', '2': '٢', '3': '٣', '4': '٤', '5': '٥' }[w] || w))
-                    : String(index + 1).padStart(2, '0')}
+                  {String(index + 1).padStart(2, '0')}
                 </span>
               </div>
 
@@ -362,9 +352,7 @@ export default function TimelineSectors() {
 
               <div className="w-10 h-10 bg-white rounded-full shadow-[0_4px_14px_rgb(0,0,0,0.06)] flex items-center justify-center z-20">
                 <span className="text-[#3b82f6] font-bold text-[13px] tracking-wide">
-                  {isRTL
-                    ? String(index + 1).replace(/[0-9]/g, w => ({ '1': '١', '2': '٢', '3': '٣', '4': '٤', '5': '٥' }[w] || w))
-                    : String(index + 1).padStart(2, '0')}
+                  {String(index + 1).padStart(2, '0')}
                 </span>
               </div>
 

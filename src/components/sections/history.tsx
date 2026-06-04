@@ -145,7 +145,7 @@ export default function ChyaHistorySection() {
             {/* Eyebrow */}
             <div className={`history-badge${isVisible ? ' visible' : ''} flex items-center gap-3 mb-8 ${isRTL ? 'flex-row-reverse justify-end' : 'justify-start'}`}>
               <span className="inline-block w-8 h-[2px] bg-[#2563eb]" />
-              <span dir="auto" className="text-[12px] font-bold tracking-widest text-[#0c1a2e] uppercase">
+              <span dir="auto" className={`font-bold text-[#0c1a2e] uppercase ${isRTL ? 'text-[15px] tracking-normal' : 'text-[12px] tracking-widest'}`}>
                 {t.eyebrow}
               </span>
             </div>

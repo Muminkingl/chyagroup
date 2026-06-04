@@ -14,7 +14,7 @@ const actualLogos = [
   { name: "King Natural", logo: "/clients/kingnature.png", scale: 1.3 },
   { name: "BRZ", logo: "/clients/brz.png", scale: 1.45 },
   { name: "Kadeer", logo: "/clients/kadeer.png", scale: 1.15 },
-  { name: "Max Motors", logo: "/clients/1A.png", scale: 1.2 },
+  { name: "Modest Art", logo: "/clients/xx.png", scale: 1.20 }, 
   { name: "Al Essam Cars", logo: "/clients/alessam.png", scale: 1.2 },
   { name: "Hersh", logo: "/clients/hersh.png", scale: 1.2 },
   { name: "Auto Plus", logo: "/clients/autoplus.png", scale: 1.2 },
@@ -28,7 +28,7 @@ const actualLogos = [
   { name: "Maowj Al Dawa", logo: "/clients/maowialdawa.png", scale: 1.21 },
   { name: "Pharmatech", logo: "/clients/pharmatech.png", scale: 1.3 },
   { name: "Rose Land", logo: "/clients/rosaland.png", scale: 1.15 },
-  { name: "Modest Art", logo: "/clients/xx.png", scale: 1.20 },
+  { name: "Max Motors", logo: "/clients/1A.png", scale: 1.2 }, 
   { name: "Dol", logo: "/clients/dolcom.png", scale: 1.18 },
   { name: "Mashkaly Mall", logo: "/clients/mashxal.png", scale: 1.3 },
   { name: "House Care", logo: "/clients/housecare.png", scale: 1.35 },
@@ -51,7 +51,7 @@ const brands = actualLogos;
 
 const BrandCard = ({ name, logo, scale = 1 }: { name: string, logo: string, scale?: number }) => {
   return (
-    <div className="flex items-center justify-center bg-white rounded-[12px] border border-[#0c1a2e]/[0.04] p-1 md:p-1.5 h-[100px] md:h-[115px] lg:h-[125px] shadow-[0_2px_10px_rgb(0,0,0,0.02)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 group cursor-pointer overflow-hidden">
+    <div className="w-full flex items-center justify-center bg-white rounded-[12px] border border-[#0c1a2e]/[0.04] p-1 md:p-1.5 h-[100px] md:h-[115px] lg:h-[125px] shadow-[0_2px_10px_rgb(0,0,0,0.02)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 group cursor-pointer overflow-hidden">
       <img
         src={logo}
         alt={`${name} Logo`}
@@ -74,7 +74,7 @@ export default function ClientsSection() {
         <div className="flex flex-col items-center text-center mb-14 md:mb-16">
           <div className="flex items-center gap-3 mb-4">
             <span className="inline-block w-8 h-[2px] bg-[#2563eb]" />
-            <span dir="auto" className="text-[12px] font-bold tracking-widest text-[#0c1a2e] uppercase">
+            <span dir="auto" className={`font-bold text-[#0c1a2e] uppercase ${isRTL ? 'text-[15px] tracking-normal' : 'text-[12px] tracking-widest'}`}>
               {t.eyebrow}
             </span>
           </div>
@@ -87,9 +87,14 @@ export default function ClientsSection() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-3 md:gap-4 lg:gap-5">
+        <div className="flex flex-wrap justify-center gap-3 md:gap-4 lg:gap-5">
           {brands.map((brand, index) => (
-            <BrandCard key={index} name={brand.name} logo={brand.logo} scale={brand.scale} />
+            <div 
+              key={index} 
+              className="w-[calc(50%-6px)] sm:w-[calc(33.33%-11px)] md:w-[calc(25%-12px)] lg:w-[calc(16.66%-17px)] xl:w-[calc(16.66%-17px)] flex-shrink-0"
+            >
+              <BrandCard name={brand.name} logo={brand.logo} scale={brand.scale} />
+            </div>
           ))}
         </div>
 

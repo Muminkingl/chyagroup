@@ -71,27 +71,11 @@ export const Header = () => {
       >
         <div className={`flex items-center justify-between ${isRTL ? 'flex-row-reverse' : ''}`}>
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 relative z-50 flex-shrink-0">
+          <Link href="/" className="flex items-center gap-2.5 relative z-50 flex-shrink-0" dir="ltr">
             <img src="/logo.svg" alt="Chya Group Logo" className="w-10 h-10 object-contain" />
-            <div className="flex flex-col leading-[1.1]">
-              {locale === 'en' && (
-                <div className="flex items-center gap-1.5">
-                  <span className="text-[17px] font-black tracking-[0.05em] uppercase text-[#e84040]">CHYA</span>
-                  <span className="text-[17px] font-black tracking-[0.05em] uppercase text-[#0a2a56]">GROUP</span>
-                </div>
-              )}
-              {locale === 'ar' && (
-                <div className="flex items-center gap-1.5">
-                  <span className="text-[18px] font-black tracking-normal text-[#e84040]">چیا</span>
-                  <span className="text-[18px] font-black tracking-normal text-[#0a2a56]">مجموعة</span>
-                </div>
-              )}
-              {locale === 'ku' && (
-                <div className="flex items-center gap-1.5">
-                  <span className="text-[18px] font-black tracking-normal text-[#e84040]">چیا</span>
-                  <span className="text-[18px] font-black tracking-normal text-[#0a2a56]">گرووپ</span>
-                </div>
-              )}
+            <div className="flex flex-col leading-[1.0] items-start select-none">
+              <span className="text-[17px] font-black tracking-[0.05em] uppercase text-[#e84040]">CHYA</span>
+              <span className="text-[14px] font-bold tracking-[0.12em] uppercase text-[#0a2a56] mt-0.5">GROUP</span>
             </div>
           </Link>
 

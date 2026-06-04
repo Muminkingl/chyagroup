@@ -13,14 +13,14 @@ const parentBrand = {
     logoScale: 1.2,
     qrLink: "https://www.instagram.com/chyagroup.iq/",
     name: {
-        en: "CHYA GROUP",
-        ar: "مجموعة چیا",
-        ku: "چیا گرووپ"
+        en: "HOLDING",
+        ar: "هولدينغ",
+        ku: "هۆڵدینگ"
     },
     tagline: {
-        en: "Strength in Numbers, Power in Unity",
-        ar: "القوة في الأرقام، والقوة في الاتحاد",
-        ku: "هێز لە ژمارەدا، دەسەڵات لە یەکێتیدا"
+        en: "",
+        ar: "",
+        ku: ""
     }
 };
 
@@ -30,7 +30,7 @@ const brands = [
         id: "marjan",
         logo: "/brands/lamattt.png",
         logoScale: 1.45,
-        qrLink: "https://www.instagram.com/stories/highlights/17995436114584820/",
+        qrLink: "https://www.instagram.com/lamat.almarjan_co?igsh=d2txbnp1cXRuNjhn",
         name: {
             en: "Lamat Al Marjan",
             ar: "شركة لمعة المرجان",
@@ -46,7 +46,7 @@ const brands = [
         id: "chyaymaten",
         logo: "/brands/chyaymat.png",
         logoScale: 1.50,
-        qrLink: "https://www.instagram.com/stories/highlights/17944275234139225/",
+        qrLink: "https://www.instagram.com/chyay_mateen.co?igsh=NWljZDg1ZnR6NWJm",
         name: {
             en: "Chyay Mateen",
             ar: "شركة جياى متين",
@@ -62,7 +62,7 @@ const brands = [
         id: "khakesarwar",
         logo: "/brands/khakisarwar.png",
         logoScale: 1.25,
-        qrLink: "https://www.instagram.com/stories/highlights/18042769181590578/",
+        qrLink: "https://www.instagram.com/khaki_sarwar.co?igsh=MW43NXdoamhsODJoYg==",
         name: {
             en: "Khaki Sarwar",
             ar: "شركة خاكى سەروەر",
@@ -79,7 +79,7 @@ const brands = [
         id: "blueprinting",
         logo: "/brands/BLUE PRINT-1.png",
         logoScale: 1.8,
-        qrLink: "https://www.instagram.com/stories/highlights/18044251298348270/",
+        qrLink: "https://www.instagram.com/blue.printing_office?igsh=MTk4MHU0NHc3eXBxNg==",
         name: {
             en: "Blue Printing",
             ar: "مکتب بلو طباعە",
@@ -95,7 +95,7 @@ const brands = [
         id: "hangaw",
         logo: "/brands/hangawexchange.png",
         logoScale: 1.45,
-        qrLink: "https://www.instagram.com/stories/highlights/17942265878828194/",
+        qrLink: "https://www.instagram.com/hangaw_exchangemoney?igsh=M2h4ZTEyZmRud21y",
         name: {
             en: "Hangaw Exchange",
             ar: "مکتب هەنگاو",
@@ -111,7 +111,7 @@ const brands = [
         id: "ChyaExchnage",
         logo: "/brands/chyaexchnage.png",
         logoScale: 1.25,
-        qrLink: "https://www.instagram.com/stories/highlights/17996902628095288/",
+        qrLink: "https://www.instagram.com/chya_exchangemoney?igsh=c3VnYzMxY2o5OGVu",
         name: {
             en: "Chya Exchange",
             ar: "مكتب جيا",
@@ -128,7 +128,7 @@ const brands = [
         id: "Chyagold",
         logo: "/brands/qapat-1.png",
         logoScale: 1.50,
-        qrLink: "https://www.instagram.com/stories/highlights/17899778525848610/",
+        qrLink: "https://www.instagram.com/chya_gold.turkey?igsh=NTV1dm9vMzlrcHhi",
         name: {
             en: "Chya Gold",
             ar: "مكتب جيا كولد",
@@ -144,7 +144,7 @@ const brands = [
         id: "Lutkay chya",
         logo: "/brands/lutkay chya-1.png",
         logoScale: 1.30,
-        qrLink: "https://www.instagram.com/chyagroup.iq/",
+        qrLink: "https://www.instagram.com/lutkay.chya_exchangemoney?igsh=ajVzMzN2dWx4dnY4",
         name: {
             en: "Lutkay Chya",
             ar: "مكتب لوتكەی جيا",
@@ -160,7 +160,7 @@ const brands = [
         id: "Barzy chya",
         logo: "/brands/BARZY CHYAY-1.png",
         logoScale: 1.15,
-        qrLink: "https://www.instagram.com/stories/highlights/18054758936001033/",
+        qrLink: "https://www.instagram.com/barzy.chya_exchange?igsh=MnhwZHE2aGoweWU0",
         name: {
             en: "Barzy Chya",
             ar: "مکتب بەرزی جيا",
@@ -177,7 +177,7 @@ const brands = [
         id: "Manfazdebaga",
         logo: "/brands/Manfaz Dibaga-1.png",
         logoScale: 1.20,
-        qrLink: "https://www.instagram.com/stories/highlights/18370259290144648/",
+        qrLink: "https://www.instagram.com/manfaz.dibaga_hangaw?igsh=ZGtoamJtNzd6MHJm",
         name: {
             en: "Manfaz Dibaga",
             ar: "منفذ ديبكة",
@@ -193,7 +193,7 @@ const brands = [
         id: "Chya amazone",
         logo: "/brands/Chya Amazon-1.png",
         logoScale: 1.25,
-        qrLink: "https://www.instagram.com/stories/highlights/18064953236338441/",
+        qrLink: "https://www.instagram.com/chya_amazon.iq?igsh=cHQzbXV5aHc4amhj",
         name: {
             en: "Chya Amazon",
             ar: "مشروع جيا أمازون",
@@ -209,7 +209,7 @@ const brands = [
         id: "Chya phone",
         logo: "/brands/chya phone-1.png",
         logoScale: 1.25,
-        qrLink: "https://www.instagram.com/stories/highlights/18117259981565509/",
+        qrLink: "https://www.instagram.com/chya_phone.iq?igsh=MTcza2o2azEwbjlxYg==",
         name: {
             en: "Chya Phone",
             ar: "محل جيا فون",
@@ -226,7 +226,7 @@ const brands = [
         id: "Chya trael",
         logo: "/brands/CHYA travel-1.png",
         logoScale: 2.0,
-        qrLink: "https://www.instagram.com/chyagroup.iq/",
+        qrLink: "https://www.instagram.com/chya_travel.iq?igsh=MTFzMDE5ODV5ODN1bQ==",
         name: {
             en: "Chya Travel",
             ar: "جيا تراڤل",
@@ -242,7 +242,7 @@ const brands = [
         id: "chya tech",
         logo: "/brands/chyatech.png",
         logoScale: 2.15,
-        qrLink: "https://www.instagram.com/stories/highlights/18050822432554852/",
+        qrLink: "https://www.instagram.com/chya_tech.iq?igsh=MTNzcWp5a2F4d3dmZg==",
         name: {
             en: "Chya Tech",
             ar: "جيا تيك",
@@ -258,7 +258,7 @@ const brands = [
         id: "kivaluxury",
         logo: "/brands/kivaluxary.png",
         logoScale: 1.30,
-        qrLink: "https://www.instagram.com/stories/highlights/18484877713047686/",
+        qrLink: "https://www.instagram.com/kiva.luxuryshop?igsh=emFtbXNpbjBmMnh6",
         name: {
             en: "Kiva Luxury",
             ar: "كيفا لوكزوري",
@@ -299,7 +299,7 @@ const FinderPattern = ({ x, y }: { x: number; y: number }) => (
 
 // Generate QR matrix using qrcode library (guaranteed to be valid and scannable)
 function buildMatrix(value: string): boolean[][] {
-    const qr = QRLib.create(value, { errorCorrectionLevel: 'M', version: 4 });
+    const qr = QRLib.create(value, { errorCorrectionLevel: 'M', version: 5 });
     const n = qr.modules.size;
     const matrix: boolean[][] = [];
     for (let r = 0; r < n; r++) {
@@ -451,14 +451,6 @@ function Counter({ value, isRTL, inView }: { value: number | string, isRTL: bool
             onUpdate: (latest) => {
                 const rounded = Math.floor(latest);
                 let finalStr = String(rounded);
-                
-                if (isRTL) {
-                    const idMap: Record<string, string> = {
-                        '0': '٠', '1': '١', '2': '٢', '3': '٣', '4': '٤', '5': '٥', '6': '٦', '7': '٧', '8': '٨', '9': '٩'
-                    };
-                    finalStr = finalStr.replace(/[0-9]/g, w => idMap[w]);
-                }
-
                 if (typeof value === 'string') {
                     // Extract non-digit characters to preserve any suffix (though we currently have none)
                     const suffix = value.replace(/[0-9٠-٩]/g, '').trim();
@@ -475,6 +467,7 @@ function Counter({ value, isRTL, inView }: { value: number | string, isRTL: bool
 }
 
 const BrandCard = ({ brand, locale, scanText }: { brand: typeof brands[0], locale: 'en' | 'ku' | 'ar', scanText: string }) => {
+    const { isRTL } = useLanguage();
     return (
         <div className="bg-white rounded-[2rem] p-8 shadow-[0_8px_30px_rgb(12,26,46,0.04)] border border-[#0c1a2e]/[0.02] flex flex-col items-center text-center transition-transform duration-300 hover:-translate-y-1">
             <div className="w-20 h-12 mb-4 flex items-center justify-center flex-shrink-0">
@@ -492,7 +485,7 @@ const BrandCard = ({ brand, locale, scanText }: { brand: typeof brands[0], local
             <div className="w-32 h-32 mb-6">
                 <QRCodeSVG value={brand.qrLink} logo={brand.logo} />
             </div>
-            <div className="flex items-center gap-2 text-[10.5px] font-bold text-[#0c1a2e] uppercase tracking-widest mt-auto pt-2">
+            <div className={`flex items-center gap-2 font-bold text-[#0c1a2e] uppercase mt-auto pt-2 ${isRTL ? 'text-[13px] tracking-normal' : 'text-[10.5px] tracking-widest'}`}>
                 <Iconify icon="solar:smartphone-linear" width={14} className="text-[#0c1a2e]/70" />
                 <span dir="auto">{scanText}</span>
             </div>
@@ -534,7 +527,7 @@ export default function BrandQRs() {
                 <div className="flex flex-col items-center text-center mb-16">
                     <div className="flex items-center gap-3 mb-4">
                         <span className="inline-block w-8 h-[2px] bg-[#0c1a2e]" />
-                        <span dir="auto" className="text-[12px] font-bold tracking-widest text-[#0c1a2e] uppercase">
+                        <span dir="auto" className={`font-bold text-[#0c1a2e] uppercase ${isRTL ? 'text-[15px] tracking-normal' : 'text-[12px] tracking-widest'}`}>
                             {t.eyebrow}
                         </span>
                     </div>
@@ -549,26 +542,25 @@ export default function BrandQRs() {
                 {/* Center parent brand card */}
                 <div className="flex justify-center mb-16">
                     <div className="w-full max-w-[340px] bg-white rounded-[2rem] p-8 shadow-[0_8px_30px_rgb(12,26,46,0.04)] border border-[#0c1a2e]/[0.02] flex flex-col items-center text-center transition-transform duration-300 hover:-translate-y-1">
-                        <div className="w-20 h-12 mb-4 flex items-center justify-center flex-shrink-0">
-                            <Image
-                                src={parentBrand.logo}
-                                alt={parentBrand.name[locale]}
-                                width={100}
-                                height={50}
-                                className="w-full h-full object-contain"
-                                style={{ transform: `scale(${parentBrand.logoScale})` }}
-                            />
+                        <div className="flex items-center gap-2.5 mb-5 justify-center flex-shrink-0" dir="ltr">
+                            <img src="/logo.svg" alt="Chya Group Logo" className="w-10 h-10 object-contain" />
+                            <div className="flex flex-col text-left leading-[1.0] select-none items-start">
+                              <span className="text-[17px] font-black tracking-[0.05em] uppercase text-[#e84040]">CHYA</span>
+                              <span className="text-[14px] font-bold tracking-[0.12em] uppercase text-[#0a2a56] mt-0.5">GROUP</span>
+                            </div>
                         </div>
                         <h3 className="text-[15px] font-bold text-[#0c1a2e] mb-1 tracking-wide uppercase">
                             {parentBrand.name[locale]}
                         </h3>
-                        <p className="text-xs text-[#3a4f6a]/70 font-medium mb-6">
-                            {parentBrand.tagline[locale]}
-                        </p>
+                        {parentBrand.tagline[locale] && (
+                            <p className="text-xs text-[#3a4f6a]/70 font-medium mb-6">
+                                {parentBrand.tagline[locale]}
+                            </p>
+                        )}
                         <div className="w-32 h-32 mb-6">
                             <QRCodeSVG value={parentBrand.qrLink} logo={parentBrand.logo} />
                         </div>
-                        <div className="flex items-center gap-2 text-[10.5px] font-bold text-[#0c1a2e] uppercase tracking-widest mt-auto pt-2">
+                        <div className={`flex items-center gap-2 font-bold text-[#0c1a2e] uppercase mt-auto pt-2 ${isRTL ? 'text-[13px] tracking-normal' : 'text-[10.5px] tracking-widest'}`}>
                             <Iconify icon="solar:smartphone-linear" width={14} className="text-[#0c1a2e]/70" />
                             <span dir="auto">{t.scanToFollow}</span>
                         </div>

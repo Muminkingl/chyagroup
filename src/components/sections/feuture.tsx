@@ -30,23 +30,16 @@ function Counter({ value, locale, isRTL }: { value: number | string, locale: str
         const rounded = Math.floor(latest);
         let finalStr = String(rounded);
 
-        if (isRTL) {
-          const idMap: Record<string, string> = {
-            '0': '٠', '1': '١', '2': '٢', '3': '٣', '4': '٤', '5': '٥', '6': '٦', '7': '٧', '8': '٨', '9': '٩'
-          };
-          finalStr = finalStr.replace(/[0-9]/g, w => idMap[w]);
-        }
-
         if (typeof value === 'string') {
-          const suffix = value.replace(/[0-9٠-٩]/g, '').trim();
-          setDisplayValue(suffix ? (isRTL ? `${finalStr} ${suffix}` : `${finalStr} ${suffix}`) : finalStr);
+          const suffix = value.replace(/[0-9]/g, '').trim();
+          setDisplayValue(suffix ? `${finalStr} ${suffix}` : finalStr);
         } else {
           setDisplayValue(finalStr);
         }
       }
     });
     return () => controls.stop();
-  }, [value, isRTL]);
+  }, [value]);
 
   return <span>{displayValue}</span>;
 }
@@ -95,7 +88,7 @@ export default function FeatureSection() {
     const num = idx + 1;
     const localizedNum = isRTL
       ? String(num).replace(/[0-9]/g, w => ({
-        '1': '١', '2': '٢', '3': '٣', '4': '٤', '5': '٥'
+        '1': '01', '2': '02', '3': '03', '4': '04', '5': '05'
       }[w] || w))
       : String(num).padStart(2, '0');
 
@@ -259,7 +252,7 @@ export default function FeatureSection() {
               {/* Eyebrow */}
               <div className={`fs-eyebrow${headerVisible ? ' in' : ''} flex items-center gap-3 mb-5`}>
                 <span className="inline-block w-8 h-[2px] bg-[#2563eb]" />
-                <span dir="auto" className="text-[12px] font-bold tracking-widest text-[#0c1a2e] uppercase">
+                <span dir="auto" className={`font-bold text-[#0c1a2e] uppercase ${isRTL ? 'text-[15px] tracking-normal' : 'text-[12px] tracking-widest'}`}>
                   {t.eyebrow}
                 </span>
               </div>
@@ -279,7 +272,7 @@ export default function FeatureSection() {
                 {[
                   {
                     icon: 'solar:medal-ribbon-linear',
-                    value: isRTL ? '١' : 'One',
+                    value: 1,
                     label: t.stats.vision
                   },
                   {

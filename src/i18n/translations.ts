@@ -181,11 +181,11 @@ export const translations = {
       items: [
         {
           title: "ISO 9001:2015",
-          subtitle: "Quality Management System"
+          subtitle: "International Organization for Standardization: Quality Management System"
         },
         {
           title: "IAF",
-          subtitle: "International Accreditation Forum Organization"
+          subtitle: "International Accreditation Forum Organization\n(USA)"
         },
         {
           title: "OSS",
@@ -193,11 +193,11 @@ export const translations = {
         },
         {
           title: "EGAC",
-          subtitle: "Egyptian General Authority for Accreditation and Certification"
+          subtitle: "General Authority for Accreditation and Certification\n(EGYPT)"
         },
         {
           title: "Ficho International",
-          subtitle: "Ficho International Organization"
+          subtitle: "Ficho International Organization\n(GEORGIA)"
         },
         {
           title: "Karlsruhe University",
@@ -208,7 +208,7 @@ export const translations = {
     partners: {
       eyebrow: "OUR AGENTS",
       headline: {
-        part1: "Empowering payments,",
+        part1: "Fast money transfers,",
         part2: "together."
       },
       subtitle: "We collaborate with trusted financial technology partners to deliver secure, seamless, and innovative payment solutions across the region."
@@ -226,13 +226,13 @@ export const translations = {
       eyebrow: "OUR CLIENTS",
       headline: {
         trusted: "Trusted by Leading Brands",
-        worldwide: "Worldwide."
+        worldwide: "Locally."
       },
       subtitle: "We are proud to work with a diverse range of clients across industries. Their trust inspires us to deliver excellence every day."
     },
     brandQRs: {
-      eyebrow: "FOLLOW OUR BRANDS",
-      title: "Official Brand Channels",
+      eyebrow: "CHYA GROUP PANELS",
+      title: "Official Chya Group Portals",
       description: "Scan to explore our brands and stay connected across our diverse business sectors.",
       scanToFollow: "SCAN TO FOLLOW",
       banner: {
@@ -464,15 +464,15 @@ export const translations = {
     features: {
       eyebrow: "قطاعاتنا",
       headline: {
-        five: "خمسة",
-        sectors: "قطاعات،",
+        five: "خمسە قطاعات",
+        sectors: "مختلفة،",
         one: "رؤية",
         vision: "واحدة."
       },
-      description: "تعمل مجموعة چیا عبر خمسة سێکتەرات ديناميكية، وتضم ١٥ مكتباً مع ٤٧ محترفاً يدفعون عجلة النمو في جميع أنحاء المنطقة.",
+      description: "تعمل مجموعة چیا عبر قطاعات مختلفة، وتضم 16 عملاً مع 47 عضواً يدفعون عجلة النمو في جميع أنحاء المنطقة.",
       stats: {
-        branches: "مكاتبنا",
-        professionals: "محترفونا",
+        branches: "عمل",
+        professionals: "أعضاء",
         vision: "رؤية موحدة"
       },
       button: "رحلتنا",
@@ -490,9 +490,9 @@ export const translations = {
           contentTitle: 'دعم التجارة في جميع أنحاء المنطقة',
           contentBody: 'تمتد تجاراتنا العامة عبر مجموعة متنوعة من المنتجات، حيث نوفر للأسواق في جميع أنحاء المنطقة الموثوقية والحجم. مع فروع واسعة وشبكات موردين عميقة، نحافظ على حركة التجارة.',
           metrics: [
-            { label: 'الفروع', value: '١٦' },
-            { label: 'الموظفون', value: '٤٧' },
-            { label: 'الشركات', value: '٣' }
+            { label: 'الفروع', value: '16' },
+            { label: 'الموظفون', value: '47' },
+            { label: 'الشركات', value: '3' }
           ]
         },
         {
@@ -501,9 +501,9 @@ export const translations = {
           cardTitle: 'الصرافة والخدمات المالية',
           contentLabel: 'الخدمات المالية',
           contentTitle: 'صرافة وخدمات مالية موثوقة',
-          contentBody: 'تدير مجموعة چیا قسماً مخصصاً للصرافة يقدم خدمات عملات سريعة وآمنة وتنافسية. وبدعم من ١٤ وكيلاً من البنوك والشركات، نضمن معاملات عالمية سلسة.',
+          contentBody: 'تدير مجموعة چیا قسماً مخصصاً للصرافة يقدم خدمات عملات سريعة وآمنة وتنافسية. وبدعم من 14 وكيلاً من البنوك والشركات، نضمن معاملات عالمية سلسة.',
           metrics: [
-            { label: 'الوكلاء', value: '١٤' },
+            { label: 'الوكلاء', value: '14' },
             { label: 'العملات', value: '20+' },
             { label: 'العمليات', value: '24/7' }
           ]
@@ -617,11 +617,11 @@ export const translations = {
       items: [
         {
           title: "ISO 9001:2015",
-          subtitle: "نظام إدارة الجودة"
+          subtitle: "المنظمة الدولية للمعايير: نظام إدارة الجودة"
         },
         {
           title: "IAF",
-          subtitle: "المنتدى الدولي للاعتماد"
+          subtitle: "المنتدى الدولي للاعتماد\n(الولايات المتحدة الأمريكية)"
         },
         {
           title: "OSS",
@@ -633,7 +633,7 @@ export const translations = {
         },
         {
           title: "Ficho International",
-          subtitle: "منظمة فيتشو الدولية"
+          subtitle: "منظمة فيتشو الدولية\n(جورجيا)"
         },
         {
           title: "Karlsruhe University",
@@ -644,7 +644,7 @@ export const translations = {
     partners: {
       eyebrow: "شركاؤنا",
       headline: {
-        part1: "تمكين المدفوعات،",
+        part1: "سرعة تحويل الأموال،",
         part2: "معاً."
       },
       subtitle: "نتعاون مع شركاء موثوقين في مجال التكنولوجيا المالية لتقديم حلول دفع آمنة وسلسة ومبتكرة في جميع أنحاء المنطقة."
@@ -662,23 +662,23 @@ export const translations = {
       eyebrow: "عملاؤنا",
       headline: {
         trusted: "موثوقون من قبل العلامات التجارية",
-        worldwide: "الرائدة عالمياً."
+        worldwide: "الرائدة محلياً."
       },
       subtitle: "نحن فخورون بالعمل مع مجموعة متنوعة من العملاء عبر الصناعات. ثقتهم تلهمنا لتقديم التميز كل يوم."
     },
     brandQRs: {
-      eyebrow: "تابع برانداتنا",
-      title: "قنوات البراندات الرسمية",
+      eyebrow: "لوحات مجموعة چیا",
+      title: "البوابات الرسمية لمجموعة چيا",
       description: "امسح الرمز لاستكشاف برانداتنا والبقاء على اتصال عبر قطاعات أعمالنا المتنوعة.",
       scanToFollow: "امسح للمتابعة",
       banner: {
         title: "مجموعة واحدة. حلول عديدة.",
         subtitle: "كل براند تحت مظلة مجموعة چیا مكرس لتقديم التميز في مجاله.",
         stats: {
-          sectors: "٥",
-          offices: "١٦",
-          professionals: "٤٧",
-          vision: "١",
+          sectors: "5",
+          offices: "16",
+          professionals: "47",
+          vision: "1",
           visionLabel: "رؤية موحدة",
           sectorsLabel: "قطاعات",
           officesLabel: "مكاتبنا",
@@ -775,7 +775,7 @@ export const translations = {
       },
       history: {
         title: "تاريخنا",
-        summary: "مجموعة چیا: تأسست عام ٢٠١٩ وتخدم منذ ٧ سنوات في أربيل عبر ٥ قطاعات متنوعة ( التجارة العامة، الصيرفة والخدمات المالية، الموبايل والتكنولوجيا، الطباعة والاستنساخ، التجارة الإلكترونية ). يتكون فريقنا من ٤٧ عضواً، ونمتلك ٣ شركات، و٥ مكاتب صيرفة، ومكتب طباعة واحد، ومركز صرف رواتب واحد، ومشروع واحد، ومعرض واحد، و٣ أعمال إلكترونية، ونعمل كوكلاء لـ ١٤ بنكاً وشركة.",
+        summary: "مجموعة چیا: تأسست عام 2019 وتخدم منذ 7 سنوات في أربيل عبر 5 قطاعات متنوعة ( التجارة العامة، الصيرفة والخدمات المالية، الموبايل والتكنولوجيا، الطباعة والاستنساخ، التجارة الإلكترونية ). يتكون فريقنا من 47 عضواً، ونمتلك 3 شركات، و5 مكاتب صيرفة، ومكتب طباعة واحد، ومركز صرف رواتب واحد، ومشروع واحد، ومعرض واحد، و3 أعمال إلكترونية، ونعمل كوكلاء لـ 14 بنكاً وشركة.",
         explore: "انقر للاكتشاف",
         timeline: {
           foundation: {
@@ -904,7 +904,7 @@ export const translations = {
         one: "یەک",
         vision: "دیدگا."
       },
-      description: "چیا گرووپ لە پێنج سێکتەری جیاوازدا کاردەکات، کە ١٦ نووسینگە و ٤٧ کەسی ئەندام کاردەکەن بۆ گەشەپێدانی ناوچەکە.",
+      description: "چیا گرووپ لە پێنج سێکتەری جیاوازدا کاردەکات، کە 16 کاری جۆراوجۆر و 47 ئەندامی هەیە کە کاردەکەن بۆ گەشەپێدانی کارەکان.",
       stats: {
         branches: "کار",
         professionals: "ئەندام",
@@ -925,9 +925,9 @@ export const translations = {
           contentTitle: 'بەهێزکردنی بازرگانی لە ناوچەکەدا',
           contentBody: 'بەشی بازرگانی گشتی ئێمە چەندین جۆری بەرهەم لەخۆدەگرێت، کە بازاڕەکانی ناوچەکە دابین دەکات. بە لقە بەرفراوانەکان و تۆڕێکی بەهێزی دابینکەران، بازرگانی بەردەوام دەکەین.',
           metrics: [
-            { label: 'لقەکان', value: '١٦' },
-            { label: 'کارمەندان', value: '٤٧' },
-            { label: 'کۆمپانیاکان', value: '٣' }
+            { label: 'لقەکان', value: '16' },
+            { label: 'کارمەندان', value: '47' },
+            { label: 'کۆمپانیاکان', value: '3' }
           ]
         },
         {
@@ -936,9 +936,9 @@ export const translations = {
           cardTitle: 'ئاڵوگۆڕی دراو و سێرڤسی دارایی',
           contentLabel: 'خزمەتگوزارییە داراییەکان',
           contentTitle: 'گۆڕینەوە و خزمەتگوزاری دارایی جێی متمانە',
-          contentBody: 'چیا گرووپ بەشێکی تایبەت بە ئاڵوگۆڕی دراو و سێرڤسی دارایی بەڕێوەدەبات کە خزمەتگوزارییەکی خێرا و سەلامەت و ڕکابەری دابین دەکات. بە پشتگیری ١٤ بریکاری بانک و کۆمپانیا، مامەڵەی دارایی جیهانی ئاسان دەکەین.',
+          contentBody: 'چیا گرووپ بەشێکی تایبەت بە ئاڵوگۆڕی دراو و سێرڤسی دارایی بەڕێوەدەبات کە خزمەتگوزارییەکی خێرا و سەلامەت و ڕکابەری دابین دەکات. بە پشتگیری 14 بریکاری بانک و کۆمپانیا، مامەڵەی دارایی جیهانی ئاسان دەکەین.',
           metrics: [
-            { label: 'بریکارەکان', value: '١٤' },
+            { label: 'بریکارەکان', value: '14' },
             { label: 'دراوەکان', value: '20+' },
             { label: 'کارکردن', value: '24/7' }
           ]
@@ -1037,7 +1037,7 @@ export const translations = {
     history: {
       eyebrow: "مێژووی ئێمە",
       title: "چیا گرووپ",
-      since: "لە ساڵی ٢٠١٩وە",
+      since: "لە ساڵی 2019وە",
       description: "نەخشاندنی ئاسۆیەکی نوێ بە دڵسۆزییەکی بێوێنە. بزانە چۆن دیدگای ئێمە بوو بە بناغەیەک بۆ ژێرخانی بەیانی.",
       readMore: "زیاتر بزانە"
     },
@@ -1052,11 +1052,11 @@ export const translations = {
       items: [
         {
           title: "ISO 9001:2015",
-          subtitle: "سیستەمی بەڕێوەبردنی کوالێتی"
+          subtitle: "ڕێکخراوی نێودەوڵەتی بۆ پێوانەکردن: سیستەمی بەڕێوەبردنی کوالێتی"
         },
         {
           title: "IAF",
-          subtitle: "کۆڕبەندی نێودەوڵەتی بۆ متمانەپێدان"
+          subtitle: "کۆڕبەندی نێودەوڵەتی بۆ متمانەپێدان\n(ویلایەتە یەکگرتووەکانی ئەمریکا)"
         },
         {
           title: "OSS",
@@ -1068,7 +1068,7 @@ export const translations = {
         },
         {
           title: "Ficho International",
-          subtitle: "ڕێکخراوی نێودەوڵەتی فیچۆ"
+          subtitle: "ڕێکخراوی نێودەوڵەتی فیچۆ\n(جۆرجیا)"
         },
         {
           title: "Karlsruhe University",
@@ -1079,8 +1079,8 @@ export const translations = {
     partners: {
       eyebrow: "بریکارەکان",
       headline: {
-        part1: "بەهێزکردنی پارەدان،",
-        part2: "پێکەوە."
+        part1: "خێرایی ناردنی دراو،",
+        part2: "بەیەکەوە."
       },
       subtitle: "ئێمە هاوکاری لەگەڵ بریکارە باوەڕپێکراوەکانی تەکنەلۆژیای دارایی دەکەین بۆ پێشکەشکردنی چارەسەری پارەدانی پارێزراو، بێ کێشە و داهێنەرانە لە سەرانسەری ناوچەکەدا."
     },
@@ -1097,23 +1097,23 @@ export const translations = {
       eyebrow: "کڕیارەکانمان",
       headline: {
         trusted: "جێگەی متمانەی براندە",
-        worldwide: "پێشەنگەکانی جیهانین."
+        worldwide: "پێشەنگە ناوخۆییەکانین."
       },
       subtitle: "ئێمە شانازی دەکەین بە کارکردن لەگەڵ کۆمەڵێکی بەرفراوان لە کڕیاران لە بوارە جیاوازەکاندا. متمانەی ئەوان هاندەرمانە بۆ پێشکەشکردنی باشترینەکان."
     },
     brandQRs: {
-      eyebrow: "فۆڵۆی براندەکانمان بکەن",
-      title: "کەناڵی فەرمی بڕاندەکانمان",
+      eyebrow: "پەنێڵەکانی چیا گرووپ",
+      title: "دەروازە فەرمییەکانی چیا گرووپ",
       description: "سکان بکە بۆ گەڕان لە ناو براندەکانمان و پەیوەندی بەردەوام لە سێکتەرە جیاوازەکانمانەوە.",
       scanToFollow: "سکان بکە بۆ فۆڵۆو",
       banner: {
         title: "یەک گرووپ. چەندین چارەسەر.",
         subtitle: "هەر براندێک لەژێر سایەی چیا گرووپدا کاردەکات بۆ پێشکەشکردنی باشترین خزمەتگوزاری لە بوارەکەیدا.",
         stats: {
-          sectors: "٥",
-          offices: "١٦",
-          professionals: "٤٧",
-          vision: "١",
+          sectors: "5",
+          offices: "16",
+          professionals: "47",
+          vision: "1",
           visionLabel: "دیدگای یەکگرتوو",
           sectorsLabel: "سێکتەر",
           officesLabel: "کار",
@@ -1126,7 +1126,7 @@ export const translations = {
       title: "سەردانی بارەگای سەرەکیمان بکەن",
       description: "لە شوێنێکی ستراتیژی لە هەولێر. وەرن بۆ بینینی داهاتووی بازرگانی و پیشەسازی لە نزیکەوە.",
       hqTitle: "بارەگای هەولێر",
-      hqAddress: "شەقامی ڕووناکی، هەولێر ٤٧ ، هەرێمی کوردستان ، عێراق",
+      hqAddress: "شەقامی ڕووناکی، هەولێر 44001 ، هەرێمی کوردستان ، عێراق",
       email: "ئیمەیڵ",
       phone: "مۆبایل",
       contactBtn: "پەیوەندیمان پێوە بکەن"
@@ -1210,7 +1210,7 @@ export const translations = {
       },
       history: {
         title: "مێژووەکەمان",
-        summary: "چیا گروپ : لە ساڵی ٢٠١٩ دامەزراوە و ٧ ساڵە خزمەت دەکەن لە شاری هەولێر لە ٥ سێکتەری جیاواز ( بازرگانی گشتی ، ئاڵوگۆڕی دراو و سێرڤسی دارایی ، مۆبایل و تەکنەلۆژیا ، چاپەمەنی و فۆتۆکۆپی ، بازرگانی ئۆنڵاین ) و ئەندامانی پێکهاتوون لە ٤٧ کەس و خاوەنداریەتی ٣ کۆمپانیا و ٥ نووسینگەی ئاڵوگۆڕی دراو و ١ نووسینگەی چاپەمەنی و فۆتۆکۆپی و ١ منفذ ی صرفی رواتب و ١ مشروع و ١ پێشانگا و ٣ کاری ئۆنڵاین و ١٤ بریکاری بانک و کۆمپانیا دەکەن",
+        summary: "چیا گروپ : لە ساڵی 2019 دامەزراوە و 7 ساڵە خزمەت دەکەن لە شاری هەولێر لە 5 سێکتەری جیاواز ( بازرگانی گشتی ، ئاڵوگۆڕی دراو و سێرڤسی دارایی ، مۆبایل و تەکنەلۆژیا ، چاپەمەنی و فۆتۆکۆپی ، بازرگانی ئۆنڵاین ) و ئەندامانی پێکهاتوون لە 47 کەس و خاوەنداریەتی 3 کۆمپانیا و 5 نووسینگەی ئاڵوگۆڕی دراو و 1 نووسینگەی چاپەمەنی و فۆتۆکۆپی و 1 منفذ ی صرفی رواتب و 1 مشروع و 1 پێشانگا و 3 کاری ئۆنڵاین و 14 بریکاری بانک و کۆمپانیا دەکەن",
         explore: "کرتە بکە بۆ زیاتر",
         timeline: {
           foundation: {

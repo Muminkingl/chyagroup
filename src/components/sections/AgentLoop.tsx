@@ -74,7 +74,7 @@ export default function AgentLoop() {
                     <div className="max-w-2xl">
                         <div className="flex items-center gap-3 mb-5">
                             <span className="inline-block w-8 h-[2px] bg-[#2563eb]" />
-                            <span dir="auto" className="text-[12px] font-bold tracking-widest text-[#0c1a2e] uppercase">
+                            <span dir="auto" className={`font-bold text-[#0c1a2e] uppercase ${isRTL ? 'text-[15px] tracking-normal' : 'text-[12px] tracking-widest'}`}>
                                 {t.eyebrow}
                             </span>
                         </div>

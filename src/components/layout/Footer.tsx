@@ -36,15 +36,11 @@ export const Footer = () => {
           
           {/* Column 1: Brand & Info */}
           <div className="md:col-span-5 flex flex-col items-start text-start">
-            <Link href="/" className="flex items-center gap-3 mb-8">
+            <Link href="/" className="flex items-center gap-3 mb-8" dir="ltr">
               <img src="/logo.svg" alt="Chya Group Logo" className="w-12 h-12 object-contain" />
-              <div className="flex flex-col leading-none">
-                <span className="font-bold text-2xl tracking-tighter uppercase text-[#ff4d4d]">
-                  Chya
-                </span>
-                <span className="font-bold text-2xl tracking-widest uppercase text-[#0c1a2e]">
-                  Group
-                </span>
+              <div className="flex flex-col leading-[1.0] items-start select-none">
+                <span className="text-[22px] font-black tracking-[0.05em] uppercase text-[#e84040]">CHYA</span>
+                <span className="text-[18px] font-bold tracking-[0.12em] uppercase text-[#0a2a56] mt-0.5">GROUP</span>
               </div>
             </Link>
             

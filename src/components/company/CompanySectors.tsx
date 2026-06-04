@@ -10,13 +10,29 @@ export default function CompanySectors() {
   const companyData = t.ourCompany;
   const featuresData = t.features;
 
-  const sectorImages = [
-    "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600&auto=format&fit=crop",
-    "/money.png",
-    "/hmmphone.png",
-    "/printing.jpg",
-    "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=600&auto=format&fit=crop",
+  const sectorImagesMap: Record<string, string> = {
+    'money-exchange': "/money.png",
+    'general-trading': "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600&auto=format&fit=crop",
+    'mobile-tech': "/hmmphone.png",
+    'printing': "/printing.jpg",
+    'online-trading': "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=600&auto=format&fit=crop",
+  };
+
+  const desiredOrder = [
+    'money-exchange',
+    'general-trading',
+    'mobile-tech',
+    'printing',
+    'online-trading'
   ];
+
+  const orderedItems = desiredOrder.map(id => {
+    const item = featuresData.items.find(x => x.id === id);
+    return {
+      item,
+      image: sectorImagesMap[id]
+    };
+  }).filter(x => x.item !== undefined) as { item: typeof featuresData.items[0], image: string }[];
 
   return (
     <section className="pt-36 pb-24 bg-[#faf9f6] min-h-screen">
@@ -41,8 +57,8 @@ export default function CompanySectors() {
         </div>
 
         {/* Cards Grid — 3 top, 2 centered bottom */}
-        <div className="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto">
-          {featuresData.items.map((item, index) => (
+        <div className="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto" dir="ltr">
+          {orderedItems.map(({ item, image }) => (
             <Link
               href={`/ourcompany/${item.id}`}
               key={item.id}
@@ -51,7 +67,7 @@ export default function CompanySectors() {
               {/* Image */}
               <div className="relative w-full h-[170px] overflow-hidden">
                 <img
-                  src={sectorImages[index]}
+                  src={image}
                   alt={item.tag}
                   className="w-full h-full object-cover"
                 />
