@@ -179,15 +179,17 @@ function ItemRow({ item, sectorId }: { item: string; sectorId: string }) {
   let textClasses = 'text-[11px] xl:text-[12px] tracking-tight'; // Standard text size
 
   if (logo && logo.includes('BARZY')) {
-    logoScale = 0.95; // Zoom out Barzy specifically
+    logoScale = 0.99; // Zoom out Barzy specifically
     textClasses = 'text-[11px] xl:text-[11px] tracking-tighter'; // Smaller text for long name
   } else if (logo && logo.includes('lutkay')) {
-    logoScale = 1.08;
+    logoScale = 1.06;
     logoTranslateX = 4;
     textClasses = 'text-[11px] xl:text-[11px] tracking-tighter'; // Smaller text for long name
   } else if (logo && logo.includes('qapat-1')) {
-    logoScale = 1.25; // Perfectly sized and balanced center-aligned logo
+    logoScale = 1.15; // Perfectly sized and balanced center-aligned logo
     textClasses = 'text-[11px] xl:text-[11px] tracking-tighter'; // Apply same tiny font size to Chya Gold
+  } else if (logo && logo.includes('hangawexchange')) {
+    logoScale = 1.20;
   } else if (logo && logo.includes('chyatech')) {
     logoScale = 1.85; // Zoom in Chya Tech to match Chya Phone size perfectly
   } else if (logo && logo.includes('BLUE PRINT')) {
@@ -201,7 +203,7 @@ function ItemRow({ item, sectorId }: { item: string; sectorId: string }) {
   } else if (logo && logo.includes('chyaexchnage')) {
     logoScale = 1.0; // Perfectly sized and balanced center-aligned logo
   } else if (logo && logo.toLowerCase().includes('dibaga')) {
-    logoScale = 1.18; // Perfectly sized and balanced center-aligned logo
+    logoScale = 1.10; // Perfectly sized and balanced center-aligned logo
   }
 
   return (
