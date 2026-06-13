@@ -18,6 +18,32 @@ export default function MultiImageUpload({ onImagesChange, defaultImages = [], l
   const [error, setError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  // Helper function to dynamically convert HEIC to JPEG on client side
+  const convertHeicToJpeg = async (file: File): Promise<File> => {
+    const isHeic = file.name.toLowerCase().endsWith(".heic") || file.name.toLowerCase().endsWith(".heif");
+    if (!isHeic) return file;
+
+    try {
+      const heic2any = (await import("heic2any")).default;
+      const convertedBlob = await heic2any({
+        blob: file,
+        toType: "image/jpeg",
+        quality: 0.8,
+      });
+
+      const jpegBlob = Array.isArray(convertedBlob) ? convertedBlob[0] : convertedBlob;
+      const newFilename = file.name.replace(/\.(heic|heif)$/i, ".jpg");
+      
+      return new File([jpegBlob], newFilename, {
+        type: "image/jpeg",
+        lastModified: Date.now(),
+      });
+    } catch (err) {
+      console.error("HEIC conversion failed for multi-upload, using original file:", err);
+      return file;
+    }
+  };
+
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
     if (!files || files.length === 0) return;
@@ -31,10 +57,14 @@ export default function MultiImageUpload({ onImagesChange, defaultImages = [], l
 
     const uploadedUrls: string[] = [];
     
-    for (const file of files) {
-      if (!file.type.startsWith("image/")) continue;
+    for (let file of files) {
+      const isImg = file.type.startsWith("image/") || /\.(heic|heif)$/i.test(file.name);
+      if (!isImg) continue;
       
       try {
+        // Convert HEIC to JPEG if needed
+        file = await convertHeicToJpeg(file);
+
         const result = await getPresignedUrlAction(file.name, file.type);
         if (result.error || !result.uploadUrl || !result.publicUrl) {
           throw new Error(result.error || `Could not generate upload URL for ${file.name}`);
@@ -139,7 +169,7 @@ export default function MultiImageUpload({ onImagesChange, defaultImages = [], l
               ref={fileInputRef}
               onChange={handleFileChange}
               className="hidden" 
-              accept="image/*"
+              accept="image/*,.heic,.HEIC,.heif,.HEIF"
               multiple
             />
             {isUploading ? (

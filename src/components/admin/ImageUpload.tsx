@@ -17,9 +17,41 @@ export default function ImageUpload({ onUploadComplete, defaultImage, label }: I
   const [error, setError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  // Helper function to dynamically convert HEIC to JPEG on client side
+  const convertHeicToJpeg = async (file: File): Promise<File> => {
+    const isHeic = file.name.toLowerCase().endsWith(".heic") || file.name.toLowerCase().endsWith(".heif");
+    if (!isHeic) return file;
+
+    try {
+      const heic2any = (await import("heic2any")).default;
+      const convertedBlob = await heic2any({
+        blob: file,
+        toType: "image/jpeg",
+        quality: 0.8,
+      });
+
+      const jpegBlob = Array.isArray(convertedBlob) ? convertedBlob[0] : convertedBlob;
+      const newFilename = file.name.replace(/\.(heic|heif)$/i, ".jpg");
+      
+      return new File([jpegBlob], newFilename, {
+        type: "image/jpeg",
+        lastModified: Date.now(),
+      });
+    } catch (err) {
+      console.error("HEIC conversion failed, using original file:", err);
+      return file;
+    }
+  };
+
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
+    let file = e.target.files?.[0];
     if (!file) return;
+
+    setIsUploading(true);
+    setError(null);
+
+    // Convert if it is a HEIC image
+    file = await convertHeicToJpeg(file);
 
     // Local preview
     const reader = new FileReader();
@@ -70,15 +102,24 @@ export default function ImageUpload({ onUploadComplete, defaultImage, label }: I
 
   const handleDrop = async (e: React.DragEvent) => {
     e.preventDefault();
-    const file = e.dataTransfer.files?.[0];
-    if (file && file.type.startsWith("image/")) {
+    let file = e.dataTransfer.files?.[0];
+    if (file) {
+      const isImg = file.type.startsWith("image/") || /\.(heic|heif)$/i.test(file.name);
+      if (isImg) {
+        setIsUploading(true);
+        setError(null);
+        
+        file = await convertHeicToJpeg(file);
+
         // Local preview
         const reader = new FileReader();
         reader.onloadend = () => {
-            setPreview(reader.result as string);
+          setPreview(reader.result as string);
         };
         reader.readAsDataURL(file);
+        
         await performUpload(file);
+      }
     }
   };
 
@@ -101,7 +142,7 @@ export default function ImageUpload({ onUploadComplete, defaultImage, label }: I
           ref={fileInputRef}
           onChange={handleFileChange}
           className="hidden" 
-          accept="image/*"
+          accept="image/*,.heic,.HEIC,.heif,.HEIF"
         />
 
         {preview ? (
@@ -121,7 +162,7 @@ export default function ImageUpload({ onUploadComplete, defaultImage, label }: I
                 <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
                     <div className="flex flex-col items-center gap-3">
                         <div className="w-8 h-8 border-2 border-white/20 border-t-white rounded-full animate-spin"></div>
-                        <span className="text-[10px] font-bold text-white uppercase tracking-widest">Uploading to ImgBB...</span>
+                        <span className="text-[10px] font-bold text-white uppercase tracking-widest">Uploading to R2...</span>
                     </div>
                 </div>
             )}
@@ -133,7 +174,7 @@ export default function ImageUpload({ onUploadComplete, defaultImage, label }: I
             </div>
             <div>
               <p className="text-sm font-medium text-zinc-300">Click or drag image to upload</p>
-              <p className="text-[10px] text-zinc-500 uppercase tracking-widest mt-1">Supports PNG, JPG, WebP (Max 32MB)</p>
+              <p className="text-[10px] text-zinc-500 uppercase tracking-widest mt-1">Supports PNG, JPG, WebP, HEIC (Max 50MB)</p>
             </div>
             {isUploading && (
                 <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px] flex items-center justify-center">
