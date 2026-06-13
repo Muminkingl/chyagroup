@@ -307,7 +307,10 @@ export const translations = {
       allNews: "All News",
       noPosts: "No news posts published yet. Please check back later.",
       readTime: "{minutes} min read",
-      author: "Chya Group"
+      author: "Chya Group",
+      filterAll: "All Years",
+      filterBy: "Filter by",
+      filterYear: "Year"
     },
     about: {
       hero: {
@@ -743,7 +746,10 @@ export const translations = {
       allNews: "كل الأخبار",
       noPosts: "لم يتم نشر أي أخبار بعد. يرجى العودة لاحقاً.",
       readTime: "قراءة {minutes} دقائق",
-      author: "مجموعة چیا"
+      author: "مجموعة چیا",
+      filterAll: "كل السنوات",
+      filterBy: "تصفية حسب",
+      filterYear: "السنة"
     },
     about: {
       hero: {
@@ -1178,7 +1184,10 @@ export const translations = {
       allNews: "هەموو هەواڵەکان",
       noPosts: "هیچ هەواڵێک تا ئێستا بڵاونەکراوەتەوە. تکایە دواتر سەردان بکەوە.",
       readTime: "{minutes} خولەک خوێندنەوە",
-      author: "چیا گرووپ"
+      author: "چیا گرووپ",
+      filterAll: "هەموو ساڵەکان",
+      filterBy: "پاڵاوتن بەپێی",
+      filterYear: "ساڵ"
     },
     about: {
       hero: {

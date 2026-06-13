@@ -17,6 +17,13 @@ export default function FeaturedGrid({ posts }: { posts: Post[] }) {
   const sidePosts = posts.slice(1, 3);
   const hasHeroImage = !!(heroPost.imageUrl && heroPost.imageUrl.trim() !== '');
 
+  // Localized hero post content
+  const localizedHeroTitle = (heroPost as any)[`title_${locale}`] || heroPost.title;
+  const localizedHeroContent = (heroPost as any)[`content_${locale}`] || heroPost.content || '';
+  const localizedHeroExcerpt = localizedHeroContent
+    ? localizedHeroContent.replace(/<[^>]*>/g, '').substring(0, 160) + '...'
+    : heroPost.excerpt;
+
   // Localized date formatting
   const formatDate = (dateStr: string) => {
     return new Date(dateStr).toLocaleDateString(locale === 'en' ? 'en-US' : locale === 'ar' ? 'ar-EG' : 'ku-IQ', {
@@ -27,7 +34,7 @@ export default function FeaturedGrid({ posts }: { posts: Post[] }) {
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 text-start">
       {/* HERO POST - Spans 8 columns */}
       <Link 
         href={`/news/${heroPost.id}`}
@@ -39,7 +46,7 @@ export default function FeaturedGrid({ posts }: { posts: Post[] }) {
           <div className="absolute inset-0">
             <img 
               src={heroPost.imageUrl} 
-              alt={heroPost.title}
+              alt={localizedHeroTitle}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-white via-white/90 to-transparent opacity-95" />
@@ -66,10 +73,10 @@ export default function FeaturedGrid({ posts }: { posts: Post[] }) {
           </div>
           
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#0c1a2e] mb-3 group-hover:text-[#3b82f6] transition-colors" dir="auto">
-            {heroPost.title}
+            {localizedHeroTitle}
           </h2>
           <p className="text-[#3a4f6a] text-base md:text-lg max-w-2xl mb-6 line-clamp-2 font-medium leading-relaxed" dir="auto">
-            {heroPost.excerpt}
+            {localizedHeroExcerpt}
           </p>
           
           <div className="flex items-center gap-3">
@@ -92,6 +99,12 @@ export default function FeaturedGrid({ posts }: { posts: Post[] }) {
         <div className="lg:col-span-4 flex flex-col gap-6">
           {sidePosts.map((post) => {
             const hasSideImage = !!(post.imageUrl && post.imageUrl.trim() !== '');
+            const localizedSideTitle = (post as any)[`title_${locale}`] || post.title;
+            const localizedSideContent = (post as any)[`content_${locale}`] || post.content || '';
+            const localizedSideExcerpt = localizedSideContent
+              ? localizedSideContent.replace(/<[^>]*>/g, '').substring(0, 160) + '...'
+              : post.excerpt;
+
             return (
               <Link 
                 key={post.id}
@@ -103,7 +116,7 @@ export default function FeaturedGrid({ posts }: { posts: Post[] }) {
                   <div className="absolute inset-0">
                     <img
                       src={post.imageUrl}
-                      alt={post.title}
+                      alt={localizedSideTitle}
                       className="w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-white via-white/90 to-white/60" />
@@ -131,10 +144,10 @@ export default function FeaturedGrid({ posts }: { posts: Post[] }) {
                       </div>
                     </div>
                     <h3 className="text-xl font-bold tracking-tight text-[#0c1a2e] mb-2 group-hover:text-[#3b82f6] line-clamp-3 transition-colors" dir="auto">
-                      {post.title}
+                      {localizedSideTitle}
                     </h3>
                     <p className="text-sm text-[#3a4f6a] line-clamp-2 font-medium leading-relaxed" dir="auto">
-                      {post.excerpt}
+                      {localizedSideExcerpt}
                     </p>
                   </div>
 
@@ -143,7 +156,7 @@ export default function FeaturedGrid({ posts }: { posts: Post[] }) {
                       <div className="w-6 h-6 rounded-full bg-[#f4f7f9] border border-[#0c1a2e]/10 flex items-center justify-center">
                         <span className="text-[9px] font-bold text-[#3a4f6a]">CG</span>
                       </div>
-                        <span className="text-xs text-[#0c1a2e] font-medium">{t.author}</span>
+                      <span className="text-xs text-[#0c1a2e] font-medium">{t.author}</span>
                     </div>
                     <span className="text-xs text-[#3a4f6a] flex items-center gap-1 font-medium">
                       <Iconify icon="solar:clock-circle-linear" width={11} />

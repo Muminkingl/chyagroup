@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Iconify } from "@/components/ui/Iconify";
 import { useLanguage } from "@/context/LanguageContext";
@@ -36,6 +36,12 @@ export default function PostDetailContent({ post }: PostDetailContentProps) {
   const content = post[`content_${locale}` as keyof typeof post] as string || post.content;
   const additionalImages = post.images || [];
 
+  // Combine featured banner image + additional gallery images for a unified lightbox pool
+  const allImages = [
+    ...(post.image_url ? [post.image_url] : []),
+    ...additionalImages
+  ];
+
   // Localized Gallery Headings
   const galleryTitle = {
     en: "Post Gallery",
@@ -52,17 +58,33 @@ export default function PostDetailContent({ post }: PostDetailContentProps) {
 
   const nextImage = (e: React.MouseEvent) => {
     e.stopPropagation();
-    if (activeImageIdx !== null) {
-      setActiveImageIdx((activeImageIdx + 1) % additionalImages.length);
+    if (activeImageIdx !== null && allImages.length > 0) {
+      setActiveImageIdx((activeImageIdx + 1) % allImages.length);
     }
   };
 
   const prevImage = (e: React.MouseEvent) => {
     e.stopPropagation();
-    if (activeImageIdx !== null) {
-      setActiveImageIdx((activeImageIdx - 1 + additionalImages.length) % additionalImages.length);
+    if (activeImageIdx !== null && allImages.length > 0) {
+      setActiveImageIdx((activeImageIdx - 1 + allImages.length) % allImages.length);
     }
   };
+
+  // Keyboard navigation for Lightbox
+  useEffect(() => {
+    function handleKeyDown(e: KeyboardEvent) {
+      if (activeImageIdx === null) return;
+      if (e.key === "Escape") {
+        setActiveImageIdx(null);
+      } else if (e.key === "ArrowRight") {
+        setActiveImageIdx((prev) => (prev !== null ? (prev + 1) % allImages.length : null));
+      } else if (e.key === "ArrowLeft") {
+        setActiveImageIdx((prev) => (prev !== null ? (prev - 1 + allImages.length) % allImages.length : null));
+      }
+    }
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [activeImageIdx, allImages.length]);
 
   return (
     <main className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
@@ -113,12 +135,20 @@ export default function PostDetailContent({ post }: PostDetailContentProps) {
 
         {/* Featured Image */}
         {post.image_url && (
-          <div className="relative aspect-[21/9] mb-16 rounded-3xl overflow-hidden border border-[#0c1a2e]/5 shadow-sm bg-zinc-100">
+          <div 
+            onClick={() => setActiveImageIdx(0)}
+            className="relative aspect-[21/9] mb-16 rounded-3xl overflow-hidden border border-[#0c1a2e]/5 shadow-sm bg-zinc-100 cursor-pointer group hover:shadow-md transition-shadow duration-300"
+          >
             <img 
               src={post.image_url} 
               alt={title}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.01]"
             />
+            <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <div className="w-12 h-12 rounded-full bg-white/90 shadow flex items-center justify-center text-[#0c1a2e]">
+                <Iconify icon="solar:magnifer-zoom-in-linear" width={20} />
+              </div>
+            </div>
             <div className="absolute inset-0 bg-gradient-to-t from-[#faf9f6] via-transparent to-transparent opacity-20"></div>
           </div>
         )}
@@ -130,7 +160,7 @@ export default function PostDetailContent({ post }: PostDetailContentProps) {
           dangerouslySetInnerHTML={{ __html: content }}
         />
 
-        {/* 5. Additional Images Gallery */}
+        {/* Additional Images Gallery */}
         {additionalImages.length > 0 && (
           <section className="mt-20 pt-12 border-t border-[#0c1a2e]/10">
             <h3 className={`text-xl font-bold text-[#0c1a2e] mb-6 tracking-tight ${isRTL ? 'text-right' : 'text-left'}`}>
@@ -138,24 +168,27 @@ export default function PostDetailContent({ post }: PostDetailContentProps) {
             </h3>
             
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-              {additionalImages.map((imgUrl, idx) => (
-                <div 
-                  key={idx} 
-                  onClick={() => setActiveImageIdx(idx)}
-                  className="group relative aspect-[4/3] rounded-2xl overflow-hidden border border-[#0c1a2e]/5 shadow-sm bg-[#faf9f6] cursor-pointer hover:shadow-md transition-shadow duration-300"
-                >
-                  <img 
-                    src={imgUrl} 
-                    alt={`${title} gallery ${idx + 1}`} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <div className="w-10 h-10 rounded-full bg-white/90 shadow flex items-center justify-center text-[#0c1a2e]">
-                      <Iconify icon="solar:magnifer-zoom-in-linear" width={18} />
+              {additionalImages.map((imgUrl, idx) => {
+                const globalIdx = post.image_url ? idx + 1 : idx;
+                return (
+                  <div 
+                    key={idx} 
+                    onClick={() => setActiveImageIdx(globalIdx)}
+                    className="group relative aspect-[4/3] rounded-2xl overflow-hidden border border-[#0c1a2e]/5 shadow-sm bg-[#faf9f6] cursor-pointer hover:shadow-md transition-shadow duration-300"
+                  >
+                    <img 
+                      src={imgUrl} 
+                      alt={`${title} gallery ${idx + 1}`} 
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <div className="w-10 h-10 rounded-full bg-white/90 shadow flex items-center justify-center text-[#0c1a2e]">
+                        <Iconify icon="solar:magnifer-zoom-in-linear" width={18} />
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </section>
         )}
@@ -177,7 +210,7 @@ export default function PostDetailContent({ post }: PostDetailContentProps) {
                 <Iconify icon="solar:close-circle-linear" width={24} />
               </button>
 
-              {additionalImages.length > 1 && (
+              {allImages.length > 1 && (
                 <>
                   <button 
                     onClick={prevImage}
@@ -204,12 +237,12 @@ export default function PostDetailContent({ post }: PostDetailContentProps) {
                 onClick={(e) => e.stopPropagation()}
               >
                 <img 
-                  src={additionalImages[activeImageIdx]} 
+                  src={allImages[activeImageIdx]} 
                   alt={`${title} full view`} 
                   className="max-w-full max-h-[85vh] object-contain"
                 />
                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 text-[10px] font-bold text-white uppercase tracking-widest">
-                  {activeImageIdx + 1} / {additionalImages.length}
+                  {activeImageIdx + 1} / {allImages.length}
                 </div>
               </motion.div>
             </motion.div>

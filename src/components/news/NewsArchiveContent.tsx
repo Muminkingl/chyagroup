@@ -1,10 +1,14 @@
 "use client";
 
+import { useState, useRef, useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/i18n/translations';
 import FeaturedGrid from '@/components/news/FeaturedGrid';
 import PostCard from '@/components/news/PostCard';
 import { Post } from '@/data/newsData';
+import { clsx } from 'clsx';
+import { Iconify } from '../ui/Iconify';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface NewsArchiveContentProps {
   initialPosts: Post[];
@@ -13,10 +17,44 @@ interface NewsArchiveContentProps {
 export default function NewsArchiveContent({ initialPosts }: NewsArchiveContentProps) {
   const { locale, isRTL } = useLanguage();
   const t = translations[locale].newsArchive;
+  const [selectedYear, setSelectedYear] = useState<number | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // First 3 go to featured section
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  // Extract unique years from posts, sorted descending
+  const years = Array.from(
+    new Set(
+      initialPosts.map((post) => new Date(post.date).getFullYear())
+    )
+  ).sort((a, b) => b - a);
+
+  // Count posts per year
+  const postCountsByYear = initialPosts.reduce((acc, post) => {
+    const year = new Date(post.date).getFullYear();
+    acc[year] = (acc[year] || 0) + 1;
+    return acc;
+  }, {} as Record<number, number>);
+
+  // Filtered posts based on selection
+  const filteredPosts = selectedYear
+    ? initialPosts.filter((post) => new Date(post.date).getFullYear() === selectedYear)
+    : initialPosts;
+
+  // For the default "All Years" view, show the first 3 as featured and the rest as archive
   const featuredPosts = initialPosts.slice(0, 3);
-  // Rest go to the "All News" archive grid
   const remainingPosts = initialPosts.slice(3);
 
   return (
@@ -31,33 +69,197 @@ export default function NewsArchiveContent({ initialPosts }: NewsArchiveContentP
         </p>
       </div>
 
-      {/* Latest News — always 3 featured posts */}
-      {featuredPosts.length > 0 && (
-        <div className="mb-16">
-          <h2 className="text-[10px] font-bold uppercase tracking-widest text-[#3a4f6a] mb-6 flex items-center gap-3">
-            <span>{t.latest}</span>
-            <div className="h-px bg-[#0c1a2e]/10 flex-1"></div>
-          </h2>
-          <FeaturedGrid posts={featuredPosts} />
-        </div>
-      )}
+      {/* Year Filter Section */}
+      {years.length > 0 && (
+        <div className="mb-12 border-b border-[#0c1a2e]/5 pb-8 relative z-30">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            
+            {/* Title & Icon */}
+            <div className="flex items-center gap-2 text-[#3a4f6a]">
+              <Iconify icon="solar:filter-linear" className="text-lg text-[#3b82f6]" />
+              <span className="text-xs font-bold uppercase tracking-widest">{t.filterBy}</span>
+            </div>
 
-      {/* All News Archive */}
-      {initialPosts.length > 3 && (
-        <div>
-          <h2 className="text-[10px] font-bold uppercase tracking-widest text-[#3a4f6a] mb-6 flex items-center gap-3">
-            <span>{t.allNews}</span>
-            <div className="h-px bg-[#0c1a2e]/10 flex-1"></div>
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {remainingPosts.map((post) => (
-              <PostCard key={post.id} post={post} />
-            ))}
+            {/* Dropdown Element */}
+            <div className="relative" ref={dropdownRef}>
+              <button
+                type="button"
+                onClick={() => setIsOpen(!isOpen)}
+                className={clsx(
+                  "w-full sm:w-auto min-w-[220px] px-5 py-3 rounded-2xl text-xs font-bold transition-all duration-300 flex items-center justify-between gap-3 border bg-white shadow-sm border-[#0c1a2e]/10 text-[#0c1a2e] hover:border-[#0c1a2e]/20 hover:shadow-md cursor-pointer",
+                  isOpen && "border-[#3b82f6] ring-2 ring-[#3b82f6]/10"
+                )}
+              >
+                <div className="flex items-center gap-2.5">
+                  <Iconify 
+                    icon={selectedYear === null ? "solar:globus-linear" : "solar:calendar-date-linear"} 
+                    className="w-4 h-4 text-[#3b82f6]" 
+                  />
+                  <span>
+                    {selectedYear === null ? t.filterAll : `${t.filterYear}: ${selectedYear}`}
+                  </span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="px-2 py-0.5 rounded-lg text-[10px] font-extrabold bg-[#0c1a2e]/5 text-[#3a4f6a]">
+                    {selectedYear === null ? initialPosts.length : (postCountsByYear[selectedYear] || 0)}
+                  </span>
+                  <Iconify 
+                    icon="solar:alt-arrow-down-linear" 
+                    className={clsx("w-3.5 h-3.5 text-[#3a4f6a] transition-transform duration-300", isOpen && "rotate-180")} 
+                  />
+                </div>
+              </button>
+
+              <AnimatePresence>
+                {isOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                    transition={{ duration: 0.15, ease: 'easeOut' }}
+                    className={clsx(
+                      "absolute mt-2 min-w-[240px] max-h-[280px] overflow-y-auto rounded-2xl border border-[#0c1a2e]/10 bg-white/95 backdrop-blur-md p-2 shadow-[0_12px_40px_rgba(12,26,46,0.12)] z-50 text-start flex flex-col gap-1 no-scrollbar",
+                      isRTL ? "left-0 origin-top-left" : "right-0 origin-top-right"
+                    )}
+                    style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                  >
+                    {/* All Years Button */}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setSelectedYear(null);
+                        setIsOpen(false);
+                      }}
+                      className={clsx(
+                        "w-full px-4 py-2.5 rounded-xl text-xs font-bold flex items-center justify-between transition-colors duration-200 cursor-pointer",
+                        selectedYear === null
+                          ? "bg-[#0c1a2e] text-white shadow-sm"
+                          : "text-[#3a4f6a] hover:bg-[#0c1a2e]/5 hover:text-[#0c1a2e]"
+                      )}
+                    >
+                      <div className="flex items-center gap-2.5">
+                        <Iconify icon="solar:globus-linear" className={clsx("w-4 h-4", selectedYear === null ? "text-white" : "text-[#3b82f6]")} />
+                        <span>{t.filterAll}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className={clsx(
+                          "px-1.5 py-0.5 rounded text-[9px] font-extrabold",
+                          selectedYear === null ? "bg-white/20 text-white" : "bg-[#0c1a2e]/5 text-[#3a4f6a]"
+                        )}>
+                          {initialPosts.length}
+                        </span>
+                        {selectedYear === null && (
+                          <Iconify icon="solar:check-circle-bold" className="w-3.5 h-3.5 text-white" />
+                        )}
+                      </div>
+                    </button>
+
+                    {/* Individual Year Buttons */}
+                    {years.map((year) => {
+                      const isSelected = selectedYear === year;
+                      const count = postCountsByYear[year] || 0;
+                      return (
+                        <button
+                          key={year}
+                          type="button"
+                          onClick={() => {
+                            setSelectedYear(year);
+                            setIsOpen(false);
+                          }}
+                          className={clsx(
+                            "w-full px-4 py-2.5 rounded-xl text-xs font-bold flex items-center justify-between transition-colors duration-200 cursor-pointer",
+                            isSelected
+                              ? "bg-[#0c1a2e] text-white shadow-sm"
+                              : "text-[#3a4f6a] hover:bg-[#0c1a2e]/5 hover:text-[#0c1a2e]"
+                          )}
+                        >
+                          <div className="flex items-center gap-2.5">
+                            <Iconify icon="solar:calendar-date-linear" className={clsx("w-4 h-4", isSelected ? "text-white" : "text-[#3b82f6]")} />
+                            <span>{year}</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className={clsx(
+                              "px-1.5 py-0.5 rounded text-[9px] font-extrabold",
+                              isSelected ? "bg-white/20 text-white" : "bg-[#0c1a2e]/5 text-[#3a4f6a]"
+                            )}>
+                              {count}
+                            </span>
+                            {isSelected && (
+                              <Iconify icon="solar:check-circle-bold" className="w-3.5 h-3.5 text-white" />
+                            )}
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
           </div>
         </div>
       )}
 
-      {/* Empty state */}
+      {/* Grid Content with Transitions */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={selectedYear ?? 'all'}
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -15 }}
+          transition={{ duration: 0.25 }}
+        >
+          {selectedYear === null ? (
+            <>
+              {/* Latest News (Only when no year filter is active) */}
+              {featuredPosts.length > 0 && (
+                <div className="mb-16">
+                  <h2 className="text-[10px] font-bold uppercase tracking-widest text-[#3a4f6a] mb-6 flex items-center gap-3">
+                    <span>{t.latest}</span>
+                    <div className="h-px bg-[#0c1a2e]/10 flex-1"></div>
+                  </h2>
+                  <FeaturedGrid posts={featuredPosts} />
+                </div>
+              )}
+
+              {/* All News Archive */}
+              {initialPosts.length > 3 && (
+                <div>
+                  <h2 className="text-[10px] font-bold uppercase tracking-widest text-[#3a4f6a] mb-6 flex items-center gap-3">
+                    <span>{t.allNews}</span>
+                    <div className="h-px bg-[#0c1a2e]/10 flex-1"></div>
+                  </h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {remainingPosts.map((post) => (
+                      <PostCard key={post.id} post={post} />
+                    ))}
+                  </div>
+                </div>
+              )}
+            </>
+          ) : (
+            <div>
+              <h2 className="text-[10px] font-bold uppercase tracking-widest text-[#3a4f6a] mb-6 flex items-center gap-3">
+                <span>{t.filterYear}: {selectedYear} ({filteredPosts.length})</span>
+                <div className="h-px bg-[#0c1a2e]/10 flex-1"></div>
+              </h2>
+              {filteredPosts.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {filteredPosts.map((post) => (
+                    <PostCard key={post.id} post={post} />
+                  ))}
+                </div>
+              ) : (
+                <div className="py-20 text-center border border-[#0c1a2e]/10 rounded-3xl bg-white shadow-sm">
+                  <p className="text-[#3a4f6a] italic font-medium">{t.noPosts}</p>
+                </div>
+              )}
+            </div>
+          )}
+        </motion.div>
+      </AnimatePresence>
+
+      {/* General Empty state (if no posts exist at all) */}
       {initialPosts.length === 0 && (
         <div className="py-20 text-center border border-[#0c1a2e]/10 rounded-3xl bg-white shadow-sm">
           <p className="text-[#3a4f6a] italic font-medium">{t.noPosts}</p>
