@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { uploadImage } from "@/app/admin/actions";
+import { getPresignedUrlAction } from "@/app/admin/actions";
 import { clsx } from "clsx";
 import { Iconify } from "@/components/ui/Iconify";
 
@@ -36,18 +36,32 @@ export default function ImageUpload({ onUploadComplete, defaultImage, label }: I
     setIsUploading(true);
     setError(null);
 
-    const formData = new FormData();
-    formData.append("image", file);
+    try {
+      const result = await getPresignedUrlAction(file.name, file.type);
+      if (result.error || !result.uploadUrl || !result.publicUrl) {
+        throw new Error(result.error || "Could not generate upload URL");
+      }
 
-    const result = await uploadImage(formData);
+      const uploadResponse = await fetch(result.uploadUrl, {
+        method: "PUT",
+        body: file,
+        headers: {
+          "Content-Type": file.type,
+        },
+      });
 
-    if (result.url) {
-      onUploadComplete(result.url);
-      setPreview(result.url);
-    } else {
-      setError(result.error || "Upload failed");
+      if (!uploadResponse.ok) {
+        throw new Error(`Upload failed with status: ${uploadResponse.status}`);
+      }
+
+      onUploadComplete(result.publicUrl);
+      setPreview(result.publicUrl);
+    } catch (err: any) {
+      console.error("Image direct upload error:", err);
+      setError(err.message || "Upload failed");
+    } finally {
+      setIsUploading(false);
     }
-    setIsUploading(false);
   };
 
   const triggerUpload = () => {

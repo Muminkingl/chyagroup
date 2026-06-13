@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { uploadImage } from "@/app/admin/actions";
+import { getPresignedUrlAction } from "@/app/admin/actions";
 import { clsx } from "clsx";
 import { Iconify } from "@/components/ui/Iconify";
 import { AnimatePresence, motion } from "framer-motion";
@@ -34,18 +34,28 @@ export default function MultiImageUpload({ onImagesChange, defaultImages = [], l
     for (const file of files) {
       if (!file.type.startsWith("image/")) continue;
       
-      const formData = new FormData();
-      formData.append("image", file);
-
       try {
-        const result = await uploadImage(formData);
-        if (result.url) {
-          uploadedUrls.push(result.url);
-        } else {
-          setError(result.error || `Upload failed for ${file.name}`);
+        const result = await getPresignedUrlAction(file.name, file.type);
+        if (result.error || !result.uploadUrl || !result.publicUrl) {
+          throw new Error(result.error || `Could not generate upload URL for ${file.name}`);
         }
+
+        const uploadResponse = await fetch(result.uploadUrl, {
+          method: "PUT",
+          body: file,
+          headers: {
+            "Content-Type": file.type,
+          },
+        });
+
+        if (!uploadResponse.ok) {
+          throw new Error(`Upload failed for ${file.name}`);
+        }
+
+        uploadedUrls.push(result.publicUrl);
       } catch (err: any) {
-        setError(err.message || "Failed to upload image");
+        console.error("Multi-image direct upload error:", err);
+        setError(err.message || `Failed to upload ${file.name}`);
       }
     }
 

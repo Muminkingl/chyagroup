@@ -5,7 +5,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import { encrypt } from "@/lib/auth";
-import { uploadToR2 } from "@/lib/r2";
+import { uploadToR2, getPresignedUploadUrl } from "@/lib/r2";
 
 const ADMIN_EMAIL = 'muminrtx@gmail.com';
 const ADMIN_PASS = 'Mklop123';
@@ -223,5 +223,15 @@ export async function uploadImage(formData: FormData) {
   } catch (error: any) {
     console.error('R2 Upload Error:', error);
     return { error: error.message || 'Failed to upload image to R2' };
+  }
+}
+
+export async function getPresignedUrlAction(filename: string, contentType: string) {
+  try {
+    const { uploadUrl, publicUrl } = await getPresignedUploadUrl(filename, contentType);
+    return { uploadUrl, publicUrl };
+  } catch (error: any) {
+    console.error("Presigned URL Error:", error);
+    return { error: error.message || "Failed to generate upload URL" };
   }
 }

@@ -1,4 +1,5 @@
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
+import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 
 const r2Client = new S3Client({
   region: "auto",
@@ -8,6 +9,28 @@ const r2Client = new S3Client({
     secretAccessKey: process.env.R2_SECRET_ACCESS_KEY || "",
   },
 });
+
+export async function getPresignedUploadUrl(filename: string, contentType: string) {
+  const fileExtension = filename.split('.').pop() || 'png';
+  const key = `${Date.now()}-${Math.random().toString(36).substring(2, 9)}.${fileExtension}`;
+  
+  const command = new PutObjectCommand({
+    Bucket: process.env.R2_BUCKET_NAME,
+    Key: key,
+    ContentType: contentType,
+  });
+  
+  // URL expires in 10 minutes
+  const uploadUrl = await getSignedUrl(r2Client, command, { expiresIn: 600 });
+  
+  const publicUrl = process.env.R2_PUBLIC_URL;
+  let finalPublicUrl = `/api/uploads/${key}`;
+  if (publicUrl && !publicUrl.includes("cloudflarestorage.com")) {
+    finalPublicUrl = `${publicUrl.replace(/\/$/, '')}/${key}`;
+  }
+  
+  return { uploadUrl, publicUrl: finalPublicUrl };
+}
 
 export async function uploadToR2(file: File): Promise<string> {
   const bytes = await file.arrayBuffer();
