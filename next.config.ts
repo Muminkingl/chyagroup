@@ -1,8 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig = {
-  middlewareClientMaxBodySize: "50mb",
   experimental: {
+    middlewareClientMaxBodySize: "50mb",
     serverActions: {
       bodySizeLimit: "50mb",
     },
