@@ -70,63 +70,71 @@ export default function LatestNewsSection({ posts }: LatestNewsSectionProps) {
 
         {/* Cards Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
-          {posts.map((item) => (
-            <article
-              key={item.id}
-              className="group flex flex-col rounded-2xl bg-white/70 backdrop-blur-sm overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-[#0c1a2e]/5 hover:-translate-y-1"
-            >
-              {/* Image */}
-              <Link href={`/news/${item.id}`} className="block relative h-56 sm:h-60 overflow-hidden">
-                <img
-                  src={item.imageUrl}
-                  alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                {/* Category badge */}
-                <div className={`absolute top-4 ${isRTL ? 'right-4' : 'left-4'}`}>
-                  <span className="px-3.5 py-1.5 text-[10px] font-bold bg-[#0c1a2e] rounded-full text-white uppercase tracking-wider">
-                    {item.category}
-                  </span>
-                </div>
-              </Link>
+          {posts.map((item) => {
+            const localizedTitle = (item as any)[`title_${locale}`] || item.title;
+            const localizedContent = (item as any)[`content_${locale}`] || item.content || '';
+            const localizedExcerpt = localizedContent
+              ? localizedContent.replace(/<[^>]*>/g, '').substring(0, 160) + '...'
+              : item.excerpt;
 
-              {/* Card body */}
-              <div className={`flex flex-col flex-grow p-6 ${isRTL ? 'text-right' : 'text-left'}`}>
-                {/* Date with icon */}
-                <div className={`flex items-center gap-2 mb-3.5 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                  <Iconify icon="solar:calendar-minimalistic-linear" className="w-3.5 h-3.5 text-[#0c1a2e]/35" />
-                  <time className="text-xs font-medium text-[#0c1a2e]/40 tracking-wide">{item.date}</time>
-                </div>
-
-                {/* Title */}
-                <Link href={`/news/${item.id}`}>
-                  <h3 className="text-lg font-bold text-[#0c1a2e] leading-snug mb-3 line-clamp-2 group-hover:text-[#162d4f] transition-colors">
-                    {item.title}
-                  </h3>
+            return (
+              <article
+                key={item.id}
+                className="group flex flex-col rounded-2xl bg-white/70 backdrop-blur-sm overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-[#0c1a2e]/5 hover:-translate-y-1"
+              >
+                {/* Image */}
+                <Link href={`/news/${item.id}`} className="block relative h-56 sm:h-60 overflow-hidden">
+                  <img
+                    src={item.imageUrl}
+                    alt={localizedTitle}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  {/* Category badge */}
+                  <div className={`absolute top-4 ${isRTL ? 'right-4' : 'left-4'}`}>
+                    <span className="px-3.5 py-1.5 text-[10px] font-bold bg-[#0c1a2e] rounded-full text-white uppercase tracking-wider">
+                      {item.category}
+                    </span>
+                  </div>
                 </Link>
 
-                {/* Excerpt */}
-                <p className="text-sm text-[#3a4f6a]/60 leading-relaxed line-clamp-3 mb-6 font-normal">
-                  {item.excerpt}
-                </p>
+                {/* Card body */}
+                <div className={`flex flex-col flex-grow p-6 ${isRTL ? 'text-right' : 'text-left'}`}>
+                  {/* Date with icon */}
+                  <div className={`flex items-center gap-2 mb-3.5 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                    <Iconify icon="solar:calendar-minimalistic-linear" className="w-3.5 h-3.5 text-[#0c1a2e]/35" />
+                    <time className="text-xs font-medium text-[#0c1a2e]/40 tracking-wide">{item.date}</time>
+                  </div>
 
-                {/* Read article link */}
-                <div className="mt-auto">
-                  <Link
-                    href={`/news/${item.id}`}
-                    className={`inline-flex items-center gap-1.5 text-sm font-semibold text-[#0c1a2e] hover:text-[#162d4f] transition-colors ${isRTL ? 'flex-row-reverse' : ''}`}
-                  >
-                    {t.news.readArticle}
-                    {isRTL ? (
-                      <Iconify icon="solar:arrow-left-linear" className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-0.5" />
-                    ) : (
-                      <Iconify icon="solar:arrow-right-linear" className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-                    )}
+                  {/* Title */}
+                  <Link href={`/news/${item.id}`}>
+                    <h3 className="text-lg font-bold text-[#0c1a2e] leading-snug mb-3 line-clamp-2 group-hover:text-[#162d4f] transition-colors">
+                      {localizedTitle}
+                    </h3>
                   </Link>
+
+                  {/* Excerpt */}
+                  <p className="text-sm text-[#3a4f6a]/60 leading-relaxed line-clamp-3 mb-6 font-normal">
+                    {localizedExcerpt}
+                  </p>
+
+                  {/* Read article link */}
+                  <div className="mt-auto">
+                    <Link
+                      href={`/news/${item.id}`}
+                      className={`inline-flex items-center gap-1.5 text-sm font-semibold text-[#0c1a2e] hover:text-[#162d4f] transition-colors ${isRTL ? 'flex-row-reverse' : ''}`}
+                    >
+                      {t.news.readArticle}
+                      {isRTL ? (
+                        <Iconify icon="solar:arrow-left-linear" className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-0.5" />
+                      ) : (
+                        <Iconify icon="solar:arrow-right-linear" className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+                      )}
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -8,6 +8,13 @@ export interface NewsPost {
   date: string;
   imageUrl: string;
   content: string;
+  title_en?: string;
+  title_ar?: string;
+  title_ku?: string;
+  content_en?: string;
+  content_ar?: string;
+  content_ku?: string;
+  images?: string[];
 }
 
 export async function getLatestPosts(limit: number = 3): Promise<NewsPost[]> {
@@ -32,6 +39,14 @@ export async function getLatestPosts(limit: number = 3): Promise<NewsPost[]> {
     category: post.category || 'Announcement',
     date: new Date(post.created_at).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' }),
     imageUrl: post.image_url || '',
-    content: post.content
+    content: post.content,
+    title_en: post.title_en,
+    title_ar: post.title_ar,
+    title_ku: post.title_ku,
+    content_en: post.content_en,
+    content_ar: post.content_ar,
+    content_ku: post.content_ku,
+    images: post.images
   }));
 }
+

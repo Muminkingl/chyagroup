@@ -201,7 +201,7 @@ export const translations = {
         },
         {
           title: "Karlsruhe University",
-          subtitle: "Hochschule Karlsruhe University of Applied Sciences"
+          subtitle: "Hochschule Karlsruhe University of Applied Sciences\n(GERMANY)"
         }
       ]
     },
@@ -637,7 +637,7 @@ export const translations = {
         },
         {
           title: "Karlsruhe University",
-          subtitle: "جامعة كارلسروه للعلوم التطبيقية"
+          subtitle: "جامعة كارلسروه للعلوم التطبيقية\n(ألمانيا)"
         }
       ]
     },
@@ -1072,7 +1072,7 @@ export const translations = {
         },
         {
           title: "Karlsruhe University",
-          subtitle: "زانکۆی کارلسروه بۆ زانستە پراکتیکییەکان"
+          subtitle: "زانکۆی کارلسروه بۆ زانستە پراکتیکییەکان\n(ئەڵمانیا)"
         }
       ]
     },

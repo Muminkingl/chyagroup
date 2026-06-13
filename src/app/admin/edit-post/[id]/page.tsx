@@ -8,16 +8,23 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { clsx } from "clsx";
 import ImageUpload from "@/components/admin/ImageUpload";
+import MultiImageUpload from "@/components/admin/MultiImageUpload";
 import { Iconify } from "@/components/ui/Iconify";
 
 export default function EditPostDetail({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
-  const editorRef = useRef<HTMLDivElement>(null);
+  
+  const [activeTab, setActiveTab] = useState<"en" | "ar" | "ku">("en");
+  const editorEnRef = useRef<HTMLDivElement>(null);
+  const editorArRef = useRef<HTMLDivElement>(null);
+  const editorKuRef = useRef<HTMLDivElement>(null);
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [post, setPost] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [status, setStatus] = useState<string>("Published");
   const [imageUrl, setImageUrl] = useState<string>("");
+  const [images, setImages] = useState<string[]>([]);
   const router = useRouter();
 
   useEffect(() => {
@@ -27,26 +34,46 @@ export default function EditPostDetail({ params }: { params: Promise<{ id: strin
         setPost(data);
         setStatus(data.status);
         setImageUrl(data.image_url || "");
-        if (editorRef.current) {
-           editorRef.current.innerHTML = data.content;
-        }
+        setImages(data.images || []);
+        
+        // Populate editor contents with timeout to allow DOM refs to initialize
+        setTimeout(() => {
+          if (editorEnRef.current) {
+            editorEnRef.current.innerHTML = data.content_en || data.content || "";
+          }
+          if (editorArRef.current) {
+            editorArRef.current.innerHTML = data.content_ar || "";
+          }
+          if (editorKuRef.current) {
+            editorKuRef.current.innerHTML = data.content_ku || "";
+          }
+        }, 100);
       }
       setLoading(false);
     }
     fetchPost();
   }, [id]);
 
-  // Handle case where editor might not be ready on first effect
+  // Fallback populator if refs load later
   useEffect(() => {
-    if (post && editorRef.current && !editorRef.current.innerHTML) {
-      editorRef.current.innerHTML = post.content;
+    if (post) {
+      if (editorEnRef.current && !editorEnRef.current.innerHTML) {
+        editorEnRef.current.innerHTML = post.content_en || post.content || "";
+      }
+      if (editorArRef.current && !editorArRef.current.innerHTML) {
+        editorArRef.current.innerHTML = post.content_ar || "";
+      }
+      if (editorKuRef.current && !editorKuRef.current.innerHTML) {
+        editorKuRef.current.innerHTML = post.content_ku || "";
+      }
     }
-  }, [post]);
+  }, [post, activeTab]);
 
   const handleFormat = (command: string, value: string | null = null) => {
     document.execCommand(command, false, value || "");
-    if (editorRef.current) {
-      editorRef.current.focus();
+    const activeEditor = activeTab === "en" ? editorEnRef : activeTab === "ar" ? editorArRef : editorKuRef;
+    if (activeEditor.current) {
+      activeEditor.current.focus();
     }
   };
 
@@ -65,10 +92,16 @@ export default function EditPostDetail({ params }: { params: Promise<{ id: strin
   async function clientAction(formData: FormData) {
     setIsSubmitting(true);
     
-    // Manually add the rich text content to the form data
-    const content = editorRef.current?.innerHTML || "";
-    formData.append("content", content);
+    // Add translation contents to form data
+    const contentEn = editorEnRef.current?.innerHTML || "";
+    const contentAr = editorArRef.current?.innerHTML || "";
+    const contentKu = editorKuRef.current?.innerHTML || "";
+    
+    formData.append("content_en", contentEn);
+    formData.append("content_ar", contentAr);
+    formData.append("content_ku", contentKu);
     formData.append("status", status);
+    formData.append("images", JSON.stringify(images));
     
     const result = await updatePost(id, formData);
     
@@ -80,6 +113,15 @@ export default function EditPostDetail({ params }: { params: Promise<{ id: strin
       alert("Error updating post: " + result.error);
     }
   }
+
+  // Format date helper for datetime-local
+  const formatDatetimeLocal = (isoString: string) => {
+    if (!isoString) return "";
+    const d = new Date(isoString);
+    const offsetMs = d.getTimezoneOffset() * 60 * 1000;
+    const localTime = new Date(d.getTime() - offsetMs);
+    return localTime.toISOString().slice(0, 16);
+  };
 
   if (loading) {
      return <div className="flex items-center justify-center h-64 text-zinc-500 italic">Loading post data...</div>;
@@ -97,7 +139,7 @@ export default function EditPostDetail({ params }: { params: Promise<{ id: strin
            Back to Manager
         </Link>
         <h2 className="text-3xl font-semibold tracking-tight text-white">Edit Post</h2>
-        <p className="text-zinc-400">Modify your content and republish to the world.</p>
+        <p className="text-zinc-400">Modify your content, translations, imagery and publishing details.</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -105,39 +147,93 @@ export default function EditPostDetail({ params }: { params: Promise<{ id: strin
           <form action={clientAction}>
             <Card className="border-white/5 bg-zinc-900/20 backdrop-blur-sm">
               <CardHeader>
-                <CardTitle>Post Content</CardTitle>
-                <CardDescription>Update the title, imagery, and body of your post.</CardDescription>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div>
+                    <CardTitle>Post Content</CardTitle>
+                    <CardDescription>Update the translated details of this post.</CardDescription>
+                  </div>
+                  
+                  {/* Language Tab Switcher */}
+                  <div className="flex bg-zinc-950 p-1 rounded-xl border border-white/5 self-start">
+                    {(["en", "ar", "ku"] as const).map((tab) => (
+                      <button
+                        key={tab}
+                        type="button"
+                        onClick={() => setActiveTab(tab)}
+                        className={clsx(
+                          "px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-widest transition-all",
+                          activeTab === tab 
+                            ? "bg-zinc-800 text-white shadow-md border border-white/5" 
+                            : "text-zinc-500 hover:text-zinc-300"
+                        )}
+                      >
+                        {tab === "en" ? "EN" : tab === "ar" ? "AR" : "KU"}
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </CardHeader>
+              
               <CardContent className="space-y-6">
-                <div className="space-y-2">
-                  <label htmlFor="title" className="text-sm font-medium text-zinc-200">
-                    Title
-                  </label>
-                  <input 
-                    id="title"
-                    name="title"
-                    type="text" 
-                    required
-                    defaultValue={post.title}
-                    dir="auto"
-                    className="flex h-11 w-full rounded-xl border border-white/5 bg-zinc-950 px-4 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-zinc-700 transition-all font-medium"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  {post && (
-                    <ImageUpload 
-                      label="Featured Image" 
-                      defaultImage={post.image_url}
-                      onUploadComplete={(url) => setImageUrl(url)} 
+                
+                {/* 1. TRANSLATED TITLES */}
+                <div className={clsx(activeTab !== "en" && "hidden")}>
+                  <div className="space-y-2">
+                    <label htmlFor="title_en" className="text-sm font-medium text-zinc-200">
+                      English Title
+                    </label>
+                    <input 
+                      id="title_en"
+                      name="title_en"
+                      type="text" 
+                      required={activeTab === "en"}
+                      defaultValue={post.title_en || post.title}
+                      placeholder="Enter English title..." 
+                      className="flex h-11 w-full rounded-xl border border-white/5 bg-zinc-950 px-4 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-zinc-700 transition-all font-medium"
                     />
-                  )}
-                  <input type="hidden" name="imageUrl" value={imageUrl} />
+                  </div>
                 </div>
 
+                <div className={clsx(activeTab !== "ar" && "hidden")}>
+                  <div className="space-y-2">
+                    <label htmlFor="title_ar" className="text-sm font-medium text-zinc-200">
+                      Arabic Title
+                    </label>
+                    <input 
+                      id="title_ar"
+                      name="title_ar"
+                      type="text" 
+                      required={activeTab === "ar"}
+                      defaultValue={post.title_ar || ""}
+                      dir="rtl"
+                      placeholder="أدخل العنوان باللغة العربية..." 
+                      className="flex h-11 w-full rounded-xl border border-white/5 bg-zinc-950 px-4 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-zinc-700 transition-all font-medium"
+                    />
+                  </div>
+                </div>
+
+                <div className={clsx(activeTab !== "ku" && "hidden")}>
+                  <div className="space-y-2">
+                    <label htmlFor="title_ku" className="text-sm font-medium text-zinc-200">
+                      Kurdish Title
+                    </label>
+                    <input 
+                      id="title_ku"
+                      name="title_ku"
+                      type="text" 
+                      required={activeTab === "ku"}
+                      defaultValue={post.title_ku || ""}
+                      dir="rtl"
+                      placeholder="ناونیشان بە زمانی کوردی بنووسە..." 
+                      className="flex h-11 w-full rounded-xl border border-white/5 bg-zinc-950 px-4 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-zinc-700 transition-all font-medium"
+                    />
+                  </div>
+                </div>
+
+                {/* 2. TRANSLATED CONTENT EDITORS */}
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-zinc-200">
-                    Body Content
+                    Body Content ({activeTab === "en" ? "English" : activeTab === "ar" ? "Arabic" : "Kurdish"})
                   </label>
                   <div className="rounded-xl border border-white/5 bg-zinc-950 overflow-hidden focus-within:ring-2 focus-within:ring-zinc-700 transition-all">
                     <div className="flex flex-wrap items-center gap-1 border-b border-white/5 bg-zinc-900/50 p-1.5 font-light">
@@ -156,15 +252,88 @@ export default function EditPostDetail({ params }: { params: Promise<{ id: strin
                       <ToolbarButton icon="solar:text-align-right-linear" title="Align Right" onClick={() => handleFormat('justifyRight')} />
                     </div>
 
+                    {/* English Editor */}
                     <div 
-                      ref={editorRef}
-                      className="min-h-[400px] w-full p-6 text-sm text-zinc-100 focus:outline-none prose prose-invert max-w-none font-light"
+                      ref={editorEnRef}
+                      className={clsx(
+                        "min-h-[350px] w-full p-6 text-sm text-zinc-100 focus:outline-none prose prose-invert max-w-none font-light",
+                        activeTab !== "en" && "hidden"
+                      )}
                       contentEditable
                       suppressContentEditableWarning
-                      dir="auto"
+                      dir="ltr"
+                    />
+
+                    {/* Arabic Editor */}
+                    <div 
+                      ref={editorArRef}
+                      className={clsx(
+                        "min-h-[350px] w-full p-6 text-sm text-zinc-100 focus:outline-none prose prose-invert max-w-none font-light",
+                        activeTab !== "ar" && "hidden"
+                      )}
+                      contentEditable
+                      suppressContentEditableWarning
+                      dir="rtl"
+                    />
+
+                    {/* Kurdish Editor */}
+                    <div 
+                      ref={editorKuRef}
+                      className={clsx(
+                        "min-h-[350px] w-full p-6 text-sm text-zinc-100 focus:outline-none prose prose-invert max-w-none font-light",
+                        activeTab !== "ku" && "hidden"
+                      )}
+                      contentEditable
+                      suppressContentEditableWarning
+                      dir="rtl"
                     />
                   </div>
                 </div>
+
+                <hr className="border-white/5" />
+
+                {/* 3. IMAGES & DATE (SHARED) */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    {post && (
+                      <ImageUpload 
+                        label="Featured Banner Image (R2)" 
+                        defaultImage={imageUrl}
+                        onUploadComplete={(url) => setImageUrl(url)} 
+                      />
+                    )}
+                    <input type="hidden" name="imageUrl" value={imageUrl} />
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <div className="space-y-2">
+                      <label htmlFor="customDate" className="text-sm font-medium text-zinc-200">
+                        Publish Date & Time Override
+                      </label>
+                      <input 
+                        id="customDate"
+                        name="customDate"
+                        type="datetime-local" 
+                        defaultValue={formatDatetimeLocal(post.created_at)}
+                        className="flex h-11 w-full rounded-xl border border-white/5 bg-zinc-950 px-4 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-zinc-700 transition-all"
+                      />
+                      <p className="text-[10px] text-zinc-500 uppercase tracking-widest leading-relaxed">
+                        Change the publication date/time here. This allows backdating or updating the date of this post.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <hr className="border-white/5" />
+
+                {/* 4. MULTI IMAGES */}
+                {post && (
+                  <MultiImageUpload 
+                    label="Additional Gallery Images (R2)" 
+                    defaultImages={images}
+                    onImagesChange={(urls) => setImages(urls)}
+                  />
+                )}
 
                 <div className="flex justify-end gap-4 pt-4 border-t border-white/5">
                   <Button 
@@ -191,20 +360,20 @@ export default function EditPostDetail({ params }: { params: Promise<{ id: strin
                 <label className="text-xs font-bold uppercase tracking-widest text-zinc-500">Status</label>
                 <div className="flex flex-col gap-2">
                    {["Published", "Draft"].map((s) => (
-                     <button
-                       key={s}
-                       type="button"
-                       onClick={() => setStatus(s)}
-                       className={clsx(
-                         "flex items-center justify-between px-4 py-3 rounded-xl border transition-all text-sm font-medium",
-                         status === s 
-                          ? "bg-zinc-800 border-white/10 text-white shadow-lg" 
-                          : "bg-transparent border-white/5 text-zinc-500 hover:border-white/10"
-                       )}
-                     >
-                       <span>{s}</span>
-                       {status === s && <Iconify icon="solar:check-circle-bold" className="text-emerald-500 text-lg" />}
-                     </button>
+                      <button
+                        key={s}
+                        type="button"
+                        onClick={() => setStatus(s)}
+                        className={clsx(
+                          "flex items-center justify-between px-4 py-3 rounded-xl border transition-all text-sm font-medium",
+                          status === s 
+                           ? "bg-zinc-800 border-white/10 text-white shadow-lg" 
+                           : "bg-transparent border-white/5 text-zinc-500 hover:border-white/10"
+                        )}
+                      >
+                        <span>{s}</span>
+                        {status === s && <Iconify icon="solar:check-circle-bold" className="text-emerald-500 text-lg" />}
+                      </button>
                    ))}
                 </div>
               </div>

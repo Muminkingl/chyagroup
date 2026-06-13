@@ -12,6 +12,13 @@ export default function PostCard({ post, className }: { post: Post, className?: 
   const t = translations[locale].newsArchive;
   const hasImage = !!(post.imageUrl && post.imageUrl.trim() !== '');
 
+  // Deriving localized title and dynamic excerpt from content
+  const localizedTitle = (post as any)[`title_${locale}`] || post.title;
+  const localizedContent = (post as any)[`content_${locale}`] || post.content || '';
+  const localizedExcerpt = localizedContent
+    ? localizedContent.replace(/<[^>]*>/g, '').substring(0, 160) + '...'
+    : post.excerpt;
+
   // Format date based on locale
   const formattedDate = new Date(post.date).toLocaleDateString(locale === 'en' ? 'en-US' : locale === 'ar' ? 'ar-EG' : 'ku-IQ', {
     month: 'short',
@@ -32,7 +39,7 @@ export default function PostCard({ post, className }: { post: Post, className?: 
         <div className="relative h-48 overflow-hidden bg-[#f4f7f9]">
           <img 
             src={post.imageUrl} 
-            alt={post.title}
+            alt={localizedTitle}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-90 group-hover:opacity-100"
           />
         </div>
@@ -54,11 +61,11 @@ export default function PostCard({ post, className }: { post: Post, className?: 
         </div>
         
         <h3 className="text-lg font-semibold tracking-tight text-[#0c1a2e] mb-2 line-clamp-2" dir="auto">
-          {post.title}
+          {localizedTitle}
         </h3>
         
         <p className="text-sm text-[#3a4f6a] mb-6 line-clamp-2 flex-1 font-medium leading-relaxed" dir="auto">
-          {post.excerpt}
+          {localizedExcerpt}
         </p>
         
         <div className="flex items-center justify-between mt-auto">

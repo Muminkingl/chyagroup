@@ -39,7 +39,14 @@ async function getNewsData() {
     },
     imageUrl: post.image_url || '',
     featured: false,
-    content: post.content
+    content: post.content,
+    title_en: post.title_en,
+    title_ar: post.title_ar,
+    title_ku: post.title_ku,
+    content_en: post.content_en,
+    content_ar: post.content_ar,
+    content_ku: post.content_ku,
+    images: post.images
   }));
 }
 
