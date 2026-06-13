@@ -24,7 +24,20 @@ export default function MultiImageUpload({ onImagesChange, defaultImages = [], l
     if (!isHeic) return file;
 
     try {
-      const heic2any = (await import("heic2any")).default;
+      console.log("HEIC file detected for gallery, loading conversion library...");
+      const heic2anyModule = await import("heic2any");
+      
+      // Handle different module bundling export structures securely
+      let heic2any: any = heic2anyModule.default || heic2anyModule;
+      if (typeof heic2any !== "function" && heic2any && typeof heic2any.heic2any === "function") {
+        heic2any = heic2any.heic2any;
+      }
+
+      if (typeof heic2any !== "function") {
+        throw new Error("Loaded heic2any is not a function module");
+      }
+
+      console.log("Starting client-side HEIC to JPEG conversion for gallery...");
       const convertedBlob = await heic2any({
         blob: file,
         toType: "image/jpeg",
@@ -34,6 +47,7 @@ export default function MultiImageUpload({ onImagesChange, defaultImages = [], l
       const jpegBlob = Array.isArray(convertedBlob) ? convertedBlob[0] : convertedBlob;
       const newFilename = file.name.replace(/\.(heic|heif)$/i, ".jpg");
       
+      console.log("HEIC gallery conversion successful. New file:", newFilename);
       return new File([jpegBlob], newFilename, {
         type: "image/jpeg",
         lastModified: Date.now(),
