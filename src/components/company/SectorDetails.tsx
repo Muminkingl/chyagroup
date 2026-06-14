@@ -44,6 +44,175 @@ const SECTOR_EMAILS: Record<string, string[]> = {
   ]
 };
 
+interface BrandInstagram {
+  id: string;
+  name: {
+    en: string;
+    ar: string;
+    ku: string;
+  };
+  qrLink: string;
+}
+
+const SECTOR_BRANDS: Record<string, BrandInstagram[]> = {
+  "general-trading": [
+    {
+      id: "lamatalmarjan",
+      name: {
+        en: "Lamat Al Marjan",
+        ar: "شركة لمعة المرجان",
+        ku: "کۆمپانیای لمعة المرجان",
+      },
+      qrLink: "https://www.instagram.com/lamat.almarjan_co?igsh=d2txbnp1cXRuNjhn",
+    },
+    {
+      id: "chyaymateen",
+      name: {
+        en: "Chyay Mateen",
+        ar: "شركة جياى متين",
+        ku: "کۆمپانیای چیای مەتین",
+      },
+      qrLink: "https://www.instagram.com/chyay_mateen.co?igsh=NWljZDg1ZnR6NWJm",
+    },
+    {
+      id: "chyaamazon",
+      name: {
+        en: "Chya Amazon",
+        ar: "مشروع جيا أمازون",
+        ku: "چیا ئەمازۆن",
+      },
+      qrLink: "https://www.instagram.com/chya_amazon.iq?igsh=cHQzbXV5aHc4amhj",
+    },
+  ],
+  "money-exchange": [
+    {
+      id: "khakisarwar",
+      name: {
+        en: "Khaki Sarwar",
+        ar: "شركة خاكى سەروەر",
+        ku: "کۆمپانیای خاکی سەروەر",
+      },
+      qrLink: "https://www.instagram.com/khaki_sarwar.co?igsh=MW43NXdoamhsODJoYg==",
+    },
+    {
+      id: "hangawexchange",
+      name: {
+        en: "Hangaw Exchange",
+        ar: "مکتب هەنگاو",
+        ku: "نووسینگەی هەنگاو",
+      },
+      qrLink: "https://www.instagram.com/hangaw_exchangemoney?igsh=M2h4ZTEyZmRud21y",
+    },
+    {
+      id: "chyaexchange",
+      name: {
+        en: "Chya Exchange",
+        ar: "مكتب جيا",
+        ku: "نووسینگەی چیا",
+      },
+      qrLink: "https://www.instagram.com/chya_exchangemoney?igsh=c3VnYzMxY2o5OGVu",
+    },
+    {
+      id: "chyagold",
+      name: {
+        en: "Chya Gold",
+        ar: "مكتب جيا كولد",
+        ku: "نووسینگەی چیا گۆڵد",
+      },
+      qrLink: "https://www.instagram.com/chya_gold.turkey?igsh=NTV1dm9vMzlrcHhi",
+    },
+    {
+      id: "lutkaychya",
+      name: {
+        en: "Lutkay Chya",
+        ar: "مكتب لوتكەی جيا",
+        ku: "نووسینگەی لوتکەی چیا",
+      },
+      qrLink: "https://www.instagram.com/lutkay.chya_exchangemoney?igsh=ajVzMzN2dWx4dnY4",
+    },
+    {
+      id: "barzychya",
+      name: {
+        en: "Barzy Chya",
+        ar: "مکتب بەرزی جيا",
+        ku: "نووسینگەی بەرزی چیا",
+      },
+      qrLink: "https://www.instagram.com/barzy.chya_exchange?igsh=MnhwZHE2aGoweWU0",
+    },
+    {
+      id: "manfazdibaga",
+      name: {
+        en: "Manfaz Dibaga",
+        ar: "منفذ ديبكة",
+        ku: "منفذ دیبەگە",
+      },
+      qrLink: "https://www.instagram.com/manfaz.dibaga_hangaw?igsh=ZGtoamJtNzd6MHJm",
+    },
+  ],
+  "mobile-tech": [
+    {
+      id: "chyaphone",
+      name: {
+        en: "Chya Phone",
+        ar: "محل جيا فون",
+        ku: "پێشانگای چیا فۆن",
+      },
+      qrLink: "https://www.instagram.com/chya_phone.iq?igsh=MTcza2o2azEwbjlxYg==",
+    },
+    {
+      id: "chyatech",
+      name: {
+        en: "Chya Tech",
+        ar: "جيا تيك",
+        ku: "کاری چیا تێك",
+      },
+      qrLink: "https://www.instagram.com/chya_tech.iq?igsh=MTNzcWp5a2F4d3dmZg==",
+    },
+  ],
+  "printing": [
+    {
+      id: "blueprinting",
+      name: {
+        en: "Blue Printing",
+        ar: "مکتب بلو طباعە",
+        ku: "نووسینگەی بلو پرێنتینگ",
+      },
+      qrLink: "https://www.instagram.com/blue.printing_office?igsh=MTk4MHU0NHc3eXBxNg==",
+    },
+  ],
+  "online-trading": [
+    {
+      id: "chyatravel",
+      name: {
+        en: "Chya Travel",
+        ar: "جيا تراڤل",
+        ku: "کاری چیا تڕاڤل",
+      },
+      qrLink: "https://www.instagram.com/chya_travel.iq?igsh=MTFzMDE5ODV5ODN1bQ==",
+    },
+    {
+      id: "kivaluxury",
+      name: {
+        en: "Kiva Luxury",
+        ar: "كيفا لوكزوري",
+        ku: "کاری کیڤا لوکژوری",
+      },
+      qrLink: "https://www.instagram.com/kiva.luxuryshop?igsh=emFtbXNpbjBmMnh6",
+    },
+  ],
+};
+
+function getInstagramHandle(url: string): string {
+  try {
+    const withoutProtocol = url.replace(/(https?:\/\/)?(www\.)?instagram\.com\//i, "");
+    const username = withoutProtocol.split("?")[0].replace(/\/$/, "");
+    return `instagram.com/${username}`;
+  } catch (e) {
+    return "instagram.com";
+  }
+}
+
+
 export default function SectorDetails({ id }: { id: string }) {
   const { locale, isRTL } = useLanguage();
   const t = translations[locale];
@@ -72,6 +241,7 @@ export default function SectorDetails({ id }: { id: string }) {
 
   const bgImage = SECTOR_IMAGES[id] || SECTOR_IMAGES["general-trading"];
   const currentEmails = SECTOR_EMAILS[id] || ["chyagroup2019@gmail.com"];
+  const currentBrandsInstagrams = SECTOR_BRANDS[id] || [];
   const currentHistory = st.history[id as keyof typeof st.history] || [featureItem.contentBody];
   const currentBranches = st.branches[id as keyof typeof st.branches] || [];
   
@@ -262,15 +432,24 @@ export default function SectorDetails({ id }: { id: string }) {
               </div>
               
               <div className="flex flex-col gap-4">
-                <a href="#" className="flex items-center justify-between bg-white text-[#0c1a2e] border border-[#0c1a2e]/5 p-5 rounded-2xl group transition-all duration-300 hover:shadow-md hover:border-[#b91c1c]/20">
-                  <div className="flex items-center gap-4">
-                    <Iconify icon="solar:global-linear" width={24} className="text-[#b91c1c]" />
-                    <span className="font-semibold">chyagroup.com/</span>
-                  </div>
-                  <div className="bg-[#faf9f6] text-[#b91c1c] w-12 h-12 rounded-xl flex items-center justify-center transition-transform group-hover:bg-[#b91c1c] group-hover:text-white">
-                    <Iconify icon={isRTL ? "solar:arrow-left-up-linear" : "solar:arrow-right-up-linear"} width={20} />
-                  </div>
-                </a>
+                {currentBrandsInstagrams.map((brand, idx) => (
+                  <Link 
+                    key={`web-${idx}`} 
+                    href={`/${brand.id}`} 
+                    className="flex items-center justify-between bg-white text-[#0c1a2e] border border-[#0c1a2e]/5 p-5 rounded-2xl group transition-all duration-300 hover:shadow-md hover:border-[#b91c1c]/20"
+                  >
+                    <div className="flex items-center gap-4">
+                      <Iconify icon="solar:global-linear" width={24} className="text-[#b91c1c]" />
+                      <div className="flex flex-col items-start">
+                        <span className="text-[11px] font-bold text-[#b91c1c] uppercase tracking-wider">{brand.name[locale as 'en' | 'ku' | 'ar'] || brand.name['en']}</span>
+                        <span className="font-semibold text-sm text-[#3a4f6a] break-all">chyagroup.com/{brand.id}</span>
+                      </div>
+                    </div>
+                    <div className="bg-[#faf9f6] text-[#b91c1c] w-12 h-12 rounded-xl flex items-center justify-center transition-transform group-hover:bg-[#b91c1c] group-hover:text-white">
+                      <Iconify icon={isRTL ? "solar:arrow-left-up-linear" : "solar:arrow-right-up-linear"} width={20} />
+                    </div>
+                  </Link>
+                ))}
 
                 {currentEmails.map((email, idx) => (
                   <a key={idx} href={`mailto:${email}`} className="flex items-center justify-between bg-white text-[#0c1a2e] border border-[#0c1a2e]/5 p-5 rounded-2xl group transition-all duration-300 hover:shadow-md hover:border-[#b91c1c]/20">
@@ -284,15 +463,20 @@ export default function SectorDetails({ id }: { id: string }) {
                   </a>
                 ))}
 
-                <a href="https://www.instagram.com/chyagroup.iq?igsh=MXdrMWo3MWFidmkxaw%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between bg-white text-[#0c1a2e] border border-[#0c1a2e]/5 p-5 rounded-2xl group transition-all duration-300 hover:shadow-md hover:border-[#b91c1c]/20">
-                  <div className="flex items-center gap-4">
-                    <Iconify icon="mdi:instagram" width={24} className="text-[#b91c1c]" />
-                    <span className="font-semibold">instagram.com/chyagroup.iq</span>
-                  </div>
-                  <div className="bg-[#faf9f6] text-[#b91c1c] w-12 h-12 rounded-xl flex items-center justify-center transition-transform group-hover:bg-[#b91c1c] group-hover:text-white">
-                    <Iconify icon={isRTL ? "solar:arrow-left-up-linear" : "solar:arrow-right-up-linear"} width={20} />
-                  </div>
-                </a>
+                {currentBrandsInstagrams.map((brand, idx) => (
+                  <a key={idx} href={brand.qrLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between bg-white text-[#0c1a2e] border border-[#0c1a2e]/5 p-5 rounded-2xl group transition-all duration-300 hover:shadow-md hover:border-[#b91c1c]/20">
+                    <div className="flex items-center gap-4">
+                      <Iconify icon="mdi:instagram" width={24} className="text-[#b91c1c]" />
+                      <div className="flex flex-col items-start">
+                        <span className="text-[11px] font-bold text-[#b91c1c] uppercase tracking-wider">{brand.name[locale as 'en' | 'ku' | 'ar'] || brand.name['en']}</span>
+                        <span className="font-semibold text-sm text-[#3a4f6a] break-all">{getInstagramHandle(brand.qrLink)}</span>
+                      </div>
+                    </div>
+                    <div className="bg-[#faf9f6] text-[#b91c1c] w-12 h-12 rounded-xl flex items-center justify-center transition-transform group-hover:bg-[#b91c1c] group-hover:text-white">
+                      <Iconify icon={isRTL ? "solar:arrow-left-up-linear" : "solar:arrow-right-up-linear"} width={20} />
+                    </div>
+                  </a>
+                ))}
               </div>
             </section>
 

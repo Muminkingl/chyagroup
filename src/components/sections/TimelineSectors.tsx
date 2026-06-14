@@ -139,8 +139,90 @@ function getLogoSrc(item: string, sectorId: string): string | null {
   return null;
 }
 
+const BRAND_ROUTES: Record<string, string> = {
+  'marjan': '/lamatalmarjan',
+  'لمة': '/lamatalmarjan',
+  'لمعة': '/lamatalmarjan',
+  'mateen': '/chyaymateen',
+  'متين': '/chyaymateen',
+  'مەتین': '/chyaymateen',
+  'amazon': '/chyaamazon',
+  'أمازون': '/chyaamazon',
+  'ئەمازۆن': '/chyaamazon',
+  'khaki': '/khakisarwar',
+  'خاكي': '/khakisarwar',
+  'خاکی': '/khakisarwar',
+  'خاكى': '/khakisarwar',
+  'سەروەر': '/khakisarwar',
+  'سرور': '/khakisarwar',
+  'hangaw': '/hangawexchange',
+  'هەنگاو': '/hangawexchange',
+  'gold': '/chyagold',
+  'غولد': '/chyagold',
+  'گۆڵد': '/chyagold',
+  'كولد': '/chyagold',
+  'lutkay': '/lutkaychya',
+  'لوتکەی': '/lutkaychya',
+  'لوتكاي': '/lutkaychya',
+  'لوتكەی': '/lutkaychya',
+  'barzy': '/barzychya',
+  'بەرزى': '/barzychya',
+  'بەرزی': '/barzychya',
+  'بـەرزى': '/barzychya',
+  'exchange': '/chyaexchange',
+  'إكسجينج': '/chyaexchange',
+  'ئێکستێنج': '/chyaexchange',
+  'نووسینگەی چیا': '/chyaexchange',
+  'مكتب جيا': '/chyaexchange',
+  'dibaga': '/manfazdibaga',
+  'ديبكة': '/manfazdibaga',
+  'دیبگة': '/manfazdibaga',
+  'دیبگەی': '/manfazdibaga',
+  'ديکبە': '/manfazdibaga',
+  'دیبەگە': '/manfazdibaga',
+  'phone': '/chyaphone',
+  'فۆن': '/chyaphone',
+  'فون': '/chyaphone',
+  'tech': '/chyatech',
+  'تێك': '/chyatech',
+  'تێک': '/chyatech',
+  'تيك': '/chyatech',
+  'تيک': '/chyatech',
+  'تیك': '/chyatech',
+  'تیک': '/chyatech',
+  'تىك': '/chyatech',
+  'تىک': '/chyatech',
+  'blue print': '/blueprinting',
+  'بلو برێنتینگ': '/blueprinting',
+  'بلو پرێنتینگ': '/blueprinting',
+  'blue printing': '/blueprinting',
+  'بلو برينتينغ': '/blueprinting',
+  'بلو طباعە': '/blueprinting',
+  'طباعە': '/blueprinting',
+  'travel': '/chyatravel',
+  'تڕاڤڵ': '/chyatravel',
+  'ترافيل': '/chyatravel',
+  'تڕاڤل': '/chyatravel',
+  'تراڤل': '/chyatravel',
+  'kiva': '/kivaluxury',
+  'کیڤا': '/kivaluxury',
+  'كيفا': '/kivaluxury',
+};
+
+function getBrandRoute(item: string, sectorId: string): string {
+  const lower = item.toLowerCase();
+  for (const [key, route] of Object.entries(BRAND_ROUTES)) {
+    if (lower.includes(key.toLowerCase())) return route;
+  }
+  if (sectorId === 'money-exchange' && (lower === 'chya' || item === 'چیا' || item === 'چيا')) {
+    return '/chyaexchange';
+  }
+  return '/';
+}
+
 function ItemRow({ item, sectorId }: { item: string; sectorId: string }) {
   const logo = getLogoSrc(item, sectorId);
+  const route = getBrandRoute(item, sectorId);
   const isGeneralTrading = sectorId === 'general-trading';
 
   /* ── General Trading: center alignment ── */
@@ -157,8 +239,9 @@ function ItemRow({ item, sectorId }: { item: string; sectorId: string }) {
 
     return (
       <li className="flex items-center justify-center w-full min-w-0">
-        <div
-          className="flex-shrink-0 flex items-center justify-center"
+        <Link
+          href={route}
+          className="flex-shrink-0 flex items-center justify-center transition-all duration-300 hover:scale-105 hover:opacity-85"
           style={{ width: '96px', height: '58px' }}
         >
           <Image
@@ -168,7 +251,7 @@ function ItemRow({ item, sectorId }: { item: string; sectorId: string }) {
             height={240}
             className={`w-full h-full object-contain ${logoTransform}`.trim()}
           />
-        </div>
+        </Link>
       </li>
     );
   }
@@ -230,7 +313,10 @@ function ItemRow({ item, sectorId }: { item: string; sectorId: string }) {
   return (
     <li className="flex items-center justify-center w-full min-w-0">
       {logo ? (
-        <div className="flex-shrink-0 flex items-center justify-center w-[72px] h-[48px]">
+        <Link
+          href={route}
+          className="flex-shrink-0 flex items-center justify-center w-[72px] h-[48px] transition-all duration-300 hover:scale-105 hover:opacity-85"
+        >
           <Image
             src={logo}
             alt={item}
@@ -239,7 +325,7 @@ function ItemRow({ item, sectorId }: { item: string; sectorId: string }) {
             className="w-full h-full object-contain"
             style={{ transform: `scale(${logoScaleX}, ${logoScaleY}) translateX(${logoTranslateX}px) translateY(${logoTranslateY}px)` }}
           />
-        </div>
+        </Link>
       ) : (
         <div className="flex-shrink-0 flex items-center justify-center w-[72px]">
           <span className="text-[11px] font-bold text-gray-400">{item.charAt(0)}</span>
