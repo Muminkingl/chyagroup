@@ -148,24 +148,24 @@ function ItemRow({ item, sectorId }: { item: string; sectorId: string }) {
     let logoTransform = '';
 
     if (logo.includes('lamattt')) {
-      logoTransform = 'scale-[1.18] translate-x-[4px]'; // Slightly smaller to prevent text label overflow
+      logoTransform = 'scale-[1.08] translate-x-[4px] -translate-y-[8px]'; // Slightly smaller to prevent text label overflow
     } else if (logo.includes('chyaymat')) {
-      logoTransform = 'scale-[1.23] translate-x-[4px]'; // Perfectly sized and balanced
+      logoTransform = 'scale-[1.12] translate-x-[4px] -translate-y-[13px]'; // Perfectly sized and balanced
     } else if (logo.toLowerCase().includes('amazon')) {
-      logoTransform = 'scale-[1.05] translate-x-[6px]'; // Gentle size boost and shifted right to avoid bullet overlap
+      logoTransform = 'scale-x-[1.10] scale-y-[0.98] translate-x-[2px] -translate-y-[21px]'; // Gentle size boost and shifted right to avoid bullet overlap
     }
 
     return (
       <li className="flex items-center justify-center w-full min-w-0">
         <div
           className="flex-shrink-0 flex items-center justify-center"
-          style={{ width: '80px', height: '48px' }}
+          style={{ width: '96px', height: '58px' }}
         >
           <Image
             src={logo}
             alt={item}
-            width={160}
-            height={96}
+            width={400}
+            height={240}
             className={`w-full h-full object-contain ${logoTransform}`.trim()}
           />
         </div>
@@ -175,35 +175,56 @@ function ItemRow({ item, sectorId }: { item: string; sectorId: string }) {
 
   /* ── All other sectors: default center styling ── */
   let logoScale = 1.0;
+  let logoScaleX = 1.0;
+  let logoScaleY = 1.0;
   let logoTranslateX = 0;
+  let logoTranslateY = 0;
   let textClasses = 'text-[11px] xl:text-[12px] tracking-tight'; // Standard text size
 
   if (logo && logo.includes('BARZY')) {
-    logoScale = 0.99; // Zoom out Barzy specifically
+    logoScale = 1.19; // Zoom out Barzy specifically
+    logoTranslateY = 14;
     textClasses = 'text-[11px] xl:text-[11px] tracking-tighter'; // Smaller text for long name
   } else if (logo && logo.includes('lutkay')) {
-    logoScale = 1.06;
-    logoTranslateX = 4;
+    logoScaleX = 1.39; // Make it wider
+    logoScaleY = 1.20;
+    logoTranslateY = 7;
     textClasses = 'text-[11px] xl:text-[11px] tracking-tighter'; // Smaller text for long name
   } else if (logo && logo.includes('qapat-1')) {
-    logoScale = 1.15; // Perfectly sized and balanced center-aligned logo
+    logoScaleX = 1.42; // Make it wider
+    logoScaleY = 1.30;
+    logoTranslateX = -2.4; // Shift to the left side a tiny bit
     textClasses = 'text-[11px] xl:text-[11px] tracking-tighter'; // Apply same tiny font size to Chya Gold
   } else if (logo && logo.includes('hangawexchange')) {
-    logoScale = 1.20;
+    logoScale = 1.40;
+    logoTranslateY = 8;
   } else if (logo && logo.includes('chyatech')) {
-    logoScale = 1.85; // Zoom in Chya Tech to match Chya Phone size perfectly
+    logoScale = 2.05; // Zoom in Chya Tech to match Chya Phone size perfectly
+    logoTranslateY = -2;
+  } else if (logo && logo.includes('phone')) {
+    logoScale = 1.12; // Zoom in Chya Phone to make it larger
   } else if (logo && logo.includes('BLUE PRINT')) {
-    logoScale = 1.5; // Zoom in Blue Printing
+    logoScale = 1.64; // Zoom in Blue Printing
   } else if (logo && logo.includes('travel')) {
-    logoScale = 1.72; // Increased scale to make it beautifully large and clear
+    logoScale = 2.46; // Increased scale to make it beautifully large and clear
   } else if (logo && logo.includes('kiva')) {
-    logoScale = 1.08; // Decreased scale since it is a large solid square natively
+    logoScale = 1.40; // Decreased scale since it is a large solid square natively
+    logoTranslateY = 14;
   } else if (logo && logo.includes('khakisarwar')) {
-    logoScale = 1.05; // Perfectly sized and balanced center-aligned logo
+    logoScale = 1.20; // Perfectly sized and balanced center-aligned logo
   } else if (logo && logo.includes('chyaexchnage')) {
-    logoScale = 1.0; // Perfectly sized and balanced center-aligned logo
+    logoScaleX = 1.22; // Make it wider
+    logoScaleY = 1.15;
+    logoTranslateX = -3.1; // Shift to the left side a bit
   } else if (logo && logo.toLowerCase().includes('dibaga')) {
-    logoScale = 1.10; // Perfectly sized and balanced center-aligned logo
+    logoScaleX = 1.34; // Make it wider
+    logoScaleY = 1.22;
+    logoTranslateY = 8;
+  }
+
+  if (logoScaleX === 1.0 && logoScaleY === 1.0 && logoScale !== 1.0) {
+    logoScaleX = logoScale;
+    logoScaleY = logoScale;
   }
 
   return (
@@ -216,7 +237,7 @@ function ItemRow({ item, sectorId }: { item: string; sectorId: string }) {
             width={120}
             height={60}
             className="w-full h-full object-contain"
-            style={{ transform: `scale(${logoScale}) translateX(${logoTranslateX}px)` }}
+            style={{ transform: `scale(${logoScaleX}, ${logoScaleY}) translateX(${logoTranslateX}px) translateY(${logoTranslateY}px)` }}
           />
         </div>
       ) : (
