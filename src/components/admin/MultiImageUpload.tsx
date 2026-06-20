@@ -192,7 +192,7 @@ export default function MultiImageUpload({ onImagesChange, defaultImages = [], l
               transition={{ duration: 0.2 }}
               className="sortable-item relative aspect-square rounded-2xl border border-white/5 bg-zinc-950 overflow-hidden group shadow-md cursor-grab active:cursor-grabbing hover:border-white/10"
             >
-              <img src={url} alt={`Gallery image ${idx + 1}`} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              <img src={url} alt={`Gallery image ${idx + 1}`} draggable="false" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 pointer-events-none select-none" />
               
               {/* Overlay with remove button */}
               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">

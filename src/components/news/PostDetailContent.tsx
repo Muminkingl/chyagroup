@@ -195,7 +195,7 @@ export default function PostDetailContent({ post }: PostDetailContentProps) {
               // Single image: static banner zoomable on click
               <div 
                 onClick={() => setActiveImageIdx(0)}
-                className="relative aspect-[21/9] rounded-3xl overflow-hidden border border-[#0c1a2e]/5 shadow-sm bg-zinc-100 cursor-pointer group hover:shadow-md transition-shadow duration-300"
+                className="relative aspect-[16/10] md:aspect-[21/9] rounded-3xl overflow-hidden border border-[#0c1a2e]/5 shadow-sm bg-zinc-100 cursor-pointer group hover:shadow-md transition-shadow duration-300"
               >
                 <SmartImage 
                   src={allImages[0]} 
@@ -210,14 +210,14 @@ export default function PostDetailContent({ post }: PostDetailContentProps) {
               </div>
             ) : (
               // Multiple images: premium interactive slideshow slider
-              <div className="space-y-4">
+              <div className="space-y-4" dir="ltr">
                 {/* Main slide display */}
                 <div 
                   onTouchStart={onTouchStart}
                   onTouchMove={onTouchMove}
                   onTouchEnd={onTouchEnd}
                   onClick={() => setActiveImageIdx(currentSlideIdx)}
-                  className="relative aspect-[21/9] rounded-3xl overflow-hidden border border-[#0c1a2e]/5 shadow-md bg-zinc-900 cursor-pointer group hover:shadow-lg transition-all duration-300"
+                  className="relative aspect-[16/10] md:aspect-[21/9] rounded-3xl overflow-hidden border border-[#0c1a2e]/5 shadow-md bg-zinc-900 cursor-pointer group hover:shadow-lg transition-all duration-300"
                 >
                   <AnimatePresence mode="wait">
                     <motion.div
@@ -243,7 +243,7 @@ export default function PostDetailContent({ post }: PostDetailContentProps) {
                         e.stopPropagation();
                         setCurrentSlideIdx((prev) => (prev - 1 + allImages.length) % allImages.length);
                       }}
-                      className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white/30 cursor-pointer pointer-events-auto shadow-sm"
+                      className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity hover:bg-white/30 cursor-pointer pointer-events-auto shadow-sm"
                     >
                       <Iconify icon="solar:alt-arrow-left-linear" width={20} />
                     </button>
@@ -253,7 +253,7 @@ export default function PostDetailContent({ post }: PostDetailContentProps) {
                         e.stopPropagation();
                         setCurrentSlideIdx((prev) => (prev + 1) % allImages.length);
                       }}
-                      className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white/30 cursor-pointer pointer-events-auto shadow-sm"
+                      className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity hover:bg-white/30 cursor-pointer pointer-events-auto shadow-sm"
                     >
                       <Iconify icon="solar:alt-arrow-right-linear" width={20} />
                     </button>
@@ -311,6 +311,7 @@ export default function PostDetailContent({ post }: PostDetailContentProps) {
               exit={{ opacity: 0 }}
               onClick={() => setActiveImageIdx(null)}
               className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 cursor-zoom-out"
+              dir="ltr"
             >
               <button 
                 onClick={() => setActiveImageIdx(null)}
