@@ -1,10 +1,5 @@
-okay so the issus is my boss tell me the logo is so small i think he kinda right check this screenshot 
-so first of all we only try to zoom in or increase size `GENERAL TRADING`
-
-
-so increase logo of this 3 logo which is 
-lammat al marjan
-chyay maten
-chya matenn
-
-increase thsis 3 logo KEEP SAME ALIGHHMENT !!!!
+okay now our pla is focus on /news we need to change the current state ui ! look first of all when i render /news it will render all posts ! so we need to edit this we must in the end add pagination buttons like next last etc use best uii !!!
+so in each page it must render 8 post !!!!!!!
+but the crrent card iit is to small the image banner is cursed due small card compoennts 
+look first image it is our currnt ui and look second image which is the another webiste look how cool it is ! how large it is every image banner clearly seenable !
+i dont say use the seond ui i say use this size make it large so the banner image looks clearly seenable not cursed ! also another issus the image banner when i see its cursed orignal quality drops to much but when i hover it it will back to normal fix that also !!!

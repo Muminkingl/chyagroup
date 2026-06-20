@@ -3,7 +3,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/i18n/translations';
-import FeaturedGrid from '@/components/news/FeaturedGrid';
 import PostCard from '@/components/news/PostCard';
 import { Post } from '@/data/newsData';
 import { clsx } from 'clsx';
@@ -48,19 +47,38 @@ export default function NewsArchiveContent({ initialPosts }: NewsArchiveContentP
     return acc;
   }, {} as Record<number, number>);
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsPerPage = 8;
+
+  // Reset page when year filter changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedYear]);
+
+  // Smooth scroll to news top on page change
+  useEffect(() => {
+    const element = document.getElementById('news-archive-top');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [currentPage]);
+
   // Filtered posts based on selection
   const filteredPosts = selectedYear
     ? initialPosts.filter((post) => new Date(post.date).getFullYear() === selectedYear)
     : initialPosts;
 
-  // For the default "All Years" view, show the first 3 as featured and the rest as archive
-  const featuredPosts = initialPosts.slice(0, 3);
-  const remainingPosts = initialPosts.slice(3);
+  const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
+
+  // Pagination slicing
+  const startIndex = (currentPage - 1) * postsPerPage;
+  const endIndex = currentPage * postsPerPage;
+  const remainingPosts = filteredPosts.slice(startIndex, endIndex);
 
   return (
     <main className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-start">
       {/* Header Section */}
-      <div className="mb-12">
+      <div id="news-archive-top" className="mb-12">
         <h1 className="text-4xl md:text-5xl font-bold text-[#0c1a2e] mb-4 tracking-tight">
           {t.title} <span className="text-[#162d4f]">{t.insights}</span>
         </h1>
@@ -203,49 +221,38 @@ export default function NewsArchiveContent({ initialPosts }: NewsArchiveContentP
       {/* Grid Content with Transitions */}
       <AnimatePresence mode="wait">
         <motion.div
-          key={selectedYear ?? 'all'}
+          key={`${selectedYear ?? 'all'}-${currentPage}`}
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -15 }}
           transition={{ duration: 0.25 }}
         >
           {selectedYear === null ? (
-            <>
-              {/* Latest News (Only when no year filter is active) */}
-              {featuredPosts.length > 0 && (
-                <div className="mb-16">
-                  <h2 className="text-[10px] font-bold uppercase tracking-widest text-[#3a4f6a] mb-6 flex items-center gap-3">
-                    <span>{t.latest}</span>
-                    <div className="h-px bg-[#0c1a2e]/10 flex-1"></div>
-                  </h2>
-                  <FeaturedGrid posts={featuredPosts} />
-                </div>
-              )}
-
+            <div>
               {/* All News Archive */}
-              {initialPosts.length > 3 && (
+              {remainingPosts.length > 0 && (
                 <div>
                   <h2 className="text-[10px] font-bold uppercase tracking-widest text-[#3a4f6a] mb-6 flex items-center gap-3">
                     <span>{t.allNews}</span>
                     <div className="h-px bg-[#0c1a2e]/10 flex-1"></div>
                   </h2>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {remainingPosts.map((post) => (
                       <PostCard key={post.id} post={post} />
                     ))}
                   </div>
                 </div>
               )}
-            </>
+            </div>
           ) : (
             <div>
               <h2 className="text-[10px] font-bold uppercase tracking-widest text-[#3a4f6a] mb-6 flex items-center gap-3">
                 <span>{t.filterYear}: {selectedYear} ({filteredPosts.length})</span>
                 <div className="h-px bg-[#0c1a2e]/10 flex-1"></div>
               </h2>
-              {filteredPosts.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {filteredPosts.map((post) => (
+              {remainingPosts.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {remainingPosts.map((post) => (
                     <PostCard key={post.id} post={post} />
                   ))}
                 </div>
@@ -258,6 +265,109 @@ export default function NewsArchiveContent({ initialPosts }: NewsArchiveContentP
           )}
         </motion.div>
       </AnimatePresence>
+
+      {/* Pagination Controls */}
+      {totalPages > 1 && (
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-16 pt-8 border-t border-[#0c1a2e]/5">
+          <div className="flex items-center gap-2">
+            {/* First Page Button */}
+            <button
+              onClick={() => setCurrentPage(1)}
+              disabled={currentPage === 1}
+              className={clsx(
+                "w-10 h-10 rounded-xl flex items-center justify-center border transition-all duration-200 cursor-pointer",
+                currentPage === 1
+                  ? "border-gray-200 text-gray-300 cursor-not-allowed bg-gray-50"
+                  : "border-[#0c1a2e]/10 text-[#0c1a2e] hover:border-[#3b82f6] hover:text-[#3b82f6] bg-white hover:shadow-sm"
+              )}
+              title="First Page"
+            >
+              <Iconify icon={isRTL ? "solar:double-alt-arrow-right-bold" : "solar:double-alt-arrow-left-bold"} width={16} />
+            </button>
+
+            {/* Previous Page Button */}
+            <button
+              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+              disabled={currentPage === 1}
+              className={clsx(
+                "w-10 h-10 rounded-xl flex items-center justify-center border transition-all duration-200 cursor-pointer",
+                currentPage === 1
+                  ? "border-gray-200 text-gray-300 cursor-not-allowed bg-gray-50"
+                  : "border-[#0c1a2e]/10 text-[#0c1a2e] hover:border-[#3b82f6] hover:text-[#3b82f6] bg-white hover:shadow-sm"
+              )}
+              title="Previous Page"
+            >
+              <Iconify icon={isRTL ? "solar:alt-arrow-right-bold" : "solar:alt-arrow-left-bold"} width={16} />
+            </button>
+          </div>
+
+          {/* Page Numbers */}
+          <div className="flex items-center gap-1.5">
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
+              const isNearCurrent = Math.abs(page - currentPage) <= 1;
+              const isFirstOrLast = page === 1 || page === totalPages;
+              
+              if (!isNearCurrent && !isFirstOrLast) {
+                if (page === 2 || page === totalPages - 1) {
+                  return (
+                    <span key={`dots-${page}`} className="px-2 text-gray-400 text-sm font-bold select-none">
+                      ...
+                    </span>
+                  );
+                }
+                return null;
+              }
+
+              return (
+                <button
+                  key={page}
+                  onClick={() => setCurrentPage(page)}
+                  className={clsx(
+                    "w-10 h-10 rounded-xl text-sm font-bold transition-all duration-200 cursor-pointer",
+                    currentPage === page
+                      ? "bg-[#0c1a2e] text-white shadow-md shadow-[#0c1a2e]/10"
+                      : "bg-white border border-[#0c1a2e]/10 text-[#0c1a2e] hover:border-[#3b82f6] hover:text-[#3b82f6] hover:shadow-sm"
+                  )}
+                >
+                  {page}
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="flex items-center gap-2">
+            {/* Next Page Button */}
+            <button
+              onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+              disabled={currentPage === totalPages}
+              className={clsx(
+                "w-10 h-10 rounded-xl flex items-center justify-center border transition-all duration-200 cursor-pointer",
+                currentPage === totalPages
+                  ? "border-gray-200 text-gray-300 cursor-not-allowed bg-gray-50"
+                  : "border-[#0c1a2e]/10 text-[#0c1a2e] hover:border-[#3b82f6] hover:text-[#3b82f6] bg-white hover:shadow-sm"
+              )}
+              title="Next Page"
+            >
+              <Iconify icon={isRTL ? "solar:alt-arrow-left-bold" : "solar:alt-arrow-right-bold"} width={16} />
+            </button>
+
+            {/* Last Page Button */}
+            <button
+              onClick={() => setCurrentPage(totalPages)}
+              disabled={currentPage === totalPages}
+              className={clsx(
+                "w-10 h-10 rounded-xl flex items-center justify-center border transition-all duration-200 cursor-pointer",
+                currentPage === totalPages
+                  ? "border-gray-200 text-gray-300 cursor-not-allowed bg-gray-50"
+                  : "border-[#0c1a2e]/10 text-[#0c1a2e] hover:border-[#3b82f6] hover:text-[#3b82f6] bg-white hover:shadow-sm"
+              )}
+              title="Last Page"
+            >
+              <Iconify icon={isRTL ? "solar:double-alt-arrow-left-bold" : "solar:double-alt-arrow-right-bold"} width={16} />
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* General Empty state (if no posts exist at all) */}
       {initialPosts.length === 0 && (

@@ -14,7 +14,7 @@ const parentBrand = {
     qrLink: "https://www.instagram.com/chyagroup.iq/",
     name: {
         en: "HOLDING",
-        ar: "هولدينغ",
+        ar: "القابضة",
         ku: "هۆڵدینگ"
     },
     tagline: {
@@ -311,7 +311,7 @@ function buildMatrix(value: string): boolean[][] {
     return matrix;
 }
 
-const QRCodeSVG = ({ value, logo }: { value: string; logo: string }) => {
+const QRCodeSVG = ({ value, logo, isParent }: { value: string; logo: string; isParent?: boolean }) => {
     const matrix = buildMatrix(value);
     const size = matrix.length;
     const padding = 4;
@@ -412,16 +412,57 @@ const QRCodeSVG = ({ value, logo }: { value: string; logo: string }) => {
                     strokeWidth={0.12}
                     strokeOpacity={0.1}
                 />
-                <g clipPath={`url(#${clipId})`}>
-                    <image
-                        href={logo}
-                        x={boardSize / 2 - 4.1}
-                        y={boardSize / 2 - 2.1}
-                        width={8.2}
-                        height={4.2}
-                        preserveAspectRatio="xMidYMid meet"
-                    />
-                </g>
+                {isParent ? (
+                    <g>
+                        {/* Mountain Icon on the left */}
+                        <image
+                            href={logo}
+                            x={boardSize / 2 - 4.2}
+                            y={boardSize / 2 - 1.8}
+                            width={3.6}
+                            height={3.6}
+                            preserveAspectRatio="xMidYMid meet"
+                        />
+                        {/* Text Group on the right */}
+                        <text
+                            x={boardSize / 2 - 0.4}
+                            y={boardSize / 2 - 0.2}
+                            fill="#e84040"
+                            fontSize="1.5"
+                            fontWeight="900"
+                            style={{ 
+                                fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+                                letterSpacing: '0.05em'
+                            }}
+                        >
+                            CHYA
+                        </text>
+                        <text
+                            x={boardSize / 2 - 0.4}
+                            y={boardSize / 2 + 1.1}
+                            fill="#0a2a56"
+                            fontSize="1.15"
+                            fontWeight="800"
+                            style={{ 
+                                fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+                                letterSpacing: '0.12em'
+                            }}
+                        >
+                            GROUP
+                        </text>
+                    </g>
+                ) : (
+                    <g clipPath={`url(#${clipId})`}>
+                        <image
+                            href={logo}
+                            x={boardSize / 2 - 4.1}
+                            y={boardSize / 2 - 2.1}
+                            width={8.2}
+                            height={4.2}
+                            preserveAspectRatio="xMidYMid meet"
+                        />
+                    </g>
+                )}
             </g>
         </svg>
     );
@@ -558,7 +599,7 @@ export default function BrandQRs() {
                             </p>
                         )}
                         <div className="w-32 h-32 mb-6">
-                            <QRCodeSVG value={parentBrand.qrLink} logo={parentBrand.logo} />
+                            <QRCodeSVG value={parentBrand.qrLink} logo={parentBrand.logo} isParent={true} />
                         </div>
                         <div className={`flex items-center gap-2 font-bold text-[#0c1a2e] uppercase mt-auto pt-2 ${isRTL ? 'text-[13px] tracking-normal' : 'text-[10.5px] tracking-widest'}`}>
                             <Iconify icon="solar:smartphone-linear" width={14} className="text-[#0c1a2e]/70" />

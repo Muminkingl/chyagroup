@@ -36,11 +36,11 @@ export default function PostCard({ post, className }: { post: Post, className?: 
     >
       {/* Only render image section if image exists */}
       {hasImage && (
-        <div className="relative h-48 overflow-hidden bg-[#f4f7f9]">
+        <div className="relative w-full aspect-[16/10] overflow-hidden bg-[#f4f7f9]">
           <img 
             src={post.imageUrl} 
             alt={localizedTitle}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-90 group-hover:opacity-100"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
         </div>
       )}

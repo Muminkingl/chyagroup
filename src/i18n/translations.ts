@@ -624,7 +624,7 @@ export const translations = {
         },
         {
           title: "IAF",
-          subtitle: "المنتدى الدولي للاعتماد\n(الولايات المتحدة الأمريكية)"
+          subtitle: "المنتدى الدولي للاعتماد\n(الأمريكية)"
         },
         {
           title: "OSS",
@@ -632,7 +632,7 @@ export const translations = {
         },
         {
           title: "EGAC",
-          subtitle: "المجلس الوطني للاعتماد (مصر)"
+          subtitle: "المجلس الوطني للاعتماد\n(مصر)"
         },
         {
           title: "Ficho International",
@@ -1043,7 +1043,7 @@ export const translations = {
     history: {
       eyebrow: "مێژووی ئێمە",
       title: "چیا گرووپ",
-      since: "لە ساڵی 2019وە",
+      since: "لە ساڵی 2019 وە",
       description: "نەخشاندنی ئاسۆیەکی نوێ بە دڵسۆزییەکی بێوێنە. بزانە چۆن دیدگای ئێمە بوو بە بناغەیەک بۆ ژێرخانی بەیانی.",
       readMore: "زیاتر بزانە"
     },
@@ -1062,7 +1062,7 @@ export const translations = {
         },
         {
           title: "IAF",
-          subtitle: "کۆڕبەندی نێودەوڵەتی بۆ متمانەپێدان\n(ویلایەتە یەکگرتووەکانی ئەمریکا)"
+          subtitle: "کۆڕبەندی نێودەوڵەتی بۆ متمانەپێدان\n(ئەمریکا)"
         },
         {
           title: "OSS",
@@ -1070,7 +1070,7 @@ export const translations = {
         },
         {
           title: "EGAC",
-          subtitle: "دەستەی نیشتمانی بۆ متمانەپێدان (میسر)"
+          subtitle: "دەستەی نیشتمانی بۆ متمانەپێدان\n(میسر)"
         },
         {
           title: "Ficho International",
@@ -1078,7 +1078,7 @@ export const translations = {
         },
         {
           title: "Karlsruhe University",
-          subtitle: "زانکۆی کارلسروه بۆ زانستە پراکتیکییەکان\n(ئەڵمانیا)"
+          subtitle: "زانکۆی کارلسروه \n(ئەڵمانیا)"
         }
       ]
     },
