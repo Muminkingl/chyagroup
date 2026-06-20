@@ -268,104 +268,98 @@ export default function NewsArchiveContent({ initialPosts }: NewsArchiveContentP
 
       {/* Pagination Controls */}
       {totalPages > 1 && (
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-16 pt-8 border-t border-[#0c1a2e]/5">
-          <div className="flex items-center gap-2">
-            {/* First Page Button */}
-            <button
-              onClick={() => setCurrentPage(1)}
-              disabled={currentPage === 1}
-              className={clsx(
-                "w-10 h-10 rounded-xl flex items-center justify-center border transition-all duration-200 cursor-pointer",
-                currentPage === 1
-                  ? "border-gray-200 text-gray-300 cursor-not-allowed bg-gray-50"
-                  : "border-[#0c1a2e]/10 text-[#0c1a2e] hover:border-[#3b82f6] hover:text-[#3b82f6] bg-white hover:shadow-sm"
-              )}
-              title="First Page"
-            >
-              <Iconify icon={isRTL ? "solar:double-alt-arrow-right-bold" : "solar:double-alt-arrow-left-bold"} width={16} />
-            </button>
+        <div className="flex flex-wrap items-center justify-center gap-1.5 mt-16 pt-8 border-t border-[#0c1a2e]/5" dir="ltr">
+          {/* First Page Button */}
+          <button
+            onClick={() => setCurrentPage(1)}
+            disabled={currentPage === 1}
+            className={clsx(
+              "w-10 h-10 rounded-xl flex items-center justify-center border transition-all duration-200 cursor-pointer bg-white",
+              currentPage === 1
+                ? "border-gray-200 text-gray-300 cursor-not-allowed bg-gray-50/50"
+                : "border-[#0c1a2e]/10 text-[#0c1a2e] hover:border-[#3b82f6] hover:text-[#3b82f6] hover:shadow-sm"
+            )}
+            title="First Page"
+          >
+            <Iconify icon="solar:double-alt-arrow-left-bold" width={16} />
+          </button>
 
-            {/* Previous Page Button */}
-            <button
-              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-              disabled={currentPage === 1}
-              className={clsx(
-                "w-10 h-10 rounded-xl flex items-center justify-center border transition-all duration-200 cursor-pointer",
-                currentPage === 1
-                  ? "border-gray-200 text-gray-300 cursor-not-allowed bg-gray-50"
-                  : "border-[#0c1a2e]/10 text-[#0c1a2e] hover:border-[#3b82f6] hover:text-[#3b82f6] bg-white hover:shadow-sm"
-              )}
-              title="Previous Page"
-            >
-              <Iconify icon={isRTL ? "solar:alt-arrow-right-bold" : "solar:alt-arrow-left-bold"} width={16} />
-            </button>
-          </div>
+          {/* Previous Page Button */}
+          <button
+            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+            disabled={currentPage === 1}
+            className={clsx(
+              "w-10 h-10 rounded-xl flex items-center justify-center border transition-all duration-200 cursor-pointer bg-white",
+              currentPage === 1
+                ? "border-gray-200 text-gray-300 cursor-not-allowed bg-gray-50/50"
+                : "border-[#0c1a2e]/10 text-[#0c1a2e] hover:border-[#3b82f6] hover:text-[#3b82f6] hover:shadow-sm"
+            )}
+            title="Previous Page"
+          >
+            <Iconify icon="solar:alt-arrow-left-bold" width={16} />
+          </button>
 
           {/* Page Numbers */}
-          <div className="flex items-center gap-1.5">
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
-              const isNearCurrent = Math.abs(page - currentPage) <= 1;
-              const isFirstOrLast = page === 1 || page === totalPages;
-              
-              if (!isNearCurrent && !isFirstOrLast) {
-                if (page === 2 || page === totalPages - 1) {
-                  return (
-                    <span key={`dots-${page}`} className="px-2 text-gray-400 text-sm font-bold select-none">
-                      ...
-                    </span>
-                  );
-                }
-                return null;
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
+            const isNearCurrent = Math.abs(page - currentPage) <= 1;
+            const isFirstOrLast = page === 1 || page === totalPages;
+            
+            if (!isNearCurrent && !isFirstOrLast) {
+              if (page === 2 || page === totalPages - 1) {
+                return (
+                  <span key={`dots-${page}`} className="px-1 text-[#3a4f6a]/40 text-sm font-bold select-none">
+                    ...
+                  </span>
+                );
               }
+              return null;
+            }
 
-              return (
-                <button
-                  key={page}
-                  onClick={() => setCurrentPage(page)}
-                  className={clsx(
-                    "w-10 h-10 rounded-xl text-sm font-bold transition-all duration-200 cursor-pointer",
-                    currentPage === page
-                      ? "bg-[#0c1a2e] text-white shadow-md shadow-[#0c1a2e]/10"
-                      : "bg-white border border-[#0c1a2e]/10 text-[#0c1a2e] hover:border-[#3b82f6] hover:text-[#3b82f6] hover:shadow-sm"
-                  )}
-                >
-                  {page}
-                </button>
-              );
-            })}
-          </div>
+            return (
+              <button
+                key={page}
+                onClick={() => setCurrentPage(page)}
+                className={clsx(
+                  "w-10 h-10 rounded-xl text-sm font-bold transition-all duration-200 cursor-pointer",
+                  currentPage === page
+                    ? "bg-[#0c1a2e] text-white shadow-md shadow-[#0c1a2e]/10"
+                    : "bg-white border border-[#0c1a2e]/10 text-[#0c1a2e] hover:border-[#3b82f6] hover:text-[#3b82f6] hover:shadow-sm"
+                )}
+              >
+                {page}
+              </button>
+            );
+          })}
 
-          <div className="flex items-center gap-2">
-            {/* Next Page Button */}
-            <button
-              onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
-              disabled={currentPage === totalPages}
-              className={clsx(
-                "w-10 h-10 rounded-xl flex items-center justify-center border transition-all duration-200 cursor-pointer",
-                currentPage === totalPages
-                  ? "border-gray-200 text-gray-300 cursor-not-allowed bg-gray-50"
-                  : "border-[#0c1a2e]/10 text-[#0c1a2e] hover:border-[#3b82f6] hover:text-[#3b82f6] bg-white hover:shadow-sm"
-              )}
-              title="Next Page"
-            >
-              <Iconify icon={isRTL ? "solar:alt-arrow-left-bold" : "solar:alt-arrow-right-bold"} width={16} />
-            </button>
+          {/* Next Page Button */}
+          <button
+            onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+            disabled={currentPage === totalPages}
+            className={clsx(
+              "w-10 h-10 rounded-xl flex items-center justify-center border transition-all duration-200 cursor-pointer bg-white",
+              currentPage === totalPages
+                ? "border-gray-200 text-gray-300 cursor-not-allowed bg-gray-50/50"
+                : "border-[#0c1a2e]/10 text-[#0c1a2e] hover:border-[#3b82f6] hover:text-[#3b82f6] hover:shadow-sm"
+            )}
+            title="Next Page"
+          >
+            <Iconify icon="solar:alt-arrow-right-bold" width={16} />
+          </button>
 
-            {/* Last Page Button */}
-            <button
-              onClick={() => setCurrentPage(totalPages)}
-              disabled={currentPage === totalPages}
-              className={clsx(
-                "w-10 h-10 rounded-xl flex items-center justify-center border transition-all duration-200 cursor-pointer",
-                currentPage === totalPages
-                  ? "border-gray-200 text-gray-300 cursor-not-allowed bg-gray-50"
-                  : "border-[#0c1a2e]/10 text-[#0c1a2e] hover:border-[#3b82f6] hover:text-[#3b82f6] bg-white hover:shadow-sm"
-              )}
-              title="Last Page"
-            >
-              <Iconify icon={isRTL ? "solar:double-alt-arrow-left-bold" : "solar:double-alt-arrow-right-bold"} width={16} />
-            </button>
-          </div>
+          {/* Last Page Button */}
+          <button
+            onClick={() => setCurrentPage(totalPages)}
+            disabled={currentPage === totalPages}
+            className={clsx(
+              "w-10 h-10 rounded-xl flex items-center justify-center border transition-all duration-200 cursor-pointer bg-white",
+              currentPage === totalPages
+                ? "border-gray-200 text-gray-300 cursor-not-allowed bg-gray-50/50"
+                : "border-[#0c1a2e]/10 text-[#0c1a2e] hover:border-[#3b82f6] hover:text-[#3b82f6] hover:shadow-sm"
+            )}
+            title="Last Page"
+          >
+            <Iconify icon="solar:double-alt-arrow-right-bold" width={16} />
+          </button>
         </div>
       )}
 

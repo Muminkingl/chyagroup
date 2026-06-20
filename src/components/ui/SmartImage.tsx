@@ -22,11 +22,20 @@ export default function SmartImage({ src, alt = "", className, containerClassNam
     );
   }
 
+  // Parse Y-position and zoom scale from URL hash (e.g. #position=35&zoom=1.2)
+  const positionMatch = src.match(/[#&]position=(\d+)/);
+  const positionY = positionMatch ? `${positionMatch[1]}%` : "50%";
+
+  const zoomMatch = src.match(/[#&]zoom=([\d.]+)/);
+  const zoom = zoomMatch ? parseFloat(zoomMatch[1]) : 1;
+
+  const cleanSrc = src.split('#')[0];
+
   return (
     <div className={cn("relative w-full h-full overflow-hidden select-none bg-[#f4f7f9] flex items-center justify-center", containerClassName)}>
       {/* Hidden img to determine aspect ratio */}
       <img
-        src={src}
+        src={cleanSrc}
         alt=""
         className="hidden"
         onLoad={(e) => {
@@ -38,11 +47,11 @@ export default function SmartImage({ src, alt = "", className, containerClassNam
         }}
       />
 
-      {/* Background blurred image for portrait */}
-      {isPortrait && loaded && (
+      {/* Background blurred image for portrait or zoomed out images */}
+      {(isPortrait || zoom < 1.0) && loaded && (
         <div className="absolute inset-0 z-0">
           <img
-            src={src}
+            src={cleanSrc}
             alt=""
             className="w-full h-full object-cover blur-xl scale-110 opacity-30 select-none pointer-events-none"
           />
@@ -51,15 +60,19 @@ export default function SmartImage({ src, alt = "", className, containerClassNam
 
       {/* Main Image */}
       <img
-        src={src}
+        src={cleanSrc}
         alt={alt}
         className={cn(
           "transition-all duration-500",
-          isPortrait && loaded
+          (isPortrait || zoom < 1.0) && loaded
             ? "relative z-10 max-w-full max-h-full object-contain p-2"
             : "w-full h-full object-cover",
           className
         )}
+        style={{
+          objectPosition: `50% ${positionY}`,
+          transform: `scale(${zoom})`
+        }}
       />
     </div>
   );

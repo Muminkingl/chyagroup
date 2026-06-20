@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { Iconify } from "@/components/ui/Iconify";
 import { useLanguage } from "@/context/LanguageContext";
@@ -58,23 +58,111 @@ export default function PostDetailContent({ post }: PostDetailContentProps) {
     year: 'numeric'
   });
 
-  const nextImage = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  // Zoom and Pan states for full screen lightbox
+  const [zoomScale, setZoomScale] = useState(1);
+  const [pan, setPan] = useState({ x: 0, y: 0 });
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragged, setDragged] = useState(false);
+  const [clickStart, setClickStart] = useState({ x: 0, y: 0 });
+  const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+
+  const resetZoomAndPan = useCallback(() => {
+    setZoomScale(1);
+    setPan({ x: 0, y: 0 });
+    setIsDragging(false);
+    setDragged(false);
+  }, []);
+
+  const nextImage = useCallback((e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
     if (activeImageIdx !== null && allImages.length > 0) {
       const nextIdx = (activeImageIdx + 1) % allImages.length;
       setActiveImageIdx(nextIdx);
       setCurrentSlideIdx(nextIdx);
+      resetZoomAndPan();
     }
-  };
+  }, [activeImageIdx, allImages.length, resetZoomAndPan]);
 
-  const prevImage = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const prevImage = useCallback((e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
     if (activeImageIdx !== null && allImages.length > 0) {
       const prevIdx = (activeImageIdx - 1 + allImages.length) % allImages.length;
       setActiveImageIdx(prevIdx);
       setCurrentSlideIdx(prevIdx);
+      resetZoomAndPan();
     }
-  };
+  }, [activeImageIdx, allImages.length, resetZoomAndPan]);
+
+  const handleMouseDown = useCallback((e: React.MouseEvent) => {
+    if (zoomScale <= 1) return;
+    e.preventDefault();
+    setIsDragging(true);
+    setDragged(false);
+    setClickStart({ x: e.clientX, y: e.clientY });
+    setDragStart({ x: e.clientX - pan.x, y: e.clientY - pan.y });
+  }, [zoomScale, pan.x, pan.y]);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const dx = Math.abs(e.clientX - clickStart.x);
+    const dy = Math.abs(e.clientY - clickStart.y);
+    if (dx > 5 || dy > 5) {
+      setDragged(true);
+    }
+    setPan({
+      x: e.clientX - dragStart.x,
+      y: e.clientY - dragStart.y
+    });
+  }, [isDragging, clickStart, dragStart]);
+
+  const handleMouseUp = useCallback(() => {
+    setIsDragging(false);
+  }, []);
+
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    setIsDragging(true);
+    setDragged(false);
+    const touch = e.touches[0];
+    setClickStart({ x: touch.clientX, y: touch.clientY });
+    setDragStart({ x: touch.clientX - pan.x, y: touch.clientY - pan.y });
+  }, [pan.x, pan.y]);
+
+  const handleTouchMove = useCallback((e: React.TouchEvent) => {
+    if (!isDragging) return;
+    const touch = e.touches[0];
+    const dx = Math.abs(touch.clientX - clickStart.x);
+    const dy = Math.abs(touch.clientY - clickStart.y);
+    if (dx > 5 || dy > 5) {
+      setDragged(true);
+    }
+    setPan({
+      x: touch.clientX - dragStart.x,
+      y: touch.clientY - dragStart.y
+    });
+  }, [isDragging, clickStart, dragStart]);
+
+  const handleTouchEnd = useCallback(() => {
+    setIsDragging(false);
+  }, []);
+
+  const handleContainerClick = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (dragged) return;
+    if (zoomScale > 1) {
+      resetZoomAndPan();
+    } else {
+      setZoomScale(2);
+    }
+  }, [dragged, zoomScale, resetZoomAndPan]);
+
+  const handleZoomIn = useCallback(() => {
+    setZoomScale((prev) => Math.min(prev + 0.25, 4));
+  }, []);
+
+  const handleZoomOut = useCallback(() => {
+    setZoomScale((prev) => Math.max(prev - 0.25, 0.25));
+  }, []);
 
   // Keyboard navigation for Lightbox
   useEffect(() => {
@@ -82,25 +170,16 @@ export default function PostDetailContent({ post }: PostDetailContentProps) {
       if (activeImageIdx === null) return;
       if (e.key === "Escape") {
         setActiveImageIdx(null);
+        resetZoomAndPan();
       } else if (e.key === "ArrowRight") {
-        setActiveImageIdx((prev) => {
-          if (prev === null) return null;
-          const next = (prev + 1) % allImages.length;
-          setCurrentSlideIdx(next);
-          return next;
-        });
+        nextImage();
       } else if (e.key === "ArrowLeft") {
-        setActiveImageIdx((prev) => {
-          if (prev === null) return null;
-          const prevIdx = (prev - 1 + allImages.length) % allImages.length;
-          setCurrentSlideIdx(prevIdx);
-          return prevIdx;
-        });
+        prevImage();
       }
     }
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [activeImageIdx, allImages.length]);
+  }, [activeImageIdx, nextImage, prevImage, resetZoomAndPan]);
 
   // Autoplay functionality for slideshow
   useEffect(() => {
@@ -309,13 +388,52 @@ export default function PostDetailContent({ post }: PostDetailContentProps) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setActiveImageIdx(null)}
+              onClick={() => {
+                setActiveImageIdx(null);
+                resetZoomAndPan();
+              }}
               className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 cursor-zoom-out"
               dir="ltr"
             >
+              {/* Zoom Control Overlay */}
+              <div 
+                className="absolute top-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-white shadow-lg"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button
+                  onClick={handleZoomOut}
+                  className="p-1.5 rounded-full hover:bg-white/10 transition-colors cursor-pointer"
+                  title="Zoom Out"
+                >
+                  <Iconify icon="solar:magnifer-zoom-out-linear" width={20} />
+                </button>
+                <span className="text-xs font-bold min-w-[3.5rem] text-center select-none">
+                  {Math.round(zoomScale * 100)}%
+                </span>
+                <button
+                  onClick={handleZoomIn}
+                  className="p-1.5 rounded-full hover:bg-white/10 transition-colors cursor-pointer"
+                  title="Zoom In"
+                >
+                  <Iconify icon="solar:magnifer-zoom-in-linear" width={20} />
+                </button>
+                {zoomScale !== 1 && (
+                  <button
+                    onClick={resetZoomAndPan}
+                    className="p-1.5 rounded-full hover:bg-white/10 transition-colors ml-1 border-l border-white/10 pl-2.5 cursor-pointer"
+                    title="Reset Zoom"
+                  >
+                    <Iconify icon="solar:restart-linear" width={16} />
+                  </button>
+                )}
+              </div>
+
               <button 
-                onClick={() => setActiveImageIdx(null)}
-                className="absolute top-6 right-6 z-50 p-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors border border-white/10"
+                onClick={() => {
+                  setActiveImageIdx(null);
+                  resetZoomAndPan();
+                }}
+                className="absolute top-6 right-6 z-50 p-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors border border-white/10 cursor-pointer"
               >
                 <Iconify icon="solar:close-circle-linear" width={24} />
               </button>
@@ -324,14 +442,14 @@ export default function PostDetailContent({ post }: PostDetailContentProps) {
                 <>
                   <button 
                     onClick={prevImage}
-                    className="absolute left-6 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors border border-white/10 cursor-pointer"
+                    className="absolute left-6 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors border border-white/10 cursor-pointer z-50"
                   >
                     <Iconify icon="solar:alt-arrow-left-linear" width={22} />
                   </button>
 
                   <button 
                     onClick={nextImage}
-                    className="absolute right-6 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors border border-white/10 cursor-pointer"
+                    className="absolute right-6 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors border border-white/10 cursor-pointer z-50"
                   >
                     <Iconify icon="solar:alt-arrow-right-linear" width={22} />
                   </button>
@@ -343,15 +461,28 @@ export default function PostDetailContent({ post }: PostDetailContentProps) {
                 animate={{ scale: 1, y: 0 }}
                 exit={{ scale: 0.95, y: 10 }}
                 transition={{ type: "spring", damping: 25, stiffness: 250 }}
-                className="relative max-w-5xl max-h-[80vh] aspect-auto rounded-3xl overflow-hidden shadow-2xl border border-white/10"
-                onClick={(e) => e.stopPropagation()}
+                className="relative max-w-5xl max-h-[80vh] aspect-auto rounded-3xl overflow-hidden shadow-2xl border border-white/10 flex items-center justify-center bg-zinc-950"
+                onClick={handleContainerClick}
+                onMouseDown={handleMouseDown}
+                onMouseMove={handleMouseMove}
+                onMouseUp={handleMouseUp}
+                onMouseLeave={handleMouseUp}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+                style={{
+                  cursor: zoomScale > 1 ? (isDragging ? "grabbing" : "grab") : "zoom-in"
+                }}
               >
                 <img 
                   src={allImages[activeImageIdx]} 
                   alt={`${title} full view`} 
-                  className="max-w-full max-h-[85vh] object-contain"
+                  className="max-w-full max-h-[85vh] object-contain select-none pointer-events-none transition-transform duration-100 ease-out"
+                  style={{
+                    transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoomScale})`
+                  }}
                 />
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 text-[10px] font-bold text-white uppercase tracking-widest">
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 text-[10px] font-bold text-white uppercase tracking-widest pointer-events-none">
                   {activeImageIdx + 1} / {allImages.length}
                 </div>
               </motion.div>
