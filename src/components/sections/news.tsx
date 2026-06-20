@@ -6,6 +6,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/i18n/translations';
 import { NewsPost } from '@/lib/news_fetch';
 import { Iconify } from '@/components/ui/Iconify';
+import SmartImage from '../ui/SmartImage';
 
 interface LatestNewsSectionProps {
   posts: NewsPost[];
@@ -84,13 +85,13 @@ export default function LatestNewsSection({ posts }: LatestNewsSectionProps) {
               >
                 {/* Image */}
                 <Link href={`/news/${item.id}`} className="block relative h-56 sm:h-60 overflow-hidden">
-                  <img
+                  <SmartImage
                     src={item.imageUrl}
                     alt={localizedTitle}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="group-hover:scale-105"
                   />
                   {/* Category badge */}
-                  <div className={`absolute top-4 ${isRTL ? 'right-4' : 'left-4'}`}>
+                  <div className={`absolute top-4 ${isRTL ? 'right-4' : 'left-4'} z-20`}>
                     <span className="px-3.5 py-1.5 text-[10px] font-bold bg-[#0c1a2e] rounded-full text-white uppercase tracking-wider">
                       {item.category}
                     </span>

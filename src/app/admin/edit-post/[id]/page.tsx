@@ -142,9 +142,9 @@ export default function EditPostDetail({ params }: { params: Promise<{ id: strin
         <p className="text-zinc-400">Modify your content, translations, imagery and publishing details.</p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 space-y-6">
-          <form action={clientAction}>
+      <form action={clientAction}>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="lg:col-span-2 space-y-6">
             <Card className="border-white/5 bg-zinc-900/20 backdrop-blur-sm">
               <CardHeader>
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -346,50 +346,60 @@ export default function EditPostDetail({ params }: { params: Promise<{ id: strin
                 </div>
               </CardContent>
             </Card>
-          </form>
-        </div>
+          </div>
 
-        <div className="lg:col-span-1 space-y-6">
-          <Card className="border-white/5 bg-zinc-900/20 backdrop-blur-sm">
-            <CardHeader>
-              <CardTitle className="text-lg">Publishing Settings</CardTitle>
-              <CardDescription>Manage post visibility.</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-zinc-500">Status</label>
-                <div className="flex flex-col gap-2">
-                   {["Published", "Draft"].map((s) => (
-                      <button
-                        key={s}
-                        type="button"
-                        onClick={() => setStatus(s)}
-                        className={clsx(
-                          "flex items-center justify-between px-4 py-3 rounded-xl border transition-all text-sm font-medium",
-                          status === s 
-                           ? "bg-zinc-800 border-white/10 text-white shadow-lg" 
-                           : "bg-transparent border-white/5 text-zinc-500 hover:border-white/10"
-                        )}
-                      >
-                        <span>{s}</span>
-                        {status === s && <Iconify icon="solar:check-circle-bold" className="text-emerald-500 text-lg" />}
-                      </button>
-                   ))}
+          <div className="lg:col-span-1 space-y-6">
+            <Card className="border-white/5 bg-zinc-900/20 backdrop-blur-sm">
+              <CardHeader>
+                <CardTitle className="text-lg">Publishing Settings</CardTitle>
+                <CardDescription>Manage post visibility.</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-widest text-zinc-500">Status</label>
+                  <div className="flex flex-col gap-2">
+                     {["Published", "Draft"].map((s) => (
+                        <button
+                          key={s}
+                          type="button"
+                          onClick={() => setStatus(s)}
+                          className={clsx(
+                            "flex items-center justify-between px-4 py-3 rounded-xl border transition-all text-sm font-medium",
+                            status === s 
+                             ? "bg-zinc-800 border-white/10 text-white shadow-lg" 
+                             : "bg-transparent border-white/5 text-zinc-500 hover:border-white/10"
+                          )}
+                        >
+                          <span>{s}</span>
+                          {status === s && <Iconify icon="solar:check-circle-bold" className="text-emerald-500 text-lg" />}
+                        </button>
+                     ))}
+                  </div>
                 </div>
-              </div>
 
-              <div className="p-4 rounded-xl bg-amber-500/5 border border-amber-500/10 mt-4">
-                 <div className="flex gap-3">
-                   <Iconify icon="solar:info-circle-linear" className="text-amber-500 mt-1" />
-                   <p className="text-[11px] text-amber-500/80 leading-relaxed font-medium">
-                     Updates to the status are applied immediately when you save the post. Published posts are visible to all users.
-                   </p>
-                 </div>
-              </div>
-            </CardContent>
-          </Card>
+                <div className="p-4 rounded-xl bg-amber-500/5 border border-amber-500/10 mt-4">
+                   <div className="flex gap-3">
+                     <Iconify icon="solar:info-circle-linear" className="text-amber-500 mt-1" />
+                     <p className="text-[11px] text-amber-500/80 leading-relaxed font-medium">
+                       Updates to the status are applied immediately when you save the post. Published posts are visible to all users.
+                     </p>
+                   </div>
+                </div>
+
+                <div className="pt-4 border-t border-white/5">
+                  <Button 
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full h-11 bg-white text-black hover:bg-zinc-200 transition-colors font-semibold"
+                  >
+                    {isSubmitting ? "Saving..." : "Save Changes"}
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
-      </div>
+      </form>
     </div>
   );
 }

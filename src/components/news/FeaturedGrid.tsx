@@ -6,6 +6,7 @@ import { Post } from '@/data/newsData';
 import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/i18n/translations';
 import { cn } from '@/lib/utils';
+import SmartImage from '../ui/SmartImage';
 
 export default function FeaturedGrid({ posts }: { posts: Post[] }) {
   const { locale, isRTL } = useLanguage();
@@ -44,12 +45,12 @@ export default function FeaturedGrid({ posts }: { posts: Post[] }) {
         {/* Background image */}
         {hasHeroImage && (
           <div className="absolute inset-0">
-            <img 
+            <SmartImage 
               src={heroPost.imageUrl} 
               alt={localizedHeroTitle}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              className="transition-transform duration-700 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-white via-white/90 to-transparent opacity-95" />
+            <div className="absolute inset-0 bg-gradient-to-t from-white via-white/90 to-transparent opacity-95 z-20 pointer-events-none" />
           </div>
         )}
 
@@ -80,10 +81,10 @@ export default function FeaturedGrid({ posts }: { posts: Post[] }) {
           </p>
           
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-[#f4f7f9] border border-[#0c1a2e]/10 flex items-center justify-center">
-              <span className="text-xs font-bold text-[#3a4f6a]">CG</span>
+            <div className="w-10 h-10 rounded-full bg-white border border-[#0c1a2e]/10 flex items-center justify-center p-1 overflow-hidden z-20">
+              <img src="/logo.svg" alt="Chya Group Logo" className="w-full h-full object-contain" />
             </div>
-            <div>
+            <div className="z-20">
               <p className="text-sm font-semibold text-[#0c1a2e]">{t.author}</p>
               <p className="text-xs text-[#3a4f6a] flex items-center gap-1 font-medium">
                 <Iconify icon="solar:clock-circle-linear" width={11} />
@@ -114,12 +115,12 @@ export default function FeaturedGrid({ posts }: { posts: Post[] }) {
                 {/* Side post image (background) */}
                 {hasSideImage && (
                   <div className="absolute inset-0">
-                    <img
+                    <SmartImage
                       src={post.imageUrl}
                       alt={localizedSideTitle}
-                      className="w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-500"
+                      className="opacity-20 group-hover:opacity-30 transition-opacity duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-white via-white/90 to-white/60" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-white via-white/90 to-white/60 z-20 pointer-events-none" />
                   </div>
                 )}
 
@@ -151,10 +152,10 @@ export default function FeaturedGrid({ posts }: { posts: Post[] }) {
                     </p>
                   </div>
 
-                  <div className="flex items-center justify-between mt-6 pt-4 border-t border-[#0c1a2e]/5">
+                  <div className="flex items-center justify-between mt-6 pt-4 border-t border-[#0c1a2e]/5 z-20">
                     <div className="flex items-center gap-2">
-                      <div className="w-6 h-6 rounded-full bg-[#f4f7f9] border border-[#0c1a2e]/10 flex items-center justify-center">
-                        <span className="text-[9px] font-bold text-[#3a4f6a]">CG</span>
+                      <div className="w-6 h-6 rounded-full bg-white border border-[#0c1a2e]/10 flex items-center justify-center p-0.5 overflow-hidden">
+                        <img src="/logo.svg" alt="Chya Group Logo" className="w-full h-full object-contain" />
                       </div>
                       <span className="text-xs text-[#0c1a2e] font-medium">{t.author}</span>
                     </div>

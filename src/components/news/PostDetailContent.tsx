@@ -6,6 +6,7 @@ import { Iconify } from "@/components/ui/Iconify";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/i18n/translations";
 import { motion, AnimatePresence } from "framer-motion";
+import SmartImage from "../ui/SmartImage";
 
 interface PostDetailContentProps {
   post: {
@@ -30,6 +31,7 @@ export default function PostDetailContent({ post }: PostDetailContentProps) {
   const { locale, isRTL } = useLanguage();
   const t = translations[locale].newsArchive;
   const [activeImageIdx, setActiveImageIdx] = useState<number | null>(null);
+  const [currentSlideIdx, setCurrentSlideIdx] = useState(0);
 
   // Localization selections
   const title = post[`title_${locale}` as keyof typeof post] as string || post.title;
@@ -59,14 +61,18 @@ export default function PostDetailContent({ post }: PostDetailContentProps) {
   const nextImage = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (activeImageIdx !== null && allImages.length > 0) {
-      setActiveImageIdx((activeImageIdx + 1) % allImages.length);
+      const nextIdx = (activeImageIdx + 1) % allImages.length;
+      setActiveImageIdx(nextIdx);
+      setCurrentSlideIdx(nextIdx);
     }
   };
 
   const prevImage = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (activeImageIdx !== null && allImages.length > 0) {
-      setActiveImageIdx((activeImageIdx - 1 + allImages.length) % allImages.length);
+      const prevIdx = (activeImageIdx - 1 + allImages.length) % allImages.length;
+      setActiveImageIdx(prevIdx);
+      setCurrentSlideIdx(prevIdx);
     }
   };
 
@@ -77,14 +83,63 @@ export default function PostDetailContent({ post }: PostDetailContentProps) {
       if (e.key === "Escape") {
         setActiveImageIdx(null);
       } else if (e.key === "ArrowRight") {
-        setActiveImageIdx((prev) => (prev !== null ? (prev + 1) % allImages.length : null));
+        setActiveImageIdx((prev) => {
+          if (prev === null) return null;
+          const next = (prev + 1) % allImages.length;
+          setCurrentSlideIdx(next);
+          return next;
+        });
       } else if (e.key === "ArrowLeft") {
-        setActiveImageIdx((prev) => (prev !== null ? (prev - 1 + allImages.length) % allImages.length : null));
+        setActiveImageIdx((prev) => {
+          if (prev === null) return null;
+          const prevIdx = (prev - 1 + allImages.length) % allImages.length;
+          setCurrentSlideIdx(prevIdx);
+          return prevIdx;
+        });
       }
     }
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [activeImageIdx, allImages.length]);
+
+  // Autoplay functionality for slideshow
+  useEffect(() => {
+    if (allImages.length <= 1 || activeImageIdx !== null) return;
+
+    const timer = setInterval(() => {
+      setCurrentSlideIdx((prev) => (prev + 1) % allImages.length);
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, [currentSlideIdx, allImages.length, activeImageIdx]);
+
+  // Swipe gesture hooks
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      setCurrentSlideIdx((prev) => (prev + 1) % allImages.length);
+    } else if (isRightSwipe) {
+      setCurrentSlideIdx((prev) => (prev - 1 + allImages.length) % allImages.length);
+    }
+  };
 
   return (
     <main className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
@@ -133,23 +188,108 @@ export default function PostDetailContent({ post }: PostDetailContentProps) {
           </div>
         </header>
 
-        {/* Featured Image */}
-        {post.image_url && (
-          <div 
-            onClick={() => setActiveImageIdx(0)}
-            className="relative aspect-[21/9] mb-16 rounded-3xl overflow-hidden border border-[#0c1a2e]/5 shadow-sm bg-zinc-100 cursor-pointer group hover:shadow-md transition-shadow duration-300"
-          >
-            <img 
-              src={post.image_url} 
-              alt={title}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.01]"
-            />
-            <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-              <div className="w-12 h-12 rounded-full bg-white/90 shadow flex items-center justify-center text-[#0c1a2e]">
-                <Iconify icon="solar:magnifer-zoom-in-linear" width={20} />
+        {/* Gallery Slider / Featured Image */}
+        {allImages.length > 0 && (
+          <div className="mb-16">
+            {allImages.length === 1 ? (
+              // Single image: static banner zoomable on click
+              <div 
+                onClick={() => setActiveImageIdx(0)}
+                className="relative aspect-[21/9] rounded-3xl overflow-hidden border border-[#0c1a2e]/5 shadow-sm bg-zinc-100 cursor-pointer group hover:shadow-md transition-shadow duration-300"
+              >
+                <SmartImage 
+                  src={allImages[0]} 
+                  alt={title}
+                  className="group-hover:scale-[1.01]"
+                />
+                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-20">
+                  <div className="w-12 h-12 rounded-full bg-white/90 shadow flex items-center justify-center text-[#0c1a2e]">
+                    <Iconify icon="solar:magnifer-zoom-in-linear" width={20} />
+                  </div>
+                </div>
               </div>
-            </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-[#faf9f6] via-transparent to-transparent opacity-20"></div>
+            ) : (
+              // Multiple images: premium interactive slideshow slider
+              <div className="space-y-4">
+                {/* Main slide display */}
+                <div 
+                  onTouchStart={onTouchStart}
+                  onTouchMove={onTouchMove}
+                  onTouchEnd={onTouchEnd}
+                  onClick={() => setActiveImageIdx(currentSlideIdx)}
+                  className="relative aspect-[21/9] rounded-3xl overflow-hidden border border-[#0c1a2e]/5 shadow-md bg-zinc-900 cursor-pointer group hover:shadow-lg transition-all duration-300"
+                >
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={currentSlideIdx}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.4 }}
+                      className="w-full h-full"
+                    >
+                      <SmartImage
+                        src={allImages[currentSlideIdx]}
+                        alt={`${title} - image ${currentSlideIdx + 1}`}
+                      />
+                    </motion.div>
+                  </AnimatePresence>
+
+                  {/* Manual Arrow Controls (Glassmorphism overlay) */}
+                  <div className="absolute inset-x-4 top-1/2 -translate-y-1/2 flex justify-between pointer-events-none z-20">
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setCurrentSlideIdx((prev) => (prev - 1 + allImages.length) % allImages.length);
+                      }}
+                      className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white/30 cursor-pointer pointer-events-auto shadow-sm"
+                    >
+                      <Iconify icon="solar:alt-arrow-left-linear" width={20} />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setCurrentSlideIdx((prev) => (prev + 1) % allImages.length);
+                      }}
+                      className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white/30 cursor-pointer pointer-events-auto shadow-sm"
+                    >
+                      <Iconify icon="solar:alt-arrow-right-linear" width={20} />
+                    </button>
+                  </div>
+
+                  {/* Image Counter Overlay */}
+                  <div className="absolute bottom-4 right-4 z-20 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 text-[10px] font-bold text-white uppercase tracking-widest pointer-events-none">
+                    {currentSlideIdx + 1} / {allImages.length}
+                  </div>
+
+                  {/* Hover Zoom Hint */}
+                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none z-10">
+                    <div className="w-12 h-12 rounded-full bg-white/90 shadow flex items-center justify-center text-[#0c1a2e]">
+                      <Iconify icon="solar:magnifer-zoom-in-linear" width={20} />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Clickable Thumbnail Row */}
+                <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-zinc-200">
+                  {allImages.map((imgUrl, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setCurrentSlideIdx(idx)}
+                      className={`relative w-20 h-14 rounded-xl overflow-hidden border-2 transition-all shrink-0 bg-[#faf9f6] ${
+                        currentSlideIdx === idx 
+                          ? "border-[#3b82f6] shadow-sm scale-95 opacity-100" 
+                          : "border-transparent opacity-60 hover:opacity-100"
+                      }`}
+                    >
+                      <img src={imgUrl} alt={`Thumbnail ${idx + 1}`} className="w-full h-full object-cover" />
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         )}
 
@@ -160,38 +300,7 @@ export default function PostDetailContent({ post }: PostDetailContentProps) {
           dangerouslySetInnerHTML={{ __html: content }}
         />
 
-        {/* Additional Images Gallery */}
-        {additionalImages.length > 0 && (
-          <section className="mt-20 pt-12 border-t border-[#0c1a2e]/10">
-            <h3 className={`text-xl font-bold text-[#0c1a2e] mb-6 tracking-tight ${isRTL ? 'text-right' : 'text-left'}`}>
-              {galleryTitle}
-            </h3>
-            
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-              {additionalImages.map((imgUrl, idx) => {
-                const globalIdx = post.image_url ? idx + 1 : idx;
-                return (
-                  <div 
-                    key={idx} 
-                    onClick={() => setActiveImageIdx(globalIdx)}
-                    className="group relative aspect-[4/3] rounded-2xl overflow-hidden border border-[#0c1a2e]/5 shadow-sm bg-[#faf9f6] cursor-pointer hover:shadow-md transition-shadow duration-300"
-                  >
-                    <img 
-                      src={imgUrl} 
-                      alt={`${title} gallery ${idx + 1}`} 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                      <div className="w-10 h-10 rounded-full bg-white/90 shadow flex items-center justify-center text-[#0c1a2e]">
-                        <Iconify icon="solar:magnifer-zoom-in-linear" width={18} />
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </section>
-        )}
+
 
         {/* Gallery Lightbox */}
         <AnimatePresence>
@@ -253,8 +362,8 @@ export default function PostDetailContent({ post }: PostDetailContentProps) {
         <div className="mt-20 pt-12 border-t border-[#0c1a2e]/10">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
             <div className={`flex items-center gap-4 ${isRTL ? 'flex-row-reverse text-right' : 'text-left'}`}>
-              <div className="w-12 h-12 rounded-full bg-white border border-[#0c1a2e]/10 flex items-center justify-center shadow-sm">
-                <span className="text-[#3a4f6a] text-xs font-bold">CG</span>
+              <div className="w-12 h-12 rounded-full bg-white border border-[#0c1a2e]/10 flex items-center justify-center shadow-sm p-1 overflow-hidden">
+                <img src="/logo.svg" alt="Chya Group Logo" className="w-full h-full object-contain" />
               </div>
               <div>
                 <h4 className="text-sm font-bold text-[#0c1a2e] mb-0.5">{t.author}</h4>

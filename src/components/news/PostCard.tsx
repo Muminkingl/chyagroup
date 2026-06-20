@@ -6,6 +6,7 @@ import { clsx } from 'clsx';
 import { Post } from '@/data/newsData';
 import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/i18n/translations';
+import SmartImage from '../ui/SmartImage';
 
 export default function PostCard({ post, className }: { post: Post, className?: string }) {
   const { locale, isRTL } = useLanguage();
@@ -37,10 +38,10 @@ export default function PostCard({ post, className }: { post: Post, className?: 
       {/* Only render image section if image exists */}
       {hasImage && (
         <div className="relative w-full aspect-[16/10] overflow-hidden bg-[#f4f7f9]">
-          <img 
+          <SmartImage 
             src={post.imageUrl} 
             alt={localizedTitle}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            className="group-hover:scale-105"
           />
         </div>
       )}
@@ -71,8 +72,8 @@ export default function PostCard({ post, className }: { post: Post, className?: 
         <div className="flex items-center justify-between mt-auto">
           {/* Author */}
           <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-full bg-[#f4f7f9] border border-[#0c1a2e]/10 flex items-center justify-center">
-              <span className="text-[9px] font-bold text-[#3a4f6a]">CG</span>
+            <div className="w-6 h-6 rounded-full bg-white border border-[#0c1a2e]/10 flex items-center justify-center p-0.5 overflow-hidden">
+              <img src="/logo.svg" alt="Chya Group Logo" className="w-full h-full object-contain" />
             </div>
             <span className="text-xs text-[#0c1a2e] font-medium">{t.author}</span>
           </div>

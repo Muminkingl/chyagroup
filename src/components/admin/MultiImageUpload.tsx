@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { getPresignedUrlAction } from "@/app/admin/actions";
 import { clsx } from "clsx";
 import { Iconify } from "@/components/ui/Iconify";
 import { AnimatePresence, motion } from "framer-motion";
+import Sortable from "sortablejs";
 
 interface MultiImageUploadProps {
   onImagesChange?: (urls: string[]) => void;
@@ -17,6 +18,44 @@ export default function MultiImageUpload({ onImagesChange, defaultImages = [], l
   const [isUploading, setIsUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+  const onImagesChangeRef = useRef(onImagesChange);
+  const imagesRef = useRef(images);
+
+  useEffect(() => {
+    onImagesChangeRef.current = onImagesChange;
+    imagesRef.current = images;
+  });
+
+  useEffect(() => {
+    if (!gridRef.current) return;
+
+    const sortable = Sortable.create(gridRef.current, {
+      animation: 150,
+      draggable: ".sortable-item",
+      ghostClass: "opacity-40",
+      chosenClass: "border-white/20",
+      dragClass: "border-white/40",
+      onEnd: () => {
+        const items = Array.from(gridRef.current?.querySelectorAll(".sortable-item") || []) as HTMLElement[];
+        const newImages = items.map(item => item.dataset.url).filter(Boolean) as string[];
+        
+        const currentImages = imagesRef.current;
+        const hasChanged = newImages.length !== currentImages.length || newImages.some((url, i) => url !== currentImages[i]);
+        
+        if (hasChanged) {
+          setImages(newImages);
+          if (onImagesChangeRef.current) {
+            onImagesChangeRef.current(newImages);
+          }
+        }
+      }
+    });
+
+    return () => {
+      sortable.destroy();
+    };
+  }, []);
 
   // Helper function to dynamically convert HEIC to JPEG on client side
   const convertHeicToJpeg = async (file: File): Promise<File> => {
@@ -141,16 +180,17 @@ export default function MultiImageUpload({ onImagesChange, defaultImages = [], l
       <input type="hidden" name="images" value={JSON.stringify(images)} />
 
       {/* Grid of uploaded images */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+      <div ref={gridRef} className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
         <AnimatePresence>
           {images.map((url, idx) => (
             <motion.div
-              key={url + idx}
+              key={url}
+              data-url={url}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}
               transition={{ duration: 0.2 }}
-              className="relative aspect-square rounded-2xl border border-white/5 bg-zinc-950 overflow-hidden group shadow-md"
+              className="sortable-item relative aspect-square rounded-2xl border border-white/5 bg-zinc-950 overflow-hidden group shadow-md cursor-grab active:cursor-grabbing hover:border-white/10"
             >
               <img src={url} alt={`Gallery image ${idx + 1}`} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
               
