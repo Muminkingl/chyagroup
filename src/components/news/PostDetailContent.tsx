@@ -7,6 +7,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/i18n/translations";
 import { motion, AnimatePresence } from "framer-motion";
 import SmartImage from "../ui/SmartImage";
+import { clsx } from "clsx";
 
 interface PostDetailContentProps {
   post: {
@@ -374,10 +375,54 @@ export default function PostDetailContent({ post }: PostDetailContentProps) {
 
         {/* Article Body */}
         <article 
-          className="prose prose-zinc max-w-none text-[#3a4f6a] prose-p:text-[#3a4f6a] prose-p:leading-relaxed prose-p:font-medium prose-headings:text-[#0c1a2e] prose-headings:font-bold prose-headings:tracking-tight prose-strong:text-[#0c1a2e] prose-blockquote:border-[#3b82f6] prose-blockquote:bg-[#0c1a2e]/[0.03] prose-blockquote:p-6 prose-blockquote:rounded-2xl prose-img:rounded-3xl"
+          className={clsx(
+            "prose prose-zinc max-w-none text-[#3a4f6a] post-details-body-content",
+            "prose-headings:text-[#0c1a2e] prose-headings:font-bold prose-headings:tracking-tight",
+            "prose-strong:text-[#0c1a2e] prose-blockquote:border-[#3b82f6] prose-blockquote:bg-[#0c1a2e]/[0.03] prose-blockquote:p-6 prose-blockquote:rounded-2xl prose-img:rounded-3xl",
+            locale === "en" ? "body-en" : "body-rtl"
+          )}
           dir="auto"
           dangerouslySetInnerHTML={{ __html: content }}
         />
+        <style dangerouslySetInnerHTML={{ __html: `
+          .post-details-body-content.body-en p, 
+          .post-details-body-content.body-en li {
+            font-size: 21px !important;
+            line-height: 1.75 !important;
+            color: #3a4f6a !important;
+            font-weight: 500 !important;
+          }
+          .post-details-body-content.body-en h2 {
+            font-size: 30px !important;
+            color: #0c1a2e !important;
+            font-weight: 700 !important;
+          }
+          .post-details-body-content.body-en h3 {
+            font-size: 24px !important;
+            color: #0c1a2e !important;
+            font-weight: 700 !important;
+          }
+
+          .post-details-body-content.body-rtl p, 
+          .post-details-body-content.body-rtl li {
+            font-size: 21px !important;
+            line-height: 1.95 !important;
+            color: #3a4f6a !important;
+            font-weight: 500 !important;
+          }
+          .post-details-body-content.body-rtl h2 {
+            font-size: 30px !important;
+            line-height: 1.5 !important;
+            color: #0c1a2e !important;
+            font-weight: 700 !important;
+          }
+          .post-details-body-content.body-rtl h3 {
+            font-size: 24px !important;
+            line-height: 1.5 !important;
+            color: #0c1a2e !important;
+            font-weight: 700 !important;
+          }
+        `}} />
 
 
 
