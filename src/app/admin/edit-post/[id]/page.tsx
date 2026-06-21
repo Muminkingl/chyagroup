@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect, use } from "react";
+import { useState, useEffect, use, useCallback } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { updatePost, getPostById } from "../../actions";
@@ -10,14 +10,20 @@ import { clsx } from "clsx";
 import ImageUpload from "@/components/admin/ImageUpload";
 import MultiImageUpload from "@/components/admin/MultiImageUpload";
 import { Iconify } from "@/components/ui/Iconify";
+import RichTextEditor from "@/components/admin/RichTextEditor";
 
 export default function EditPostDetail({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
   
   const [activeTab, setActiveTab] = useState<"en" | "ar" | "ku">("en");
-  const editorEnRef = useRef<HTMLDivElement>(null);
-  const editorArRef = useRef<HTMLDivElement>(null);
-  const editorKuRef = useRef<HTMLDivElement>(null);
+  
+  const [titleEn, setTitleEn] = useState("");
+  const [titleAr, setTitleAr] = useState("");
+  const [titleKu, setTitleKu] = useState("");
+
+  const [contentEn, setContentEn] = useState("");
+  const [contentAr, setContentAr] = useState("");
+  const [contentKu, setContentKu] = useState("");
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [post, setPost] = useState<any>(null);
@@ -26,6 +32,8 @@ export default function EditPostDetail({ params }: { params: Promise<{ id: strin
   const [imageUrl, setImageUrl] = useState<string>("");
   const [images, setImages] = useState<string[]>([]);
   const router = useRouter();
+
+  const [hasDraft, setHasDraft] = useState(false);
 
   useEffect(() => {
     async function fetchPost() {
@@ -36,76 +44,113 @@ export default function EditPostDetail({ params }: { params: Promise<{ id: strin
         setImageUrl(data.image_url || "");
         setImages(data.images || []);
         
-        // Populate editor contents with timeout to allow DOM refs to initialize
-        setTimeout(() => {
-          if (editorEnRef.current) {
-            editorEnRef.current.innerHTML = data.content_en || data.content || "";
-          }
-          if (editorArRef.current) {
-            editorArRef.current.innerHTML = data.content_ar || "";
-          }
-          if (editorKuRef.current) {
-            editorKuRef.current.innerHTML = data.content_ku || "";
-          }
-        }, 100);
+        setTitleEn(data.title_en || data.title || "");
+        setTitleAr(data.title_ar || "");
+        setTitleKu(data.title_ku || "");
+        
+        setContentEn(data.content_en || data.content || "");
+        setContentAr(data.content_ar || "");
+        setContentKu(data.content_ku || "");
       }
       setLoading(false);
     }
     fetchPost();
   }, [id]);
 
-  // Fallback populator if refs load later
+  // Check for local draft on load
   useEffect(() => {
-    if (post) {
-      if (editorEnRef.current && !editorEnRef.current.innerHTML) {
-        editorEnRef.current.innerHTML = post.content_en || post.content || "";
-      }
-      if (editorArRef.current && !editorArRef.current.innerHTML) {
-        editorArRef.current.innerHTML = post.content_ar || "";
-      }
-      if (editorKuRef.current && !editorKuRef.current.innerHTML) {
-        editorKuRef.current.innerHTML = post.content_ku || "";
+    if (!post) return;
+    const draftKey = `chyagroup_draft_post_edit_${id}`;
+    const draft = localStorage.getItem(draftKey);
+    if (draft) {
+      try {
+        const parsed = JSON.parse(draft);
+        const postTime = new Date(post.updated_at || post.created_at).getTime();
+        if (parsed.timestamp && parsed.timestamp > postTime) {
+          setHasDraft(true);
+        }
+      } catch (e) {
+        console.error("Failed to parse local draft", e);
       }
     }
-  }, [post, activeTab]);
+  }, [post, id]);
 
-  const handleFormat = (command: string, value: string | null = null) => {
-    document.execCommand(command, false, value || "");
-    const activeEditor = activeTab === "en" ? editorEnRef : activeTab === "ar" ? editorArRef : editorKuRef;
-    if (activeEditor.current) {
-      activeEditor.current.focus();
+  // Save draft on edit
+  useEffect(() => {
+    if (!post) return;
+    const draftKey = `chyagroup_draft_post_edit_${id}`;
+
+    // Prevent saving if it's identical to the post from database (initial load)
+    const isUnchanged = 
+      titleEn === (post.title_en || post.title || "") &&
+      titleAr === (post.title_ar || "") &&
+      titleKu === (post.title_ku || "") &&
+      contentEn === (post.content_en || post.content || "") &&
+      contentAr === (post.content_ar || "") &&
+      contentKu === (post.content_ku || "") &&
+      imageUrl === (post.image_url || "");
+      
+    if (isUnchanged) return;
+
+    const draftData = {
+      titleEn,
+      titleAr,
+      titleKu,
+      contentEn,
+      contentAr,
+      contentKu,
+      imageUrl,
+      timestamp: Date.now()
+    };
+    localStorage.setItem(draftKey, JSON.stringify(draftData));
+  }, [titleEn, titleAr, titleKu, contentEn, contentAr, contentKu, imageUrl, post, id]);
+
+  const restoreDraft = () => {
+    const draftKey = `chyagroup_draft_post_edit_${id}`;
+    const draft = localStorage.getItem(draftKey);
+    if (draft) {
+      try {
+        const parsed = JSON.parse(draft);
+        setTitleEn(parsed.titleEn || "");
+        setTitleAr(parsed.titleAr || "");
+        setTitleKu(parsed.titleKu || "");
+        setContentEn(parsed.contentEn || "");
+        setContentAr(parsed.contentAr || "");
+        setContentKu(parsed.contentKu || "");
+        setImageUrl(parsed.imageUrl || "");
+        setHasDraft(false);
+      } catch (e) {
+        console.error(e);
+      }
     }
   };
 
-  const ToolbarButton = ({ icon, onClick, title }: { icon: string, onClick: () => void, title: string }) => (
-    <button
-      type="button"
-      onClick={onClick}
-      onMouseDown={(e) => e.preventDefault()}
-      title={title}
-      className="p-2 text-zinc-400 hover:text-zinc-50 hover:bg-zinc-800 rounded-md transition-colors flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-zinc-600"
-    >
-      <Iconify icon={icon} className="text-lg" />
-    </button>
-  );
+  const discardDraft = () => {
+    const draftKey = `chyagroup_draft_post_edit_${id}`;
+    localStorage.removeItem(draftKey);
+    setHasDraft(false);
+  };
 
   async function clientAction(formData: FormData) {
     setIsSubmitting(true);
     
     // Add translation contents to form data
-    const contentEn = editorEnRef.current?.innerHTML || "";
-    const contentAr = editorArRef.current?.innerHTML || "";
-    const contentKu = editorKuRef.current?.innerHTML || "";
-    
     formData.append("content_en", contentEn);
     formData.append("content_ar", contentAr);
     formData.append("content_ku", contentKu);
     formData.append("status", status);
     formData.append("images", JSON.stringify(images));
     
+    // Explicitly update title values in formData
+    formData.set("title_en", titleEn);
+    formData.set("title_ar", titleAr);
+    formData.set("title_ku", titleKu);
+    
     const result = await updatePost(id, formData);
     
     if (result.success) {
+      const draftKey = `chyagroup_draft_post_edit_${id}`;
+      localStorage.removeItem(draftKey);
       router.push("/admin/edit-post");
       router.refresh();
     } else {
@@ -141,6 +186,31 @@ export default function EditPostDetail({ params }: { params: Promise<{ id: strin
         <h2 className="text-3xl font-semibold tracking-tight text-white">Edit Post</h2>
         <p className="text-zinc-400">Modify your content, translations, imagery and publishing details.</p>
       </div>
+
+      {hasDraft && (
+        <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex flex-col sm:flex-row items-center justify-between gap-4 animate-in fade-in zoom-in-95">
+          <div className="flex items-center gap-3 text-sm text-amber-500">
+            <Iconify icon="solar:info-circle-linear" className="text-xl shrink-0" />
+            <span>You have an unsaved local draft for this post that is newer than the published copy.</span>
+          </div>
+          <div className="flex gap-2 shrink-0">
+            <Button
+              type="button"
+              onClick={restoreDraft}
+              className="h-9 px-4 bg-amber-500 text-black hover:bg-amber-400 transition-colors font-bold text-xs animate-pulse"
+            >
+              Restore Draft
+            </Button>
+            <Button
+              type="button"
+              onClick={discardDraft}
+              className="h-9 px-4 bg-transparent border border-white/10 text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors font-bold text-xs"
+            >
+              Discard
+            </Button>
+          </div>
+        </div>
+      )}
 
       <form action={clientAction}>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -187,7 +257,8 @@ export default function EditPostDetail({ params }: { params: Promise<{ id: strin
                       name="title_en"
                       type="text" 
                       required={activeTab === "en"}
-                      defaultValue={post.title_en || post.title}
+                      value={titleEn}
+                      onChange={(e) => setTitleEn(e.target.value)}
                       placeholder="Enter English title..." 
                       className="flex h-11 w-full rounded-xl border border-white/5 bg-zinc-950 px-4 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-zinc-700 transition-all font-medium"
                     />
@@ -204,7 +275,8 @@ export default function EditPostDetail({ params }: { params: Promise<{ id: strin
                       name="title_ar"
                       type="text" 
                       required={activeTab === "ar"}
-                      defaultValue={post.title_ar || ""}
+                      value={titleAr}
+                      onChange={(e) => setTitleAr(e.target.value)}
                       dir="rtl"
                       placeholder="أدخل العنوان باللغة العربية..." 
                       className="flex h-11 w-full rounded-xl border border-white/5 bg-zinc-950 px-4 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-zinc-700 transition-all font-medium"
@@ -222,7 +294,8 @@ export default function EditPostDetail({ params }: { params: Promise<{ id: strin
                       name="title_ku"
                       type="text" 
                       required={activeTab === "ku"}
-                      defaultValue={post.title_ku || ""}
+                      value={titleKu}
+                      onChange={(e) => setTitleKu(e.target.value)}
                       dir="rtl"
                       placeholder="ناونیشان بە زمانی کوردی بنووسە..." 
                       className="flex h-11 w-full rounded-xl border border-white/5 bg-zinc-950 px-4 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-zinc-700 transition-all font-medium"
@@ -235,56 +308,28 @@ export default function EditPostDetail({ params }: { params: Promise<{ id: strin
                   <label className="text-sm font-medium text-zinc-200">
                     Body Content ({activeTab === "en" ? "English" : activeTab === "ar" ? "Arabic" : "Kurdish"})
                   </label>
-                  <div className="rounded-xl border border-white/5 bg-zinc-950 overflow-hidden focus-within:ring-2 focus-within:ring-zinc-700 transition-all">
-                    <div className="flex flex-wrap items-center gap-1 border-b border-white/5 bg-zinc-900/50 p-1.5 font-light">
-                      <ToolbarButton icon="solar:text-bold-linear" title="Bold" onClick={() => handleFormat('bold')} />
-                      <ToolbarButton icon="solar:text-italic-linear" title="Italic" onClick={() => handleFormat('italic')} />
-                      <ToolbarButton icon="solar:text-underline-linear" title="Underline" onClick={() => handleFormat('underline')} />
-                      <div className="w-px h-6 bg-white/5 mx-1"></div>
-                      <ToolbarButton icon="solar:heading-linear" title="Heading 2" onClick={() => handleFormat('formatBlock', 'H2')} />
-                      <ToolbarButton icon="solar:text-square-linear" title="Paragraph" onClick={() => handleFormat('formatBlock', 'P')} />
-                      <div className="w-px h-6 bg-white/5 mx-1"></div>
-                      <ToolbarButton icon="solar:list-check-linear" title="Bullet List" onClick={() => handleFormat('insertUnorderedList')} />
-                      <ToolbarButton icon="solar:list-numbers-linear" title="Numbered List" onClick={() => handleFormat('insertOrderedList')} />
-                      <div className="w-px h-6 bg-white/5 mx-1"></div>
-                      <ToolbarButton icon="solar:text-align-left-linear" title="Align Left" onClick={() => handleFormat('justifyLeft')} />
-                      <ToolbarButton icon="solar:text-align-center-linear" title="Align Center" onClick={() => handleFormat('justifyCenter')} />
-                      <ToolbarButton icon="solar:text-align-right-linear" title="Align Right" onClick={() => handleFormat('justifyRight')} />
-                    </div>
-
-                    {/* English Editor */}
-                    <div 
-                      ref={editorEnRef}
-                      className={clsx(
-                        "min-h-[350px] w-full p-6 text-sm text-zinc-100 focus:outline-none prose prose-invert max-w-none font-light",
-                        activeTab !== "en" && "hidden"
-                      )}
-                      contentEditable
-                      suppressContentEditableWarning
+                  
+                  <div className={clsx(activeTab !== "en" && "hidden")}>
+                    <RichTextEditor
+                      value={contentEn}
+                      onChange={setContentEn}
+                      placeholder="Write English description here..."
                       dir="ltr"
                     />
-
-                    {/* Arabic Editor */}
-                    <div 
-                      ref={editorArRef}
-                      className={clsx(
-                        "min-h-[350px] w-full p-6 text-sm text-zinc-100 focus:outline-none prose prose-invert max-w-none font-light",
-                        activeTab !== "ar" && "hidden"
-                      )}
-                      contentEditable
-                      suppressContentEditableWarning
+                  </div>
+                  <div className={clsx(activeTab !== "ar" && "hidden")}>
+                    <RichTextEditor
+                      value={contentAr}
+                      onChange={setContentAr}
+                      placeholder="أدخل المحتوى باللغة العربية هنا..."
                       dir="rtl"
                     />
-
-                    {/* Kurdish Editor */}
-                    <div 
-                      ref={editorKuRef}
-                      className={clsx(
-                        "min-h-[350px] w-full p-6 text-sm text-zinc-100 focus:outline-none prose prose-invert max-w-none font-light",
-                        activeTab !== "ku" && "hidden"
-                      )}
-                      contentEditable
-                      suppressContentEditableWarning
+                  </div>
+                  <div className={clsx(activeTab !== "ku" && "hidden")}>
+                    <RichTextEditor
+                      value={contentKu}
+                      onChange={setContentKu}
+                      placeholder="ناوەڕۆکی بابەتەکە لێرە بنووسە..."
                       dir="rtl"
                     />
                   </div>
