@@ -28,11 +28,12 @@ const actualLogos = [
   { name: "Maowj Al Dawa", logo: "/clients/maowialdawa.png", scale: 1.21 },
   { name: "Pharmatech", logo: "/clients/pharmatech.png", scale: 1.3 },
   { name: "Rose Land", logo: "/clients/rosaland.png", scale: 1.15 },
-  { name: "Max Motors", logo: "/clients/1A.png", scale: 1.2 }, 
   { name: "Dol", logo: "/clients/dolcom.png", scale: 1.18 },
-  { name: "Mashkaly Mall", logo: "/clients/mashxal.png", scale: 1.3 },
+  { name: "mega", logo: "/clients/mega.png", scale: 1.18 },
+ { name: "Mashkaly Mall", logo: "/clients/mashxal.png", scale: 1.3 },
   { name: "House Care", logo: "/clients/housecare.png", scale: 1.35 },
   { name: "Rotana Erbil", logo: "/clients/rotanaerbil.png", scale: 1.2 },
+   { name: "Max Motors", logo: "/clients/1A.png", scale: 1.2 }, 
   { name: "Velora Travel", logo: "/clients/verola.png", scale: 1.40 },
   { name: "Jaffa Travel", logo: "/clients/jaffa.png", scale: 1.25 },
   { name: "Skip City", logo: "/clients/skipcity.png", scale: 1.2 },
@@ -42,6 +43,7 @@ const actualLogos = [
   { name: "Milan Class", logo: "/clients/milan.png", scale: 1.35 },
   { name: "Samen", logo: "/clients/samen.png", scale: 1.3 },
   { name: "Banaz Drug Store", logo: "/clients/banaz.png", scale: 1.28 },
+  { name: "Bekhal", logo: "/clients/bekhal.png", scale: 1.25 },
   { name: "Wrdilan", logo: "/clients/wrdilan.png", scale: 1.25 },
   { name: "Bey Zade", logo: "/clients/beyzada.png", scale: 1.2 }
 ];

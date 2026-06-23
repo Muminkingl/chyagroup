@@ -12,12 +12,6 @@ export default function TeamSection({ id }: { id: string }) {
   // Map the dictionary members to an array for easier rendering
   const teamData = [
     { 
-      name: t.members.haji, 
-      role: t.members.hajiRole, 
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80",
-      featured: true
-    },
-    { 
       name: t.members.ibrahim, 
       role: t.members.ibrahimRole, 
       image: "https://images.unsplash.com/photo-1556157382-97eda2d62296?w=800&q=80" 
@@ -38,10 +32,6 @@ export default function TeamSection({ id }: { id: string }) {
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80" 
     }
   ];
-
-  // Separate founder for featured layout
-  const founder = teamData.find(m => m.featured);
-  const board = teamData.filter(m => !m.featured);
 
   return (
     <section dir={isRTL ? "rtl" : "ltr"} id={id} className="scroll-mt-32">
