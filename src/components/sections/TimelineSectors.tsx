@@ -345,7 +345,7 @@ export default function TimelineSectors() {
   }));
 
   return (
-    <section dir="ltr" className="relative w-full bg-[#faf9f6] pt-12 pb-24 z-10 font-sans">
+    <section id="timelineSection" dir="ltr" className="relative w-full bg-[#faf9f6] pt-12 pb-24 z-10 font-sans">
       <div className="max-w-[1400px] mx-auto px-4 md:px-8">
 
         {/* ── Header ── */}

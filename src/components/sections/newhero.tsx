@@ -138,7 +138,7 @@ export default function HeroSection() {
                             {/* Buttons */}
                             <div className={`hero-fade-up${mounted ? ' ready delay-2' : ''} flex items-center gap-3 flex-wrap`}>
                                 <Link
-                                    href="#agents"
+                                    href="#timelineSection"
                                     className="flex items-center justify-center bg-[#0c1a2e] text-white font-semibold h-[46px] rounded-full ps-6 pe-5 text-sm hover:bg-[#162d4f] transition-all duration-300 shadow-md sm:shadow-sm hover:shadow-lg sm:hover:shadow-md ring-2 ring-white/80 sm:ring-0"
                                 >
                                     <span className="text-nowrap" dir="auto">{t.learnMore}</span>

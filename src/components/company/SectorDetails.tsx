@@ -215,6 +215,11 @@ function getInstagramHandle(url: string): string {
 
 export default function SectorDetails({ id }: { id: string }) {
   const { locale, isRTL } = useLanguage();
+  const [expandedCategories, setExpandedCategories] = React.useState<Record<string, boolean>>({
+    websites: false,
+    emails: false,
+    instagram: false,
+  });
   const t = translations[locale];
   const st = sectorTranslations[locale];
   
@@ -417,7 +422,17 @@ export default function SectorDetails({ id }: { id: string }) {
                       {branch.city}
                     </h5>
                     <p className={cn("text-sm text-[#3a4f6a] leading-relaxed", isRTL ? "font-medium text-[15px]" : "")}>
-                      {branch.address}
+                      {(() => {
+                        const match = branch.address.match(/^(.*?)\s*(\(.*\))\s*$/);
+                        if (match) {
+                          return (
+                            <>
+                              {match[1]} <span className="whitespace-nowrap">{match[2]}</span>
+                            </>
+                          );
+                        }
+                        return branch.address;
+                      })()}
                     </p>
                   </div>
                 ))}
@@ -431,53 +446,130 @@ export default function SectorDetails({ id }: { id: string }) {
                 <h2 className="text-3xl font-bold">{st.ui.links}</h2>
               </div>
               
-              <div className="flex flex-col gap-4">
-                {currentBrandsInstagrams.map((brand, idx) => (
-                  <Link 
-                    key={`web-${idx}`} 
-                    href={`/${brand.id}`} 
-                    className="flex items-center justify-between bg-white text-[#0c1a2e] border border-[#0c1a2e]/5 p-5 rounded-2xl group transition-all duration-300 hover:shadow-md hover:border-[#b91c1c]/20"
-                  >
-                    <div className="flex items-center gap-4">
-                      <Iconify icon="solar:global-linear" width={24} className="text-[#b91c1c]" />
-                      <div className="flex flex-col items-start">
-                        <span className="text-[11px] font-bold text-[#b91c1c] uppercase tracking-wider">{brand.name[locale as 'en' | 'ku' | 'ar'] || brand.name['en']}</span>
-                        <span className="font-semibold text-sm text-[#3a4f6a] break-all">chyagroup.com/{brand.id}</span>
-                      </div>
-                    </div>
-                    <div className="bg-[#faf9f6] text-[#b91c1c] w-12 h-12 rounded-xl flex items-center justify-center transition-transform group-hover:bg-[#b91c1c] group-hover:text-white">
-                      <Iconify icon={isRTL ? "solar:arrow-left-up-linear" : "solar:arrow-right-up-linear"} width={20} />
-                    </div>
-                  </Link>
-                ))}
+              {(() => {
+                const linkCategories = [
+                  {
+                    id: "websites",
+                    title: locale === "en" ? "Website Links" : locale === "ar" ? "روابط المواقع الإلكترونية" : "لینکەکانی ماڵپەڕ",
+                    icon: "solar:global-bold-duotone",
+                    colorClass: "text-[#b91c1c] bg-[#b91c1c]/5 border-[#b91c1c]/10",
+                    items: currentBrandsInstagrams.map((brand) => ({
+                      title: brand.name[locale as "en" | "ar" | "ku"] || brand.name["en"],
+                      value: `chyagroup.com/${brand.id}`,
+                      href: `/${brand.id}`,
+                      icon: "solar:global-linear",
+                      actionLabel: locale === "en" ? "Visit" : locale === "ar" ? "زيارة" : "سەردانکردن",
+                      isInternal: true,
+                      isExternal: false,
+                    })),
+                  },
+                  {
+                    id: "emails",
+                    title: locale === "en" ? "Email Addresses" : locale === "ar" ? "عناوين البريد الإلكتروني" : "ناونیشانەکانی ئیمەیڵ",
+                    icon: "solar:letter-bold-duotone",
+                    colorClass: "text-[#b91c1c] bg-[#b91c1c]/5 border-[#b91c1c]/10",
+                    items: currentEmails.map((email) => ({
+                      title: locale === "en" ? "Email Address" : locale === "ar" ? "البريد الإلكتروني" : "ئیمەیڵ",
+                      value: email,
+                      href: `mailto:${email}`,
+                      icon: "solar:letter-linear",
+                      actionLabel: locale === "en" ? "Send" : locale === "ar" ? "إرسال" : "ناردن",
+                      isInternal: false,
+                      isExternal: false,
+                    })),
+                  },
+                  {
+                    id: "instagram",
+                    title: locale === "en" ? "Instagram" : locale === "ar" ? "إنستغرام" : "ئینستاگرام",
+                    icon: "mdi:instagram",
+                    colorClass: "text-[#b91c1c] bg-[#b91c1c]/5 border-[#b91c1c]/10",
+                    items: currentBrandsInstagrams.map((brand) => ({
+                      title: brand.name[locale as "en" | "ar" | "ku"] || brand.name["en"],
+                      value: getInstagramHandle(brand.qrLink),
+                      href: brand.qrLink,
+                      icon: "mdi:instagram",
+                      actionLabel: locale === "en" ? "Open" : locale === "ar" ? "فتح" : "کردنەوە",
+                      isInternal: false,
+                      isExternal: true,
+                    })),
+                  },
+                ].filter((category) => category.items.length > 0);
 
-                {currentEmails.map((email, idx) => (
-                  <a key={idx} href={`mailto:${email}`} className="flex items-center justify-between bg-white text-[#0c1a2e] border border-[#0c1a2e]/5 p-5 rounded-2xl group transition-all duration-300 hover:shadow-md hover:border-[#b91c1c]/20">
-                    <div className="flex items-center gap-4">
-                      <Iconify icon="solar:letter-linear" width={24} className="text-[#b91c1c]" />
-                      <span className="font-semibold">{email}</span>
-                    </div>
-                    <div className="bg-[#faf9f6] text-[#b91c1c] w-12 h-12 rounded-xl flex items-center justify-center transition-transform group-hover:bg-[#b91c1c] group-hover:text-white">
-                      <Iconify icon={isRTL ? "solar:arrow-left-up-linear" : "solar:arrow-right-up-linear"} width={20} />
-                    </div>
-                  </a>
-                ))}
+                return (
+                  <div className="flex flex-col gap-10">
+                    {linkCategories.map((category) => {
+                      const isExpanded = expandedCategories[category.id];
+                      return (
+                        <div key={category.id} className="flex flex-col gap-4">
+                          {/* Category Header Accordion Toggle Button */}
+                          <button 
+                            onClick={() => setExpandedCategories(prev => ({ ...prev, [category.id]: !prev[category.id] }))}
+                            className="w-full flex items-center justify-between p-4 rounded-2xl bg-[#faf9f6]/60 border border-[#0c1a2e]/5 hover:bg-[#faf9f6] hover:border-[#b91c1c]/10 transition-all duration-300 text-left rtl:text-right group"
+                          >
+                            <div className="flex items-center gap-3">
+                              <div className={cn("w-10 h-10 rounded-xl flex items-center justify-center border bg-white", category.colorClass)}>
+                                <Iconify icon={category.icon} width={22} />
+                              </div>
+                              <div className="flex items-center gap-2">
+                                <span className="text-lg font-bold text-[#0c1a2e]">{category.title}</span>
+                                <span className="bg-white border border-[#0c1a2e]/5 text-[#3a4f6a] px-2.5 py-0.5 rounded-full text-xs font-bold shadow-sm">
+                                  {category.items.length}
+                                </span>
+                              </div>
+                            </div>
+                            
+                            <div className="w-8 h-8 rounded-lg bg-white border border-[#0c1a2e]/5 text-[#3a4f6a] group-hover:text-[#b91c1c] flex items-center justify-center transition-all duration-300 shadow-sm">
+                              <Iconify 
+                                icon="solar:alt-arrow-down-linear" 
+                                width={18} 
+                                className={cn("transition-transform duration-300", isExpanded ? "rotate-180" : "")}
+                              />
+                            </div>
+                          </button>
 
-                {currentBrandsInstagrams.map((brand, idx) => (
-                  <a key={idx} href={brand.qrLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between bg-white text-[#0c1a2e] border border-[#0c1a2e]/5 p-5 rounded-2xl group transition-all duration-300 hover:shadow-md hover:border-[#b91c1c]/20">
-                    <div className="flex items-center gap-4">
-                      <Iconify icon="mdi:instagram" width={24} className="text-[#b91c1c]" />
-                      <div className="flex flex-col items-start">
-                        <span className="text-[11px] font-bold text-[#b91c1c] uppercase tracking-wider">{brand.name[locale as 'en' | 'ku' | 'ar'] || brand.name['en']}</span>
-                        <span className="font-semibold text-sm text-[#3a4f6a] break-all">{getInstagramHandle(brand.qrLink)}</span>
-                      </div>
-                    </div>
-                    <div className="bg-[#faf9f6] text-[#b91c1c] w-12 h-12 rounded-xl flex items-center justify-center transition-transform group-hover:bg-[#b91c1c] group-hover:text-white">
-                      <Iconify icon={isRTL ? "solar:arrow-left-up-linear" : "solar:arrow-right-up-linear"} width={20} />
-                    </div>
-                  </a>
-                ))}
-              </div>
+                          {/* List of Link Cards (Rows) when Expanded */}
+                          {isExpanded && (
+                            <div className="flex flex-col gap-3 pl-3 rtl:pl-0 rtl:pr-3 border-l-2 rtl:border-l-0 rtl:border-r-2 border-dashed border-[#b91c1c]/15">
+                              {category.items.map((item, idx) => {
+                                const LinkComponent = item.isInternal ? Link : "a";
+                                const linkProps = item.isInternal 
+                                  ? { href: item.href }
+                                  : { href: item.href, target: item.isExternal ? "_blank" : undefined, rel: item.isExternal ? "noopener noreferrer" : undefined };
+
+                                return (
+                                  <LinkComponent
+                                    key={idx}
+                                    {...(linkProps as any)}
+                                    className="flex items-center justify-between bg-white text-[#0c1a2e] border border-[#0c1a2e]/5 hover:border-[#b91c1c]/20 p-5 rounded-2xl group transition-all duration-300 hover:shadow-md"
+                                  >
+                                    <div className="flex items-center gap-4 min-w-0 flex-1 mr-4 rtl:mr-0 rtl:ml-4">
+                                      <div className="w-12 h-12 rounded-xl bg-[#faf9f6] flex items-center justify-center flex-shrink-0 text-[#b91c1c] border border-[#0c1a2e]/[0.02]">
+                                        <Iconify icon={item.icon} width={22} />
+                                      </div>
+                                      <div className="flex flex-col items-start min-w-0 flex-1">
+                                        <span className="text-[11px] font-bold text-[#b91c1c] uppercase tracking-wider mb-0.5">{item.title}</span>
+                                        <span className="font-semibold text-sm text-[#3a4f6a] break-all leading-normal">{item.value}</span>
+                                      </div>
+                                    </div>
+                                    
+                                    <div className="w-10 h-10 rounded-xl bg-[#faf9f6] border border-[#0c1a2e]/5 text-[#b91c1c] group-hover:bg-[#b91c1c] group-hover:text-white flex items-center justify-center flex-shrink-0 transition-all duration-300 shadow-sm">
+                                      <Iconify 
+                                        icon={isRTL ? "solar:arrow-left-linear" : "solar:arrow-right-linear"} 
+                                        width={18} 
+                                        className="transition-transform group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5" 
+                                      />
+                                    </div>
+                                  </LinkComponent>
+                                );
+                              })}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                );
+              })()}
             </section>
 
           </main>

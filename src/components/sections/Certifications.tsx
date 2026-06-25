@@ -76,7 +76,7 @@ export default function CertificationsSection() {
                             target="_blank"
                             rel="noopener noreferrer"
                             dir="auto"
-                            className="flex flex-col bg-white p-8 rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-[#0c1a2e]/5 transition-all duration-300 hover:-translate-y-1 cursor-pointer block"
+                            className="flex flex-col h-full bg-white p-8 rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-[#0c1a2e]/5 transition-all duration-300 hover:-translate-y-1 cursor-pointer"
                         >
                             {/* Logo Area */}
                             <div className="h-[100px] w-full flex items-center justify-center mb-8">
@@ -98,7 +98,7 @@ export default function CertificationsSection() {
                             <h3 className="text-sm font-bold text-[#0c1a2e] mb-2 leading-snug">
                                 {cert.title}
                             </h3>
-                            <p className="text-xs text-[#3a4f6a] leading-relaxed whitespace-pre-line">
+                            <p className="text-xs text-[#3a4f6a] leading-relaxed whitespace-pre-line flex-1">
                                 {cert.subtitle}
                             </p>
                         </a>

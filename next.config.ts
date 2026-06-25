@@ -6,6 +6,9 @@ const nextConfig = {
     serverActions: {
       bodySizeLimit: "2gb",
     },
+    allowedDevOrigins: [
+      "192.168.1.12",
+    ],
   },
 } as any as NextConfig;
 

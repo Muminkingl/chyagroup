@@ -354,7 +354,18 @@ export default function BrandPage() {
                           {branch.city[locale as "en" | "ar" | "ku"]}
                         </h4>
                         <p className={cn("text-[#3a4f6a] text-sm", isRTL ? "font-semibold" : "font-medium")}>
-                          {branch.address[locale as "en" | "ar" | "ku"]}
+                          {(() => {
+                            const addr = branch.address[locale as "en" | "ar" | "ku"];
+                            const match = addr.match(/^(.*?)\s*(\(.*\))\s*$/);
+                            if (match) {
+                              return (
+                                <>
+                                  {match[1]} <span className="whitespace-nowrap">{match[2]}</span>
+                                </>
+                              );
+                            }
+                            return addr;
+                          })()}
                         </p>
                       </div>
                     </div>

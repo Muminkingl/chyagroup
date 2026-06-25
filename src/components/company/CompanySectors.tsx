@@ -3,12 +3,201 @@ import React from "react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/i18n/translations";
+import { Iconify } from "@/components/ui/Iconify";
+
+const LOCALIZED_TEXTS = {
+  en: {
+    sectionEyebrow: "OUR BUSINESSES",
+    sectionHeadline: "We operate across 16 business units",
+    visitProfile: "Visit Profile",
+  },
+  ar: {
+    sectionEyebrow: "أعمالنا",
+    sectionHeadline: "نعمل في 16 مجالاً تجارياً",
+    visitProfile: "زيارة الملف",
+  },
+  ku: {
+    sectionEyebrow: "کارەکانمان",
+    sectionHeadline: "ئێمە لە ١٦ کاردا کار دەکەین",
+    visitProfile: "بینینی پڕۆفایل",
+  },
+};
+
+const BRANDS_15 = [
+  {
+    id: "lamatalmarjan",
+    name: {
+      en: "Lamat Al Marjan",
+      ar: "شركة لمعة المرجان",
+      ku: "کۆمپانیای لمعة المرجان",
+    },
+    logo: "/brands/lamattt.png",
+    route: "/lamatalmarjan",
+    style: { transform: "scale(1.2)" },
+  },
+  {
+    id: "chyaymateen",
+    name: {
+      en: "Chyay Mateen",
+      ar: "شركة جياى متين",
+      ku: "کۆمپانیای چیای مەتین",
+    },
+    logo: "/brands/chyaymat.png",
+    route: "/chyaymateen",
+    style: { transform: "scale(1.25)" },
+  },
+  {
+    id: "chyaamazon",
+    name: {
+      en: "Chya Amazon",
+      ar: "مشروع جيا أمازون",
+      ku: "چیا ئەمازۆن",
+    },
+    logo: "/brands/Chya Amazon-1.png",
+    route: "/chyaamazon",
+    style: { transform: "scale(1.05)" },
+  },
+  {
+    id: "khakisarwar",
+    name: {
+      en: "Khaki Sarwar",
+      ar: "شركة خاكى سەروەر",
+      ku: "کۆمپانیای خاکی سەروەر",
+    },
+    logo: "/brands/khakisarwar.png",
+    route: "/khakisarwar",
+    style: { transform: "scale(1.05)" },
+  },
+  {
+    id: "hangawexchange",
+    name: {
+      en: "Hangaw Exchange",
+      ar: "مکتب هەنگاو",
+      ku: "نووسینگەی هەنگاو",
+    },
+    logo: "/brands/hangawexchange.png",
+    route: "/hangawexchange",
+    style: { transform: "scale(1.25)" },
+  },
+  {
+    id: "chyaexchange",
+    name: {
+      en: "Chya Exchange",
+      ar: "مكتب جيا",
+      ku: "نووسینگەی چیا",
+    },
+    logo: "/brands/chyaexchnage.png",
+    route: "/chyaexchange",
+    style: { transform: "scale(1.35)" },
+  },
+  {
+    id: "chyagold",
+    name: {
+      en: "Chya Gold",
+      ar: "مكتب جيا كولد",
+      ku: "نووسینگەی چیا گۆڵد",
+    },
+    logo: "/brands/qapat-1.png",
+    route: "/chyagold",
+    style: { transform: "scale(1.6)" },
+  },
+  {
+    id: "lutkaychya",
+    name: {
+      en: "Lutkay Chya",
+      ar: "مكتب لوتكەی جيا",
+      ku: "نووسینگەی لوتکەی چیا",
+    },
+    logo: "/brands/lutkay chya-1.png",
+    route: "/lutkaychya",
+    style: { transform: "scale(1.6)" },
+  },
+  {
+    id: "barzychya",
+    name: {
+      en: "Barzy Chya",
+      ar: "مکتب بەرزی جيا",
+      ku: "نووسینگەی بەرزی چیا",
+    },
+    logo: "/brands/BARZY CHYAY-1.png",
+    route: "/barzychya",
+    style: { transform: "scale(1.45)" },
+  },
+  {
+    id: "manfazdibaga",
+    name: {
+      en: "Manfaz Dibaga",
+      ar: "منفذ ديبكة",
+      ku: "منفذ دیبەگە",
+    },
+    logo: "/brands/Manfaz Dibaga-1.png",
+    route: "/manfazdibaga",
+    style: { transform: "scale(1.4)" },
+  },
+  {
+    id: "chyaphone",
+    name: {
+      en: "Chya Phone",
+      ar: "محل جيا فون",
+      ku: "پێشانگای چیا فۆن",
+    },
+    logo: "/brands/chya phone-1.png",
+    route: "/chyaphone",
+    style: { transform: "scale(1.0)" },
+  },
+  {
+    id: "chyatech",
+    name: {
+      en: "Chya Tech",
+      ar: "جيا تيك",
+      ku: "کاری چیا تێك",
+    },
+    logo: "/brands/chyatech.png",
+    route: "/chyatech",
+    style: { transform: "scale(2.55)" },
+  },
+  {
+    id: "blueprinting",
+    name: {
+      en: "Blue Printing",
+      ar: "مکتب بلو طباعە",
+      ku: "نووسینگەی بلو پرێنتینگ",
+    },
+    logo: "/brands/BLUE PRINT-1.png",
+    route: "/blueprinting",
+    style: { transform: "scale(2.0)" },
+  },
+  {
+    id: "chyatravel",
+    name: {
+      en: "Chya Travel",
+      ar: "جيا تراڤل",
+      ku: "کاری چیا تڕاڤل",
+    },
+    logo: "/brands/CHYA travel-1.png",
+    route: "/chyatravel",
+    style: { transform: "scale(2.7)" },
+  },
+  {
+    id: "kivaluxury",
+    name: {
+      en: "Kiva Luxury",
+      ar: "كيفا لوكزوري",
+      ku: "کاری کیڤا لوکژوری",
+    },
+    logo: "/brands/kivaluxary.png",
+    route: "/kivaluxury",
+    style: { transform: "scale(1.55)" },
+  },
+];
 
 export default function CompanySectors() {
   const { locale, isRTL } = useLanguage();
   const t = translations[locale];
   const companyData = t.ourCompany;
   const featuresData = t.features;
+
+  const localizedText = LOCALIZED_TEXTS[locale as "en" | "ar" | "ku"] || LOCALIZED_TEXTS.en;
 
   const sectorImagesMap: Record<string, string> = {
     'money-exchange': "/money.png",
@@ -57,7 +246,7 @@ export default function CompanySectors() {
         </div>
 
         {/* Cards Grid — 3 top, 2 centered bottom */}
-        <div className="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto" dir="ltr">
+        <div className="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto mb-20" dir="ltr">
           {orderedItems.map(({ item, image }) => (
             <Link
               href={`/ourcompany/${item.id}`}
@@ -85,6 +274,53 @@ export default function CompanySectors() {
               </div>
             </Link>
           ))}
+        </div>
+
+        {/* Premium Divider */}
+        <div className="w-full max-w-5xl mx-auto h-px bg-gradient-to-r from-transparent via-[#0c1a2e]/10 to-transparent my-20" />
+
+        {/* Portfolio Section Header */}
+        <div className="text-center mb-16">
+          <div className="flex items-center justify-center gap-3 mb-5">
+            <span className="inline-block w-8 h-[2px] bg-[#2563eb]" />
+            <span className="text-[11px] font-bold tracking-[0.22em] text-[#0c1a2e] uppercase">
+              {localizedText.sectionEyebrow}
+            </span>
+            <span className="inline-block w-8 h-[2px] bg-[#2563eb]" />
+          </div>
+
+          <h2
+            dir="auto"
+            className="text-3xl md:text-[2.3rem] font-bold text-[#0c1a2e] leading-tight max-w-3xl mx-auto"
+          >
+            {localizedText.sectionHeadline}
+          </h2>
+        </div>
+
+        {/* 15 Brands Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 max-w-5xl mx-auto" dir={isRTL ? "rtl" : "ltr"}>
+          {BRANDS_15.map((brand) => {
+            const name = brand.name[locale as "en" | "ar" | "ku"] || brand.name.en;
+            return (
+              <Link
+                href={brand.route}
+                key={brand.id}
+                className="bg-white rounded-2xl h-[110px] w-full flex items-center justify-center p-4 shadow-[0_4px_20px_rgba(12,26,46,0.02)] border border-[#0c1a2e]/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(12,26,46,0.06)] hover:border-[#2563eb]/20 group relative overflow-hidden"
+              >
+                {/* Logo wrapper */}
+                <div 
+                  className="w-full h-full flex items-center justify-center relative transition-all duration-300"
+                >
+                  <img
+                    src={brand.logo}
+                    alt={name}
+                    className="max-w-[85%] max-h-[70%] object-contain transition-all duration-500 group-hover:scale-105"
+                    style={brand.style}
+                  />
+                </div>
+              </Link>
+            );
+          })}
         </div>
 
       </div>
