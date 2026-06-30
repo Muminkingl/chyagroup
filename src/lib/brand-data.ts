@@ -293,11 +293,11 @@ export const BRAND_DATA: Record<string, BrandData> = {
     },
     branches: [
       {
-        city: { en: "Sirnak, Turkey", ar: "شرناخ، تركيا", ku: "شرناخ، تورکیا" },
+        city: { en: "Silopi , Şırnak , Türkiye", ar: "سيلوبي ، شرناق ، تركيا", ku: "سیلۆپی ، شرناخ ، تورکیا" },
         address: {
-          en: "Silopi District, Sirnak City, Turkey",
-          ar: "قضاء سيلوبي، مدينة شرناخ، تركيا",
-          ku: "قەزای سیلۆپی، شاری شرناخ، تورکیا",
+          en: "Silopi District , Şırnak Street , Türkiye ( Chya Gold Exchange )",
+          ar: "سيلوبي ، شارع شرناق ، تركيا ( مكتب چيا الذهبي )",
+          ku: "سیلۆپی ، شەقامی شرناخ ، تورکیا ( نووسینگەی چیای زێڕین )",
         },
       },
     ],
@@ -394,7 +394,7 @@ export const BRAND_DATA: Record<string, BrandData> = {
     name: {
       en: "Manfaz Dibaga",
       ar: "منفذ ديبكة",
-      ku: "منفذ دیبەگە",
+      ku: "منفذ ديبكة ى هەنگاو",
     },
     tagline: {
       en: "Official Government Payroll & Secure Card Services",
@@ -404,7 +404,7 @@ export const BRAND_DATA: Record<string, BrandData> = {
     description: {
       en: "Manfaz Dibaga payroll processing center was established on August 1, 2025 inside Hangaw Exchange office on Runaki Street, Erbil. We serve as an official payout channel for military, civil, and retirement salaries, specializing in Qi Card, Super Qi, and MasterCard processing.",
       ar: "تأسس منفذ ديبكة لصرف الرواتب في 1 أغسطس 2025 داخل مكتب هەنگاو في شارع رونامي بأربيل. نحن نعمل كقناة صرف رسمية لرواتب العسكريين والمدنيين والمتقاعدين، ونتخصص في معالجة خدمات كي كارد، سوبر كي، وماستر كارد.",
-      ku: "مەنفەزی دیبەگە بۆ دابەشکردنی مووچە لە ١ی ئابی ٢٠٢٥ لە ناو نووسینگەی هەنگاو لە شەقامی ڕووناکی لە شاری هەولێر دامەزراوە. وەک دەستەیەکی فەرمی بۆ دابەشکردنی مووچەی سەربازی، مەدەنی و خانەنشینی کاردەکات و تایبەتمەندە لە خزمەتگوزارییەکانی (کی کارت، سوپەر کی، ماستەر کارت).",
+      ku: "منفذ ديبكة ى هەنگاو بۆ دابەشکردنی مووچە لە ١ی ئابی ٢٠٢٥ لە ناو نووسینگەی هەنگاو لە شەقامی ڕووناکی لە شاری هەولێر دامەزراوە. وەک دەستەیەکی فەرمی بۆ دابەشکردنی مووچەی سەربازی، مەدەنی و خانەنشینی کاردەکات و تایبەتمەندە لە خزمەتگوزارییەکانی (کی کارت، سوپەر کی، ماستەر کارت).",
     },
     services: {
       en: ["Civilian Payroll Distributions", "Military Salary Processing", "Retirement Fund Payouts", "Qi Card & MasterCard Processing", "Secure Account Cashout Channels"],
@@ -582,19 +582,19 @@ export const BRAND_DATA: Record<string, BrandData> = {
       },
     ],
   },
-  kivaluxury: {
-    id: "kivaluxury",
+  chyaluxury: {
+    id: "chyaluxury",
     sectorId: "online-trading",
     logo: "/brands/kivaluxary.png",
     logoScale: 1.3,
     qrLink: "https://www.instagram.com/kiva.luxuryshop?igsh=emFtbXNpbjBmMnh6",
-    email: "kivaluxury2022@gmail.com",
+    email: "chyaluxury2022@gmail.com",
     phone: "+964 750 567 8902",
     heroImage: "https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=1200&auto=format&fit=crop",
     name: {
-      en: "Kiva Luxury",
-      ar: "كيفا لوكزوري",
-      ku: "کاری کیڤا لوکژوری",
+      en: "Chya Luxury",
+      ar: "جيا لوكزوري",
+      ku: "کاری چیا لوکژوری",
     },
     tagline: {
       en: "Authentic Jewelry, Global Watches & Premium Perfumes",
@@ -602,9 +602,9 @@ export const BRAND_DATA: Record<string, BrandData> = {
       ku: "فرۆشتنی گەوهەر، کاتژمێر و بۆنە لوکسە جیهانییەکان",
     },
     description: {
-      en: "Kiva Luxury is a premium digital retail house founded on January 20, 2022 under our Online Trading sector. We specialize in sourcing and distributing authentic high-end jewelry, luxury watches, fashion accessories, and premium perfumes from major global brands directly to the regional market.",
-      ar: "كيفا لوكزوري هي دار تجزئة رقمية فاخرة تأسست في 20 يناير 2022 تحت قطاع التجارة عبر الإنترنت. نحن متخصصون في استيراد وتوزيع المجوهرات الراقية الأصلية، والساعات الفاخرة، والإكسسوارات، والعطور الممتازة من كبرى العلامات التجارية العالمية مباشرة إلى السوق الإقليمية.",
-      ku: "کیڤا لوکژوری ناوەندێکی لوکس و دەوڵەمەندی بازرگانی ئۆنلاینە کە لە ٢٠ی کانوونی دووەمی ٢٠٢٢ دامەزراوە. پسپۆڕە لە هاوردەکردن و بازرگانیکردن بە خشڵ و گەوهەری ئەسڵی، ئێکسسوارات، کاتژمێر و بۆنی براندە جیهانییە نایابەکان بۆ کڕیارانی ناوچەکە.",
+      en: "Chya Luxury is a premium digital retail house founded on January 20, 2022 under our Online Trading sector. We specialize in sourcing and distributing authentic high-end jewelry, luxury watches, fashion accessories, and premium perfumes from major global brands directly to the regional market.",
+      ar: "جيا لوكزوري هي دار تجزئة رقمية فاخرة تأسست في 20 يناير 2022 تحت قطاع التجارة عبر الإنترنت. نحن متخصصون في استيراد وتوزيع المجوهرات الراقية الأصلية، والساعات الفاخرة، والإكسسوارات، والعطور الممتازة من كبرى العلامات التجارية العالمية مباشرة إلى السوق الإقليمية.",
+      ku: "چیا لوکژوری ناوەندێکی لوکس و دەوڵەمەندی بازرگانی ئۆنلاینە کە لە ٢٠ی کانوونی دووەمی ٢٠٢٢ دامەزراوە. پسپۆڕە لە هاوردەکردن و بازرگانیکردن بە خشڵ و گەوهەری ئەسڵی، ئێکسسوارات، کاتژمێر و بۆنی براندە جیهانییە نایابەکان بۆ کڕیارانی ناوچەکە.",
     },
     services: {
       en: ["Authentic Luxury Watches Retail", "Premium Jewelry & Accessories", "Global Brand Perfumes Supply", "Product Verification & Appraisal", "Secure Insured Shipping Services"],

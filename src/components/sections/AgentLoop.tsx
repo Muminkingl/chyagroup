@@ -7,19 +7,21 @@ import { Iconify } from '@/components/ui/Iconify';
 
 const agents = [
     { name: "FIB Bank", logo: "/fib.png", url: "https://fib.iq/" },
-    { name: "Qi Card co.", logo: "/qi.png", url: "https://qi.iq/en/home" },
-    { name: "Zain Cash co.", logo: "https://zaincash.com/static/media/ZainCashLogo.fea8cf3bb90421f45dd384d6afc6fe3b.svg", url: "https://zaincash.com/" },
-    { name: "Switch co.", logo: "/switch.png", url: "https://switch.com.iq/" },
-    { name: "FastPay co.", logo: "https://www.fast-pay.iq/img/clogo.png", url: "https://www.fast-pay.iq/" },
-    { name: "AsiaPay co.", logo: "/aciapay.png", url: "https://www.asiapay.iq/" },
-    { name: "NassPay co.", logo: "/nassepay.png", url: "#" },
+    { name: "Qi Card Co.", logo: "/qi.png", url: "https://qi.iq/en/home" },
+    { name: "Zain Cash Co.", logo: "https://zaincash.com/static/media/ZainCashLogo.fea8cf3bb90421f45dd384d6afc6fe3b.svg", url: "https://zaincash.com/" },
+    { name: "Switch Co.", logo: "/switch.png", url: "https://switch.com.iq/" },
+    { name: "FastPay Co.", logo: "https://www.fast-pay.iq/img/clogo.png", url: "https://www.fast-pay.iq/" },
+    { name: "AsiaPay Co.", logo: "/aciapay.png", url: "https://www.asiapay.iq/" },
+    { name: "NassPay Co.", logo: "/nassepay.png", url: "#" },
     { name: "Nasswallet bank", logo: "/nass.png", url: "https://nw.iq/" },
-    { name: "Houzz Card co.", logo: "/houzz.png", url: "https://shophouzz.com/pages/creditcard" },
-    { name: "BazarCards co.", logo: "/bazarcard.jpg", url: "#" },
+    { name: "Houzz Card Co.", logo: "/houzz.png", url: "https://shophouzz.com/pages/creditcard" },
+    { name: "BazarCards Co.", logo: "/bazarcard.jpg", url: "#" },
     { name: "AIIB Bank", logo: "/aiib.png", url: "https://aiib.iq/" },
-    { name: "Blue co.", logo: "/blue.jpg", url: "https://blue.com.iq/en/home/" },
-    { name: "Shift Int co.", logo: "/shiftt.png", url: "https://www.shifttransfer.com/" },
-    { name: "Dubai Remit Int co.", logo: "/dubairemit.png", url: "#" },
+    { name: "Blue Co.", logo: "/blue.jpg", url: "https://blue.com.iq/en/home/" },
+    { name: "Western Union", logo: "/WU.png", url: "https://www.westernunion.com/" },
+    { name: "Dubai Remit Int Co.", logo: "/dubairemit.png", url: "#" },
+    { name: "Shift Int Co.", logo: "/shiftt.png", url: "https://www.shifttransfer.com/" },
+    { name: "BPN Co.", logo: "/bpn.png", url: "https://www.bpn.com.tr/" },
 ];
 
 const AgentLogo = ({ name, logo, url }: { name: string, logo: string, url: string }) => (
@@ -33,17 +35,21 @@ const AgentLogo = ({ name, logo, url }: { name: string, logo: string, url: strin
             src={logo}
             alt={`${name} Logo`}
             className={`w-auto h-auto max-w-[155px] max-h-[95px] object-contain transition-transform duration-300 ${
-                ["AsiaPay co.", "Nasspay co.", "Zain Cash co.", "DubaiRemit Int co."].includes(name) 
+                ["AsiaPay Co.", "Nasspay Co.", "Zain Cash Co.", "Dubai Remit Int Co."].includes(name) 
                     ? 'scale-[1.25] group-hover:scale-[1.35] origin-center' 
                 : name === "FIB Bank"
-                    ? 'scale-[1.35] translate-y-[6%] group-hover:scale-[1.45] origin-center'
+                     ? 'scale-[1.35] translate-y-[6%] group-hover:scale-[1.45] origin-center'
                 : name === "Nasswallet bank"
                     ? 'scale-[1.45] group-hover:scale-[1.55] origin-center'
                 : name === "AIIB Bank"
                     ? 'scale-[1.55] group-hover:scale-[1.65] origin-center'
-                    : name === "Blue co."
-                        ? 'scale-[1.15] group-hover:scale-[1.25] origin-center'
-                        : 'group-hover:scale-110'
+                : name === "Western Union"
+                    ? 'scale-[1.55] group-hover:scale-[1.65] origin-center'
+                : name === "BPN Co."
+                    ? 'scale-[1.35] group-hover:scale-[1.45] origin-center'
+                : name === "Blue Co."
+                    ? 'scale-[1.15] group-hover:scale-[1.25] origin-center'
+                    : 'group-hover:scale-110'
             }`}
         />
         <span className="mt-4 text-sm font-semibold text-[#0c1a2e]/80 opacity-0 group-hover:opacity-100 transition-opacity absolute bottom-6">

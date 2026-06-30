@@ -128,7 +128,7 @@ const BRANDS_15 = [
     name: {
       en: "Manfaz Dibaga",
       ar: "منفذ ديبكة",
-      ku: "منفذ دیبەگە",
+      ku: "منفذ ديبكة ى هەنگاو",
     },
     logo: "/brands/Manfaz Dibaga-1.png",
     route: "/manfazdibaga",
@@ -179,14 +179,14 @@ const BRANDS_15 = [
     style: { transform: "scale(2.7)" },
   },
   {
-    id: "kivaluxury",
+    id: "chyaluxury",
     name: {
-      en: "Kiva Luxury",
-      ar: "كيفا لوكزوري",
-      ku: "کاری کیڤا لوکژوری",
+      en: "Chya Luxury",
+      ar: "جيا لوكزوري",
+      ku: "کاری چیا لوکژوری",
     },
     logo: "/brands/kivaluxary.png",
-    route: "/kivaluxury",
+    route: "/chyaluxury",
     style: { transform: "scale(1.55)" },
   },
 ];
@@ -208,8 +208,8 @@ export default function CompanySectors() {
   };
 
   const desiredOrder = [
-    'money-exchange',
     'general-trading',
+    'money-exchange',
     'mobile-tech',
     'printing',
     'online-trading'

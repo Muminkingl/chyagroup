@@ -85,7 +85,10 @@ export const Header = () => {
                 <Link
                     key={link.name}
                     href={link.href}
-                    className="text-[14px] font-bold text-[#1a365d] hover:text-[#0c1a2e] transition-colors"
+                    className={cn(
+                      "text-[#1a365d] hover:text-[#0c1a2e] transition-colors",
+                      locale === "ar" ? "text-[16px] font-extrabold" : "text-[14px] font-bold"
+                    )}
                 >
                     {link.name}
                 </Link>
@@ -99,7 +102,11 @@ export const Header = () => {
                 <div className="relative" ref={langRef}>
                 <button
                     onClick={() => setIsLangOpen(!isLangOpen)}
-                    className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-[13px] font-bold transition-all duration-300 bg-white border border-[#0c1a2e]/10 text-[#1a365d] hover:bg-neutral-50 shadow-sm ${isRTL ? 'flex-row-reverse' : ''}`}
+                    className={cn(
+                      "flex items-center gap-2 px-4 py-2.5 rounded-full transition-all duration-300 bg-white border border-[#0c1a2e]/10 text-[#1a365d] hover:bg-neutral-50 shadow-sm",
+                      isRTL ? 'flex-row-reverse' : '',
+                      locale === 'ar' ? 'text-[15px] font-extrabold' : 'text-[13px] font-bold'
+                    )}
                 >
                     <Iconify icon="solar:global-linear" width={16} className="text-[#1a365d]" />
                     <span>{languageNames[locale]}</span>
@@ -123,11 +130,12 @@ export const Header = () => {
                             key={code}
                             onClick={() => { setLocale(code); setIsLangOpen(false); }}
                             className={cn(
-                            "w-full px-4 py-2.5 text-[13px] transition-colors",
+                            "w-full px-4 py-2.5 transition-colors",
+                            locale === 'ar' ? 'text-[15px] font-extrabold' : 'text-[13px] font-semibold',
                             isRTL ? "text-right" : "text-left",
                             locale === code 
                                 ? "bg-[#0c1a2e]/5 text-[#0c1a2e] font-bold" 
-                                : "text-[#3a4f6a] font-semibold hover:bg-[#0c1a2e]/5"
+                                : "text-[#3a4f6a] hover:bg-[#0c1a2e]/5"
                             )}
                         >
                             {languageNames[code]}
@@ -137,10 +145,14 @@ export const Header = () => {
                     )}
                 </AnimatePresence>
                 </div>
-
+ 
                 <Link href="/contact">
                     <button
-                        className={`flex items-center gap-2 bg-[#0c1a2e] hover:bg-[#162d4f] text-white px-6 py-2.5 rounded-full text-[13px] font-bold transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 ${isRTL ? 'flex-row-reverse' : ''}`}
+                        className={cn(
+                          "flex items-center gap-2 bg-[#0c1a2e] hover:bg-[#162d4f] text-white px-6 py-2.5 rounded-full transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0",
+                          isRTL ? 'flex-row-reverse' : '',
+                          locale === 'ar' ? 'text-[15px] font-extrabold' : 'text-[13px] font-bold'
+                        )}
                     >
                         <span>{t.contact}</span>
                         {isRTL ? (

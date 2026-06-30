@@ -181,7 +181,7 @@ const brands = [
         name: {
             en: "Manfaz Dibaga",
             ar: "منفذ ديبكة",
-            ku: "منفذ دیبەگە"
+            ku: "منفذ ديبكة ى هەنگاو"
         },
         tagline: {
             en: "Financial Services",
@@ -255,14 +255,14 @@ const brands = [
         }
     },
     {
-        id: "kivaluxury",
+        id: "chyaluxury",
         logo: "/brands/kivaluxary.png",
         logoScale: 1.30,
         qrLink: "https://www.instagram.com/kiva.luxuryshop?igsh=emFtbXNpbjBmMnh6",
         name: {
-            en: "Kiva Luxury",
-            ar: "كيفا لوكزوري",
-            ku: "کاری کیڤا لوکژوری"
+            en: "Chya Luxury",
+            ar: "جيا لوكزوري",
+            ku: "کاری چیا لوکژوری"
         },
         tagline: {
             en: "Online Trading",

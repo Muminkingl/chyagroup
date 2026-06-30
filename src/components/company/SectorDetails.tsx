@@ -7,6 +7,7 @@ import { sectorTranslations } from "@/i18n/sector-translations";
 import { Iconify } from "@/components/ui/Iconify";
 import { cn } from "@/lib/utils";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
+import { motion } from "framer-motion";
 
 const SECTOR_IMAGES: Record<string, string> = {
   "general-trading": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop",
@@ -23,12 +24,12 @@ const SECTOR_EMAILS: Record<string, string[]> = {
     "chyaamazon2026@gmail.com"
   ],
   "money-exchange": [
+    "khakisarwar2025@gmail.com",
     "chyaexchange2021@gmail.com",
     "chyagold2023@gmail.com",
-    "hangawexchange2024@gmail.com",
     "lutkaychya2024@gmail.com",
-    "khakisarwar2025@gmail.com",
     "barzychya2025@gmail.com",
+    "hangawexchange2024@gmail.com",
     "manfazdibagabyhangaw2025@gmail.com"
   ],
   "mobile-tech": [
@@ -95,15 +96,6 @@ const SECTOR_BRANDS: Record<string, BrandInstagram[]> = {
       qrLink: "https://www.instagram.com/khaki_sarwar.co?igsh=MW43NXdoamhsODJoYg==",
     },
     {
-      id: "hangawexchange",
-      name: {
-        en: "Hangaw Exchange",
-        ar: "مکتب هەنگاو",
-        ku: "نووسینگەی هەنگاو",
-      },
-      qrLink: "https://www.instagram.com/hangaw_exchangemoney?igsh=M2h4ZTEyZmRud21y",
-    },
-    {
       id: "chyaexchange",
       name: {
         en: "Chya Exchange",
@@ -140,11 +132,20 @@ const SECTOR_BRANDS: Record<string, BrandInstagram[]> = {
       qrLink: "https://www.instagram.com/barzy.chya_exchange?igsh=MnhwZHE2aGoweWU0",
     },
     {
+      id: "hangawexchange",
+      name: {
+        en: "Hangaw Exchange",
+        ar: "مکتب هەنگاو",
+        ku: "نووسینگەی هەنگاو",
+      },
+      qrLink: "https://www.instagram.com/hangaw_exchangemoney?igsh=M2h4ZTEyZmRud21y",
+    },
+    {
       id: "manfazdibaga",
       name: {
         en: "Manfaz Dibaga",
         ar: "منفذ ديبكة",
-        ku: "منفذ دیبەگە",
+        ku: "منفذ ديبكة ى هەنگاو",
       },
       qrLink: "https://www.instagram.com/manfaz.dibaga_hangaw?igsh=ZGtoamJtNzd6MHJm",
     },
@@ -213,10 +214,231 @@ function getInstagramHandle(url: string): string {
 }
 
 
+const MONEY_EXCHANGE_TIMELINE = [
+  {
+    id: "chyaexchange",
+    year: "2021",
+    date: {
+      en: "June 14, 2021",
+      ar: "14 يونيو 2021",
+      ku: "14 حوزەیران 2021"
+    },
+    logo: "/brands/chyaexchnage.png",
+    name: {
+      en: "Chya Exchange",
+      ar: "مكتب چيا",
+      ku: "نووسینگەی چیا"
+    },
+    desc: {
+      en: "Chya Exchange For Currency Exchange Is The First Branch Of The Currency Exchange And Financial Services Sector Of Chya Group. Founded On 14/06/2021 In Old Borsa , Erbil City , It Works In Exchanging All Types Of Currencies And Sending Money To All Countries Of The World In Cash And Bank Accounts , And Sending Money To All Local And International Bank Cards.",
+      ar: "مكتب چيا لتبادل العملات ، هو الفرع الأول التابع لقطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسس في 2021/06/14 في البورصة القديمة ، أربيل ، ويعمل في مجال تبادل جميع أنواع العملات وإرسال الأموال إلى جميع دول العالم نقداً وعبر الحسابات البنكية وإرسال الأموال إلى جميع البطاقات البنكية المحلية والدولية.",
+      ku: "نووسینگەی چیا بۆ ئاڵوگۆڕی دراو ، یەکەم لقی سەر بە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 2021/06/14 لە بۆرسەی کۆنی شاری هەولێر دامەزراوە و کار دەکات لە بواری ئاڵوگۆڕی هەموو جۆرە دراوێك و ناردنی پارە بۆ هەموو وڵاتانی جیهان بە کاش و حسابی بانکی و ناردنی پارە بۆ هەموو کارتە بانکیە نێوخۆیی و نێودەوڵەتیەکان."
+    }
+  },
+  {
+    id: "chyagold",
+    year: "2023",
+    date: {
+      en: "August 28, 2023",
+      ar: "28 أغسطس 2023",
+      ku: "28 ئاب 2023"
+    },
+    logo: "/brands/qapat-1.png",
+    name: {
+      en: "Chya Gold Exchange",
+      ar: "مكتب چيا كولد",
+      ku: "نووسینگەی چیا گۆڵد"
+    },
+    desc: {
+      en: "Chya Gold Exchange For Currency Exchange Is The Second Branch Of The Currency Exchange And Financial Services Sector Of Chya Group. Founded On 28/08/2023 In Silopi District , Şırnak , Turkey , It Works In Exchanging All Types Of Currencies And Sending Money To All Cities And Bank Accounts Within Turkey.",
+      ar: "مكتب چيا كولد لتبادل العملات ، هو الفرع الثاني التابع لقطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسس في 2023/08/28 في سيلوبي ، شرناق ، تركيا ، ويعمل في مجال تبادل جميع أنواع العملات وإرسال الأموال إلى جميع المدن والحسابات البنكية داخل تركيا.",
+      ku: "نووسینگەی چیا گۆڵد بۆ ئاڵوگۆڕی دراو ، دووەم لقی سەر بە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 2023/08/28 لە سلۆپی ، شرناخ ، تورکیا دامەزراوە و کار دەکات لە بواری ئاڵوگۆڕی هەموو جۆرە دراوێك و ناردنی پارە بۆ هەموو شارەکان و حساب بانکیەکانی نێو وڵاتی تورکیا."
+    }
+  },
+  {
+    id: "hangawexchange",
+    year: "2024",
+    date: {
+      en: "March 21, 2024",
+      ar: "21 مارس 2024",
+      ku: "21 ئازار 2024"
+    },
+    logo: "/brands/hangawexchange.png",
+    name: {
+      en: "Hangaw Exchange",
+      ar: "مكتب هەنگاو",
+      ku: "نووسینگەی هەنگاو"
+    },
+    desc: {
+      en: "Hangaw Exchange For Currency Exchange Is The Third Branch Of The Currency Exchange And Financial Services Sector Of Chya Group. Founded On 21/03/2024 On The Two-Way Runaki Street In Erbil City , It Works In Exchanging All Types Of Currencies And Sending Money To All Countries Of The World In Cash And Bank Accounts , And Sending Money To All Local And International Bank Cards.",
+      ar: "مكتب هەنگاو لتبادل العملات ، هو الفرع الثالث التابع لقطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسس في 2024/03/21 في شارع روناکی ( السايدين ) في مدينة أربيل ، ويعمل في مجال تبادل جميع أنواع العملات وإرسال الأموال إلى جميع دول العالم نقداً وعبر الحسابات البنكية وإرسال الأموال إلى جميع البطاقات البنكية المحلية والدولية.",
+      ku: "نووسینگەی هەنگاو بۆ ئاڵوگۆڕی دراو ، سێیەم لقی سەر بە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 2024/03/21 لە جووت سایدی ڕووناکی شاری هەولێر دامەزراوە و کار دەکات لە بواری ئاڵوگۆڕی هەموو جۆرە دراوێك و ناردنی پارە بۆ هەموو وڵاتانی جیهان بە کاش و حسابی بانکی و ناردنی پارە بۆ هەموو کارتە بانکیە نێوخۆیی و نێودەوڵەتیەکان."
+    }
+  },
+  {
+    id: "lutkaychya",
+    year: "2024",
+    date: {
+      en: "October 20, 2024",
+      ar: "20 أكتوبر 2024",
+      ku: "20 تشرینی یەکەم 2024"
+    },
+    logo: "/brands/lutkay chya-1.png",
+    name: {
+      en: "Lutkay Chya Exchange",
+      ar: "مكتب لوتکەی چيا",
+      ku: "نووسینگەی لوتکەی چیا"
+    },
+    desc: {
+      en: "Lutkay Chya Exchange For Currency Exchange Is The Fifth Branch Of The Currency Exchange And Financial Services Sector Of Chya Group. Founded On 20/10/2024 In Ankawa Neighborhood In Erbil City , It Works In Exchanging All Types Of Currencies And Sending Money To All Countries Of The World In Cash And Bank Accounts , And Sending Money To All Local And International Bank Cards.",
+      ar: "مكتب لوتکەی چيا لتبادل العملات ، هو الفرع الخامس التابع لقطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسس في 2024/10/20 في حي عنكاوا بمدينة أربيل ، ويعمل في مجال تبادل جميع أنواع العملات وإرسال الأموال إلى جميع دول العالم نقداً وعبر الحسابات البنكية وإرسال الأموال إلى جميع البطاقات البنكية المحلية والدولية.",
+      ku: "نووسینگەی لوتکەی چیا بۆ ئاڵوگۆڕی دراو ، پێنجەم لقی سەر بە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 2024/10/20 لە گەڕەکی عەنکاوەی شاری هەولێر دامەزراوە و کار دەکات لە بواری ئاڵوگۆڕی هەموو جۆرە دراوێك و ناردنی پارە بۆ هەموو وڵاتانی جیهان بە کاش و حسابی بانکی و ناردنی پارە بۆ هەموو کارتە بانکیە نێوخۆیی و نێودەوڵەتیەکان."
+    }
+  },
+  {
+    id: "khakisarwar",
+    year: "2025",
+    date: {
+      en: "February 16, 2025",
+      ar: "16 فبراير 2025",
+      ku: "16 شوبات 2025"
+    },
+    logo: "/brands/khakisarwar.png",
+    name: {
+      en: "Khaki Sarwar Co.",
+      ar: "شركة خاكي سرور",
+      ku: "کۆمپانیای خاکی سەروەر"
+    },
+    desc: {
+      en: "Khaki Sarwar Co. For Currency Exchange Is The Fourth Branch Of The Currency Exchange And Financial Services Sector Of Chya Group. Founded On 16/02/2025 On Pirmam Road Inside BM2 Petrol Station In Erbil City , It Works In Exchanging All Types Of Currencies And Sending Money To All Countries Of The World In Cash And Bank Accounts , And Sending Money To All Local And International Bank Cards.",
+      ar: "شركة خاكي سرور لتبادل العملات ، هو الفرع الرابع التابع لقطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسست في 2025/02/16 على طريق بيرمام داخل محطة وقود BM2 في مدينة أربيل ، وتعمل في مجال تبادل جميع أنواع العملات وإرسال الأموال إلى جميع دول العالم نقداً وعبر الحسابات البنكية وإرسال الأموال إلى جميع البطاقات البنكية المحلية والدولية.",
+      ku: "کۆمپانیای خاکی سەروەر بۆ ئاڵوگۆڕی دراو ، چوارەم لقی سەر بە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 2025/02/16 لە ڕێگای پیرمام نێو بەنزینخانەی بی ئێم ٢ لە شاری هەولێر دامەزراوە و کار دەکات لە بواری ئاڵوگۆڕی هەموو جۆرە دراوێك و ناردنی پارە بۆ هەموو وڵاتانی جیهان بە کاش و حسابی بانکی و ناردنی پارە بۆ هەموو کارتە بانکیە نێوخۆیی و نێودەوڵەتیەکان."
+    }
+  },
+  {
+    id: "barzychya",
+    year: "2025",
+    date: {
+      en: "March 6, 2025",
+      ar: "6 مارس 2025",
+      ku: "6 ئازار 2025"
+    },
+    logo: "/brands/BARZY CHYAY-1.png",
+    name: {
+      en: "Barzy Chya Exchange",
+      ar: "مكتب بـەرزی چيا",
+      ku: "نووسینگەی بەرزی چیا"
+    },
+    desc: {
+      en: "Barzy Chya Exchange For Currency Exchange Is The Sixth Branch Of The Currency Exchange And Financial Services Sector Of Chya Group. Founded On 06/03/2025 In Soran In The City Center Opposite The Langa Market , It Works In Exchanging All Types Of Currencies And Sending Money To All Countries Of The World In Cash And Bank Accounts , And Sending Money To All Local And International Bank Cards.",
+      ar: "مكتب بـەرزی چيا لتبادل العملات ، هو الفرع السادس التابع لقطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسس في 2025/03/06 في سوران في مركز المدينة مقابل سوق اللنگة ، ويعمل في مجال تبادل جميع أنواع العملات وإرسال الأموال إلى جميع دول العالم نقداً وعبر الحسابات البنكية وإرسال الأموال إلى جميع البطاقات البنكية المحلية والدولية.",
+      ku: "نووسینگەی بەرزی چیا بۆ ئاڵوگۆڕی دراو ، شەشەم لقی سەر بە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 2025/03/06 لە سۆران لە سەنتەری شار بەرامبەر بازاڕی لەنگە دامەزراوە و کار دەکات لە بواری ئاڵوگۆڕی هەموو جۆرە دراوێك و ناردنی پارە بۆ هەموو وڵاتانی جیهان بە کاش و حسابی بانکی و ناردنی پارە بۆ هەموو کارتە بانکیە نێوخۆیی و نێودەوڵەتیەکان."
+    }
+  },
+  {
+    id: "manfazdibaga",
+    year: "2025",
+    date: {
+      en: "August 1, 2025",
+      ar: "1 أغسطس 2025",
+      ku: "1 ئاب 2025"
+    },
+    logo: "/brands/Manfaz Dibaga-1.png",
+    name: {
+      en: "Manfaz Dibaga",
+      ar: "منفذ ديبكة ی هەنگاو",
+      ku: "منفذ ديبكة ى هەنگاو"
+    },
+    desc: {
+      en: "Manfaz Dibaga For Salary Disbursement Is Affiliated With Hangaw Exchange In The Currency Exchange And Financial Services Sector Of Chya Group. Founded On 01/08/2025 On The Two-Way Runaki Street Inside Hangaw Exchange , Its Work Consists Of Disbursing Military , Civil , And Retirement Salaries , And Executing Services ( Qi Card , Super Qi , Master Card ) And Sending And Withdrawing Money In It.",
+      ar: "منفذ ديبكة ی هەنگاو لصرف الرواتب ، التابع لمكتب هانكاو في قطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسس في 2025/08/01 في شارع رونامي داخل مكتب هانكاو ، وتتكون أعماله من صرف الرواتب العسكرية والمدنية والتقاعد وتنفيذ خدمات ( كي كارد ، سوبر كي ، ماستر كارد ) وإرسال وسحب الأموال فيها.",
+      ku: "منفذ دیبكة ی هەنگاو بۆ صرفی رواتب سەر بە نووسینگەی هەنگاو لە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 2025/08/01 لە جووت سایدی ڕووناکی لە نێو نووسینگەی هەنگاو دامەزراوە و کارەکانی پێک دێت لە صرفی رواتب عسکری و مدنی و تقاعد و جێبەجێکردنی سێرڤسی ( کی کارد ، سوپەر کی ، ماستەر کارد ) و ناردن و ڕاکێشانی پارە تیایدا."
+    }
+  }
+];
+
+const GENERAL_TRADING_TIMELINE = [
+  {
+    id: "lamatalmarjan",
+    year: "2019",
+    date: {
+      en: "November 30, 2019",
+      ar: "30 نوفمبر 2019",
+      ku: "30 تشرینی دووەم 2019"
+    },
+    logo: "/brands/lamattt.png",
+    name: {
+      en: "Lamat Al Marjan Co.",
+      ar: "شركة لمعة المرجان",
+      ku: "کۆمپانیای لمعة المرجان"
+    },
+    desc: {
+      en: "Lamat Al Marjan Co. For General Trading Is The First Company Of The General Trading Sector Of Chya Group. Founded On 30/11/2019 , It Specializes In Construction Materials Such As ( Wood , MDF , Furniture , Steel , Fugue , Cement , And Concrete ).",
+      ar: "شركة لمعة المرجان للتجارة العامة ، هي الشركة الأولى التابعة لقطاع التجارة العامة في مجموعة چيا. تأسست في 2019/11/30 ، وهي متخصصة في مواد البناء مثل ( الخشب ، MDF ، الأثاث ، الحديد ، الفوكة ، الإسمنت ، والخرسانة ).",
+      ku: "کۆمپانیای لمعة المرجان بۆ بازرگانی گشتی ، یەکەم کۆمپانیای سەر بە سێکتەری بازرگانی گشتی چیا گروپە و لە 2019/11/30 دامەزراوە ، تایبەتمەندە لە کەرەستەی بیناسازی وەک ( دار ، ئێم دی ئێف ، مۆبیلیات ، ئاسن ، فووگە ، چیمەنتۆ و کۆنکرێت )."
+    }
+  },
+  {
+    id: "chyaymateen",
+    year: "2026",
+    date: {
+      en: "March 1, 2026",
+      ar: "1 مارس 2026",
+      ku: "1 ئازار 2026"
+    },
+    logo: "/brands/chyaymat.png",
+    name: {
+      en: "Chyay Mateen Co.",
+      ar: "شركة چياي متين",
+      ku: "کۆمپانیای چیای مەتین"
+    },
+    desc: {
+      en: "Chyay Mateen Co. For General Trading Is The Second Company In The General Trading Sector Of Chya Group. Founded On 01/03/2026 , It Specializes In ( Electronic Devices , Household Items , Clothing , And Second-Hand Goods ).",
+      ar: "شركة چياي متين للتجارة العامة ، هي الشركة الثانية في قطاع التجارة العامة بمجموعة چيا. تأسست في 2026/03/01 ، وهي متخصصة في ( الأجهزة الإلكترونية ، الأدوات المنزلية ، الملابس ، والسلع المستعملة ).",
+      ku: "کۆمپانیای چیای مەتین بۆ بازرگانی گشتی ، دووەم کۆمپانیای سێکتەری بازرگانی گشتی چیا گروپە و لە 2026/03/01 دامەزراوە ، تایبەتمەندە لە ( ئامێرە ئەلیکترۆنییەکان ، کەلوپەلی ناوماڵ ، پۆشاک و کەلوپەلی بەکارهاتوو )."
+    }
+  },
+  {
+    id: "chyaamazon",
+    year: "2026",
+    date: {
+      en: "March 1, 2026",
+      ar: "1 مارس 2026",
+      ku: "1 ئازار 2026"
+    },
+    logo: "/brands/Chya Amazon-1.png",
+    name: {
+      en: "Chya Amazon",
+      ar: "مشروع چيا أمازون",
+      ku: "مشروع چیا ئەمازۆن"
+    },
+    desc: {
+      en: "Chya Amazon Was Launched On Rawanduz Road In Soran. Founded On 01/03/2026 , It Conducts Retail And Wholesale Of Second-Hand Goods According To The Legitimate System.",
+      ar: "تم إطلاق مشروع چيا أمازون على طريق رواندز في سوران. تأسس في 2026/03/01 ، ويعمل في بيع وشراء السلع المستعملة بالتجزئة والجملة وفق النظام الشرعي.",
+      ku: "مشروع چیا ئەمازۆن لەسەر ڕێگای ڕواندز لە سۆران کرایەوە. لە 2026/03/01 دامەزراوە , کار دەکات بۆ کڕین و فرۆشتنی کەلوپەلی بەکارهاتوو بە شێوەی تاک و کۆ بە شێوازێکی شەرعی."
+    }
+  }
+];
+
+const renderFormattedText = (text: string) => {
+  if (!text) return "";
+  const parts = text.split(/(\([^)]+\))/g);
+  return parts.map((part, idx) => {
+    if (part.startsWith('(') && part.endsWith(')')) {
+      return (
+        <span key={idx} className="whitespace-nowrap">
+          {part}
+        </span>
+      );
+    }
+    return part;
+  });
+};
+
 export default function SectorDetails({ id }: { id: string }) {
   const { locale, isRTL } = useLanguage();
   const [expandedCategories, setExpandedCategories] = React.useState<Record<string, boolean>>({
-    websites: false,
+    websites: true,
     emails: false,
     instagram: false,
   });
@@ -342,19 +564,101 @@ export default function SectorDetails({ id }: { id: string }) {
                 </h2>
               </div>
               
-              <div className="space-y-5">
-                {currentHistory.map((para, idx) => (
-                  <p 
-                    key={idx} 
-                    className={cn(
-                      "text-[16px] text-[#3a4f6a]",
-                      isRTL ? "font-semibold leading-[1.8] text-[17px]" : "leading-relaxed"
-                    )}
-                  >
-                    {para}
-                  </p>
-                ))}
-              </div>
+              {id === "money-exchange" || id === "general-trading" ? (
+                <div className="space-y-12">
+                  {/* Intro paragraphs */}
+                  <div className="flex flex-col justify-center space-y-4">
+                    {currentHistory.map((para, idx) => (
+                      <p 
+                        key={idx} 
+                        className={cn(
+                          "text-[16px] text-[#3a4f6a]", 
+                          isRTL ? "font-semibold leading-[1.8] text-[17px] text-justify" : "leading-relaxed text-left"
+                        )}
+                      >
+                        {renderFormattedText(para)}
+                      </p>
+                    ))}
+                  </div>
+
+                  {/* Company Journey Milestones Timeline */}
+                  <div className="pt-6">
+                    <h3 className={cn("text-xl font-bold text-[#0c1a2e] mb-10 border-b border-[#0c1a2e]/5 pb-4", isRTL ? "font-extrabold" : "font-bold")}>
+                      {id === "general-trading" 
+                        ? (locale === "ku" ? "تۆڕی کۆمپانیاکانمان و قۆناغی گەشەکردنمان" : locale === "ar" ? "شبكة شركاتنا والنمو الزمني" : "Our Companies Network & Growth Timeline")
+                        : (locale === "ku" ? "تۆڕی نووسینگەکانمان و قۆناغی گەشەکردنمان" : locale === "ar" ? "شبكة أعمالنا والنمو الزمني" : "Our Business Network & Growth Timeline")}
+                    </h3>
+                    
+                    <div className={cn(
+                      "relative space-y-10 mt-4",
+                      isRTL 
+                        ? "border-r-[2px] pr-6 md:pr-10 mr-4 md:mr-6" 
+                        : "border-l-[2px] pl-6 md:pl-10 ml-4 md:ml-6",
+                      "border-[#0c1a2e]/10"
+                    )}>
+                      {(id === "money-exchange" ? MONEY_EXCHANGE_TIMELINE : GENERAL_TRADING_TIMELINE).map((item, index) => {
+                        const nameText = (item.name as any)[locale] || item.name.en;
+                        const descText = (item.desc as any)[locale] || item.desc.en;
+                        const dateText = (item.date as any)[locale] || item.date.en;
+                        
+                        return (
+                          <motion.div
+                            key={item.id}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-100px" }}
+                            transition={{ duration: 0.5, delay: index * 0.05 }}
+                            className="relative flex flex-col md:flex-row gap-4 items-start md:items-center bg-white rounded-3xl p-6 md:p-8 border border-[#0c1a2e]/5 shadow-[0_5px_20px_rgba(12,26,46,0.02)] hover:shadow-[0_15px_40px_rgba(12,26,46,0.06)] hover:-translate-y-1 transition-all duration-300 group"
+                          >
+                            {/* Dot indicator on the vertical line */}
+                            <div className={cn(
+                              "absolute top-8 md:top-1/2 md:-translate-y-1/2 w-4 h-4 rounded-full bg-white border-[4px] border-[#b91c1c] shadow-[0_0_10px_rgba(185,28,28,0.3)] z-10 transition-transform duration-300 group-hover:scale-125",
+                              isRTL ? "right-[-31px] md:right-[-45px]" : "left-[-31px] md:left-[-45px]"
+                            )} />
+                            
+                            {/* Left part: Year & Date */}
+                            <div className={cn("flex flex-col shrink-0 min-w-[120px]", isRTL ? "text-right" : "text-left")}>
+                              <span className="text-3xl font-black text-[#b91c1c] tracking-tight leading-none mb-1">
+                                {item.year}
+                              </span>
+                              <span className="text-xs font-semibold text-gray-400 tracking-wide">
+                                {dateText}
+                              </span>
+                            </div>
+
+                            {/* Right part: Description and Name */}
+                            <div className={cn("flex-1 min-w-0", isRTL ? "text-right" : "text-left")}>
+                              <h4 className="text-lg font-bold text-[#0c1a2e] mb-2 tracking-tight">
+                                {nameText}
+                              </h4>
+                              <p className={cn(
+                                "text-[14px] text-[#3a4f6a] leading-relaxed",
+                                isRTL ? "font-medium text-justify" : "text-left"
+                              )}>
+                                {renderFormattedText(descText)}
+                              </p>
+                            </div>
+                          </motion.div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="space-y-5">
+                  {currentHistory.map((para, idx) => (
+                    <p 
+                      key={idx} 
+                      className={cn(
+                        "text-[16px] text-[#3a4f6a]",
+                        isRTL ? "font-semibold leading-[1.8] text-[17px] text-justify" : "leading-relaxed text-left"
+                      )}
+                    >
+                      {renderFormattedText(para)}
+                    </p>
+                  ))}
+                </div>
+              )}
             </section>
 
             {/* President's Message */}

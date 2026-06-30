@@ -107,6 +107,9 @@ const BRAND_LOGOS: Record<string, string> = {
   'kiva': '/brands/kivaluxary.png',
   'کیڤا': '/brands/kivaluxary.png',
   'كيفا': '/brands/kivaluxary.png',
+  'luxury': '/brands/kivaluxary.png',
+  'لوکژوری': '/brands/kivaluxary.png',
+  'لوكزوري': '/brands/kivaluxary.png',
   'كولد': '/brands/qapat-1.png',
   'لوتكەی': '/brands/lutkay chya-1.png',
   'دیبەگە': '/brands/Manfaz Dibaga-1.png',
@@ -122,7 +125,6 @@ const BRAND_LOGOS: Record<string, string> = {
 function getLogoSrc(item: string, sectorId: string): string | null {
   const lower = item.toLowerCase();
 
-  // Check all keyword mappings
   for (const [key, src] of Object.entries(BRAND_LOGOS)) {
     if (lower.includes(key.toLowerCase())) return src;
   }
@@ -204,9 +206,12 @@ const BRAND_ROUTES: Record<string, string> = {
   'ترافيل': '/chyatravel',
   'تڕاڤل': '/chyatravel',
   'تراڤل': '/chyatravel',
-  'kiva': '/kivaluxury',
-  'کیڤا': '/kivaluxury',
-  'كيفا': '/kivaluxury',
+  'kiva': '/chyaluxury',
+  'کیڤا': '/chyaluxury',
+  'كيفا': '/chyaluxury',
+  'luxury': '/chyaluxury',
+  'لوکژوری': '/chyaluxury',
+  'لوكزوري': '/chyaluxury',
 };
 
 function getBrandRoute(item: string, sectorId: string): string {
@@ -262,6 +267,7 @@ function ItemRow({ item, sectorId }: { item: string; sectorId: string }) {
   let logoScaleY = 1.0;
   let logoTranslateX = 0;
   let logoTranslateY = 0;
+  let logoFilter: string | undefined = undefined;
   let textClasses = 'text-[11px] xl:text-[12px] tracking-tight'; // Standard text size
 
   if (logo && logo.includes('BARZY')) {
@@ -276,7 +282,7 @@ function ItemRow({ item, sectorId }: { item: string; sectorId: string }) {
   } else if (logo && logo.includes('qapat-1')) {
     logoScaleX = 1.42; // Make it wider
     logoScaleY = 1.30;
-    logoTranslateX = -2.4; // Shift to the left side a tiny bit
+    logoTranslateX = 0.1; // Shift to the right side a tiny bit more
     textClasses = 'text-[11px] xl:text-[11px] tracking-tighter'; // Apply same tiny font size to Chya Gold
   } else if (logo && logo.includes('hangawexchange')) {
     logoScale = 1.40;
@@ -289,7 +295,7 @@ function ItemRow({ item, sectorId }: { item: string; sectorId: string }) {
   } else if (logo && logo.includes('BLUE PRINT')) {
     logoScale = 1.64; // Zoom in Blue Printing
   } else if (logo && logo.includes('travel')) {
-    logoScale = 2.46; // Increased scale to make it beautifully large and clear
+    logoScale = 2.76; // Zoomed in a bit more to make it larger and clearer
   } else if (logo && logo.includes('kiva')) {
     logoScale = 1.40; // Decreased scale since it is a large solid square natively
     logoTranslateY = 14;
@@ -323,7 +329,10 @@ function ItemRow({ item, sectorId }: { item: string; sectorId: string }) {
             width={120}
             height={60}
             className="w-full h-full object-contain"
-            style={{ transform: `scale(${logoScaleX}, ${logoScaleY}) translateX(${logoTranslateX}px) translateY(${logoTranslateY}px)` }}
+            style={{
+              transform: `scale(${logoScaleX}, ${logoScaleY}) translateX(${logoTranslateX}px) translateY(${logoTranslateY}px)`,
+              filter: logoFilter
+            }}
           />
         </Link>
       ) : (

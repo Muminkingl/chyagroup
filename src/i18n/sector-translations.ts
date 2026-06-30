@@ -42,19 +42,19 @@ export const sectorTranslations = {
     },
     history: {
       "general-trading": [
-        "The General Trading Sector Is The Founding Pillar Of Chya Group, Established With ( Lamaat Al Marjan CO. ) On 30/11/2019  The First Company In The Group. It Specializes In Construction Materials Such As ( Wood, MDF, Furniture, Steel, Fugue, Cement, And Concrete ).",
-        "On 01/03/2026, The Sector Expanded With ( Chyay Mateen CO. ), The Second Company In The General Trading Sector, Specializing In ( Electronic Devices, Household Items, Clothing, And Second-Hand Goods ). On The Same Day, ( Chya Amazon ) Was Launched On Rawanduz Road In The Independent Administration Of Soran, Conducting Retail And Wholesale Of Second-Hand Goods According To The Legitimate System.",
-        "Today, The General Trading Sector Operates 3 Active Works — ( 2 Registered Companies And 1 Work ) Delivering Quality Products And Connecting Markets Across The Region."
+        "The General Trading Sector Is The Founding Pillar Of Chya Group , Established With ( Lamat Al Marjan Co. ) On 30/11/2019  The First Company In Chya Group. It Specializes In Construction Materials Such As ( Wood , MDF , Furniture , Steel , Fugue , Cement , And Concrete ).",
+        "On 01/03/2026 , The Sector Expanded With ( Chyay Mateen Co. ) , The Second Company In The General Trading Sector , Specializing In ( Electronic Devices , Household Items , Clothing , And Second-Hand Goods ). On The Same Day , ( Chya Amazon ) Was Launched On Rawanduz Road In Soran , Conducting Retail And Wholesale Of Second-Hand Goods According To The Legitimate System.",
+        "Today , The General Trading Sector Operates 3 Active Works — ( 2 Companies And 1 Work ) Delivering Quality Products And Connecting Markets Across The Region."
       ],
       "money-exchange": [
-        "Chya Group Operates A Dedicated Money Exchange & Financial Service Delivering Fast, Secure, And Competitive Currency Services. Founded With ( Chya Exchange ) On 14/06/2021 In Erbil City, The Sector Expanded With ( Chya Gold ) On 28/08/2023 In Turkey To Strengthen Our International Network.",
-        "Our Network Includes Key Operational Arms: ( Khaki Sarwar CO., Chya Exchange, Chya Gold, Lutkay Chya, Barzy Chya, Hangaw Exchange, And Manfaz Dibaga ) Each Dedicated To Providing Unparalleled Financial Reliability Backed By ( 14 ) Bank & Company Agents.",
-        "We Take Pride In Our Status As Authorized Agents For Major Financial Institutions, Delivering Excellence And Trust In Every Transaction We Handle."
+        "Chya Group Operates A Dedicated Money Exchange & Financial Service Delivering Fast , Secure , And Competitive Currency Services. Founded With ( Chya Exchange ) On 14/06/2021 In Old Borsa , Erbil City , The Sector Expanded With ( Chya Gold ) On 28/08/2023 In Silopi District , Şırnak Street , Türkiye To Strengthen Our International Network.",
+        "Our network is backed by ( 16 ) bank & company agents to provide unparalleled financial reliability.",
+        "We Take Pride In Our Status As Authorized Agents For Major Financial Institutions , Delivering Excellence And Trust In Every Transaction We Handle."
       ],
       "mobile-tech": [
-        "Chya Group Empowers Consumers And Enterprises Through Its Dedicated Mobile & Technology Sector, Delivering Cutting-Edge Digital Solutions. Founded With ( Chya Tech ) On 11/08/2025 In Erbil City, The Sector Expanded With ( Chya Phone ) On 24/03/2026 In Soran City Center To Strengthen Our Technological Reach.",
-        "Our Network Includes Key Operational Arms: ( Chya Tech, And Chya Phone ) Each Dedicated To Providing Unparalleled Innovation And High-Quality Electronic Products Across The Region.",
-        "We Take Pride In Delivering Advanced Systems Such As Accounting And Archiving Software, Alongside Premium Electronic Devices And Accessories, Ensuring Excellence In Every Digital Interaction."
+        "Chya Group Empowers Consumers And Enterprises Through Its Dedicated Mobile & Technology Sector , Delivering Cutting-Edge Digital Solutions. Founded With ( Chya Tech ) On 11/08/2025 In Erbil City , The Sector Expanded With ( Chya Phone ) On 24/03/2026 In Soran City Center To Strengthen Our Technological Reach.",
+        "Our Network Includes Key Operational Arms: ( Chya Tech , Chya Phone ) Each Dedicated To Providing Unparalleled Innovation And High-Quality Electronic Products Across The Region.",
+        "We Take Pride In Delivering Advanced Systems Such As Accounting And Archiving Software , Alongside Premium Electronic Devices And Accessories , Ensuring Excellence In Every Digital Interaction."
       ],
       "printing": [
         "The Printing & Photocopy Sector Provides Essential Document And Administrative Services With A Focus On Precision And Reliability. Established With ( Blue Printing ) On 19/10/2025, This Sector Operates As A Dedicated Professional Printing Hub.",
@@ -62,34 +62,35 @@ export const sectorTranslations = {
         "Serving Businesses, Government Institutions, And Individuals Alike, We Ensure That Every Transaction And Document Request Is Handled With Utmost Accuracy And A Swift Turnaround Time."
       ],
       "online-trading": [
-        "The Online Trading Sector Connects Clients Across Active Digital Marketplaces. ( Chya Travel ), Founded On 22/01/2020, Provides A Comprehensive Suite Of Tourist Tickets, Visas, Hotel Bookings, Car Rentals, Tourist Destination Guidance, And Language Translation Services.",
-        "Expanding Into Premium Retail, ( Kiva Luxury ), Founded On 20/01/2022, Trades In Authentic Jewelry, Accessories, Watches, And Perfumes From Global Brands, Bringing World-Class Luxury Directly To The Regional Market.",
-        "Together, These Platforms Form A Trusted Digital Commerce Network Backed By ( 14 ) Bank Partners And 99.9% Operational Uptime, Ensuring Seamless Access To Global Services."
+        "The Online Trading Sector Connects Clients Across Active Digital Marketplaces. ( Chya Travel ) , Founded On 22/01/2020 , Provides A Comprehensive Suite Of Tourist Tickets , Visas , Hotel Bookings , Car Rentals , Tourist Destination Guidance , And Language Translation Services.",
+        "Expanding Into Premium Retail , ( Kiva Luxury ) , Founded On 20/01/2022 , Trades In Authentic Jewelry , Accessories , Watches , And Perfumes From Global Brands , Bringing World-Class Luxury Directly To The Regional Market.",
+        "Together , These Platforms Form A Trusted Digital Commerce Network Backed By ( 16 ) Bank Partners And 99.9% Operational Uptime , Ensuring Seamless Access To Global Services."
       ]
     },
     branches: {
       "general-trading": [
-        { city: "Erbil — Bakhtyare Street", address: "Bakhtyare Street , Erbil 44001, Kurdistan Region, Iraq" },
-        { city: "Soran — Chya Amazon", address: "Rawanduz Road , Soran" }
+        { city: "Erbil - Lamat Al Marjan Co.", address: "Bakhtyare Street , Erbil" },
+        { city: "Soran - Chyay Mateen Co.", address: "Rawanduz Road , Soran" },
+        { city: "Soran - Chya Amazon", address: "Rawanduz Road , Soran" }
       ],
       "money-exchange": [
-        { city: "Erbil — Old Borsa", address: "Old Borsa Of Erbil City ( Chya Exchange )" },
-        { city: "Erbil — Runaki Street", address: "Two-Way Runaki Street ( Hangaw Exchange & Manfaz Dibaga )" },
-        { city: "Erbil — Ankawa", address: "Ankawa Road ( Lutkay Chya Exchange )" },
-        { city: "Erbil — Pirmam Road", address: "Pirmam Road, Inside BM OIL 2 Petrol Station ( Khaki Sarwar CO. )" },
-        { city: "Soran", address: "City Center, Opposite Langa Baar ( Barzy Chya Exchange )" },
-        { city: "Sirnak, Turkey", address: "Silopi District, Sirnak City ( Chya Gold Exchange )" }
+        { city: "Erbil - Chya Exchange", address: "Old Borsa , Erbil" },
+        { city: "Erbil - Hangaw Exchange", address: "Two-Way Runaki Street , Erbil" },
+        { city: "Erbil - Lutkay Chya Exchange", address: "Ankawa Road , Erbil" },
+        { city: "Erbil - Khaki Sarwar Co.", address: "Pirmam Road , Inside BM OIL 2 Petrol Station , Erbil" },
+        { city: "Soran - Barzy Chya Exchange", address: "City Center , Opposite Langa Market , Soran" },
+        { city: "Silopi - Chya Gold Exchange", address: "Silopi District , Şırnak Street , Türkiye" }
       ],
       "mobile-tech": [
-        { city: "Erbil — Chya Tech", address: "ONLINE" },
-        { city: "Soran — Chya Phone", address: "City Center , Soran" }
+        { city: "Erbil - Chya Tech", address: "ONLINE" },
+        { city: "Soran - Chya Phone", address: "City Center , Soran" }
       ],
       "printing": [
-        { city: "Erbil — Blue Printing", address: "ONLINE" }
+        { city: "Erbil - Blue Printing", address: "ONLINE" }
       ],
       "online-trading": [
-        { city: "Erbil — Chya Travel", address: "ONLINE" },
-        { city: "Erbil — Kiva Luxury", address: "ONLINE" }
+        { city: "Erbil - Chya Travel", address: "ONLINE" },
+        { city: "Erbil - Kiva Luxury", address: "ONLINE" }
       ]
     }
   },
@@ -136,19 +137,19 @@ export const sectorTranslations = {
     },
     history: {
       "general-trading": [
-        "سێکتەری بازرگانی گشتی کۆڵەکەی سەرەکی چیا گرووپە کە بە دامەزراندنی کۆمپانیای ( لماعە المرجان ) لە 2019/11/30 وەک یەکەم کۆمپانیای گرووپەکە دەستی پێکرد. ئەم سێکتەرە تایبەتمەندە لە کەرەستەی بیناسازی وەک ( دار، ئێم دی ئێف، مۆبیلیات، ئاسن، فووگە، چیمەنتۆ و کۆنکرێت ).",
-        "لە 2026/03/01، ئەم سێکتەرە فراوانتر بوو بە دامەزراندنی کۆمپانیای ( چیای مەتین )، کە دووەم کۆمپانیای سێکتەری بازرگانی گشتییە و تایبەتمەندە لە ( ئامێرە ئەلیکترۆنییەکان، کەلوپەلی ناوماڵ، پۆشاک و کەلوپەلی بەکارهاتوو ). هەر لە هەمان ڕۆژدا، ( چیای ئەمازۆن ) لەسەر ڕێگای ڕواندز لە ئیدارەی سەربەخۆی سۆران کرایەوە بۆ کڕین و فرۆشتنی کەلوپەلی بەکارهاتوو بە شێوەی تاک و کۆ .",
-        "ئەمڕۆ، سێکتەری بازرگانی گشتی خاوەنی 3 کاری چالاکە ( 2 کۆمپانیا و 1 کار )، کە بەرهەمی کوالێتی بەرز پێشکەش دەکەن و بازاڕەکانی ناوچەکە بەیەکەوە دەبەستنەوە."
+        "سێکتەری بازرگانی گشتی کۆڵەکەی سەرەکی چیا گرووپە کە بە دامەزراندنی کۆمپانیای ( لماعە المرجان ) لە 2019/11/30 وەک یەکەم کۆمپانیای گرووپەکە دەستی پێکرد. ئەم سێکتەرە تایبەتمەندە لە کەرەستەی بیناسازی وەک ( دار ، ئێم دی ئێف ، مۆبیلیات ، ئاسن ، فووگە ، چیمەنتۆ و کۆنکرێت ).",
+        "لە 2026/03/01 ، ئەم سێکتەرە فراوانتر بوو بە دامەزراندنی کۆمپانیای ( چیای مەتین ) ، کە دووەم کۆمپانیای سێکتەری بازرگانی گشتییە و تایبەتمەندە لە ( ئامێرە ئەلیکترۆنییەکان ، کەلوپەلی ناوماڵ ، پۆشاک و کەلوپەلی بەکارهاتوو ). هەر لە هەمان ڕۆژدا ، ( مشروع چیا ئەمازۆن ) لەسەر ڕێگای ڕواندز لە سۆران کرایەوە بۆ کڕین و فرۆشتنی کەلوپەلی بەکارهاتوو بە شێوەی تاک و کۆ .",
+        "ئەمڕۆ ، سێکتەری بازرگانی گشتی خاوەنی 3 کاری چالاکە ( 2 کۆمپانیا و 1 کار ) ، کە بەرهەمی کوالێتی بەرز پێشکەش دەکەن و بازاڕەکانی ناوچەکە بەیەکەوە دەبەستنەوە."
       ],
       "money-exchange": [
-        "چیا گرووپ خاوەنی بەشێکی تایبەتی ئاڵوگۆڕی  دراو و سێرڤسی داراییە کە خزمەتگوزارییەکی خێرا، پارێزراو و ڕکابەرییانە پێشکەش دەکات. بە دامەزراندنی ( نوسینگەی چیا ) لە 2021/06/14 لە بۆرسەی کۆنی شاری هەولێر دەستی پێکرد و لە 2023/08/28 لقی ( نوسینگەی چیای زێڕین ) لە سلۆپی تورکیا دامەزرا بۆ بەهێزکردنی تۆڕە داراییەکانمان.",
-        "ئەم سێکتەرە چەندین لقی چالاک لەخۆدەگرێت وەک: ( کۆمپانیای خاکی سەروەر، نوسینگەی چیا، نوسینگەی چیای زێڕین، نوسینگەی لوتکەی چیا، نوسینگەی بەرزی چیا, نوسینگەی هەنگاو، و مەنفەزی دیبەگە ) کە هەموویان بە پاڵپشتی ( 14 ) بریکاری بانک و کۆمپانیاکان کار دەکەن.",
-        "وەک بریکاری ڕێپێدراوی دامەزراوە داراییە سەرەکییەکان، ئێمە شانازی بە پێشکەشکردنی متمانە و وردی دەکەین لە هەموو مامەڵەیەکدا."
+        "چیا گرووپ خاوەنی بەشێکی تایبەتی ئاڵوگۆڕی  دراو و سێرڤسی داراییە کە خزمەتگوزارییەکی خێرا ، پارێزراو و ڕکابەرییانە پێشکەش دەکات. بە دامەزراندنی ( نوسینگەی چیا ) لە 2021/06/14 لە بۆرسەی کۆنی شاری هەولێر دەستی پێکرد و لە 2023/08/28 لقی ( نوسینگەی چیای زێڕین ) لە سلۆپی ، شرناخ ، تورکیا دامەزرا بۆ بەهێزکردنی تۆڕە داراییەکانمان.",
+        "تۆڕەکەمان بە پاڵپشتی ( 16 ) بریکاری بانک و کۆمپانیاکان کار دەکات بۆ پێشکەشکردنی متمانەی دارایی بێوێنە.",
+        "وەک بریکاری ڕێپێدراوی دامەزراوە داراییە سەرەکییەکان ، ئێمە شانازی بە پێشکەشکردنی متمانە و وردی دەکەین لە هەموو مامەڵەیەکدا."
       ],
       "mobile-tech": [
         "چیا گرووپ لە ڕێگەی سێکتەری مۆبایل و تەکنەلۆژیاوە تواناکانی بەکاربەران و کۆمپانیاکان بەرز دەکاتەوە بە پێشکەشکردنی نوێترین چارەسەرە دیجیتاڵییەکان. بە دامەزراندنی ( چیا تێک ) لە 2025/08/11 لە شاری هەولێر دەستی پێکرد و لە 2026/03/24 لقی ( چیا فۆن ) لە سەنتەری شاری سۆران دامەزرا بۆ بەهێزکردنی پێگەی تەکنەلۆژیامان.",
-        "ئەم سێکتەرە دوو لقی چالاک لەخۆدەگرێت وەک: ( چیا تێک و چیا فۆن ) کە هەردووکیان پابەندن بە دابینکردنی داهێنانی بێوێنە و بەرهەمی ئەلیکترۆنی کوالێتی بەرز لە سەرتاسەری ناوچەکەدا.",
-        "شانازی دەکەین بە دابینکردنی سیستەمە پێشکەوتووەکانی وەک نەرمەکاڵای ژمێریاری و ئەرشیفکردن، شانبەشانی ئامێرە ئەلیکترۆنییەکان و ئێکسسواراتەکان، بۆ دڵنیابوون لە نایابی لە هەموو مامەڵەیەکی دیجیتاڵیدا."
+        "ئەم سێکتەرە دوو لقی چالاک لەخۆدەگرێت وەک: ( چیا تێک ، چیا فۆن ) کە هەردووکیان پابەندن بە دابینکردنی داهێنانی بێوێنە و بەرهەمی ئەلیکترۆنی کوالێتی بەرز لە سەرتاسەری ناوچەکەدا.",
+        "شانازی دەکەین بە دابینکردنی سیستەمە پێشکەوتووەکانی وەک نەرمەکاڵای ژمێریاری و ئەرشیفکردن ، شانبەشانی ئامێرە ئەلیکترۆنییەکان و ئێکسسواراتەکان ، بۆ دڵنیابوون لە نایابی لە هەموو مامەڵەیەکی دیجیتاڵیدا."
       ],
       "printing": [
         "سێکتەری چاپەمەنی و فۆتۆکۆپی خزمەتگوزارییە سەرەکییەکانی بەڵگەنامە و کارگێڕی بە فۆکەسکردن لەسەر وردی و متمانەپێکراوی پێشکەش دەکات. بە دامەزراندنی ( بلو پرێنتینگ ) لە 2025/10/19 دەستی پێکرد، و ئەم سێکتەرە وەک ناوەندێکی تایبەتمەندی چاپی پیشەیی کار دەکات.",
@@ -156,23 +157,24 @@ export const sectorTranslations = {
         "بە خزمەتکردنی بازرگانییەکان، دامەزراوە حکومییەکان، و تاکەکان بە هەمان شێوە، ئێمە دڵنیایی دەدەین کە هەموو مامەڵەیەک و داواکارییەکی بەڵگەنامە بەوپەڕی وردی و لە کەمترین کاتدا جێبەجێ دەکرێت."
       ],
       "online-trading": [
-        "سێکتەری بازرگانی بە  ئۆنلاین کڕیاران بە بازاڕە دیجیتاڵییە چالاکەکانەوە دەبەستێتەوە. ( چیا تڕاڤل )، کە لە 2020/01/22 دامەزراوە، خزمەتگوزارییەکی گشتگیری وەک بڕینی تکت و ڤیزە، حجزی هۆتێل، ئۆتۆمبێل، ڕێنمایی شوێنە گەشتیارییەکان، و وەرگێڕانی زمان دابین دەکات.",
-        "بە فراوانبوون بەرەو بازاڕی لوکس، ( کیڤا لوکژوری )، کە لە 2022/01/20 دامەزراوە، بازرگانی بە گەوهەر و ئێکسسوارات و کاتژمێر و بۆنی براندە جیهانییەکان دەکات، و لوکسی ئاستی جیهانی ڕاستەوخۆ دەهێنێتە بازاڕی ناوچەکە.",
-        "پێکەوە، ئەم پلاتفۆرمانە تۆڕێکی بازرگانی دیجیتاڵی جێی متمانە پێکدەهێنن کە پاڵپشتیکراوە لەلایەن ( 14 ) هاوبەشی بانکی و بەردەوامی کارکردنی 99.9%، بۆ دڵنیابوون لە گەیشتنی بێ کێشە بە خزمەتگوزارییە جیهانییەکان."
+        "سێکتەری بازرگانی بە  ئۆنلاین کڕیاران بە بازاڕە دیجیتاڵییە چالاکەکانەوە دەبەستێتەوە. ( چیا تڕاڤل ) ، کە لە 2020/01/22 دامەزراوە ، خزمەتگوزارییەکی گشتگیری وەک بڕینی تکت ، ڤیزە ، حجزی هۆتێل ، ئۆتۆمبێل ، ڕێنمایی شوێنە گەشتیارییەکان ، و وەرگێڕانی زمان دابین دەکات.",
+        "بە فراوانبوون بەرەو بازاڕی لوکس ، ( کیڤا لوکژوری ) ، کە لە 2022/01/20 دامەزراوە ، بازرگانی بە گەوهەر ، ئێکسسوارات ، کاتژمێر ، و بۆنی براندە جیهانییەکان دەکات ، و لوکسی ئاستی جیهانی ڕاستەوخۆ دەهێنێتە بازاڕی ناوچەکە.",
+        "پێکەوە ، ئەم پلاتفۆرمانە تۆڕێکی بازرگانی دیجیتاڵی جێی متمانە پێکدەهێنن کە پاڵپشتیکراوە لەلایەن ( 16 ) هاوبەشی بانکی و بەردەوامی کارکردنی 99.9% ، بۆ دڵنیابوون لە گەیشتنی بێ کێشە بە خزمەتگوزارییە جیهانییەکان."
       ]
     },
     branches: {
       "general-trading": [
-        { city: "هەولێر - شەقامی بەختیاری", address: "شەقامی بەختیاری ، هەولێر 44001، هەرێمی کوردستان، عێراق" },
-        { city: "سۆران - چیای ئەمازۆن", address: "ڕێگای ڕواندز ، سۆران" }
+        { city: "هەولێر - کۆمپانیای لمعة المرجان", address: "شەقامی بەختیاری ، هەولێر" },
+        { city: "سۆران - کۆمپانیای چیای مەتین", address: "ڕێگای ڕواندز ، سۆران" },
+        { city: "سۆران - مشروع چیا ئەمازۆن", address: "ڕێگای ڕواندز ، سۆران" }
       ],
       "money-exchange": [
-        { city: "هەولێر - بۆرسەی کۆن", address: "بۆرسەی کۆنی شاری هەولێر ( نوسینگەی چیا )" },
-        { city: "هەولێر - شەقامی ڕووناکی", address: "شەقامی ڕووناکی دووساید ( نوسینگەی هەنگاو و مەنفەزی دیبەگە )" },
-        { city: "هەولێر - عەنکاوە", address: "گەڕەکی عەنکاوە ( نوسینگەی لوتکەی چیا )" },
-        { city: "هەولێر - ڕێگای پیرمام", address: "ڕێگای پیرمام، ناو بەنزینخانەی BM2 ( کۆمپانیای خاکی سەروەر )" },
-        { city: "سۆران", address: "ناوەندی شار، بەرامبەر بازاڕی لەنگە ( نوسینگەی بەرزی چیا )" },
-        { city: "سیلۆپی، تورکیا", address: "قەزای سیلۆپی، شاری شرناخ ( نوسینگەی چیای زێڕین )" }
+        { city: "هەولێر - نوسینگەی چیا", address: "بۆرسەی کۆن ، شاری هەولێر" },
+        { city: "هەولێر - نوسینگەی هەنگاو", address: "شەقامی ڕووناکی دووساید ، هەولێر" },
+        { city: "هەولێر - نوسینگەی لوتکەی چیا", address: "گەڕەکی عەنکاوە ، هەولێر" },
+        { city: "هەولێر - کۆمپانیای خاکی سەروەر", address: "ڕێگای پیرمام ، ناو بەنزینخانەی BM OIL 2 ، هەولێر" },
+        { city: "سۆران - نوسینگەی بەرزی چیا", address: "ناوەندی شار ، بەرامبەر بازاڕی لەنگە ، سۆران" },
+        { city: "سیلۆپی - نووسینگەی چیای زێڕین", address: "سیلۆپی ، شەقامی شرناخ ، تورکیا" }
       ],
       "mobile-tech": [
         { city: "هەولێر - چیا تێک", address: "ONLINE" },
@@ -230,19 +232,19 @@ export const sectorTranslations = {
     },
     history: {
       "general-trading": [
-        "يُعد قطاع التجارة العامة الركيزة الأساسية لمجموعة چيا، حيث بدأ بتأسيس شركة ( لماعة المرجان ) في 2019/11/30 كأول شركة في المجموعة. يتخصص هذا القطاع في مواد البناء مثل ( الخشب، MDF، الأثاث، الحديد، الفوكة، الإسمنت، والخرسانة ).",
-        "في 2026/03/01، توسع القطاع بتأسيس شركة ( چياي متين )، وهي الشركة الثانية في قطاع التجارة العامة، والمتخصصة في ( الأجهزة الإلكترونية، الأدوات المنزلية، الملابس، والسلع المستعملة ). وفي نفس اليوم، تم إطلاق ( چيا أمازون ) على طريق رواندز في إدارة سوران المستقلة، لبيع وشراء السلع المستعملة بالتجزئة والجملة وفق النظام الشرعي.",
-        "اليوم، يدير قطاع التجارة العامة 3 أعمال نشطة ( شركتان ومحل واحد )، لتقديم منتجات عالية الجودة وربط الأسواق في جميع أنحاء المنطقة."
+        "يُعد قطاع التجارة العامة الركيزة الأساسية لمجموعة چيا ، حيث بدأ بتأسيس شركة ( لماعة المرجان ) في 2019/11/30 كأول شركة في المجموعة. يتخصص هذا القطاع في مواد البناء مثل ( الخشب ، MDF ، الأثاث ، الحديد ، الفوكة ، الإسمنت ، والخرسانة ).",
+        "في 2026/03/01 ، توسع القطاع بتأسيس شركة ( چياي متين ) ، وهي الشركة الثانية في قطاع التجارة العامة ، والمتخصصة في ( الأجهزة الإلكترونية ، الأدوات المنزلية ، الملابس ، والسلع المستعملة ). وفي نفس اليوم ، تم إطلاق ( مشروع چيا أمازون ) على طريق رواندز في سوران ، لبيع وشراء السلع المستعملة بالتجزئة والجملة وفق النظام الشرعي.",
+        "اليوم ، يدير قطاع التجارة العامة 3 أعمال نشطة ( شركتان ومحل واحد ) ، لتقديم منتجات عالية الجودة وربط الأسواق في جميع أنحاء المنطقة."
       ],
       "money-exchange": [
-        "تدير مجموعة چيا قسماً مخصصاً لتصريف العملات والخدمات المالية يقدم خدمات سريعة وآمنة وتنافسية. تأسس مع ( مكتب چيا ) في 2021/06/14 في أربيل، وفي 2023/08/28 تم إطلاق ( مكتب چيا الذهبي ) في تركيا لتعزيز شبكتنا المالية الدولية.",
-        "تضم شبكتنا أذرعاً تشغيلية رئيسية تشمل: ( شركة خاكي سرور، مكتب چيا، مكتب چيا الذهبي، مكتب لوتكي چيا، مكتب برزي چيا، مكتب هانكاو، و منفذ ديبكة ) حيث يلتزم كل منها بتوفير موثوقية مالية لا ميل لها بمدعم من ( 14 ) وكيل بنك و شركة.",
-        "بصفتنا وكلاء معتمدين للمؤسسات المالية الكبرى، نحن نفخر بتقديم التميز والثقة في كل معاملة نقوم بها."
+        "تدير مجموعة چيا قسماً مخصصاً لتصريف العملات والخدمات المالية يقدم خدمات سريعة وآمنة وتنافسية. تأسس مع ( مكتب چيا ) في 2021/06/14 في البورصة القديمة ، أربيل ، وفي 2023/08/28 تم إطلاق ( مكتب چيا الذهبي ) في سيلوبي ، شرناق ، تركيا لتعزيز شبكتنا المالية الدولية.",
+        "تضم شبكتنا ( 16 ) وكيل بنك و شركة لتقديم موثوقية مالية لا مثيل لها.",
+        "بصفتنا وكلاء معتمدين للمؤسسات المالية الكبرى ، نحن نفخر بتقديم التميز والثقة في كل معاملة نقوم بها."
       ],
       "mobile-tech": [
-        "تمكّن مجموعة چيا المستهلكين والمؤسسات من خلال قطاع الموبايل والتكنولوجيا المخصص لتقديم أحدث الحلول الرقمية. تأسس مع ( چيا تيك ) في 2025/08/11 في مدينة أربيل، وتوسع القطاع مع ( چيا فون ) في 2026/03/24 في وسط مدينة سوران لتعزيز نطاقنا التكنولوجي.",
-        "تضم شبكتنا أذرعاً تشغيلية رئيسية تشمل: ( چيا تيك، و چيا فون ) — حيث يلتزم كل منها بتقديم ابتكار لا مثيل له ومنتجات إلكترونية عالية الجودة في جميع أنحاء المنطقة.",
-        "نحن نفخر بتقديم أنظمة متقدمة مثل برامج المحاسبة والأرشفة، إلى جانب الأجهزة الإلكترونية المتميزة والإكسسوارات، لضمان التميز في كل تفاعل رقمي."
+        "تمكّن مجموعة چيا المستهلكين والمؤسسات من خلال قطاع الموبايل والتكنولوجيا المخصص لتقديم أحدث الحلول الرقمية. تأسس مع ( چيا تيك ) في 2025/08/11 في مدينة أربيل ، وتوسع القطاع مع ( چيا فون ) في 2026/03/24 في وسط مدينة سوران لتعزيز نطاقنا التكنولوجي.",
+        "تضم شبكتنا أذرعاً تشغيلية رئيسية تشمل: ( چيا تيك ، چيا فون ) — حيث يلتزم كل منها بتقديم ابتكار لا ميل له ومنتجات إلكترونية عالية الجودة في جميع أنحاء المنطقة.",
+        "نحن نفخر بتقديم أنظمة متقدمة مثل برامج المحاسبة والأرشفة ، إلى جانب الأجهزة الإلكترونية المتميزة والإكسسوارات ، لضمان التميز في كل تفاعل رقمي."
       ],
       "printing": [
         "يقدم قطاع الطباعة والتصوير الخدمات الوثائقية والإدارية الأساسية مع التركيز على الدقة والمؤثرية. تأسس مع ( بلو برينتينك ) في 2025/10/19، ويعمل هذا القطاع كمركز متخصص للطباعة الاحترافية.",
@@ -250,27 +252,28 @@ export const sectorTranslations = {
         "من خلال خدمة الشركات والمؤسسات الحكومية والأفراد على حد سواء، نضمن التعامل مع كل معاملة وطلب وثيقة بأقصى قدر من الدقة وسرعة الإنجاز."
       ],
       "online-trading": [
-        "يربط قطاع التداول عبر الإنترنت العملاء عبر الأسواق الرقمية النشطة. توفر ( چيا ترافل )، التي تأسست في 2020/01/22، مجموعة شاملة من تذاكر السفر والتأشيرات، حجز الفنادق، تأجير السيارات، توجيه الأماكن السياحية، وخدمات الترجمة اللغوية.",
-        "توسعاً في تجارة التجزئة الفاخرة، تتخصص ( كيفا لوكزوري )، التي تأسست في 2022/01/20، في تجارة المجوهرات الأصلية والإكسسوارات والساعات والعطور من الماركات العالمية، مما يجلب الفخامة العالمية مباشرة إلى السوق الإقليمية.",
-        "معاً، تشكل هذه المنصات شبكة تجارة رقمية موثوقة مدعومة بـ ( 14 ) شريكاً بنكياً واستمرارية عمل بنسبة 99.9%، مما يضمن وصولاً سلساً إلى الخدمات العالمية."
+        "يربط قطاع التداول عبر الإنترنت العملاء عبر الأسواق الرقمية النشطة. توفر ( چيا ترافل ) ، التي تأسست في 2020/01/22 ، مجموعة شاملة من تذاكر السفر ، التأشيرات ، حجز الفنادق ، تأجير السيارات ، توجيه الأماكن السياحية ، وخدمات الترجمة اللغوية.",
+        "توسعاً في تجارة التجزئة الفاخرة ، تتخصص ( كيفا لوكزوري ) ، التي تأسست في 2022/01/20 ، في تجارة المجوهرات الأصلية ، الإكسسوارات ، الساعات ، والعطور من الماركات العالمية ، مما يجلب الفخامة العالمية مباشرة إلى السوق الإقليمية.",
+        "معاً ، تشكل هذه المنصات شبكة تجارة رقمية موثوقة مدعومة بـ ( 16 ) شريكاً بنكياً واستمرارية عمل بنسبة 99.9% ، مما يضمن وصولاً سلساً إلى الخدمات العالمية."
       ]
     },
     branches: {
       "general-trading": [
-        { city: "أربيل - شارع بختياري", address: "شارع بختياري ، أربيل 44001، إقليم كوردستان، العراق" },
-        { city: "سوران - چيا أمازون", address: "طريق رواندز ، سوران" }
+        { city: "أربيل - شركة لمعة المرجان", address: "شارع بختياري ، أربيل" },
+        { city: "سوران - شركة چياي متين", address: "طريق رواندز ، سوران" },
+        { city: "سوران - مشروع چيا أمازون", address: "طريق رواندز ، سوران" }
       ],
       "money-exchange": [
-        { city: "أربيل - البورصة القديمة", address: "البورصة القديمة لمدينة أربيل ( مكتب چيا )" },
-        { city: "أربيل - شارع رونامي", address: "شارع رونامي دو سايد ( مكتب هانكاو ومنفذ ديبكة )" },
-        { city: "أربيل - عنكاوا", address: "حي عنكاوا ( مكتب لوتكي چيا )" },
-        { city: "أربيل - طريق بيرمام", address: "طريق بيرمام، داخل محطة وقود BM2 ( شركة خاكي سرور )" },
-        { city: "سوران", address: "وسط المدينة، مقابل سوق لانكة ( مكتب برزي چيا )" },
-        { city: "سيلوبي، تركيا", address: "قضاء سيلوبي، مدينة شرناخ ( مكتب چيا الذهبي )" }
+        { city: "أربيل - مكتب چيا", address: "البورصة القديمة ، أربيل" },
+        { city: "أربيل - مكتب هانكاو", address: "شارع رونامي دو سايد ، أربيل" },
+        { city: "أربيل - مكتب لوتكي چيا", address: "حي عنكاوا ، أربيل" },
+        { city: "أربيل - شركة خاكي سرور", address: "طريق بيرمام ، داخل محطة وقود BM OIL 2 ، أربيل" },
+        { city: "سوران - مكتب برزي چيا", address: "وسط المدينة ، مقابل سوق لانكة ، سوران" },
+        { city: "سيلوبي - مكتب چيا الذهبي", address: "سيلوبي ، شارع شرناق ، تركيا" }
       ],
       "mobile-tech": [
         { city: "أربيل - چيا تيك", address: "ONLINE" },
-         { city: "سوران - چيا فون", address: "وسط المدينة ، سوران" }
+        { city: "سوران - چيا فون", address: "وسط المدينة ، سوران" }
       ],
       "printing": [
         { city: "أربيل - بلو برينتينك", address: "ONLINE" }

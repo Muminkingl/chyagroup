@@ -282,7 +282,7 @@ export default function FeatureSection() {
                   },
                   {
                     icon: 'solar:users-group-rounded-linear',
-                    value: 47,
+                    value: 46,
                     label: t.stats.professionals
                   },
                 ].map((stat, i) => (

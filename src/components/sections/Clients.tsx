@@ -24,7 +24,7 @@ const actualLogos = [
   { name: "Haji Hussein", logo: "/clients/hajihussin.png", scale: 1.35 },
   { name: "Jihany Camera", logo: "/clients/cameraworld.png", scale: 1.5 },
   { name: "M One Store", logo: "/clients/mone.png", scale: 1.3 },
-  { name: "Optimal Krd", logo: "/clients/target.png", scale: 1.5 },
+  { name: "Optimal Krd", logo: "/clients/target.png", scale: 1.69 },
   { name: "Maowj Al Dawa", logo: "/clients/maowialdawa.png", scale: 1.21 },
   { name: "Pharmatech", logo: "/clients/pharmatech.png", scale: 1.3 },
   { name: "Rose Land", logo: "/clients/rosaland.png", scale: 1.15 },
@@ -52,14 +52,23 @@ const actualLogos = [
 const brands = actualLogos;
 
 const BrandCard = ({ name, logo, scale = 1 }: { name: string, logo: string, scale?: number }) => {
+  const isOptimal = name === "Optimal Krd";
+
   return (
-    <div className="w-full flex items-center justify-center bg-white rounded-[12px] border border-[#0c1a2e]/[0.04] p-1 md:p-1.5 h-[100px] md:h-[115px] lg:h-[125px] shadow-[0_2px_10px_rgb(0,0,0,0.02)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 group cursor-pointer overflow-hidden">
-      <img
-        src={logo}
-        alt={`${name} Logo`}
-        style={{ transform: `scale(${scale})` }}
-        className="w-full h-full max-w-[96%] max-h-[92%] object-contain opacity-95 group-hover:opacity-100 transition-all duration-300"
-      />
+    <div className="w-full flex flex-col items-center justify-center bg-white rounded-[12px] border border-[#0c1a2e]/[0.04] p-1 md:p-1.5 h-[100px] md:h-[115px] lg:h-[125px] shadow-[0_2px_10px_rgb(0,0,0,0.02)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 group cursor-pointer overflow-hidden">
+      <div className={`w-full flex items-center justify-center ${isOptimal ? 'h-[68%] md:h-[72%]' : 'h-full'}`}>
+        <img
+          src={logo}
+          alt={`${name} Logo`}
+          style={{ transform: `scale(${scale})` }}
+          className="w-full h-full max-w-[96%] max-h-[92%] object-contain opacity-95 group-hover:opacity-100 transition-all duration-300"
+        />
+      </div>
+      {isOptimal && (
+        <span className="text-[11px] md:text-[12px] font-bold text-black select-none tracking-wide text-center leading-none mt-1">
+          Optimal
+        </span>
+      )}
     </div>
   );
 };
