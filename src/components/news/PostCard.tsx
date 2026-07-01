@@ -41,7 +41,7 @@ export default function PostCard({ post, className }: { post: Post, className?: 
           <SmartImage 
             src={post.imageUrl} 
             alt={localizedTitle}
-            className="group-hover:scale-105"
+            className="group-hover:scale-[1.02]"
           />
         </div>
       )}

@@ -58,12 +58,15 @@ export default function SmartImage({ src, alt = "", className, containerClassNam
         </div>
       )}
 
-      {/* Main Image */}
+      {/* Main Image — GPU pre-promoted via will-change + translateZ(0) to prevent
+          sudden layer-promotion flicker when hover scale kicks in on 4K/5K images */}
       <img
         src={cleanSrc}
         alt={alt}
         className={cn(
-          "transition-all duration-500",
+          // Use transition-transform only (NOT transition-all) to avoid costly
+          // GPU re-rasterization of every property on large images
+          "transition-transform duration-500 ease-out",
           (isPortrait || zoom < 1.0) && loaded
             ? "relative z-10 max-w-full max-h-full object-contain p-2"
             : "w-full h-full object-cover",
@@ -71,7 +74,12 @@ export default function SmartImage({ src, alt = "", className, containerClassNam
         )}
         style={{
           objectPosition: `50% ${positionY}`,
-          transform: `scale(${zoom})`
+          transform: `translateZ(0) scale(${zoom})`,
+          // Pre-promote to GPU compositing layer before hover begins.
+          // This eliminates the "snap" flicker caused by sudden layer promotion
+          // when transform changes from none → scale(1.0x) during hover.
+          willChange: "transform",
+          imageRendering: "auto",
         }}
       />
     </div>

@@ -425,11 +425,15 @@ const renderFormattedText = (text: string) => {
   const parts = text.split(/(\([^)]+\))/g);
   return parts.map((part, idx) => {
     if (part.startsWith('(') && part.endsWith(')')) {
-      return (
-        <span key={idx} className="whitespace-nowrap">
-          {part}
-        </span>
-      );
+      // Only prevent wrapping for short parenthesized texts (like brand/company names)
+      // to avoid breaking mobile responsiveness for long lists of items
+      if (part.length < 30) {
+        return (
+          <span key={idx} className="whitespace-nowrap">
+            {part}
+          </span>
+        );
+      }
     }
     return part;
   });
@@ -501,7 +505,7 @@ export default function SectorDetails({ id }: { id: string }) {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-16 md:py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-24">
         <div className="mb-8">
           <Link 
             href="/ourcompany"
@@ -515,10 +519,10 @@ export default function SectorDetails({ id }: { id: string }) {
           </Link>
         </div>
 
-        <div className={cn("flex flex-col lg:flex-row gap-12 lg:gap-20", isRTL ? "lg:flex-row-reverse" : "")}>
+        <div className={cn("flex flex-col lg:flex-row gap-10 lg:gap-20", isRTL ? "lg:flex-row-reverse" : "")}>
           
-          {/* Sticky Sidebar Navigation */}
-          <aside className="lg:w-72 flex-shrink-0">
+          {/* Sticky Sidebar Navigation - Hidden on Mobile/Tablet */}
+          <aside className="hidden lg:block lg:w-72 flex-shrink-0">
             <div className="sticky top-32 bg-[#f4f7fa] rounded-[2rem] p-8 border border-[#0c1a2e]/5 shadow-[0_20px_50px_rgba(12,26,46,0.04)] transition-all duration-500">
               <h3 className="text-[11px] uppercase tracking-[0.2em] text-[#b91c1c] font-bold mb-8">
                 {featureItem.tag}
@@ -553,7 +557,7 @@ export default function SectorDetails({ id }: { id: string }) {
           </aside>
 
           {/* Main Content Area */}
-          <main className={cn("flex-1 min-w-0 flex flex-col gap-24 text-[#0c1a2e] pt-4", isRTL ? "text-right" : "text-left")}>
+          <main className={cn("flex-1 min-w-0 flex flex-col gap-16 md:gap-24 text-[#0c1a2e] pt-4", isRTL ? "text-right" : "text-left")}>
             
             {/* History Section */}
             <section id="history" className="scroll-mt-32">
@@ -573,7 +577,7 @@ export default function SectorDetails({ id }: { id: string }) {
                         key={idx} 
                         className={cn(
                           "text-[16px] text-[#3a4f6a]", 
-                          isRTL ? "font-semibold leading-[1.8] text-[17px] text-justify" : "leading-relaxed text-left"
+                          isRTL ? "font-semibold leading-[1.8] text-[17px] text-right md:text-justify" : "leading-relaxed text-left"
                         )}
                       >
                         {renderFormattedText(para)}
@@ -592,8 +596,8 @@ export default function SectorDetails({ id }: { id: string }) {
                     <div className={cn(
                       "relative space-y-10 mt-4",
                       isRTL 
-                        ? "border-r-[2px] pr-6 md:pr-10 mr-4 md:mr-6" 
-                        : "border-l-[2px] pl-6 md:pl-10 ml-4 md:ml-6",
+                        ? "border-r-[2px] pr-4 md:pr-10 mr-2 md:mr-6" 
+                        : "border-l-[2px] pl-4 md:pl-10 ml-2 md:ml-6",
                       "border-[#0c1a2e]/10"
                     )}>
                       {(id === "money-exchange" ? MONEY_EXCHANGE_TIMELINE : GENERAL_TRADING_TIMELINE).map((item, index) => {
@@ -608,12 +612,12 @@ export default function SectorDetails({ id }: { id: string }) {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.5, delay: index * 0.05 }}
-                            className="relative flex flex-col md:flex-row gap-4 items-start md:items-center bg-white rounded-3xl p-6 md:p-8 border border-[#0c1a2e]/5 shadow-[0_5px_20px_rgba(12,26,46,0.02)] hover:shadow-[0_15px_40px_rgba(12,26,46,0.06)] hover:-translate-y-1 transition-all duration-300 group"
+                            className="relative flex flex-col md:flex-row gap-6 items-start md:items-center bg-white rounded-3xl p-5 md:p-8 border border-[#0c1a2e]/5 shadow-[0_5px_20px_rgba(12,26,46,0.02)] hover:shadow-[0_15px_40px_rgba(12,26,46,0.06)] hover:-translate-y-1 transition-all duration-300 group"
                           >
                             {/* Dot indicator on the vertical line */}
                             <div className={cn(
                               "absolute top-8 md:top-1/2 md:-translate-y-1/2 w-4 h-4 rounded-full bg-white border-[4px] border-[#b91c1c] shadow-[0_0_10px_rgba(185,28,28,0.3)] z-10 transition-transform duration-300 group-hover:scale-125",
-                              isRTL ? "right-[-31px] md:right-[-45px]" : "left-[-31px] md:left-[-45px]"
+                              isRTL ? "right-[-25px] md:right-[-49px]" : "left-[-25px] md:left-[-49px]"
                             )} />
                             
                             {/* Left part: Year & Date */}
@@ -633,7 +637,7 @@ export default function SectorDetails({ id }: { id: string }) {
                               </h4>
                               <p className={cn(
                                 "text-[14px] text-[#3a4f6a] leading-relaxed",
-                                isRTL ? "font-medium text-justify" : "text-left"
+                                isRTL ? "font-medium text-right md:text-justify" : "text-left"
                               )}>
                                 {renderFormattedText(descText)}
                               </p>
@@ -651,7 +655,7 @@ export default function SectorDetails({ id }: { id: string }) {
                       key={idx} 
                       className={cn(
                         "text-[16px] text-[#3a4f6a]",
-                        isRTL ? "font-semibold leading-[1.8] text-[17px] text-justify" : "leading-relaxed text-left"
+                        isRTL ? "font-semibold leading-[1.8] text-[17px] text-right md:text-justify" : "leading-relaxed text-left"
                       )}
                     >
                       {renderFormattedText(para)}
@@ -844,19 +848,19 @@ export default function SectorDetails({ id }: { id: string }) {
                                   <LinkComponent
                                     key={idx}
                                     {...(linkProps as any)}
-                                    className="flex items-center justify-between bg-white text-[#0c1a2e] border border-[#0c1a2e]/5 hover:border-[#b91c1c]/20 p-5 rounded-2xl group transition-all duration-300 hover:shadow-md"
+                                    className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between bg-white text-[#0c1a2e] border border-[#0c1a2e]/5 hover:border-[#b91c1c]/20 p-5 rounded-2xl group transition-all duration-300 hover:shadow-md w-full min-w-0"
                                   >
-                                    <div className="flex items-center gap-4 min-w-0 flex-1 mr-4 rtl:mr-0 rtl:ml-4">
+                                    <div className="flex items-center gap-4 min-w-0 flex-1 mr-4 rtl:mr-0 rtl:ml-4 w-full">
                                       <div className="w-12 h-12 rounded-xl bg-[#faf9f6] flex items-center justify-center flex-shrink-0 text-[#b91c1c] border border-[#0c1a2e]/[0.02]">
                                         <Iconify icon={item.icon} width={22} />
                                       </div>
-                                      <div className="flex flex-col items-start min-w-0 flex-1">
+                                      <div className="flex flex-col items-start min-w-0 flex-1 w-full">
                                         <span className="text-[11px] font-bold text-[#b91c1c] uppercase tracking-wider mb-0.5">{item.title}</span>
                                         <span className="font-semibold text-sm text-[#3a4f6a] break-all leading-normal">{item.value}</span>
                                       </div>
                                     </div>
                                     
-                                    <div className="w-10 h-10 rounded-xl bg-[#faf9f6] border border-[#0c1a2e]/5 text-[#b91c1c] group-hover:bg-[#b91c1c] group-hover:text-white flex items-center justify-center flex-shrink-0 transition-all duration-300 shadow-sm">
+                                    <div className="w-10 h-10 rounded-xl bg-[#faf9f6] border border-[#0c1a2e]/5 text-[#b91c1c] group-hover:bg-[#b91c1c] group-hover:text-white flex items-center justify-center flex-shrink-0 transition-all duration-300 shadow-sm self-end sm:self-auto">
                                       <Iconify 
                                         icon={isRTL ? "solar:arrow-left-linear" : "solar:arrow-right-linear"} 
                                         width={18} 

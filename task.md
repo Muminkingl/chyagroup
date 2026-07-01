@@ -1,4 +1,1 @@
-okay this text in landing page hisotry section `صياغة آفاق حديثة بتفانٍ لا مثيل له. اكتشف كيف تطورت رؤيتنا لتصبح أساساً للبنية التحتية للغد.
-
-`
-it sdosent fell natural basicly this word `صياغة` fix it it must suite our bussinss holding ! 
+look i have a issue in my /news the images background banner in websrouser since it havs hover effect without hover the image since its very high quality like 4k or 5k images !! the image loos glichy and unnatural this issue in my mobile is not existe !! beucase it dosent have that hover effect i think it is GPU RENDERING THINGS ? one of my frined said that think extremly deep in that route see exactly what caused to make this glichy images and find perfect solution to paramently remove this make a plan !
