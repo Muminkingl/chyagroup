@@ -24,39 +24,66 @@ const agents = [
     { name: "BPN Co.", logo: "/bpn.png", url: "https://www.bpn.com.tr/" },
 ];
 
-const AgentLogo = ({ name, logo, url }: { name: string, logo: string, url: string }) => (
-    <a
-        href={url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex flex-col items-center justify-center w-[220px] h-[200px] bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-[#0c1a2e]/5 transition-all duration-300 group hover:-translate-y-1 mx-2 relative overflow-hidden"
-    >
-        <img
-            src={logo}
-            alt={`${name} Logo`}
-            className={`w-auto h-auto max-w-[155px] max-h-[95px] object-contain transition-transform duration-300 ${
-                ["AsiaPay Co.", "Nasspay Co.", "Zain Cash Co.", "Dubai Remit Int Co."].includes(name) 
-                    ? 'scale-[1.25] group-hover:scale-[1.35] origin-center' 
-                : name === "FIB Bank"
-                     ? 'scale-[1.35] translate-y-[6%] group-hover:scale-[1.45] origin-center'
-                : name === "Nasswallet bank"
-                    ? 'scale-[1.45] group-hover:scale-[1.55] origin-center'
-                : name === "AIIB Bank"
-                    ? 'scale-[1.55] group-hover:scale-[1.65] origin-center'
-                : name === "Western Union"
-                    ? 'scale-[1.55] group-hover:scale-[1.65] origin-center'
-                : name === "BPN Co."
-                    ? 'scale-[1.35] group-hover:scale-[1.45] origin-center'
-                : name === "Blue Co."
-                    ? 'scale-[1.15] group-hover:scale-[1.25] origin-center'
-                    : 'group-hover:scale-110'
-            }`}
-        />
-        <span className="mt-4 text-sm font-semibold text-[#0c1a2e]/80 opacity-0 group-hover:opacity-100 transition-opacity absolute bottom-6">
-            {name}
-        </span>
-    </a>
-);
+const AgentLogo = ({ name, logo, url }: { name: string, logo: string, url: string }) => {
+    if (name === "BPN Co.") {
+        return (
+            <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col items-center justify-center w-[220px] h-[200px] bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-[#0c1a2e]/5 transition-all duration-300 group hover:-translate-y-1 mx-2 relative overflow-hidden"
+            >
+                <div className="flex items-center justify-center gap-3 px-4 w-full h-[95px]">
+                    <img
+                        src="/cliq.png"
+                        alt="Cliq Logo"
+                        className="w-[45%] h-auto max-h-[95px] object-contain transition-transform duration-300 group-hover:scale-[1.24] scale-[1.14] origin-center"
+                    />
+                    <img
+                        src="/bpn.png"
+                        alt="BPN Logo"
+                        className="w-[52%] h-auto max-h-[95px] object-contain mix-blend-multiply transition-transform duration-300 group-hover:scale-[1.26] scale-[1.16] origin-center"
+                    />
+                </div>
+                <span className="mt-4 text-sm font-semibold text-[#0c1a2e]/80 opacity-0 group-hover:opacity-100 transition-opacity absolute bottom-6">
+                    {name}
+                </span>
+            </a>
+        );
+    }
+
+    return (
+        <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col items-center justify-center w-[220px] h-[200px] bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-[#0c1a2e]/5 transition-all duration-300 group hover:-translate-y-1 mx-2 relative overflow-hidden"
+        >
+            <img
+                src={logo}
+                alt={`${name} Logo`}
+                className={`w-auto h-auto max-w-[155px] max-h-[95px] object-contain transition-transform duration-300 ${
+                    ["AsiaPay Co.", "Nasspay Co.", "Zain Cash Co.", "Dubai Remit Int Co."].includes(name) 
+                        ? 'scale-[1.25] group-hover:scale-[1.35] origin-center' 
+                    : name === "FIB Bank"
+                         ? 'scale-[1.35] translate-y-[6%] group-hover:scale-[1.45] origin-center'
+                    : name === "Nasswallet bank"
+                        ? 'scale-[1.45] group-hover:scale-[1.55] origin-center'
+                    : name === "AIIB Bank"
+                        ? 'scale-[1.55] group-hover:scale-[1.65] origin-center'
+                    : name === "Western Union"
+                        ? 'scale-[1.55] group-hover:scale-[1.65] origin-center'
+                    : name === "Blue Co."
+                        ? 'scale-[1.15] group-hover:scale-[1.25] origin-center'
+                        : 'group-hover:scale-110'
+                }`}
+            />
+            <span className="mt-4 text-sm font-semibold text-[#0c1a2e]/80 opacity-0 group-hover:opacity-100 transition-opacity absolute bottom-6">
+                {name}
+            </span>
+        </a>
+    );
+};
 
 export default function AgentLoop() {
     const { locale, isRTL } = useLanguage();
