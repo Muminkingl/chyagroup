@@ -63,7 +63,7 @@ export const sectorTranslations = {
       ],
       "online-trading": [
         "The Online Trading Sector Connects Clients Across Active Digital Marketplaces. ( Chya Travel ) , Founded On 22/01/2020 , Provides A Comprehensive Suite Of Tourist Tickets , Visas , Hotel Bookings , Car Rentals , Tourist Destination Guidance , And Language Translation Services.",
-        "Expanding Into Premium Retail , ( Kiva Luxury ) , Founded On 20/01/2022 , Trades In Authentic Jewelry , Accessories , Watches , And Perfumes From Global Brands , Bringing World-Class Luxury Directly To The Regional Market.",
+        "Expanding Into Premium Retail , ( Chya Luxury ) , Founded On 20/01/2022 , Trades In Authentic Jewelry , Accessories , Watches , And Perfumes From Global Brands , Bringing World-Class Luxury Directly To The Regional Market.",
         "Together , These Platforms Form A Trusted Digital Commerce Network Backed By ( 16 ) Bank Partners And 99.9% Operational Uptime , Ensuring Seamless Access To Global Services."
       ]
     },
@@ -78,7 +78,7 @@ export const sectorTranslations = {
         { city: "Erbil - Hangaw Exchange", address: "Two-Way Runaki Street , Erbil" },
         { city: "Erbil - Lutkay Chya Exchange", address: "Ankawa Road , Erbil" },
         { city: "Erbil - Khaki Sarwar Co.", address: "Pirmam Road , Inside BM OIL 2 Petrol Station , Erbil" },
-        { city: "Soran - Barzy Chya Exchange", address: "City Center , Opposite Langa Market , Soran" },
+        { city: "Soran - Barzy Chya Exchange", address: "City Center , Opposite Langa Bazar , Soran" },
         { city: "Silopi - Chya Gold Exchange", address: "Silopi District , Şırnak Street , Türkiye" }
       ],
       "mobile-tech": [
@@ -90,7 +90,7 @@ export const sectorTranslations = {
       ],
       "online-trading": [
         { city: "Erbil - Chya Travel", address: "ONLINE" },
-        { city: "Erbil - Kiva Luxury", address: "ONLINE" }
+        { city: "Erbil - Chya Luxury", address: "ONLINE" }
       ]
     }
   },
@@ -158,7 +158,7 @@ export const sectorTranslations = {
       ],
       "online-trading": [
         "سێکتەری بازرگانی بە  ئۆنلاین کڕیاران بە بازاڕە دیجیتاڵییە چالاکەکانەوە دەبەستێتەوە. ( چیا تڕاڤل ) ، کە لە 2020/01/22 دامەزراوە ، خزمەتگوزارییەکی گشتگیری وەک بڕینی تکت ، ڤیزە ، حجزی هۆتێل ، ئۆتۆمبێل ، ڕێنمایی شوێنە گەشتیارییەکان ، و وەرگێڕانی زمان دابین دەکات.",
-        "بە فراوانبوون بەرەو بازاڕی لوکس ، ( کیڤا لوکژوری ) ، کە لە 2022/01/20 دامەزراوە ، بازرگانی بە گەوهەر ، ئێکسسوارات ، کاتژمێر ، و بۆنی براندە جیهانییەکان دەکات ، و لوکسی ئاستی جیهانی ڕاستەوخۆ دەهێنێتە بازاڕی ناوچەکە.",
+        "بە فراوانبوون بەرەو بازاڕی لوکس ، ( چیا لوکژوری ) ، کە لە 2022/01/20 دامەزراوە ، بازرگانی بە گەوهەر ، ئێکسسوارات ، کاتژمێر ، و بۆنی براندە جیهانییەکان دەکات ، و لوکسی ئاستی جیهانی ڕاستەوخۆ دەهێنێتە بازاڕی ناوچەکە.",
         "پێکەوە ، ئەم پلاتفۆرمانە تۆڕێکی بازرگانی دیجیتاڵی جێی متمانە پێکدەهێنن کە پاڵپشتیکراوە لەلایەن ( 16 ) هاوبەشی بانکی و بەردەوامی کارکردنی 99.9% ، بۆ دڵنیابوون لە گەیشتنی بێ کێشە بە خزمەتگوزارییە جیهانییەکان."
       ]
     },
@@ -185,7 +185,7 @@ export const sectorTranslations = {
       ],
       "online-trading": [
         { city: "هەولێر - چیا تڕاڤل", address: "ONLINE" },
-        { city: "هەولێر - کیڤا لوکژوری", address: "ONLINE" }
+        { city: "هەولێر - چیا لوکژوری", address: "ONLINE" }
       ]
     }
   },
@@ -253,7 +253,7 @@ export const sectorTranslations = {
       ],
       "online-trading": [
         "يربط قطاع التداول عبر الإنترنت العملاء عبر الأسواق الرقمية النشطة. توفر ( چيا ترافل ) ، التي تأسست في 2020/01/22 ، مجموعة شاملة من تذاكر السفر ، التأشيرات ، حجز الفنادق ، تأجير السيارات ، توجيه الأماكن السياحية ، وخدمات الترجمة اللغوية.",
-        "توسعاً في تجارة التجزئة الفاخرة ، تتخصص ( كيفا لوكزوري ) ، التي تأسست في 2022/01/20 ، في تجارة المجوهرات الأصلية ، الإكسسوارات ، الساعات ، والعطور من الماركات العالمية ، مما يجلب الفخامة العالمية مباشرة إلى السوق الإقليمية.",
+        "توسعاً في تجارة التجزئة الفاخرة ، تتخصص ( چيا لوكزوري ) ، التي تأسست في 2022/01/20 ، في تجارة المجوهرات الأصلية ، الإكسسوارات ، الساعات ، والعطور من الماركات العالمية ، مما يجلب الفخامة العالمية مباشرة إلى السوق الإقليمية.",
         "معاً ، تشكل هذه المنصات شبكة تجارة رقمية موثوقة مدعومة بـ ( 16 ) شريكاً بنكياً واستمرارية عمل بنسبة 99.9% ، مما يضمن وصولاً سلساً إلى الخدمات العالمية."
       ]
     },
@@ -268,7 +268,7 @@ export const sectorTranslations = {
         { city: "أربيل - مكتب هانكاو", address: "شارع رونامي دو سايد ، أربيل" },
         { city: "أربيل - مكتب لوتكي چيا", address: "حي عنكاوا ، أربيل" },
         { city: "أربيل - شركة خاكي سرور", address: "طريق بيرمام ، داخل محطة وقود BM OIL 2 ، أربيل" },
-        { city: "سوران - مكتب برزي چيا", address: "وسط المدينة ، مقابل سوق لانكة ، سوران" },
+        { city: "سوران - مكتب برزي چيا", address: "وسط المدينة ، مقابل بازار لانكة ، سوران" },
         { city: "سيلوبي - مكتب چيا الذهبي", address: "سيلوبي ، شارع شرناق ، تركيا" }
       ],
       "mobile-tech": [
@@ -280,7 +280,7 @@ export const sectorTranslations = {
       ],
       "online-trading": [
         { city: "أربيل - چيا ترافل", address: "ONLINE" },
-        { city: "أربيل - كيفا لوكزوري", address: "ONLINE" }
+        { city: "أربيل - چيا لوكزوري", address: "ONLINE" }
       ]
     }
   }

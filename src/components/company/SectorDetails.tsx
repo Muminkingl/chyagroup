@@ -194,9 +194,9 @@ const SECTOR_BRANDS: Record<string, BrandInstagram[]> = {
     {
       id: "kivaluxury",
       name: {
-        en: "Kiva Luxury",
-        ar: "كيفا لوكزوري",
-        ku: "کاری کیڤا لوکژوری",
+        en: "Chya Luxury",
+        ar: "چيا لوكزوري",
+        ku: "کاری چیا لوکژوری",
       },
       qrLink: "https://www.instagram.com/kiva.luxuryshop?igsh=emFtbXNpbjBmMnh6",
     },
@@ -330,8 +330,8 @@ const MONEY_EXCHANGE_TIMELINE = [
       ku: "نووسینگەی بەرزی چیا"
     },
     desc: {
-      en: "Barzy Chya Exchange For Currency Exchange Is The Sixth Branch Of The Currency Exchange And Financial Services Sector Of Chya Group. Founded On 06/03/2025 In Soran In The City Center Opposite The Langa Market , It Works In Exchanging All Types Of Currencies And Sending Money To All Countries Of The World In Cash And Bank Accounts , And Sending Money To All Local And International Bank Cards.",
-      ar: "مكتب بـەرزی چيا لتبادل العملات ، هو الفرع السادس التابع لقطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسس في 2025/03/06 في سوران في مركز المدينة مقابل سوق اللنگة ، ويعمل في مجال تبادل جميع أنواع العملات وإرسال الأموال إلى جميع دول العالم نقداً وعبر الحسابات البنكية وإرسال الأموال إلى جميع البطاقات البنكية المحلية والدولية.",
+      en: "Barzy Chya Exchange For Currency Exchange Is The Sixth Branch Of The Currency Exchange And Financial Services Sector Of Chya Group. Founded On 06/03/2025 In Soran In The City Center Opposite The Langa Bazar , It Works In Exchanging All Types Of Currencies And Sending Money To All Countries Of The World In Cash And Bank Accounts , And Sending Money To All Local And International Bank Cards.",
+      ar: "مكتب بـەرزی چيا لتبادل العملات ، هو الفرع السادس التابع لقطاع تبادل العملات والخدمات المالية في مجموعة چیا. تأسس في 2025/03/06 في سوران في مركز المدينة مقابل بازار اللنگة ، ويعمل في مجال تبادل جميع أنواع العملات وإرسال الأموال إلى جميع دول العالم نقداً وعبر الحسابات البنكية وإرسال الأموال إلى جميع البطاقات البنكية المحلية والدولية.",
       ku: "نووسینگەی بەرزی چیا بۆ ئاڵوگۆڕی دراو ، شەشەم لقی سەر بە سێکتەری ئاڵوگۆڕی دراو و سێرڤسی دارایی چیا گروپە و لە 2025/03/06 لە سۆران لە سەنتەری شار بەرامبەر بازاڕی لەنگە دامەزراوە و کار دەکات لە بواری ئاڵوگۆڕی هەموو جۆرە دراوێك و ناردنی پارە بۆ هەموو وڵاتانی جیهان بە کاش و حسابی بانکی و ناردنی پارە بۆ هەموو کارتە بانکیە نێوخۆیی و نێودەوڵەتیەکان."
     }
   },

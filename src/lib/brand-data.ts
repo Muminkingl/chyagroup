@@ -362,12 +362,12 @@ export const BRAND_DATA: Record<string, BrandData> = {
       ku: "پێشەنگی خزمەتگوزاری دارایی و حەواڵە لە دەڤەری سۆران",
     },
     description: {
-      en: "Barzy Chya Exchange is our premier financial branch serving the Independent Administration of Soran, established on March 6, 2025. Located in the city center opposite Langa Market, the branch provides comprehensive currency conversions and rapid global wire transfers to the local community.",
-      ar: "مكتب بەرزی جيا للصرافة هو فرعنا المالي الرائد الذي يخدم إدارة سوران المستقلة، تأسس في 6 مارس 2025. يقع في وسط المدينة مقابل سوق لانكة، ويقدم خدمات صرافة شاملة وحوالات برقية سريعة للمجتمع المحلي.",
+      en: "Barzy Chya Exchange is our premier financial branch serving Soran, established on March 6, 2025. Located in the city center opposite Langa Bazar, the branch provides comprehensive currency conversions and rapid global wire transfers to the local community.",
+      ar: "مكتب بەرزی جيا للصرافة هو فرعنا المالي الرائد الذي يخدم سوران، تأسس في 6 مارس 2025. يقع في وسط المدينة مقابل بازار لانكة، ويقدم خدمات صرافة شاملة وحوالات برقية سريعة للمجتمع المحلي.",
       ku: "نووسینگەی بەرزی چیا لقێکی پێشەنگی داراییە کە خزمەت بە دەڤەری سۆران دەکات و لە ٦ی ئازاری ٢٠٢٥ دامەزراوە. کەوتووەتە سەنتەری شار بەرامبەر بازاڕی لەنگە، خزمەتگوزاری گۆڕینەوەی دراو و حەواڵەی خێرا و گشتی بۆ کڕیاران جێبەجێ دەکات.",
     },
     services: {
-      en: ["Foreign Currency Exchange", "Global Wire Remittances", "Cash Collection & Payouts", "Direct Local Bank Deposits", "Soran Region Financial Support"],
+      en: ["Foreign Currency Exchange", "Global Wire Remittances", "Cash Collection & Payouts", "Direct Local Bank Deposits", "Soran Financial Support"],
       ar: ["صرافة العملات الأجنبية", "الحوالات المالية العالمية", "تحصيل وصرف المبالغ النقدية", "الإيداع المباشر في البنوك المحلية", "الدعم المالي لمنطقة سوران"],
       ku: ["ئاڵوگۆڕی دراوە بیانییەکان", "حەواڵەی دارایی جیهانی", "کۆکردنەوە و ڕادەستکردنی کاش", "سپاردنی ڕاستەوخۆ لە بانکە ناوخۆییەکان", "پشتیوانی دارایی ناوچەی سۆران"],
     },
@@ -375,8 +375,8 @@ export const BRAND_DATA: Record<string, BrandData> = {
       {
         city: { en: "Soran", ar: "سوران", ku: "سۆران" },
         address: {
-          en: "City Center, Opposite Langa Market, Soran, Iraq",
-          ar: "وسط المدينة، مقابل سوق لانكة، سوران، العراق",
+          en: "City Center, Opposite Langa Bazar, Soran, Iraq",
+          ar: "وسط المدينة، مقابل بازار لانكة، سوران، العراق",
           ku: "ناوەندی شار، بەرامبەر بازاڕی لەنگە، سۆران، عێراق",
         },
       },

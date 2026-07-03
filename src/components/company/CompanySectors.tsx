@@ -7,17 +7,17 @@ import { Iconify } from "@/components/ui/Iconify";
 
 const LOCALIZED_TEXTS = {
   en: {
-    sectionEyebrow: "OUR BUSINESSES",
+    sectionEyebrow: "OUR COMPANY",
     sectionHeadline: "We operate across 16 business units",
     visitProfile: "Visit Profile",
   },
   ar: {
-    sectionEyebrow: "أعمالنا",
+    sectionEyebrow: "شركتنا",
     sectionHeadline: "نعمل في 16 مجالاً تجارياً",
     visitProfile: "زيارة الملف",
   },
   ku: {
-    sectionEyebrow: "کارەکانمان",
+    sectionEyebrow: "کۆمپانیاکەمان",
     sectionHeadline: "ئێمە لە ١٦ کاردا کار دەکەین",
     visitProfile: "بینینی پڕۆفایل",
   },
@@ -231,7 +231,7 @@ export default function CompanySectors() {
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-5">
             <span className="inline-block w-8 h-[2px] bg-[#2563eb]" />
-            <span className="text-[11px] font-bold tracking-[0.22em] text-[#0c1a2e] uppercase">
+            <span className={`font-bold text-[#0c1a2e] uppercase ${isRTL ? 'text-[14px] md:text-[15px] tracking-normal' : 'text-[11px] md:text-[12px] tracking-[0.22em]'}`}>
               {companyData.eyebrow}
             </span>
             <span className="inline-block w-8 h-[2px] bg-[#2563eb]" />
@@ -283,7 +283,7 @@ export default function CompanySectors() {
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-5">
             <span className="inline-block w-8 h-[2px] bg-[#2563eb]" />
-            <span className="text-[11px] font-bold tracking-[0.22em] text-[#0c1a2e] uppercase">
+            <span className={`font-bold text-[#0c1a2e] uppercase ${isRTL ? 'text-[14px] md:text-[15px] tracking-normal' : 'text-[11px] md:text-[12px] tracking-[0.22em]'}`}>
               {localizedText.sectionEyebrow}
             </span>
             <span className="inline-block w-8 h-[2px] bg-[#2563eb]" />

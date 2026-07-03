@@ -61,6 +61,26 @@ export default function PartnersSection() {
                 {/* Grid of Partners */}
                 <div className="flex flex-wrap justify-center gap-4 md:gap-6">
                     {partners.map((partner, index) => {
+                        if (partner.name === "BPN Co.") {
+                            return (
+                                <div
+                                    key={index}
+                                    className="flex items-center justify-center gap-3 bg-white h-[120px] md:h-[140px] w-[calc(50%-0.5rem)] md:w-[calc(25%-1.125rem)] rounded-2xl shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-[#0c1a2e]/5 transition-all duration-300 hover:-translate-y-1 p-4 md:p-6 group"
+                                >
+                                    <img
+                                        src="/cliq.png"
+                                        alt="Cliq Logo"
+                                        className="w-[45%] h-auto max-h-[65px] md:max-h-[80px] object-contain transition-transform duration-300 group-hover:scale-[1.24] scale-[1.14] origin-center"
+                                    />
+                                    <img
+                                        src="/bpn.png"
+                                        alt="BPN Logo"
+                                        className="w-[52%] h-auto max-h-[75px] md:max-h-[90px] object-contain mix-blend-multiply transition-transform duration-300 group-hover:scale-[1.26] scale-[1.16] origin-center"
+                                    />
+                                </div>
+                            );
+                        }
+
                         const isCustomWidth = partner.logo.includes('fib.png') || 
                                               partner.logo.includes('nass.png') || 
                                               partner.logo.includes('aciapay.png') || 
