@@ -2,12 +2,13 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { getSupabaseAdmin } from '@/lib/supabase';
 import NewsArchiveContent from '@/components/news/NewsArchiveContent';
+import { stripHtmlAndEntities } from '@/utils/text';
 
 export const dynamic = "force-dynamic";
 
 // Calculate read time based on word count
 function calculateReadTime(htmlContent: string): number {
-  const text = htmlContent.replace(/<[^>]*>/g, '');
+  const text = stripHtmlAndEntities(htmlContent);
   const words = text.trim().split(/\s+/).filter(Boolean).length;
   return Math.max(1, Math.ceil(words / 200));
 }
@@ -29,7 +30,7 @@ async function getNewsData() {
   return posts.map(post => ({
     id: post.id,
     title: post.title,
-    excerpt: post.content.replace(/<[^>]*>/g, '').substring(0, 160) + '...',
+    excerpt: stripHtmlAndEntities(post.content).substring(0, 160) + '...',
     category: post.category || 'Announcement',
     date: post.created_at, // Pass raw timestamp
     readTime: calculateReadTime(post.content).toString(), // Pass minutes as string for now

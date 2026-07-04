@@ -3,6 +3,7 @@ import { Footer } from '@/components/layout/Footer';
 import { getPostById, incrementViewCount } from '@/app/admin/actions';
 import { notFound } from 'next/navigation';
 import PostDetailContent from '@/components/news/PostDetailContent';
+import { stripHtmlAndEntities } from '@/utils/text';
 
 export const dynamic = "force-dynamic";
 
@@ -14,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   
   const seoTitle = post.title_en || post.title;
   const seoContent = post.content_en || post.content || '';
-  const seoDescription = seoContent.replace(/<[^>]*>/g, '').substring(0, 160);
+  const seoDescription = stripHtmlAndEntities(seoContent).substring(0, 160);
   
   return {
     title: `${seoTitle} - Chya Group News`,

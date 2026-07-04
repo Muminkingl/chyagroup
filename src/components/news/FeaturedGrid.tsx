@@ -7,6 +7,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/i18n/translations';
 import { cn } from '@/lib/utils';
 import SmartImage from '../ui/SmartImage';
+import { stripHtmlAndEntities } from '@/utils/text';
 
 export default function FeaturedGrid({ posts }: { posts: Post[] }) {
   const { locale, isRTL } = useLanguage();
@@ -19,11 +20,14 @@ export default function FeaturedGrid({ posts }: { posts: Post[] }) {
   const hasHeroImage = !!(heroPost.imageUrl && heroPost.imageUrl.trim() !== '');
 
   // Localized hero post content
-  const localizedHeroTitle = (heroPost as any)[`title_${locale}`] || heroPost.title;
+  const rawHeroTitle = (heroPost as any)[`title_${locale}`] || heroPost.title || '';
+  const localizedHeroTitle = stripHtmlAndEntities(rawHeroTitle);
+
   const localizedHeroContent = (heroPost as any)[`content_${locale}`] || heroPost.content || '';
-  const localizedHeroExcerpt = localizedHeroContent
-    ? localizedHeroContent.replace(/<[^>]*>/g, '').substring(0, 160) + '...'
-    : heroPost.excerpt;
+  const rawHeroExcerpt = localizedHeroContent
+    ? stripHtmlAndEntities(localizedHeroContent).substring(0, 160) + '...'
+    : heroPost.excerpt || '';
+  const localizedHeroExcerpt = stripHtmlAndEntities(rawHeroExcerpt);
 
   // Localized date formatting
   const formatDate = (dateStr: string) => {
@@ -100,11 +104,14 @@ export default function FeaturedGrid({ posts }: { posts: Post[] }) {
         <div className="lg:col-span-4 flex flex-col gap-6">
           {sidePosts.map((post) => {
             const hasSideImage = !!(post.imageUrl && post.imageUrl.trim() !== '');
-            const localizedSideTitle = (post as any)[`title_${locale}`] || post.title;
+            const rawSideTitle = (post as any)[`title_${locale}`] || post.title || '';
+            const localizedSideTitle = stripHtmlAndEntities(rawSideTitle);
+
             const localizedSideContent = (post as any)[`content_${locale}`] || post.content || '';
-            const localizedSideExcerpt = localizedSideContent
-              ? localizedSideContent.replace(/<[^>]*>/g, '').substring(0, 160) + '...'
-              : post.excerpt;
+            const rawSideExcerpt = localizedSideContent
+              ? stripHtmlAndEntities(localizedSideContent).substring(0, 160) + '...'
+              : post.excerpt || '';
+            const localizedSideExcerpt = stripHtmlAndEntities(rawSideExcerpt);
 
             return (
               <Link 

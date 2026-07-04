@@ -7,6 +7,7 @@ import { translations } from '@/i18n/translations';
 import { NewsPost } from '@/lib/news_fetch';
 import { Iconify } from '@/components/ui/Iconify';
 import SmartImage from '../ui/SmartImage';
+import { stripHtmlAndEntities } from '@/utils/text';
 
 interface LatestNewsSectionProps {
   posts: NewsPost[];
@@ -72,11 +73,14 @@ export default function LatestNewsSection({ posts }: LatestNewsSectionProps) {
         {/* Cards Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
           {posts.map((item) => {
-            const localizedTitle = (item as any)[`title_${locale}`] || item.title;
+            const rawTitle = (item as any)[`title_${locale}`] || item.title || '';
+            const localizedTitle = stripHtmlAndEntities(rawTitle);
+
             const localizedContent = (item as any)[`content_${locale}`] || item.content || '';
-            const localizedExcerpt = localizedContent
-              ? localizedContent.replace(/<[^>]*>/g, '').substring(0, 160) + '...'
-              : item.excerpt;
+            const rawExcerpt = localizedContent
+              ? stripHtmlAndEntities(localizedContent).substring(0, 160) + '...'
+              : item.excerpt || '';
+            const localizedExcerpt = stripHtmlAndEntities(rawExcerpt);
 
             return (
               <article

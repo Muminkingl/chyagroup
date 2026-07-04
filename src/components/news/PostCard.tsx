@@ -8,17 +8,22 @@ import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/i18n/translations';
 import SmartImage from '../ui/SmartImage';
 
+import { stripHtmlAndEntities } from '@/utils/text';
+
 export default function PostCard({ post, className }: { post: Post, className?: string }) {
   const { locale, isRTL } = useLanguage();
   const t = translations[locale].newsArchive;
   const hasImage = !!(post.imageUrl && post.imageUrl.trim() !== '');
 
   // Deriving localized title and dynamic excerpt from content
-  const localizedTitle = (post as any)[`title_${locale}`] || post.title;
+  const rawTitle = (post as any)[`title_${locale}`] || post.title || '';
+  const localizedTitle = stripHtmlAndEntities(rawTitle);
+
   const localizedContent = (post as any)[`content_${locale}`] || post.content || '';
-  const localizedExcerpt = localizedContent
-    ? localizedContent.replace(/<[^>]*>/g, '').substring(0, 160) + '...'
-    : post.excerpt;
+  const rawExcerpt = localizedContent
+    ? stripHtmlAndEntities(localizedContent).substring(0, 160) + '...'
+    : post.excerpt || '';
+  const localizedExcerpt = stripHtmlAndEntities(rawExcerpt);
 
   // Format date based on locale
   const formattedDate = new Date(post.date).toLocaleDateString(locale === 'en' ? 'en-US' : locale === 'ar' ? 'ar-EG' : 'ku-IQ', {

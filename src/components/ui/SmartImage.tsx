@@ -13,6 +13,7 @@ interface SmartImageProps {
 export default function SmartImage({ src, alt = "", className, containerClassName }: SmartImageProps) {
   const [isPortrait, setIsPortrait] = useState(false);
   const [loaded, setLoaded] = useState(false);
+  const [error, setError] = useState(false);
 
   if (!src) {
     return (
@@ -33,11 +34,22 @@ export default function SmartImage({ src, alt = "", className, containerClassNam
 
   return (
     <div className={cn("relative w-full h-full overflow-hidden select-none bg-[#f4f7f9] flex items-center justify-center", containerClassName)}>
-      {/* Hidden img to determine aspect ratio */}
+      {/* Shimmer skeleton shown while loading */}
+      {!loaded && !error && (
+        <div className="absolute inset-0 z-20 bg-[#f0f2f5] overflow-hidden">
+          <div
+            className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/60 to-transparent"
+            style={{ animation: 'shimmer 1.6s infinite' }}
+          />
+        </div>
+      )}
+
+      {/* Hidden img to determine aspect ratio — lazy loaded */}
       <img
         src={cleanSrc}
         alt=""
         className="hidden"
+        loading="lazy"
         onLoad={(e) => {
           const { naturalWidth, naturalHeight } = e.currentTarget;
           if (naturalWidth && naturalHeight) {
@@ -45,15 +57,20 @@ export default function SmartImage({ src, alt = "", className, containerClassNam
             setLoaded(true);
           }
         }}
+        onError={() => {
+          setLoaded(true);
+          setError(true);
+        }}
       />
 
       {/* Background blurred image for portrait or zoomed out images */}
-      {(isPortrait || zoom < 1.0) && loaded && (
+      {(isPortrait || zoom < 1.0) && loaded && !error && (
         <div className="absolute inset-0 z-0">
           <img
             src={cleanSrc}
             alt=""
             className="w-full h-full object-cover blur-xl scale-110 opacity-30 select-none pointer-events-none"
+            loading="lazy"
           />
         </div>
       )}
@@ -63,11 +80,14 @@ export default function SmartImage({ src, alt = "", className, containerClassNam
       <img
         src={cleanSrc}
         alt={alt}
+        loading="lazy"
         className={cn(
           // Use transition-transform only (NOT transition-all) to avoid costly
           // GPU re-rasterization of every property on large images
           "transition-transform duration-500 ease-out",
-          (isPortrait || zoom < 1.0) && loaded
+          !loaded && "opacity-0",
+          loaded && "opacity-100 transition-opacity duration-300",
+          (isPortrait || zoom < 1.0) && loaded && !error
             ? "relative z-10 max-w-full max-h-full object-contain p-2"
             : "w-full h-full object-cover",
           className
@@ -81,6 +101,7 @@ export default function SmartImage({ src, alt = "", className, containerClassNam
           willChange: "transform",
           imageRendering: "auto",
         }}
+        onLoad={() => setLoaded(true)}
       />
     </div>
   );

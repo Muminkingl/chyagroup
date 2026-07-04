@@ -57,9 +57,9 @@ export const sectorTranslations = {
         "We Take Pride In Delivering Advanced Systems Such As Accounting And Archiving Software , Alongside Premium Electronic Devices And Accessories , Ensuring Excellence In Every Digital Interaction."
       ],
       "printing": [
-        "The Printing & Photocopy Sector Provides Essential Document And Administrative Services With A Focus On Precision And Reliability. Established With ( Blue Printing ) On 19/10/2025, This Sector Operates As A Dedicated Professional Printing Hub.",
-        "Our Specialized Branch, ( Blue Printing ), Delivers A Comprehensive Suite Of Services Including High-Quality Printing, Professional Photography, Passport And National Card Fee Management, And Appointment Booking.",
-        "Serving Businesses, Government Institutions, And Individuals Alike, We Ensure That Every Transaction And Document Request Is Handled With Utmost Accuracy And A Swift Turnaround Time."
+        "The Printing & Photocopy Sector Provides Essential Document And Administrative Services With A Focus On Precision And Reliability. Established With ( Blue Printing ) On 19/10/2025 , This Sector Operates As A Dedicated Professional Printing Hub.",
+        "Our Specialized Branch , ( Blue Printing ) , Delivers A Comprehensive Suite Of Services Including High-Quality Printing , Professional Photography , Passport And National Card Fee Management , And Appointment Booking.",
+        "Serving Businesses , Government Institutions , And Individuals Alike , We Ensure That Every Transaction And Document Request Is Handled With Utmost Accuracy And A Swift Turnaround Time."
       ],
       "online-trading": [
         "The Online Trading Sector Connects Clients Across Active Digital Marketplaces. ( Chya Travel ) , Founded On 22/01/2020 , Provides A Comprehensive Suite Of Tourist Tickets , Visas , Hotel Bookings , Car Rentals , Tourist Destination Guidance , And Language Translation Services.",
@@ -152,9 +152,9 @@ export const sectorTranslations = {
         "شانازی دەکەین بە دابینکردنی سیستەمە پێشکەوتووەکانی وەک نەرمەکاڵای ژمێریاری و ئەرشیفکردن ، شانبەشانی ئامێرە ئەلیکترۆنییەکان و ئێکسسواراتەکان ، بۆ دڵنیابوون لە نایابی لە هەموو مامەڵەیەکی دیجیتاڵیدا."
       ],
       "printing": [
-        "سێکتەری چاپەمەنی و فۆتۆکۆپی خزمەتگوزارییە سەرەکییەکانی بەڵگەنامە و کارگێڕی بە فۆکەسکردن لەسەر وردی و متمانەپێکراوی پێشکەش دەکات. بە دامەزراندنی ( بلو پرێنتینگ ) لە 2025/10/19 دەستی پێکرد، و ئەم سێکتەرە وەک ناوەندێکی تایبەتمەندی چاپی پیشەیی کار دەکات.",
-        "لقی تایبەتمەندمان، ( بلو پرێنتینگ )، کۆمەڵەیەکی گشتگیر لە خزمەتگوزارییەکان پێشکەش دەکات کە بریتین لە چاپی کوالێتی بەرز، وێنەگرتنی پیشەیی، بەڕێوەبردنی ڕسوماتەکانی پاسپۆرت و کارتی نیشتمانی، لەگەڵ حجزکردنی کاتەکانی فەرمانگە.",
-        "بە خزمەتکردنی بازرگانییەکان، دامەزراوە حکومییەکان، و تاکەکان بە هەمان شێوە، ئێمە دڵنیایی دەدەین کە هەموو مامەڵەیەک و داواکارییەکی بەڵگەنامە بەوپەڕی وردی و لە کەمترین کاتدا جێبەجێ دەکرێت."
+        "سێکتەری چاپەمەنی و فۆتۆکۆپی خزمەتگوزارییە سەرەکییەکانی بەڵگەنامە و کارگێڕی بە فۆکەسکردن لەسەر وردی و متمانەپێکراوی پێشکەش دەکات. بە دامەزراندنی ( بلو پرێنتینگ ) لە 2025/10/19 دەستی پێکرد ، و ئەم سێکتەرە وەک ناوەندێکی تایبەتمەندی چاپی پیشەیی کار دەکات.",
+        "لقی تایبەتمەندمان ، ( بلو پرێنتینگ ) ، کۆمەڵەیەکی گشتگیر لە خزمەتگوزارییەکان پێشکەش دەکات کە بریتین لە چاپی کوالێتی بەرز ، وێنەگرتنی پیشەیی ، بەڕێوەبردنی ڕسوماتەکانی پاسپۆرت و کارتی نیشتمانی ، لەگەڵ حجزکردنی کاتەکانی فەرمانگە.",
+        "بە خزمەتکردنی بازرگانییەکان ، دامەزراوە حکومییەکان ، و تاکەکان بە هەمان شێوە ، ئێمە دڵنیایی دەدەین کە هەموو مامەڵەیەک و داواکارییەکی بەڵگەنامە بەوپەڕی وردی و لە کەمترین کاتدا جێبەجێ دەکرێت."
       ],
       "online-trading": [
         "سێکتەری بازرگانی بە  ئۆنلاین کڕیاران بە بازاڕە دیجیتاڵییە چالاکەکانەوە دەبەستێتەوە. ( چیا تڕاڤل ) ، کە لە 2020/01/22 دامەزراوە ، خزمەتگوزارییەکی گشتگیری وەک بڕینی تکت ، ڤیزە ، حجزی هۆتێل ، ئۆتۆمبێل ، ڕێنمایی شوێنە گەشتیارییەکان ، و وەرگێڕانی زمان دابین دەکات.",
@@ -169,7 +169,7 @@ export const sectorTranslations = {
         { city: "سۆران - مشروع چیا ئەمازۆن", address: "ڕێگای ڕواندز ، سۆران" }
       ],
       "money-exchange": [
-        { city: "هەولێر - نوسینگەی چیا", address: "بۆرسەی کۆن ، شاری هەولێر" },
+        { city: "هەولێر - نوسینگەی چیا", address: "بۆرسەی کۆن ، هەولێر" },
         { city: "هەولێر - نوسینگەی هەنگاو", address: "شەقامی ڕووناکی دووساید ، هەولێر" },
         { city: "هەولێر - نوسینگەی لوتکەی چیا", address: "گەڕەکی عەنکاوە ، هەولێر" },
         { city: "هەولێر - کۆمپانیای خاکی سەروەر", address: "ڕێگای پیرمام ، ناو بەنزینخانەی BM OIL 2 ، هەولێر" },
@@ -247,9 +247,9 @@ export const sectorTranslations = {
         "نحن نفخر بتقديم أنظمة متقدمة مثل برامج المحاسبة والأرشفة ، إلى جانب الأجهزة الإلكترونية المتميزة والإكسسوارات ، لضمان التميز في كل تفاعل رقمي."
       ],
       "printing": [
-        "يقدم قطاع الطباعة والتصوير الخدمات الوثائقية والإدارية الأساسية مع التركيز على الدقة والمؤثرية. تأسس مع ( بلو برينتينك ) في 2025/10/19، ويعمل هذا القطاع كمركز متخصص للطباعة الاحترافية.",
-        "يقدم فرعنا المتخصص، ( بلو برينتينك )، مجموعة شاملة من الخدمات بما في ذلك الطباعة عالية الجودة، والتصوير الاحترافي، وإدارة رسوم الجوازات والبطاقة الوطنية، وحجز المواعيد الرسمية.",
-        "من خلال خدمة الشركات والمؤسسات الحكومية والأفراد على حد سواء، نضمن التعامل مع كل معاملة وطلب وثيقة بأقصى قدر من الدقة وسرعة الإنجاز."
+        "يقدم قطاع الطباعة والتصوير الخدمات الوثائقية والإدارية الأساسية مع التركيز على الدقة والمؤثرية. تأسس مع ( بلو برينتينك ) في 2025/10/19 ، ويعمل هذا القطاع كمركز متخصص للطباعة الاحترافية.",
+        "يقدم فرعنا المتخصص ، ( بلو برينتينك ) ، مجموعة شاملة من الخدمات بما في ذلك الطباعة عالية الجودة ، والتصوير الاحترافي ، وإدارة رسوم الجوازات والبطاقة الوطنية ، وحجز المواعيد الرسمية.",
+        "من خلال خدمة الشركات والمؤسسات الحكومية والأفراد على حد سواء ، نضمن التعامل مع كل معاملة وطلب وثيقة بأقصى قدر من الدقة وسرعة الإنجاز."
       ],
       "online-trading": [
         "يربط قطاع التداول عبر الإنترنت العملاء عبر الأسواق الرقمية النشطة. توفر ( چيا ترافل ) ، التي تأسست في 2020/01/22 ، مجموعة شاملة من تذاكر السفر ، التأشيرات ، حجز الفنادق ، تأجير السيارات ، توجيه الأماكن السياحية ، وخدمات الترجمة اللغوية.",

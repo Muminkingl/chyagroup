@@ -1,4 +1,5 @@
 import { getSupabaseAdmin } from './supabase';
+import { stripHtmlAndEntities } from '@/utils/text';
 
 export interface NewsPost {
   id: string;
@@ -35,7 +36,7 @@ export async function getLatestPosts(limit: number = 3): Promise<NewsPost[]> {
   return posts.map(post => ({
     id: post.id,
     title: post.title,
-    excerpt: post.content.replace(/<[^>]*>/g, '').substring(0, 160) + '...',
+    excerpt: stripHtmlAndEntities(post.content).substring(0, 160) + '...',
     category: post.category || 'Announcement',
     date: new Date(post.created_at).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' }),
     imageUrl: post.image_url || '',
