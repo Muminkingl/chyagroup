@@ -16,7 +16,7 @@ const partners = [
     { name: "BazarCards Co.", logo: "/bazarcard.jpg", url: "#" },
     { name: "AIIB Bank", logo: "/aiib.png", url: "https://aiib.iq/" },
     { name: "Blue Co.", logo: "/blue.jpg", url: "https://blue.com.iq/en/home/" },
-    { name: "Western Union", logo: "/WU.png", url: "https://www.westernunion.com/" },
+    { name: "Western Union Int Co.", logo: "/WU.png", url: "https://www.westernunion.com/" },
     { name: "DubaiRemit Int Co.", logo: "/dubairemit.png", url: "#" },
     { name: "Shift Int Co.", logo: "/shiftt.png", url: "https://www.shifttransfer.com/" },
     { name: "BPN Co.", logo: "/bpn.png", url: "https://www.bpn.com.tr/" },
@@ -68,14 +68,14 @@ export default function PartnersSection() {
                                     className="flex items-center justify-center gap-3 bg-white h-[120px] md:h-[140px] w-[calc(50%-0.5rem)] md:w-[calc(25%-1.125rem)] rounded-2xl shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-[#0c1a2e]/5 transition-all duration-300 hover:-translate-y-1 p-4 md:p-6 group"
                                 >
                                     <img
-                                        src="/cliq.png"
-                                        alt="Cliq Logo"
-                                        className="w-[45%] h-auto max-h-[65px] md:max-h-[80px] object-contain transition-transform duration-300 group-hover:scale-[1.24] scale-[1.14] origin-center"
-                                    />
-                                    <img
                                         src="/bpn.png"
                                         alt="BPN Logo"
                                         className="w-[52%] h-auto max-h-[75px] md:max-h-[90px] object-contain mix-blend-multiply transition-transform duration-300 group-hover:scale-[1.26] scale-[1.16] origin-center"
+                                    />
+                                    <img
+                                        src="/cliq.png"
+                                        alt="Cliq Logo"
+                                        className="w-[45%] h-auto max-h-[65px] md:max-h-[80px] object-contain transition-transform duration-300 group-hover:scale-[1.24] scale-[1.14] origin-center"
                                     />
                                 </div>
                             );

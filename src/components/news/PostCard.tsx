@@ -35,6 +35,7 @@ export default function PostCard({ post, className }: { post: Post, className?: 
   return (
     <Link 
       href={`/news/${post.id}`}
+      dir={isRTL ? "rtl" : "ltr"}
       className={clsx(
         "group flex flex-col rounded-2xl border border-[#0c1a2e]/5 bg-white overflow-hidden hover:border-[#0c1a2e]/10 hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-1",
         className

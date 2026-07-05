@@ -33,7 +33,7 @@ const BRANDS_15 = [
     },
     logo: "/brands/lamattt.png",
     route: "/lamatalmarjan",
-    style: { transform: "scale(1.2)" },
+    style: { transform: "scale(1.345)" },
   },
   {
     id: "chyaymateen",
@@ -44,18 +44,7 @@ const BRANDS_15 = [
     },
     logo: "/brands/chyaymat.png",
     route: "/chyaymateen",
-    style: { transform: "scale(1.25)" },
-  },
-  {
-    id: "chyaamazon",
-    name: {
-      en: "Chya Amazon",
-      ar: "مشروع جيا أمازون",
-      ku: "چیا ئەمازۆن",
-    },
-    logo: "/brands/Chya Amazon-1.png",
-    route: "/chyaamazon",
-    style: { transform: "scale(1.05)" },
+    style: { transform: "scale(1.37)" },
   },
   {
     id: "khakisarwar",
@@ -67,6 +56,17 @@ const BRANDS_15 = [
     logo: "/brands/khakisarwar.png",
     route: "/khakisarwar",
     style: { transform: "scale(1.05)" },
+  },
+  {
+    id: "blueprinting",
+    name: {
+      en: "Blue Printing",
+      ar: "مکتب بلو طباعە",
+      ku: "نووسینگەی بلو پرێنتینگ",
+    },
+    logo: "/brands/BLUE PRINT-1.png",
+    route: "/blueprinting",
+    style: { transform: "scale(2.45)" },
   },
   {
     id: "hangawexchange",
@@ -99,7 +99,7 @@ const BRANDS_15 = [
     },
     logo: "/brands/qapat-1.png",
     route: "/chyagold",
-    style: { transform: "scale(1.6)" },
+    style: { transform: "scale(1.82)" },
   },
   {
     id: "lutkaychya",
@@ -110,7 +110,7 @@ const BRANDS_15 = [
     },
     logo: "/brands/lutkay chya-1.png",
     route: "/lutkaychya",
-    style: { transform: "scale(1.6)" },
+    style: { transform: "scale(1.75)" },
   },
   {
     id: "barzychya",
@@ -121,7 +121,7 @@ const BRANDS_15 = [
     },
     logo: "/brands/BARZY CHYAY-1.png",
     route: "/barzychya",
-    style: { transform: "scale(1.45)" },
+    style: { transform: "scale(1.65)" },
   },
   {
     id: "manfazdibaga",
@@ -132,7 +132,18 @@ const BRANDS_15 = [
     },
     logo: "/brands/Manfaz Dibaga-1.png",
     route: "/manfazdibaga",
-    style: { transform: "scale(1.4)" },
+    style: { transform: "scale(1.65)" },
+  },
+  {
+    id: "chyaamazon",
+    name: {
+      en: "Chya Amazon",
+      ar: "مشروع جيا أمازون",
+      ku: "چیا ئەمازۆن",
+    },
+    logo: "/brands/Chya Amazon-1.png",
+    route: "/chyaamazon",
+    style: { transform: "scale(1.08)" },
   },
   {
     id: "chyaphone",
@@ -154,18 +165,7 @@ const BRANDS_15 = [
     },
     logo: "/brands/chyatech.png",
     route: "/chyatech",
-    style: { transform: "scale(2.55)" },
-  },
-  {
-    id: "blueprinting",
-    name: {
-      en: "Blue Printing",
-      ar: "مکتب بلو طباعە",
-      ku: "نووسینگەی بلو پرێنتینگ",
-    },
-    logo: "/brands/BLUE PRINT-1.png",
-    route: "/blueprinting",
-    style: { transform: "scale(2.0)" },
+    style: { transform: "scale(3.2)" },
   },
   {
     id: "chyatravel",
@@ -176,7 +176,7 @@ const BRANDS_15 = [
     },
     logo: "/brands/CHYA travel-1.png",
     route: "/chyatravel",
-    style: { transform: "scale(2.7)" },
+    style: { transform: "scale(2.90)" },
   },
   {
     id: "chyaluxury",
@@ -187,7 +187,7 @@ const BRANDS_15 = [
     },
     logo: "/brands/kivaluxary.png",
     route: "/chyaluxury",
-    style: { transform: "scale(1.55)" },
+    style: { transform: "scale(1.7)" },
   },
 ];
 

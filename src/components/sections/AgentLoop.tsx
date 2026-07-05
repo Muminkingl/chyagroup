@@ -18,7 +18,7 @@ const agents = [
     { name: "BazarCards Co.", logo: "/bazarcard.jpg", url: "#" },
     { name: "AIIB Bank", logo: "/aiib.png", url: "https://aiib.iq/" },
     { name: "Blue Co.", logo: "/blue.jpg", url: "https://blue.com.iq/en/home/" },
-    { name: "Western Union", logo: "/WU.png", url: "https://www.westernunion.com/" },
+    { name: "Western Union Int Co.", logo: "/WU.png", url: "https://www.westernunion.com/" },
     { name: "Dubai Remit Int Co.", logo: "/dubairemit.png", url: "#" },
     { name: "Shift Int Co.", logo: "/shiftt.png", url: "https://www.shifttransfer.com/" },
     { name: "BPN Co.", logo: "/bpn.png", url: "https://www.bpn.com.tr/" },
@@ -35,14 +35,14 @@ const AgentLogo = ({ name, logo, url }: { name: string, logo: string, url: strin
             >
                 <div className="flex items-center justify-center gap-3 px-4 w-full h-[95px]">
                     <img
-                        src="/cliq.png"
-                        alt="Cliq Logo"
-                        className="w-[45%] h-auto max-h-[95px] object-contain transition-transform duration-300 group-hover:scale-[1.24] scale-[1.14] origin-center"
-                    />
-                    <img
                         src="/bpn.png"
                         alt="BPN Logo"
                         className="w-[52%] h-auto max-h-[95px] object-contain mix-blend-multiply transition-transform duration-300 group-hover:scale-[1.26] scale-[1.16] origin-center"
+                    />
+                    <img
+                        src="/cliq.png"
+                        alt="Cliq Logo"
+                        className="w-[45%] h-auto max-h-[95px] object-contain transition-transform duration-300 group-hover:scale-[1.24] scale-[1.14] origin-center"
                     />
                 </div>
                 <span className="mt-4 text-sm font-semibold text-[#0c1a2e]/80 opacity-0 group-hover:opacity-100 transition-opacity absolute bottom-6">
@@ -63,15 +63,15 @@ const AgentLogo = ({ name, logo, url }: { name: string, logo: string, url: strin
                 src={logo}
                 alt={`${name} Logo`}
                 className={`w-auto h-auto max-w-[155px] max-h-[95px] object-contain transition-transform duration-300 ${
-                    ["AsiaPay Co.", "Nasspay Co.", "Zain Cash Co.", "Dubai Remit Int Co."].includes(name) 
+                    logo === "/WU.png"
+                        ? 'scale-[1.55] group-hover:scale-[1.65] origin-center'
+                    : ["AsiaPay Co.", "Nasspay Co.", "Zain Cash Co.", "Dubai Remit Int Co."].includes(name) 
                         ? 'scale-[1.25] group-hover:scale-[1.35] origin-center' 
                     : name === "FIB Bank"
                          ? 'scale-[1.35] translate-y-[6%] group-hover:scale-[1.45] origin-center'
                     : name === "Nasswallet bank"
                         ? 'scale-[1.45] group-hover:scale-[1.55] origin-center'
                     : name === "AIIB Bank"
-                        ? 'scale-[1.55] group-hover:scale-[1.65] origin-center'
-                    : name === "Western Union"
                         ? 'scale-[1.55] group-hover:scale-[1.65] origin-center'
                     : name === "Blue Co."
                         ? 'scale-[1.15] group-hover:scale-[1.25] origin-center'

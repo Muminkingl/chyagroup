@@ -420,6 +420,115 @@ const GENERAL_TRADING_TIMELINE = [
   }
 ];
 
+const MOBILE_TECH_TIMELINE = [
+  {
+    id: "chyatech",
+    year: "2025",
+    date: {
+      en: "August 11, 2025",
+      ar: "11 أغسطس 2025",
+      ku: "11 ئاب 2025"
+    },
+    logo: "/brands/chyatech.png",
+    name: {
+      en: "Chya Tech",
+      ar: "چيا تيك",
+      ku: "کاری چیا تێك"
+    },
+    desc: {
+      en: "Chya Tech For Systems And Computers Belongs To The Online Trading Sector Of Chya Group. Founded On 11/08/2025 , Its Work Consists Of Installing Accounting , Statistical , Archiving , And Personnel Systems , And Selling All Electronic Devices.",
+      ar: "چيا تيك للأنظمة والكمبيوتر ، تابعة لقطاع التكنولوجيا التابع لمجموعة چيا. تأسست في 2025/08/11 ، وتتكون أعمالها من تنصيب الأنظمة الحسابية والإحصائية والأرشفة والموظفين وبيع الأجهزة الإلكترونية.",
+      ku: "کاری چیا تێك بۆ دانانی سیستەم و کۆمپیتەر سەر بە سێکتەری مۆبایل و تەکنەلۆژیای چیا گروپە و لە 2025/08/11 دامەزراوە و کارەکانی پێک دێت لە دانانی سیستەمی ژمێریاری و ئامار و ئەرشیف و کارمەند و فرۆشتنی هەموو ئامێرە ئەلیکتڕۆنیەکان."
+    }
+  },
+  {
+    id: "chyaphone",
+    year: "2026",
+    date: {
+      en: "March 24, 2026",
+      ar: "24 مارس 2026",
+      ku: "24 ئازار 2026"
+    },
+    logo: "/brands/chya phone-1.png",
+    name: {
+      en: "Chya Phone",
+      ar: "محل چيا فون",
+      ku: "پێشانگای چیا فۆن"
+    },
+    desc: {
+      en: "Chya Phone For Cellphones And Accessories. Founded On 24/03/2026 In Soran City Center , Its Work Consists Of Sales , Maintenance , And Software For All Types Of Cellphones.",
+      ar: "محل چيا فون لبيع الأجهزة المحمولة وإكسسواراتها. تأسس في 2026/03/24 في وسط مدينة سوران ، وتتكون أعماله من بيع وصيانة وبرمجة جميع أنواع الأجهزة المحمولة.",
+      ku: "پێشانگای چیا فۆن بۆ کڕین و فرۆشتنی مۆبایل و ئێکسسوارات لە سەنتەری شاری سۆران لە 2026/03/24 دامەزراوە و کار دەکات لە بواری کڕین و فرۆشتن و چاککردنەوە و سیستم بۆ هەموو جۆرە مۆبایلەکان."
+    }
+  }
+];
+
+const PRINTING_TIMELINE = [
+  {
+    id: "blueprinting",
+    year: "2025",
+    date: {
+      en: "October 19, 2025",
+      ar: "19 أكتوبر 2025",
+      ku: "19 تشرینی یەکەم 2025"
+    },
+    logo: "/brands/BLUE PRINT-1.png",
+    name: {
+      en: "Blue Printing",
+      ar: "مكتب بلو طباعة",
+      ku: "نووسینگەی بلو پرێنتینگ"
+    },
+    desc: {
+      en: "Blue Printing For Professional Services. Founded On 19/10/2025 , Its Work Consists Of Photocopying , Printing , Document Scanning , Booking Appointments For Official Government Departments , Visa Appointments , And Fee Payments.",
+      ar: "مكتب بلو طباعة للخدمات المهنية. تأسس في 2025/10/19 ، وتتكون أعماله من استنساخ وتصوير المستندات والطباعة وحجز المواعيد للدوائر الرسمية وحجز الفيزا ودفع الرسوم.",
+      ku: "نووسینگەی بلو پرێنتینگ بۆ سێرڤسی پیشەیی لە 2025/10/19 دامەزراوە و کارەکانی پێک دێت لە فۆتۆکۆپی و تەسویر و چاپ و حجزکردنی موعدی فەرمانگە فەرمیەکان و موعدی ڤیزە و دانانی ڕسوماتەکان."
+    }
+  }
+];
+
+const ONLINE_TRADING_TIMELINE = [
+  {
+    id: "chyatravel",
+    year: "2020",
+    date: {
+      en: "January 22, 2020",
+      ar: "22 يناير 2020",
+      ku: "22 کانوونی دووەم 2020"
+    },
+    logo: "/brands/CHYA travel-1.png",
+    name: {
+      en: "Chya Travel",
+      ar: "چيا تراڤل",
+      ku: "کاری چیا تڕاڤل"
+    },
+    desc: {
+      en: "Chya Travel For Tickets And Visas Belongs To The Online Trading Sector Of Chya Group. Founded On 22/01/2020 , Its Work Consists Of Tourist Tickets And Visas , Booking Hotels , Cars , Tourist Places , Patient Guidance , And Language Translation.",
+      ar: "چيا تراڤل لحجز تذاكر الطيران والفيزا ، تابع لقطاع السفر والتجارة الإلكترونية في مجموعة چيا. تأسس في 2020/01/22 ، وتتكون أعماله من حجز تذاكر الطيران والفيزا والفنادق والسيارات وتوجيه المرضى والترجمة.",
+      ku: "کاری چیا تڕاڤل بۆ تکت و ڤیزە سەر بە سێکتەری بازرگانی ئۆنڵاینی چیا گروپە و لە 2020/01/22 دامەزراوە و کارەکانی پێک دێت لە بڕینی تکتی گەشتیاری و ڤیزە و حجزی ئوتێل و ئوتومبیل و شوێنە گەشتیاریەکان و ڕێنماییکردنی نەخۆش و وەرگێڕانی زمان."
+    }
+  },
+  {
+    id: "chyaluxury",
+    year: "2022",
+    date: {
+      en: "January 20, 2022",
+      ar: "20 يناير 2022",
+      ku: "20 کانوونی دووەم 2022"
+    },
+    logo: "/brands/kivaluxary.png",
+    name: {
+      en: "Chya Luxury",
+      ar: "چيا لوكزوري",
+      ku: "کاری چیا لوکژوری"
+    },
+    desc: {
+      en: "Chya Luxury For Jewelry And Accessories Belongs To The Online Trading Sector Of Chya Group. Founded On 20/01/2022 , Its Work Consists Of Trading Jewelry , Accessories , Watches , And Perfumes From Global Brands.",
+      ar: "چيا لوكزوري للمجوهرات والإكسسوارات ، تابع لقطاع التجارة الإلكترونية لمجموعة چيا. تأسست في 2022/01/20 ، وتتكون أعمالها من تجارة المجوهرات والإكسسوارات والساعات والعطور من الماركات العالمية.",
+      ku: "کاری چیا لوکژوری : چیا لوکژوری بۆ گەوهەر و ئێکسسوارات سەر بە سێکتەری بازرگانی ئۆنڵاینی چیا گروپە و لە 2022/01/20 دامەزراوە و کارەکانی پێک دێت لە بازرگانی گەوهەر و ئێکسسوارات و کاتژمێر و بۆن ی بڕاندی جیهانی."
+    }
+  }
+];
+
 const renderFormattedText = (text: string) => {
   if (!text) return "";
   const parts = text.split(/(\([^)]+\))/g);
@@ -475,6 +584,25 @@ export default function SectorDetails({ id }: { id: string }) {
   const currentBrandsInstagrams = SECTOR_BRANDS[id] || [];
   const currentHistory = st.history[id as keyof typeof st.history] || [featureItem.contentBody];
   const currentBranches = st.branches[id as keyof typeof st.branches] || [];
+  
+  const getTimelineData = () => {
+    switch (id) {
+      case "money-exchange":
+        return MONEY_EXCHANGE_TIMELINE;
+      case "general-trading":
+        return GENERAL_TRADING_TIMELINE;
+      case "mobile-tech":
+        return MOBILE_TECH_TIMELINE;
+      case "printing":
+        return PRINTING_TIMELINE;
+      case "online-trading":
+        return ONLINE_TRADING_TIMELINE;
+      default:
+        return [];
+    }
+  };
+
+  const timelineData = getTimelineData();
   
   const currentSectorData = (st as any).sectorData?.[id];
   const currentPresidentQuote = currentSectorData?.presidentQuote || st.ui.presidentQuote;
@@ -568,7 +696,7 @@ export default function SectorDetails({ id }: { id: string }) {
                 </h2>
               </div>
               
-              {id === "money-exchange" || id === "general-trading" ? (
+              {timelineData.length > 0 ? (
                 <div className="space-y-12">
                   {/* Intro paragraphs */}
                   <div className="flex flex-col justify-center space-y-4">
@@ -600,7 +728,7 @@ export default function SectorDetails({ id }: { id: string }) {
                         : "border-l-[2px] pl-4 md:pl-10 ml-2 md:ml-6",
                       "border-[#0c1a2e]/10"
                     )}>
-                      {(id === "money-exchange" ? MONEY_EXCHANGE_TIMELINE : GENERAL_TRADING_TIMELINE).map((item, index) => {
+                      {timelineData.map((item, index) => {
                         const nameText = (item.name as any)[locale] || item.name.en;
                         const descText = (item.desc as any)[locale] || item.desc.en;
                         const dateText = (item.date as any)[locale] || item.date.en;
@@ -632,12 +760,14 @@ export default function SectorDetails({ id }: { id: string }) {
 
                             {/* Right part: Description and Name */}
                             <div className={cn("flex-1 min-w-0", isRTL ? "text-right" : "text-left")}>
-                              <h4 className="text-lg font-bold text-[#0c1a2e] mb-2 tracking-tight">
+                              <h4 className={cn("text-lg font-bold text-[#0c1a2e] mb-2 tracking-tight", isRTL ? "text-[19px] font-extrabold" : "")}>
                                 {nameText}
                               </h4>
                               <p className={cn(
-                                "text-[14px] text-[#3a4f6a] leading-relaxed",
-                                isRTL ? "font-medium text-right md:text-justify" : "text-left"
+                                "text-[#3a4f6a]",
+                                isRTL 
+                                  ? "text-[16px] font-semibold leading-[1.8] text-right md:text-justify" 
+                                  : "text-[14px] leading-relaxed text-left"
                               )}>
                                 {renderFormattedText(descText)}
                               </p>

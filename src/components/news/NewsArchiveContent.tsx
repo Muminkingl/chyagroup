@@ -236,7 +236,7 @@ export default function NewsArchiveContent({ initialPosts }: NewsArchiveContentP
                     <span>{t.allNews}</span>
                     <div className="h-px bg-[#0c1a2e]/10 flex-1"></div>
                   </h2>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8" dir="ltr">
                     {remainingPosts.map((post) => (
                       <PostCard key={post.id} post={post} />
                     ))}
@@ -251,7 +251,7 @@ export default function NewsArchiveContent({ initialPosts }: NewsArchiveContentP
                 <div className="h-px bg-[#0c1a2e]/10 flex-1"></div>
               </h2>
               {remainingPosts.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8" dir="ltr">
                   {remainingPosts.map((post) => (
                     <PostCard key={post.id} post={post} />
                   ))}

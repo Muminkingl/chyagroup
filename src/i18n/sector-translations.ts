@@ -47,7 +47,7 @@ export const sectorTranslations = {
         "Today , The General Trading Sector Operates 3 Active Works — ( 2 Companies And 1 Work ) Delivering Quality Products And Connecting Markets Across The Region."
       ],
       "money-exchange": [
-        "Chya Group Operates A Dedicated Money Exchange & Financial Service Delivering Fast , Secure , And Competitive Currency Services. Founded With ( Chya Exchange ) On 14/06/2021 In Old Borsa , Erbil City , The Sector Expanded With ( Chya Gold ) On 28/08/2023 In Silopi District , Şırnak Street , Türkiye To Strengthen Our International Network.",
+        "Chya Group Operates A Dedicated Money Exchange & Financial Service Delivering Fast , Secure , And Competitive Currency Services. Founded With ( Chya Exchange ) On 14/06/2021 In Old Borsa , Erbil City , The Sector Expanded With ( Chya Gold ) On 28/08/2023 In Silopi District , Şırnak Street , Türkiye. This Network Was Strengthened By ( Hangaw Exchange ) On 21/03/2024 On Two-Way Runaki Street , Erbil City , Followed By ( Lutkay Chya Exchange ) On 20/10/2024 In Ankawa Street , Erbil City , ( Khaki Sarwar Co. ) On 16/02/2025 On Pirmam Road Inside BM\u00a0OIL\u00a02 Petrol Station , Erbil City , ( Barzy Chya Exchange ) On 06/03/2025 In Soran , And ( Manfaz Dibaga ) On 01/08/2025 On Two-Way Runaki Street Inside Hangaw Exchange , Erbil City.",
         "Our network is backed by ( 16 ) bank & company agents to provide unparalleled financial reliability.",
         "We Take Pride In Our Status As Authorized Agents For Major Financial Institutions , Delivering Excellence And Trust In Every Transaction We Handle."
       ],
@@ -142,7 +142,7 @@ export const sectorTranslations = {
         "ئەمڕۆ ، سێکتەری بازرگانی گشتی خاوەنی 3 کاری چالاکە ( 2 کۆمپانیا و 1 کار ) ، کە بەرهەمی کوالێتی بەرز پێشکەش دەکەن و بازاڕەکانی ناوچەکە بەیەکەوە دەبەستنەوە."
       ],
       "money-exchange": [
-        "چیا گرووپ خاوەنی بەشێکی تایبەتی ئاڵوگۆڕی  دراو و سێرڤسی داراییە کە خزمەتگوزارییەکی خێرا ، پارێزراو و ڕکابەرییانە پێشکەش دەکات. بە دامەزراندنی ( نوسینگەی چیا ) لە 2021/06/14 لە بۆرسەی کۆنی شاری هەولێر دەستی پێکرد و لە 2023/08/28 لقی ( نوسینگەی چیای زێڕین ) لە سلۆپی ، شرناخ ، تورکیا دامەزرا بۆ بەهێزکردنی تۆڕە داراییەکانمان.",
+        "چیا گرووپ خاوەنی بەشێکی تایبەتی ئاڵوگۆڕی  دراو و سێرڤسی داراییە کە خزمەتگوزارییەکی خێرا ، پارێزراو و ڕکابەرییانە پێشکەش دەکات. بە دامەزراندنی ( نووسینگەی چیا ) لە 2021/06/14 لە بۆرسەی کۆنی شاری هەولێر دەستی پێکرد و لە 2023/08/28 لقی ( نووسینگەی چیا گۆڵد ) لە ناوچەی سلۆپی شاری شرناغ ، تورکیا دامەزرا. ئەم تۆڕە داراییە بەهێزتر کرا بە دامەزراندنی ( نووسینگەی هەنگاو ) لە 2024/03/21 لە جووت سایدی ڕووناکی شاری هەولێر ، پاشان ( نووسینگەی لوتکەی چیا ) لە 2024/10/20 لە شەقامی عەنکاوە لە شاری هەولێر ، ( کۆمپانیای خاکی سەروەر ) لە 2025/02/16 لە ڕێگای پیرمام نێو بەنزینخانەی BM\u00a0OIL\u00a02 لە شاری هەولێر ، ( نووسینگەی بەرزی چیا ) لە 2025/03/06 لە سۆران ، و ( منفذ ديبكة ى هەنگاو ) لە 2025/08/01 لە جووت سایدی ڕووناکی لە نێو نووسینگەی هەنگاو ، شاری هەولێر.",
         "تۆڕەکەمان بە پاڵپشتی ( 16 ) بریکاری بانک و کۆمپانیاکان کار دەکات بۆ پێشکەشکردنی متمانەی دارایی بێوێنە.",
         "وەک بریکاری ڕێپێدراوی دامەزراوە داراییە سەرەکییەکان ، ئێمە شانازی بە پێشکەشکردنی متمانە و وردی دەکەین لە هەموو مامەڵەیەکدا."
       ],
@@ -237,7 +237,7 @@ export const sectorTranslations = {
         "اليوم ، يدير قطاع التجارة العامة 3 أعمال نشطة ( شركتان ومحل واحد ) ، لتقديم منتجات عالية الجودة وربط الأسواق في جميع أنحاء المنطقة."
       ],
       "money-exchange": [
-        "تدير مجموعة چيا قسماً مخصصاً لتصريف العملات والخدمات المالية يقدم خدمات سريعة وآمنة وتنافسية. تأسس مع ( مكتب چيا ) في 2021/06/14 في البورصة القديمة ، أربيل ، وفي 2023/08/28 تم إطلاق ( مكتب چيا الذهبي ) في سيلوبي ، شرناق ، تركيا لتعزيز شبكتنا المالية الدولية.",
+        "تدير مجموعة چيا قسماً مخصصاً لتصريف العملات والخدمات المالية يقدم خدمات سريعة وآمنة وتنافسية. تأسس مع ( مكتب چيا ) في 2021/06/14 في البورصة القديمة ، أربيل ، وتوسع القطاع مع ( مكتب چيا الذهبي ) في 2023/08/28 في منطقة سيلوبي بمدينة شرناق ، تركيا. تم تعزيز هذه الشبكة بـ ( مكتب هەنگاو ) في 2024/03/21 في شارع روناكي ( السايدين ) ، أربيل ، يليه ( مكتب لوتكەی چيا ) في 2024/10/20 في شارع عنكاوا ، أربيل ، و ( شركة خاکی سەروەر ) في 2025/02/16 على طريق بيرمام داخل محطة وقود BM\u00a0OIL\u00a02 ، أربيل ، ثم ( مكتب بـەرزی چيا ) في 2025/03/06 في سوران ، وصولاً إلى ( منفذ ديبكة ی هەنگاو ) في 2025/08/01 في شارع روناكي داخل مكتب هەنگاو ، أربيل.",
         "تضم شبكتنا ( 16 ) وكيل بنك و شركة لتقديم موثوقية مالية لا مثيل لها.",
         "بصفتنا وكلاء معتمدين للمؤسسات المالية الكبرى ، نحن نفخر بتقديم التميز والثقة في كل معاملة نقوم بها."
       ],

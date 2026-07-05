@@ -30,11 +30,6 @@ export default function TeamSection({ id }: { id: string }) {
       name: t.members.qasim, 
       role: t.members.qasimRole, 
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80" 
-    },
-    {
-      name: t.members.mustafa,
-      role: t.members.mustafaRole,
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80"
     }
   ];
 

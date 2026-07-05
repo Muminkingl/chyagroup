@@ -272,15 +272,17 @@ export default function PostDetailContent({ post }: PostDetailContentProps) {
         {allImages.length > 0 && (
           <div className="mb-16">
             {allImages.length === 1 ? (
-              // Single image: static banner zoomable on click
+              // Single image: adaptive container — no forced ultrawide aspect ratio
               <div 
                 onClick={() => setActiveImageIdx(0)}
-                className="relative aspect-[16/10] md:aspect-[21/9] rounded-3xl overflow-hidden border border-[#0c1a2e]/5 shadow-sm bg-zinc-100 cursor-pointer group hover:shadow-md transition-shadow duration-300"
+                className="relative rounded-3xl overflow-hidden border border-[#0c1a2e]/5 shadow-sm bg-[#f4f7f9] cursor-pointer group hover:shadow-md transition-shadow duration-300"
                 style={{ willChange: "transform" }}
               >
-                <SmartImage 
-                  src={allImages[0]} 
+                <img
+                  src={allImages[0]}
                   alt={title}
+                  className="w-full h-auto max-h-[70vh] object-contain mx-auto block"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-20">
                   <div className="w-12 h-12 rounded-full bg-white/90 shadow flex items-center justify-center text-[#0c1a2e]">
@@ -297,7 +299,7 @@ export default function PostDetailContent({ post }: PostDetailContentProps) {
                   onTouchMove={onTouchMove}
                   onTouchEnd={onTouchEnd}
                   onClick={() => setActiveImageIdx(currentSlideIdx)}
-                  className="relative aspect-[16/10] md:aspect-[21/9] rounded-3xl overflow-hidden border border-[#0c1a2e]/5 shadow-md bg-zinc-900 cursor-pointer group hover:shadow-lg transition-all duration-300"
+                  className="relative aspect-[16/10] rounded-3xl overflow-hidden border border-[#0c1a2e]/5 shadow-md bg-zinc-900 cursor-pointer group hover:shadow-lg transition-all duration-300"
                 >
                   <AnimatePresence mode="wait">
                     <motion.div
