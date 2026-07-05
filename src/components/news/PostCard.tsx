@@ -33,7 +33,7 @@ export default function PostCard({ post, className }: { post: Post, className?: 
   });
 
   return (
-    <Link 
+    <Link
       href={`/news/${post.id}`}
       dir={isRTL ? "rtl" : "ltr"}
       className={clsx(
@@ -44,8 +44,8 @@ export default function PostCard({ post, className }: { post: Post, className?: 
       {/* Only render image section if image exists */}
       {hasImage && (
         <div className="relative w-full aspect-[16/10] overflow-hidden bg-[#f4f7f9]">
-          <SmartImage 
-            src={post.imageUrl} 
+          <SmartImage
+            src={post.imageUrl}
             alt={localizedTitle}
             className="group-hover:scale-[1.02]"
           />
@@ -56,7 +56,7 @@ export default function PostCard({ post, className }: { post: Post, className?: 
       {!hasImage && (
         <div className="h-1 w-full bg-gradient-to-r from-[#162d4f]/30 via-[#3b82f6]/30 to-transparent" />
       )}
-      
+
       <div className="p-5 flex flex-col flex-1 text-start">
         <div className="flex items-center gap-3 mb-3 text-xs text-[#3a4f6a]">
           <span className="font-semibold text-[#3b82f6] uppercase tracking-wider text-[10px]">{post.category}</span>
@@ -66,15 +66,15 @@ export default function PostCard({ post, className }: { post: Post, className?: 
             {formattedDate}
           </span>
         </div>
-        
+
         <h3 className="text-lg font-semibold tracking-tight text-[#0c1a2e] mb-2 line-clamp-2" dir="auto">
           {localizedTitle}
         </h3>
-        
+
         <p className="text-sm text-[#3a4f6a] mb-6 line-clamp-2 flex-1 font-medium leading-relaxed" dir="auto">
           {localizedExcerpt}
         </p>
-        
+
         <div className="flex items-center justify-between mt-auto">
           {/* Author */}
           <div className="flex items-center gap-2">

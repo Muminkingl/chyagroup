@@ -64,7 +64,7 @@ export default function SmartImage({ src, alt = "", className, containerClassNam
       />
 
       {/* Background blurred image for portrait or zoomed out images */}
-      {(isPortrait || zoom < 1.0) && loaded && !error && (
+      {(isPortrait || zoom < 0.5) && loaded && !error && (
         <div className="absolute inset-0 z-0">
           <img
             src={cleanSrc}
@@ -87,7 +87,7 @@ export default function SmartImage({ src, alt = "", className, containerClassNam
           "transition-transform duration-500 ease-out",
           !loaded && "opacity-0",
           loaded && "opacity-100 transition-opacity duration-300",
-          (isPortrait || zoom < 1.0) && loaded && !error
+          (isPortrait || zoom < 0.5) && loaded && !error
             ? "relative z-10 max-w-full max-h-full object-contain p-2"
             : "w-full h-full object-cover",
           className
