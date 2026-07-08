@@ -96,7 +96,7 @@ const SECTOR_BRANDS: Record<string, BrandInstagram[]> = {
       qrLink: "https://www.instagram.com/khaki_sarwar.co?igsh=MW43NXdoamhsODJoYg==",
     },
     {
-      id: "chyaexchange",
+      id: "chya",
       name: {
         en: "Chya Exchange",
         ar: "مكتب جيا",
@@ -132,7 +132,7 @@ const SECTOR_BRANDS: Record<string, BrandInstagram[]> = {
       qrLink: "https://www.instagram.com/barzy.chya_exchange?igsh=MnhwZHE2aGoweWU0",
     },
     {
-      id: "hangawexchange",
+      id: "hangaw",
       name: {
         en: "Hangaw Exchange",
         ar: "مکتب هەنگاو",
@@ -216,7 +216,7 @@ function getInstagramHandle(url: string): string {
 
 const MONEY_EXCHANGE_TIMELINE = [
   {
-    id: "chyaexchange",
+    id: "chya",
     year: "2021",
     date: {
       en: "June 14, 2021",
@@ -256,7 +256,7 @@ const MONEY_EXCHANGE_TIMELINE = [
     }
   },
   {
-    id: "hangawexchange",
+    id: "hangaw",
     year: "2024",
     date: {
       en: "March 21, 2024",
@@ -373,8 +373,8 @@ const GENERAL_TRADING_TIMELINE = [
       ku: "کۆمپانیای لمعة المرجان"
     },
     desc: {
-      en: "Lamat Al Marjan Co. For General Trading Is The First Company Of The General Trading Sector Of Chya Group. Founded On 30/11/2019 , It Specializes In Construction Materials Such As ( Wood , MDF , Furniture , Steel , Fugue , Cement , And Concrete ).",
-      ar: "شركة لمعة المرجان للتجارة العامة ، هي الشركة الأولى التابعة لقطاع التجارة العامة في مجموعة چيا. تأسست في 2019/11/30 ، وهي متخصصة في مواد البناء مثل ( الخشب ، MDF ، الأثاث ، الحديد ، الفوكة ، الإسمنت ، والخرسانة ).",
+      en: "Lamat Al Marjan Co. For General Trading Is The First Company Of The General Trading Sector Of Chya Group , Founded On 30/11/2019 It Specializes In Construction Materials Such As ( Wood , MDF , Furniture , Steel , Fugue , Cement , And Concrete ).",
+      ar: "شركة لمعة المرجان للتجارة العامة ، هي الشركة الأولى التابعة لقطاع التجارة العامة في مجموعة چيا ، تأسست في 2019/11/30 وهي متخصصة في مواد البناء مثل ( الخشب ، MDF ، الأثاث ، الحديد ، الفوكة ، الإسمنت ، والخرسانة ).",
       ku: "کۆمپانیای لمعة المرجان بۆ بازرگانی گشتی ، یەکەم کۆمپانیای سەر بە سێکتەری بازرگانی گشتی چیا گروپە و لە 2019/11/30 دامەزراوە ، تایبەتمەندە لە کەرەستەی بیناسازی وەک ( دار ، ئێم دی ئێف ، مۆبیلیات ، ئاسن ، فووگە ، چیمەنتۆ و کۆنکرێت )."
     }
   },
@@ -393,7 +393,7 @@ const GENERAL_TRADING_TIMELINE = [
       ku: "کۆمپانیای چیای مەتین"
     },
     desc: {
-      en: "Chyay Mateen Co. For General Trading Is The Second Company In The General Trading Sector Of Chya Group. Founded On 01/03/2026 , It Specializes In ( Electronic Devices , Household Items , Clothing , And Second-Hand Goods ).",
+      en: "Chyay Mateen Co. For General Trading Is The Second Company In The General Trading Sector Of Chya Group , Founded On 01/03/2026 It Specializes In ( Electronic Devices , Household Items , Clothing , And Second-Hand Goods ).",
       ar: "شركة چياي متين للتجارة العامة ، هي الشركة الثانية في قطاع التجارة العامة بمجموعة چيا. تأسست في 2026/03/01 ، وهي متخصصة في ( الأجهزة الإلكترونية ، الأدوات المنزلية ، الملابس ، والسلع المستعملة ).",
       ku: "کۆمپانیای چیای مەتین بۆ بازرگانی گشتی ، دووەم کۆمپانیای سێکتەری بازرگانی گشتی چیا گروپە و لە 2026/03/01 دامەزراوە ، تایبەتمەندە لە ( ئامێرە ئەلیکترۆنییەکان ، کەلوپەلی ناوماڵ ، پۆشاک و کەلوپەلی بەکارهاتوو )."
     }
@@ -436,7 +436,7 @@ const MOBILE_TECH_TIMELINE = [
       ku: "کاری چیا تێك"
     },
     desc: {
-      en: "Chya Tech For Systems And Computers Belongs To The Online Trading Sector Of Chya Group. Founded On 11/08/2025 , Its Work Consists Of Installing Accounting , Statistical , Archiving , And Personnel Systems , And Selling All Electronic Devices.",
+      en: "Chya Tech For Systems And Computers Belongs To The Online Trading Sector Of Chya Group , Founded On 11/08/2025 Its Work Consists Of Installing Accounting , Statistical , Archiving , And Personnel Systems , And Selling All Electronic Devices.",
       ar: "چيا تيك للأنظمة والكمبيوتر ، تابعة لقطاع التكنولوجيا التابع لمجموعة چيا. تأسست في 2025/08/11 ، وتتكون أعمالها من تنصيب الأنظمة الحسابية والإحصائية والأرشفة والموظفين وبيع الأجهزة الإلكترونية.",
       ku: "کاری چیا تێك بۆ دانانی سیستەم و کۆمپیتەر سەر بە سێکتەری مۆبایل و تەکنەلۆژیای چیا گروپە و لە 2025/08/11 دامەزراوە و کارەکانی پێک دێت لە دانانی سیستەمی ژمێریاری و ئامار و ئەرشیف و کارمەند و فرۆشتنی هەموو ئامێرە ئەلیکتڕۆنیەکان."
     }
@@ -479,7 +479,7 @@ const PRINTING_TIMELINE = [
       ku: "نووسینگەی بلو پرێنتینگ"
     },
     desc: {
-      en: "Blue Printing For Professional Services. Founded On 19/10/2025 , Its Work Consists Of Photocopying , Printing , Document Scanning , Booking Appointments For Official Government Departments , Visa Appointments , And Fee Payments.",
+      en: "Blue Printing For Professional Services , Founded On 19/10/2025 Its Work Consists Of Photocopying , Printing , Document Scanning , Booking Appointments For Official Government Departments , Visa Appointments , And Fee Payments.",
       ar: "مكتب بلو طباعة للخدمات المهنية. تأسس في 2025/10/19 ، وتتكون أعماله من استنساخ وتصوير المستندات والطباعة وحجز المواعيد للدوائر الرسمية وحجز الفيزا ودفع الرسوم.",
       ku: "نووسینگەی بلو پرێنتینگ بۆ سێرڤسی پیشەیی لە 2025/10/19 دامەزراوە و کارەکانی پێک دێت لە فۆتۆکۆپی و تەسویر و چاپ و حجزکردنی موعدی فەرمانگە فەرمیەکان و موعدی ڤیزە و دانانی ڕسوماتەکان."
     }
@@ -502,8 +502,8 @@ const ONLINE_TRADING_TIMELINE = [
       ku: "کاری چیا تڕاڤل"
     },
     desc: {
-      en: "Chya Travel For Tickets And Visas Belongs To The Online Trading Sector Of Chya Group. Founded On 22/01/2020 , Its Work Consists Of Tourist Tickets And Visas , Booking Hotels , Cars , Tourist Places , Patient Guidance , And Language Translation.",
-      ar: "چيا تراڤل لحجز تذاكر الطيران والفيزا ، تابع لقطاع السفر والتجارة الإلكترونية في مجموعة چيا. تأسس في 2020/01/22 ، وتتكون أعماله من حجز تذاكر الطيران والفيزا والفنادق والسيارات وتوجيه المرضى والترجمة.",
+      en: "Chya Travel For Tickets And Visas Belongs To The Online Trading Sector Of Chya Group Founded On 22/01/2020 Its Work Consists Of Tourist Ticket And Visa , Booking Hotels , Rent Cars , Tourist Places , Patient Guidance , And Language Translation.",
+      ar: "چيا تراڤل لحجز تذاكر الطيران والفيزا ، تابع لقطاع السفر والتجارة الإلكترونية في مجموعة چيا تأسس في 2020/01/22 وتتكون أعماله من حجز تذكرة الطيران والفيزا والفنادق وتأجير السيارات وتوجيه المرضى والترجمة.",
       ku: "کاری چیا تڕاڤل بۆ تکت و ڤیزە سەر بە سێکتەری بازرگانی ئۆنڵاینی چیا گروپە و لە 2020/01/22 دامەزراوە و کارەکانی پێک دێت لە بڕینی تکتی گەشتیاری و ڤیزە و حجزی ئوتێل و ئوتومبیل و شوێنە گەشتیاریەکان و ڕێنماییکردنی نەخۆش و وەرگێڕانی زمان."
     }
   },
@@ -522,7 +522,7 @@ const ONLINE_TRADING_TIMELINE = [
       ku: "کاری چیا لوکژوری"
     },
     desc: {
-      en: "Chya Luxury For Jewelry And Accessories Belongs To The Online Trading Sector Of Chya Group. Founded On 20/01/2022 , Its Work Consists Of Trading Jewelry , Accessories , Watches , And Perfumes From Global Brands.",
+      en: "Chya Luxury For Jewelry And Accessories Belongs To The Online Trading Sector Of Chya Group , Founded On 20/01/2022 Its Work Consists Of Trading Jewelry , Accessories , Watches , And Perfumes From Global Brands.",
       ar: "چيا لوكزوري للمجوهرات والإكسسوارات ، تابع لقطاع التجارة الإلكترونية لمجموعة چيا. تأسست في 2022/01/20 ، وتتكون أعمالها من تجارة المجوهرات والإكسسوارات والساعات والعطور من الماركات العالمية.",
       ku: "کاری چیا لوکژوری : چیا لوکژوری بۆ گەوهەر و ئێکسسوارات سەر بە سێکتەری بازرگانی ئۆنڵاینی چیا گروپە و لە 2022/01/20 دامەزراوە و کارەکانی پێک دێت لە بازرگانی گەوهەر و ئێکسسوارات و کاتژمێر و بۆن ی بڕاندی جیهانی."
     }
@@ -557,7 +557,7 @@ export default function SectorDetails({ id }: { id: string }) {
   });
   const t = translations[locale];
   const st = sectorTranslations[locale];
-  
+
   const activeSection = useScrollSpy(['history', 'president', 'vision', 'branches', 'links'], 200);
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
@@ -584,7 +584,7 @@ export default function SectorDetails({ id }: { id: string }) {
   const currentBrandsInstagrams = SECTOR_BRANDS[id] || [];
   const currentHistory = st.history[id as keyof typeof st.history] || [featureItem.contentBody];
   const currentBranches = st.branches[id as keyof typeof st.branches] || [];
-  
+
   const getTimelineData = () => {
     switch (id) {
       case "money-exchange":
@@ -603,7 +603,7 @@ export default function SectorDetails({ id }: { id: string }) {
   };
 
   const timelineData = getTimelineData();
-  
+
   const currentSectorData = (st as any).sectorData?.[id];
   const currentPresidentQuote = currentSectorData?.presidentQuote || st.ui.presidentQuote;
   const currentVision = currentSectorData?.visionStatement || st.ui.visionStatement;
@@ -621,7 +621,7 @@ export default function SectorDetails({ id }: { id: string }) {
     <div className="min-h-screen bg-[#faf9f6]" dir={isRTL ? "rtl" : "ltr"}>
       {/* Hero Banner */}
       <div className="relative w-full h-[40vh] min-h-[300px] flex items-center justify-center overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 z-0 bg-cover bg-center"
           style={{ backgroundImage: `url('${bgImage}')` }}
         />
@@ -635,7 +635,7 @@ export default function SectorDetails({ id }: { id: string }) {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-24">
         <div className="mb-8">
-          <Link 
+          <Link
             href="/ourcompany"
             className={cn(
               "inline-flex items-center gap-2 text-sm font-semibold text-[#3a4f6a] hover:text-[#b91c1c] transition-colors",
@@ -648,7 +648,7 @@ export default function SectorDetails({ id }: { id: string }) {
         </div>
 
         <div className={cn("flex flex-col lg:flex-row gap-10 lg:gap-20", isRTL ? "lg:flex-row-reverse" : "")}>
-          
+
           {/* Sticky Sidebar Navigation - Hidden on Mobile/Tablet */}
           <aside className="hidden lg:block lg:w-72 flex-shrink-0">
             <div className="sticky top-32 bg-[#f4f7fa] rounded-[2rem] p-8 border border-[#0c1a2e]/5 shadow-[0_20px_50px_rgba(12,26,46,0.04)] transition-all duration-500">
@@ -658,13 +658,13 @@ export default function SectorDetails({ id }: { id: string }) {
               <nav className="flex flex-col gap-4">
                 {sidebarLinks.map((link, index) => (
                   <React.Fragment key={link.id}>
-                    <a 
+                    <a
                       href={`#${link.id}`}
                       onClick={(e) => scrollToSection(e, link.id)}
                       className={cn(
                         "flex items-center gap-3 text-sm transition-all duration-300",
                         activeSection === link.id
-                          ? "text-[#0c1a2e] font-bold" 
+                          ? "text-[#0c1a2e] font-bold"
                           : "text-[#3a4f6a] hover:text-[#0c1a2e]",
                         activeSection === link.id && (isRTL ? "-translate-x-2" : "translate-x-2")
                       )}
@@ -686,7 +686,7 @@ export default function SectorDetails({ id }: { id: string }) {
 
           {/* Main Content Area */}
           <main className={cn("flex-1 min-w-0 flex flex-col gap-16 md:gap-24 text-[#0c1a2e] pt-4", isRTL ? "text-right" : "text-left")}>
-            
+
             {/* History Section */}
             <section id="history" className="scroll-mt-32">
               <div className="flex items-center gap-3 mb-8">
@@ -695,16 +695,16 @@ export default function SectorDetails({ id }: { id: string }) {
                   {st.ui.history}
                 </h2>
               </div>
-              
+
               {timelineData.length > 0 ? (
                 <div className="space-y-12">
                   {/* Intro paragraphs */}
                   <div className="flex flex-col justify-center space-y-4">
                     {currentHistory.map((para, idx) => (
-                      <p 
-                        key={idx} 
+                      <p
+                        key={idx}
                         className={cn(
-                          "text-[16px] text-[#3a4f6a]", 
+                          "text-[16px] text-[#3a4f6a]",
                           isRTL ? "font-semibold leading-[1.8] text-[17px] text-right md:text-justify" : "leading-relaxed text-left"
                         )}
                       >
@@ -716,15 +716,15 @@ export default function SectorDetails({ id }: { id: string }) {
                   {/* Company Journey Milestones Timeline */}
                   <div className="pt-6">
                     <h3 className={cn("text-xl font-bold text-[#0c1a2e] mb-10 border-b border-[#0c1a2e]/5 pb-4", isRTL ? "font-extrabold" : "font-bold")}>
-                      {id === "general-trading" 
+                      {id === "general-trading"
                         ? (locale === "ku" ? "تۆڕی کۆمپانیاکانمان و قۆناغی گەشەکردنمان" : locale === "ar" ? "شبكة شركاتنا والنمو الزمني" : "Our Companies Network & Growth Timeline")
                         : (locale === "ku" ? "تۆڕی نووسینگەکانمان و قۆناغی گەشەکردنمان" : locale === "ar" ? "شبكة أعمالنا والنمو الزمني" : "Our Business Network & Growth Timeline")}
                     </h3>
-                    
+
                     <div className={cn(
                       "relative space-y-10 mt-4",
-                      isRTL 
-                        ? "border-r-[2px] pr-4 md:pr-10 mr-2 md:mr-6" 
+                      isRTL
+                        ? "border-r-[2px] pr-4 md:pr-10 mr-2 md:mr-6"
                         : "border-l-[2px] pl-4 md:pl-10 ml-2 md:ml-6",
                       "border-[#0c1a2e]/10"
                     )}>
@@ -732,7 +732,7 @@ export default function SectorDetails({ id }: { id: string }) {
                         const nameText = (item.name as any)[locale] || item.name.en;
                         const descText = (item.desc as any)[locale] || item.desc.en;
                         const dateText = (item.date as any)[locale] || item.date.en;
-                        
+
                         return (
                           <motion.div
                             key={item.id}
@@ -747,7 +747,7 @@ export default function SectorDetails({ id }: { id: string }) {
                               "absolute top-8 md:top-1/2 md:-translate-y-1/2 w-4 h-4 rounded-full bg-white border-[4px] border-[#b91c1c] shadow-[0_0_10px_rgba(185,28,28,0.3)] z-10 transition-transform duration-300 group-hover:scale-125",
                               isRTL ? "right-[-25px] md:right-[-49px]" : "left-[-25px] md:left-[-49px]"
                             )} />
-                            
+
                             {/* Left part: Year & Date */}
                             <div className={cn("flex flex-col shrink-0 min-w-[120px]", isRTL ? "text-right" : "text-left")}>
                               <span className="text-3xl font-black text-[#b91c1c] tracking-tight leading-none mb-1">
@@ -765,8 +765,8 @@ export default function SectorDetails({ id }: { id: string }) {
                               </h4>
                               <p className={cn(
                                 "text-[#3a4f6a]",
-                                isRTL 
-                                  ? "text-[16px] font-semibold leading-[1.8] text-right md:text-justify" 
+                                isRTL
+                                  ? "text-[16px] font-semibold leading-[1.8] text-right md:text-justify"
                                   : "text-[14px] leading-relaxed text-left"
                               )}>
                                 {renderFormattedText(descText)}
@@ -781,8 +781,8 @@ export default function SectorDetails({ id }: { id: string }) {
               ) : (
                 <div className="space-y-5">
                   {currentHistory.map((para, idx) => (
-                    <p 
-                      key={idx} 
+                    <p
+                      key={idx}
                       className={cn(
                         "text-[16px] text-[#3a4f6a]",
                         isRTL ? "font-semibold leading-[1.8] text-[17px] text-right md:text-justify" : "leading-relaxed text-left"
@@ -851,7 +851,7 @@ export default function SectorDetails({ id }: { id: string }) {
                 <Iconify icon="solar:map-point-bold-duotone" width={32} className="text-[#b91c1c]" />
                 <h2 className="text-3xl font-bold">{st.ui.branches}</h2>
               </div>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {currentBranches.map((branch: any, idx: number) => (
                   <div key={idx} className="bg-white p-6 rounded-2xl border border-[#0c1a2e]/5 shadow-sm group hover:border-[#b91c1c]/20 transition-colors">
@@ -883,7 +883,7 @@ export default function SectorDetails({ id }: { id: string }) {
                 <Iconify icon="solar:link-bold-duotone" width={32} className="text-[#b91c1c]" />
                 <h2 className="text-3xl font-bold">{st.ui.links}</h2>
               </div>
-              
+
               {(() => {
                 const linkCategories = [
                   {
@@ -940,7 +940,7 @@ export default function SectorDetails({ id }: { id: string }) {
                       return (
                         <div key={category.id} className="flex flex-col gap-4">
                           {/* Category Header Accordion Toggle Button */}
-                          <button 
+                          <button
                             onClick={() => setExpandedCategories(prev => ({ ...prev, [category.id]: !prev[category.id] }))}
                             className="w-full flex items-center justify-between p-4 rounded-2xl bg-[#faf9f6]/60 border border-[#0c1a2e]/5 hover:bg-[#faf9f6] hover:border-[#b91c1c]/10 transition-all duration-300 text-left rtl:text-right group"
                           >
@@ -955,11 +955,11 @@ export default function SectorDetails({ id }: { id: string }) {
                                 </span>
                               </div>
                             </div>
-                            
+
                             <div className="w-8 h-8 rounded-lg bg-white border border-[#0c1a2e]/5 text-[#3a4f6a] group-hover:text-[#b91c1c] flex items-center justify-center transition-all duration-300 shadow-sm">
-                              <Iconify 
-                                icon="solar:alt-arrow-down-linear" 
-                                width={18} 
+                              <Iconify
+                                icon="solar:alt-arrow-down-linear"
+                                width={18}
                                 className={cn("transition-transform duration-300", isExpanded ? "rotate-180" : "")}
                               />
                             </div>
@@ -970,7 +970,7 @@ export default function SectorDetails({ id }: { id: string }) {
                             <div className="flex flex-col gap-3 pl-3 rtl:pl-0 rtl:pr-3 border-l-2 rtl:border-l-0 rtl:border-r-2 border-dashed border-[#b91c1c]/15">
                               {category.items.map((item, idx) => {
                                 const LinkComponent = item.isInternal ? Link : "a";
-                                const linkProps = item.isInternal 
+                                const linkProps = item.isInternal
                                   ? { href: item.href }
                                   : { href: item.href, target: item.isExternal ? "_blank" : undefined, rel: item.isExternal ? "noopener noreferrer" : undefined };
 
@@ -989,12 +989,12 @@ export default function SectorDetails({ id }: { id: string }) {
                                         <span className="font-semibold text-sm text-[#3a4f6a] break-all leading-normal">{item.value}</span>
                                       </div>
                                     </div>
-                                    
+
                                     <div className="w-10 h-10 rounded-xl bg-[#faf9f6] border border-[#0c1a2e]/5 text-[#b91c1c] group-hover:bg-[#b91c1c] group-hover:text-white flex items-center justify-center flex-shrink-0 transition-all duration-300 shadow-sm self-end sm:self-auto">
-                                      <Iconify 
-                                        icon={isRTL ? "solar:arrow-left-linear" : "solar:arrow-right-linear"} 
-                                        width={18} 
-                                        className="transition-transform group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5" 
+                                      <Iconify
+                                        icon={isRTL ? "solar:arrow-left-linear" : "solar:arrow-right-linear"}
+                                        width={18}
+                                        className="transition-transform group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5"
                                       />
                                     </div>
                                   </LinkComponent>

@@ -85,8 +85,8 @@ const BRAND_LOGOS: Record<string, string> = {
   'exchange': '/brands/chyaexchnage.png',
   'إكسجينج': '/brands/chyaexchnage.png',
   'ئێکستێنج': '/brands/chyaexchnage.png',
-  // Money exchange standalone "Chya" = chyaexchange
-  // We handle this below with index logic; fallback to chyaexchange for 'chya' in money-exchange
+  // Money exchange standalone "Chya" = chya
+  // We handle this below with index logic; fallback to chya for 'chya' in money-exchange
   'phone': '/brands/chya phone-1.png',
   'فۆن': '/brands/chya phone-1.png',
   'فون': '/brands/chya phone-1.png',
@@ -165,8 +165,8 @@ const BRAND_ROUTES: Record<string, string> = {
   'دیبگەی': '/manfazdibaga',
   'ديکبە': '/manfazdibaga',
   'دیبەگە': '/manfazdibaga',
-  'hangaw': '/hangawexchange',
-  'هەنگاو': '/hangawexchange',
+  'hangaw': '/hangaw',
+  'هەنگاو': '/hangaw',
   'gold': '/chyagold',
   'غولد': '/chyagold',
   'گۆڵد': '/chyagold',
@@ -179,11 +179,11 @@ const BRAND_ROUTES: Record<string, string> = {
   'بەرزى': '/barzychya',
   'بەرزی': '/barzychya',
   'بـەرزى': '/barzychya',
-  'exchange': '/chyaexchange',
-  'إكسجينج': '/chyaexchange',
-  'ئێکستێنج': '/chyaexchange',
-  'نووسینگەی چیا': '/chyaexchange',
-  'مكتب جيا': '/chyaexchange',
+  'exchange': '/chya',
+  'إكسجينج': '/chya',
+  'ئێکستێنج': '/chya',
+  'نووسینگەی چیا': '/chya',
+  'مكتب جيا': '/chya',
   'phone': '/chyaphone',
   'فۆن': '/chyaphone',
   'فون': '/chyaphone',
@@ -222,7 +222,7 @@ function getBrandRoute(item: string, sectorId: string): string {
     if (lower.includes(key.toLowerCase())) return route;
   }
   if (sectorId === 'money-exchange' && (lower === 'chya' || item === 'چیا' || item === 'چيا')) {
-    return '/chyaexchange';
+    return '/chya';
   }
   return '/';
 }

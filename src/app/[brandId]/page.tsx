@@ -123,6 +123,9 @@ const QRCodeSVG = ({ value, logo }: { value: string; logo: string }) => {
   const isCenterMask = (r: number, c: number) => {
     const rowDiff = Math.abs(r - center);
     const colDiff = Math.abs(c - center);
+    if (logo.includes("Manfaz") || logo.includes("Amazon") || logo.includes("travel") || logo.includes("luxary") || logo.includes("luxury")) {
+      return rowDiff <= 3 && colDiff <= 3;
+    }
     return rowDiff <= 2 && colDiff <= 4;
   };
 
@@ -167,13 +170,23 @@ const QRCodeSVG = ({ value, logo }: { value: string; logo: string }) => {
         </filter>
 
         <clipPath id={clipId}>
-          <rect
-            x={boardSize / 2 - 4.3}
-            y={boardSize / 2 - 2.3}
-            width={8.6}
-            height={4.6}
-            rx={0.8}
-          />
+          {logo.includes("Manfaz") || logo.includes("Amazon") || logo.includes("travel") || logo.includes("luxary") || logo.includes("luxury") ? (
+            <rect
+              x={boardSize / 2 - 3.2}
+              y={boardSize / 2 - 3.2}
+              width={6.4}
+              height={6.4}
+              rx={1.8}
+            />
+          ) : (
+            <rect
+              x={boardSize / 2 - 4.3}
+              y={boardSize / 2 - 2.3}
+              width={8.6}
+              height={4.6}
+              rx={0.8}
+            />
+          )}
         </clipPath>
       </defs>
 
@@ -186,26 +199,87 @@ const QRCodeSVG = ({ value, logo }: { value: string; logo: string }) => {
       {dots}
 
       <g filter="url(#brand-qr-shadow)">
-        <rect
-          x={boardSize / 2 - 4.5}
-          y={boardSize / 2 - 2.5}
-          width={9}
-          height={5}
-          rx={1}
-          fill="white"
-          stroke="#0c1a2e"
-          strokeWidth={0.12}
-          strokeOpacity={0.1}
-        />
-        <g clipPath={`url(#${clipId})`}>
-          <image
-            href={logo}
-            x={boardSize / 2 - 4.1}
-            y={boardSize / 2 - 2.1}
-            width={8.2}
-            height={4.2}
-            preserveAspectRatio="xMidYMid meet"
+        {logo.includes("Manfaz") ? (
+          <rect
+            x={boardSize / 2 - 3.5}
+            y={boardSize / 2 - 3.5}
+            width={7}
+            height={7}
+            rx={2}
+            fill="#fcd116"
           />
+        ) : (logo.includes("luxary") || logo.includes("luxury")) ? (
+          <rect
+            x={boardSize / 2 - 3.5}
+            y={boardSize / 2 - 3.5}
+            width={7}
+            height={7}
+            rx={2}
+            fill="#c9a227"
+          />
+        ) : (logo.includes("Amazon") || logo.includes("travel")) ? (
+          <rect
+            x={boardSize / 2 - 3.5}
+            y={boardSize / 2 - 3.5}
+            width={7}
+            height={7}
+            rx={2}
+            fill="white"
+            stroke="#0c1a2e"
+            strokeWidth={0.12}
+            strokeOpacity={0.1}
+          />
+        ) : (
+          <rect
+            x={boardSize / 2 - 4.5}
+            y={boardSize / 2 - 2.5}
+            width={9}
+            height={5}
+            rx={1}
+            fill="white"
+            stroke="#0c1a2e"
+            strokeWidth={0.12}
+            strokeOpacity={0.1}
+          />
+        )}
+        <g clipPath={`url(#${clipId})`}>
+          {logo.includes("Manfaz") || logo.includes("travel") ? (
+            <image
+              href={logo}
+              x={boardSize / 2 - 3.2}
+              y={boardSize / 2 - 3.2}
+              width={6.4}
+              height={6.4}
+              preserveAspectRatio="xMidYMid meet"
+            />
+          ) : logo.includes("luxary") || logo.includes("luxury") ? (
+            <image
+              href={logo}
+              x={boardSize / 2 - 3.5}
+              y={boardSize / 2 - 3.5}
+              width={7}
+              height={7}
+              preserveAspectRatio="xMidYMid slice"
+            />
+          ) : logo.includes("Amazon") ? (
+            <image
+              href={logo}
+              x={boardSize / 2 - 3.2}
+              y={boardSize / 2 - 3.2}
+              width={6.4}
+              height={6.4}
+              preserveAspectRatio="xMidYMid meet"
+            />
+          ) : (
+            <image
+              href={logo}
+              x={boardSize / 2 - 4.1}
+              y={boardSize / 2 - 2.1}
+              width={8.2}
+              height={4.2}
+              preserveAspectRatio="xMidYMid meet"
+            />
+          )}
         </g>
       </g>
     </svg>
@@ -251,31 +325,39 @@ export default function BrandPage() {
   return (
     <div className="relative min-h-screen w-full bg-[#faf9f6]" dir={isRTL ? "rtl" : "ltr"}>
       <Header />
-      
+
       <main className="relative z-10 pt-24 pb-32">
         {/* Hero Section */}
         <section className="relative w-full h-[55vh] min-h-[420px] flex items-center justify-center overflow-hidden mb-16">
-          <div 
-            className="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-1000 scale-105"
-            style={{ backgroundImage: `url('${brand.heroImage}')` }}
+          <div
+            className="absolute inset-0 z-0 bg-cover transition-transform duration-1000 scale-105"
+            style={{
+              backgroundImage: `url('${brand.heroImage}')`,
+              backgroundPosition: brandId === "chyaluxury" ? "center 40%" : "center",
+            }}
           />
           <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#0c1a2e] via-[#0c1a2e]/70 to-[#0c1a2e]/45" />
-          
+
           <div className="relative z-20 text-center px-6 max-w-4xl mx-auto flex flex-col items-center">
             {/* Brand Logo Circle */}
-            <div className="w-28 h-28 bg-white rounded-[2rem] p-4 shadow-xl mb-6 flex items-center justify-center border border-white/10 hover:scale-105 transition-transform duration-500">
-              <Image 
-                src={brand.logo} 
-                alt={brand.name[locale as "en" | "ar" | "ku"]} 
-                width={120} 
-                height={70} 
-                className="object-contain"
-                style={{ transform: `scale(${brand.logoScale})` }}
+            <div className={cn(
+              "w-28 h-28 bg-white rounded-[2rem] shadow-xl mb-6 flex items-center justify-center border border-white/10 hover:scale-105 transition-transform duration-500 overflow-hidden",
+              brandId === "manfazdibaga" ? "p-0" : "p-4"
+            )}>
+              <Image
+                src={brand.logo}
+                alt={brand.name[locale as "en" | "ar" | "ku"]}
+                width={120}
+                height={120}
+                className={cn(
+                  brandId === "manfazdibaga" ? "w-full h-full object-cover" : "object-contain"
+                )}
+                style={{ transform: brandId === "manfazdibaga" ? undefined : `scale(${brand.logoScale})` }}
               />
             </div>
 
             {/* Back to sector */}
-            <Link 
+            <Link
               href={`/ourcompany/${brand.sectorId}`}
               className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-xs font-semibold text-white/80 hover:text-white hover:bg-white/20 transition-all mb-4"
             >
@@ -295,10 +377,10 @@ export default function BrandPage() {
         {/* Content Container */}
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-            
+
             {/* Left/Main Content Column */}
             <div className="lg:col-span-8 flex flex-col gap-16">
-              
+
               {/* About description */}
               <section className="bg-white rounded-[2rem] p-8 md:p-12 shadow-[0_8px_30px_rgb(12,26,46,0.02)] border border-[#0c1a2e]/5">
                 <h2 className="text-2xl md:text-3xl font-extrabold text-[#0c1a2e] mb-6 border-b border-[#0c1a2e]/5 pb-4">
@@ -320,8 +402,8 @@ export default function BrandPage() {
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {brand.services[locale as "en" | "ar" | "ku"].map((service, idx) => (
-                    <div 
-                      key={idx} 
+                    <div
+                      key={idx}
                       className="flex gap-4 p-5 rounded-2xl bg-[#faf9f6] border border-[#0c1a2e]/[0.02] hover:border-[#b91c1c]/10 hover:bg-white transition-all duration-300 group"
                     >
                       <div className="w-10 h-10 rounded-xl bg-white shadow-sm flex items-center justify-center flex-shrink-0 text-[#b91c1c] transition-colors group-hover:bg-[#b91c1c] group-hover:text-white">
@@ -377,17 +459,37 @@ export default function BrandPage() {
 
             {/* Right Sidebar Column (Contact Info & Instagram QR) */}
             <div className="lg:col-span-4 flex flex-col gap-10 sticky top-28">
-              
+
               {/* Instagram QR Portal Card */}
               <div className="bg-white rounded-[2rem] p-8 shadow-[0_8px_30px_rgb(12,26,46,0.04)] border border-[#0c1a2e]/[0.02] flex flex-col items-center text-center">
-                <div className="w-20 h-12 mb-4 flex items-center justify-center">
-                  <Image 
-                    src={brand.logo} 
-                    alt={brand.name[locale as "en" | "ar" | "ku"]} 
-                    width={100} 
-                    height={50} 
-                    className="w-full h-full object-contain"
-                    style={{ transform: `scale(${brand.logoScale})` }}
+                <div className={cn(
+                  "mb-4 flex items-center justify-center overflow-hidden",
+                  brandId === "manfazdibaga"
+                    ? "w-20 h-20 rounded-[1.4rem] p-0 bg-[#fcd116]"
+                    : (brandId === "chyaamazon" || brandId === "chyatravel")
+                    ? "w-20 h-20 bg-white rounded-2xl"
+                    : brandId === "chyaluxury"
+                    ? "w-20 h-20 bg-[#c9a227] rounded-2xl"
+                    : "w-24 h-14 bg-white rounded-lg"
+                )}>
+                  <Image
+                    src={brand.logo}
+                    alt={brand.name[locale as "en" | "ar" | "ku"]}
+                    width={120}
+                    height={120}
+                    className={cn(
+                      "w-full h-full",
+                      brandId === "manfazdibaga" ? "object-cover" : "object-contain"
+                    )}
+                    style={{
+                      transform: brandId === "manfazdibaga" 
+                        ? "scale(1.25)" 
+                        : (brandId === "chyaluxury")
+                        ? undefined
+                        : brand.logoScale 
+                        ? `scale(${brand.logoScale})` 
+                        : undefined
+                    }}
                   />
                 </div>
                 <h3 className="text-[14px] font-bold text-[#0c1a2e] mb-1 tracking-wide uppercase">
@@ -399,9 +501,9 @@ export default function BrandPage() {
                 <div className="w-40 h-40 mb-6">
                   <QRCodeSVG value={brand.qrLink} logo={brand.logo} />
                 </div>
-                <a 
-                  href={brand.qrLink} 
-                  target="_blank" 
+                <a
+                  href={brand.qrLink}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className={cn(
                     "flex items-center gap-2 font-bold text-[#0c1a2e] hover:text-[#b91c1c] uppercase mt-auto pt-2 transition-colors",
@@ -418,11 +520,11 @@ export default function BrandPage() {
                 <div className="absolute right-0 bottom-0 opacity-[0.03] pointer-events-none translate-x-12 translate-y-12">
                   <Iconify icon="solar:letter-bold" width={240} />
                 </div>
-                
+
                 <h3 className="text-xl font-bold border-b border-white/10 pb-3">
                   {t.contactUs}
                 </h3>
-                
+
                 <div className="flex flex-col gap-5">
                   <a href={`mailto:${brand.email}`} className="flex items-center gap-4 group">
                     <div className="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center transition-colors group-hover:bg-white/25">

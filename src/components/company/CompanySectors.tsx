@@ -69,25 +69,25 @@ const BRANDS_15 = [
     style: { transform: "scale(2.45)" },
   },
   {
-    id: "hangawexchange",
+    id: "hangaw",
     name: {
       en: "Hangaw Exchange",
       ar: "مکتب هەنگاو",
       ku: "نووسینگەی هەنگاو",
     },
     logo: "/brands/hangawexchange.png",
-    route: "/hangawexchange",
+    route: "/hangaw",
     style: { transform: "scale(1.25)" },
   },
   {
-    id: "chyaexchange",
+    id: "chya",
     name: {
       en: "Chya Exchange",
       ar: "مكتب جيا",
       ku: "نووسینگەی چیا",
     },
     logo: "/brands/chyaexchnage.png",
-    route: "/chyaexchange",
+    route: "/chya",
     style: { transform: "scale(1.35)" },
   },
   {
@@ -308,7 +308,7 @@ export default function CompanySectors() {
                 className="bg-white rounded-2xl h-[110px] w-full flex items-center justify-center p-4 shadow-[0_4px_20px_rgba(12,26,46,0.02)] border border-[#0c1a2e]/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(12,26,46,0.06)] hover:border-[#2563eb]/20 group relative overflow-hidden"
               >
                 {/* Logo wrapper */}
-                <div 
+                <div
                   className="w-full h-full flex items-center justify-center relative transition-all duration-300"
                 >
                   <img

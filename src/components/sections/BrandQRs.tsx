@@ -330,6 +330,9 @@ const QRCodeSVG = ({ value, logo, isParent }: { value: string; logo: string; isP
     const isCenterMask = (r: number, c: number) => {
         const rowDiff = Math.abs(r - center);
         const colDiff = Math.abs(c - center);
+        if (logo.includes("Manfaz") || logo.includes("Amazon")) {
+            return rowDiff <= 3 && colDiff <= 3;
+        }
         return rowDiff <= 2 && colDiff <= 4; // Clears exactly 5 rows and 9 columns in the center
     };
 
@@ -378,13 +381,23 @@ const QRCodeSVG = ({ value, logo, isParent }: { value: string; logo: string; isP
                 </filter>
 
                 <clipPath id={clipId}>
-                    <rect
-                        x={boardSize / 2 - 4.3}
-                        y={boardSize / 2 - 2.3}
-                        width={8.6}
-                        height={4.6}
-                        rx={0.8}
-                    />
+                    {logo.includes("Manfaz") || logo.includes("Amazon") || logo.includes("travel") || logo.includes("luxary") || logo.includes("luxury") ? (
+                        <rect
+                            x={boardSize / 2 - 3.2}
+                            y={boardSize / 2 - 3.2}
+                            width={6.4}
+                            height={6.4}
+                            rx={1.8}
+                        />
+                    ) : (
+                        <rect
+                            x={boardSize / 2 - 4.3}
+                            y={boardSize / 2 - 2.3}
+                            width={8.6}
+                            height={4.6}
+                            rx={0.8}
+                        />
+                    )}
                 </clipPath>
             </defs>
 
@@ -401,17 +414,49 @@ const QRCodeSVG = ({ value, logo, isParent }: { value: string; logo: string; isP
 
             {/* Floating central landscape logo card */}
             <g filter="url(#qr-shadow)">
-                <rect
-                    x={boardSize / 2 - 4.5}
-                    y={boardSize / 2 - 2.5}
-                    width={9}
-                    height={5}
-                    rx={1}
-                    fill="white"
-                    stroke="#0c1a2e"
-                    strokeWidth={0.12}
-                    strokeOpacity={0.1}
-                />
+                {logo.includes("Manfaz") ? (
+                    <rect
+                        x={boardSize / 2 - 3.5}
+                        y={boardSize / 2 - 3.5}
+                        width={7}
+                        height={7}
+                        rx={2}
+                        fill="#fcd116"
+                    />
+                ) : (logo.includes("luxary") || logo.includes("luxury")) ? (
+                    <rect
+                        x={boardSize / 2 - 3.5}
+                        y={boardSize / 2 - 3.5}
+                        width={7}
+                        height={7}
+                        rx={2}
+                        fill="#c9a227"
+                    />
+                ) : (logo.includes("Amazon") || logo.includes("travel")) ? (
+                    <rect
+                        x={boardSize / 2 - 3.5}
+                        y={boardSize / 2 - 3.5}
+                        width={7}
+                        height={7}
+                        rx={2}
+                        fill="white"
+                        stroke="#0c1a2e"
+                        strokeWidth={0.12}
+                        strokeOpacity={0.1}
+                    />
+                ) : (
+                    <rect
+                        x={boardSize / 2 - 4.5}
+                        y={boardSize / 2 - 2.5}
+                        width={9}
+                        height={5}
+                        rx={1}
+                        fill="white"
+                        stroke="#0c1a2e"
+                        strokeWidth={0.12}
+                        strokeOpacity={0.1}
+                    />
+                )}
                 {isParent ? (
                     <g>
                         {/* Mountain Icon on the left */}
@@ -430,7 +475,7 @@ const QRCodeSVG = ({ value, logo, isParent }: { value: string; logo: string; isP
                             fill="#e84040"
                             fontSize="1.5"
                             fontWeight="900"
-                            style={{ 
+                            style={{
                                 fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
                                 letterSpacing: '0.05em'
                             }}
@@ -443,7 +488,7 @@ const QRCodeSVG = ({ value, logo, isParent }: { value: string; logo: string; isP
                             fill="#0a2a56"
                             fontSize="1.15"
                             fontWeight="800"
-                            style={{ 
+                            style={{
                                 fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
                                 letterSpacing: '0.12em'
                             }}
@@ -453,14 +498,34 @@ const QRCodeSVG = ({ value, logo, isParent }: { value: string; logo: string; isP
                     </g>
                 ) : (
                     <g clipPath={`url(#${clipId})`}>
-                        <image
-                            href={logo}
-                            x={boardSize / 2 - 4.1}
-                            y={boardSize / 2 - 2.1}
-                            width={8.2}
-                            height={4.2}
-                            preserveAspectRatio="xMidYMid meet"
-                        />
+                        {logo.includes("Manfaz") || logo.includes("Amazon") || logo.includes("travel") ? (
+                            <image
+                                href={logo}
+                                x={boardSize / 2 - 3.2}
+                                y={boardSize / 2 - 3.2}
+                                width={6.4}
+                                height={6.4}
+                                preserveAspectRatio="xMidYMid meet"
+                            />
+                        ) : logo.includes("luxary") || logo.includes("luxury") ? (
+                            <image
+                                href={logo}
+                                x={boardSize / 2 - 3.5}
+                                y={boardSize / 2 - 3.5}
+                                width={7}
+                                height={7}
+                                preserveAspectRatio="xMidYMid slice"
+                            />
+                        ) : (
+                            <image
+                                href={logo}
+                                x={boardSize / 2 - 4.1}
+                                y={boardSize / 2 - 2.1}
+                                width={8.2}
+                                height={4.2}
+                                preserveAspectRatio="xMidYMid meet"
+                            />
+                        )}
                     </g>
                 )}
             </g>
@@ -473,9 +538,9 @@ function Counter({ value, isRTL, inView }: { value: number | string, isRTL: bool
 
     // Helper to convert Eastern Arabic digits (٠-٩) to Western Arabic (0-9)
     const convertToEn = (str: string) => str.replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d).toString());
-    
-    const numericValue = typeof value === 'string' 
-        ? parseInt(convertToEn(value).replace(/[^0-9]/g, '')) 
+
+    const numericValue = typeof value === 'string'
+        ? parseInt(convertToEn(value).replace(/[^0-9]/g, ''))
         : value;
 
     React.useEffect(() => {
@@ -586,8 +651,8 @@ export default function BrandQRs() {
                         <div className="flex items-center gap-2.5 mb-5 justify-center flex-shrink-0" dir="ltr">
                             <img src="/logo.svg" alt="Chya Group Logo" className="w-10 h-10 object-contain" />
                             <div className="flex flex-col text-left leading-[1.0] select-none items-start">
-                              <span className="text-[17px] font-black tracking-[0.05em] uppercase text-[#e84040]">CHYA</span>
-                              <span className="text-[14px] font-bold tracking-[0.12em] uppercase text-[#0a2a56] mt-0.5">GROUP</span>
+                                <span className="text-[17px] font-black tracking-[0.05em] uppercase text-[#e84040]">CHYA</span>
+                                <span className="text-[14px] font-bold tracking-[0.12em] uppercase text-[#0a2a56] mt-0.5">GROUP</span>
                             </div>
                         </div>
                         <h3 className="text-[15px] font-bold text-[#0c1a2e] mb-1 tracking-wide uppercase">
@@ -616,7 +681,7 @@ export default function BrandQRs() {
                 </div>
 
                 {/* Bottom Stats Banner */}
-                <div 
+                <div
                     ref={bannerRef}
                     className="bg-white rounded-[2rem] p-6 md:p-10 shadow-[0_8px_40px_rgb(12,26,46,0.06)] border border-[#0c1a2e]/[0.02] flex flex-col lg:flex-row items-center justify-between gap-10"
                 >

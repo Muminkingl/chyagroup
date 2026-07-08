@@ -79,7 +79,8 @@ export const sectorTranslations = {
         { city: "Erbil - Lutkay Chya Exchange", address: "Ankawa Road , Erbil" },
         { city: "Erbil - Khaki Sarwar Co.", address: "Pirmam Road , Inside BM OIL 2 Petrol Station , Erbil" },
         { city: "Soran - Barzy Chya Exchange", address: "City Center , Opposite Langa Bazar , Soran" },
-        { city: "Silopi - Chya Gold Exchange", address: "Silopi District , Şırnak Street , Türkiye" }
+        { city: "Silopi - Chya Gold Exchange", address: "Silopi District , Şırnak Street , Türkiye" },
+        { city: "Erbil - Manfaz Dibaga", address: "Two-Way Runaki Street , Erbil" }
       ],
       "mobile-tech": [
         { city: "Erbil - Chya Tech", address: "ONLINE" },
@@ -174,7 +175,8 @@ export const sectorTranslations = {
         { city: "هەولێر - نوسینگەی لوتکەی چیا", address: "گەڕەکی عەنکاوە ، هەولێر" },
         { city: "هەولێر - کۆمپانیای خاکی سەروەر", address: "ڕێگای پیرمام ، ناو بەنزینخانەی BM OIL 2 ، هەولێر" },
         { city: "سۆران - نوسینگەی بەرزی چیا", address: "ناوەندی شار ، بەرامبەر بازاڕی لەنگە ، سۆران" },
-        { city: "سیلۆپی - نووسینگەی چیای زێڕین", address: "سیلۆپی ، شەقامی شرناخ ، تورکیا" }
+        { city: "سیلۆپی - نووسینگەی چیای زێڕین", address: "سیلۆپی ، شەقامی شرناخ ، تورکیا" },
+        { city: "هەولێر - منفذ ديبكة ى هەنگاو", address: "شەقامی ڕووناکی دووساید ، هەولێر" }
       ],
       "mobile-tech": [
         { city: "هەولێر - چیا تێک", address: "ONLINE" },
@@ -269,7 +271,8 @@ export const sectorTranslations = {
         { city: "أربيل - مكتب لوتكي چيا", address: "حي عنكاوا ، أربيل" },
         { city: "أربيل - شركة خاكي سرور", address: "طريق بيرمام ، داخل محطة وقود BM OIL 2 ، أربيل" },
         { city: "سوران - مكتب برزي چيا", address: "وسط المدينة ، مقابل بازار لانكة ، سوران" },
-        { city: "سيلوبي - مكتب چيا الذهبي", address: "سيلوبي ، شارع شرناق ، تركيا" }
+        { city: "سيلوبي - مكتب چيا الذهبي", address: "سيلوبي ، شارع شرناق ، تركيا" },
+        { city: "أربيل - منفذ ديبكة ی هەنگاو", address: "شارع روناكي دو سايد ، أربيل" }
       ],
       "mobile-tech": [
         { city: "أربيل - چيا تيك", address: "ONLINE" },

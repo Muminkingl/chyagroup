@@ -101,10 +101,10 @@ export default function HistorySection({ id }: { id: string }) {
                       item.logos[0].includes('chyaexchnage')
                         ? { transform: 'scale(1.05)' }
                         : item.logos[0].includes('kivaluxary')
-                        ? { transform: 'scale(0.85)' }
-                        : item.logos[0].includes('Dibaga')
-                        ? { transform: 'scale(0.75)' }
-                        : undefined
+                          ? { transform: 'scale(0.85)' }
+                          : item.logos[0].includes('Dibaga')
+                            ? { transform: 'scale(0.75)' }
+                            : undefined
                     }
                     className="w-full h-full object-contain transition-transform duration-500 hover:scale-110"
                   />

@@ -344,18 +344,18 @@ export const translations = {
       },
       history: {
         title: "Our History",
-        summary: "Chya Group: Established In 2019 , Providing 7 Years Of Service In Erbil Across 5 Different Sectors ( General Trading , Currency Exchange And Financial Services , Mobile And Technology , Printing And Photocopying , Online Trading ) . Our Team Consists Of 46 Members , And We Own ( 3 Company , 5 Currency Exchange Office , 1 Printing And Photocopying Office , 1 Salary Disbursement Outlet , 1 Project , 1 Store , 3 Online Business ) , And Serve As Agents For 16 Banks And Companies.",
+        summary: "Chya Group: Established In 2019 , Providing 7 Years Of Service In Erbil Across 5 Different Sectors ( General Trading , Currency Exchange & Financial Services , Mobile & Technology , Printing & Photocopy , Online Trading ) Our Team Consists Of 46 Members , And We Own ( 3 Company , 5 Currency Exchange , 1 Printing & Photocopy Office , 1 Salary Disbursement Place , 1 Project , 1 Store , 3 Online Business ) , And Serve As Agents For 16 Banks & Companies.",
         explore: "Click to explore",
         timeline: {
           foundation: {
             title: "Lamat Al Marjan Co.",
-            desc: "Lamat Al Marjan Co. For General Trading Is The First Company In The Chya Group General Trading Sector. Founded On 30/11/2019 , It Specializes In Construction Materials Such As ( Wood , MDF , Furniture , Steel , Fugue , Cement , And Concrete ) .",
-            content: "Lamat Al Marjan Co. For General Trading Is The First Company In The Chya Group General Trading Sector. Founded On 30/11/2019 , It Specializes In Construction Materials Such As ( Wood , MDF , Furniture , Steel , Fugue , Cement , And Concrete ) ."
+            desc: "Lamat Al Marjan Co. For General Trading Is The First Company In The Chya Group General Trading Sector , Founded On 30/11/2019 It Specializes In Construction Materials Such As ( Wood , MDF , Furniture , Steel , Fugue , Cement , And Concrete ) .",
+            content: "Lamat Al Marjan Co. For General Trading Is The First Company In The Chya Group General Trading Sector , Founded On 30/11/2019 It Specializes In Construction Materials Such As ( Wood , MDF , Furniture , Steel , Fugue , Cement , And Concrete ) ."
           },
           travel: {
             title: "Chya Travel",
-            desc: "Chya Travel For Tickets And Visas Belongs To The Online Trading Sector Of Chya Group. Founded On 22/01/2020 , Its Work Consists Of Tourist Tickets And Visas , Booking Hotels , Cars , Tourist Places , Patient Guidance , And Language Translation .",
-            content: "Chya Travel For Tickets And Visas Belongs To The Online Trading Sector Of Chya Group. Founded On 22/01/2020 , Its Work Consists Of Tourist Tickets And Visas , Booking Hotels , Cars , Tourist Places , Patient Guidance , And Language Translation ."
+            desc: "Chya Travel For Tickets And Visas Belongs To The Online Trading Sector Of Chya Group Founded On 22/01/2020 Its Work Consists Of Tourist Ticket And Visa , Booking Hotels , Rent Cars , Tourist Places , Patient Guidance , And Language Translation .",
+            content: "Chya Travel For Tickets And Visas Belongs To The Online Trading Sector Of Chya Group Founded On 22/01/2020 Its Work Consists Of Tourist Ticket And Visa , Booking Hotels , Rent Cars , Tourist Places , Patient Guidance , And Language Translation ."
           },
           exchange: {
             title: "Chya Exchange",
@@ -364,8 +364,8 @@ export const translations = {
           },
           luxury: {
             title: "Chya Luxury",
-            desc: "Chya Luxury For Jewelry And Accessories Belongs To The Online Trading Sector Of Chya Group. Founded On 20/01/2022 , Its Work Consists Of Trading Jewelry , Accessories , Watches , And Perfumes From Global Brands .",
-            content: "Chya Luxury For Jewelry And Accessories Belongs To The Online Trading Sector Of Chya Group. Founded On 20/01/2022 , Its Work Consists Of Trading Jewelry , Accessories , Watches , And Perfumes From Global Brands ."
+            desc: "Chya Luxury For Jewelry And Accessories Belongs To The Online Trading Sector Of Chya Group , Founded On 20/01/2022 Its Work Consists Of Trading Jewelry , Accessories , Watches , And Perfumes From Global Brands .",
+            content: "Chya Luxury For Jewelry And Accessories Belongs To The Online Trading Sector Of Chya Group , Founded On 20/01/2022 Its Work Consists Of Trading Jewelry , Accessories , Watches , And Perfumes From Global Brands ."
           },
           gold: {
             title: "Chya Gold Exchange",
@@ -399,18 +399,18 @@ export const translations = {
           },
           tech: {
             title: "Chya Tech",
-            desc: "Chya Tech For Systems And Computers Belongs To The Online Trading Sector Of Chya Group. Founded On 11/08/2025 , Its Work Consists Of Installing Accounting , Statistical , Archiving , And Personnel Systems , And Selling All Electronic Devices .",
-            content: "Chya Tech For Systems And Computers Belongs To The Online Trading Sector Of Chya Group. Founded On 11/08/2025 , Its Work Consists Of Installing Accounting , Statistical , Archiving , And Personnel Systems , And Selling All Electronic Devices ."
+            desc: "Chya Tech For Systems And Computers Belongs To The Online Trading Sector Of Chya Group , Founded On 11/08/2025 Its Work Consists Of Installing Accounting , Statistical , Archiving , And Personnel Systems , And Selling All Electronic Devices .",
+            content: "Chya Tech For Systems And Computers Belongs To The Online Trading Sector Of Chya Group , Founded On 11/08/2025 Its Work Consists Of Installing Accounting , Statistical , Archiving , And Personnel Systems , And Selling All Electronic Devices ."
           },
           blueprint: {
             title: "Blue Printing Office",
-            desc: "Blue Printing Office For Printing And Photocopying Belongs To The Printing And Photocopying Sector Of Chya Group. Founded On 19/10/2025 , It Works In The Field Of Printing , Photography , Managing Passport And National Card Department Fees , And Booking Passport Department Dates .",
-            content: "Blue Printing Office For Printing And Photocopying Belongs To The Printing And Photocopying Sector Of Chya Group. Founded On 19/10/2025 , It Works In The Field Of Printing , Photography , Managing Passport And National Card Department Fees , And Booking Passport Department Dates ."
+            desc: "Blue Printing Office For Printing And Photocopying Belongs To The Printing And Photocopying Sector Of Chya Group , Founded On 19/10/2025 It Works In The Field Of Printing , Photography , Managing Passport And National Card Department Fees , And Booking Passport Department Dates .",
+            content: "Blue Printing Office For Printing And Photocopying Belongs To The Printing And Photocopying Sector Of Chya Group , Founded On 19/10/2025 It Works In The Field Of Printing , Photography , Managing Passport And National Card Department Fees , And Booking Passport Department Dates ."
           },
           mateen: {
             title: "Chyay Mateen Co.",
-            desc: "Chyay Mateen Co. For General Trading Is The Second Company In The Chya Group General Trading Sector. Founded On 01/03/2026 , It Specializes In ( Electronic Devices , Household Items , Clothing , And Second-Hand Goods ) .",
-            content: "Chyay Mateen Co. For General Trading Is The Second Company In The Chya Group General Trading Sector. Founded On 01/03/2026 , It Specializes In ( Electronic Devices , Household Items , Clothing , And Second-Hand Goods ) ."
+            desc: "Chyay Mateen Co. For General Trading Is The Second Company In The Chya Group General Trading Sector , Founded On 01/03/2026 It Specializes In ( Electronic Devices , Household Items , Clothing , And Second-Hand Goods ) .",
+            content: "Chyay Mateen Co. For General Trading Is The Second Company In The Chya Group General Trading Sector , Founded On 01/03/2026 It Specializes In ( Electronic Devices , Household Items , Clothing , And Second-Hand Goods ) ."
           },
           amazon: {
             title: "Chya Amazon",
@@ -785,18 +785,18 @@ export const translations = {
       },
       history: {
         title: "تاريخنا",
-        summary: "مجموعة چیا: تأسست عام 2019 ، وتخدم منذ 7 سنوات في أربيل عبر 5 قطاعات متنوعة ( التجارة العامة ، الصيرفة والخدمات المالية ، الموبايل والتكنولوجيا ، الطباعة والاستنساخ ، التجارة الإلكترونية ) . يتكون فريقنا من 46 عضواً ، ونمتلك ( 3 شركات ، 5 مکتب صيرفة ، 1 مکتب طباعة ، 1 مركز صرف رواتب ، 1 مشروع ، 1 معرض ، 3 أعمال إلكترونية ) ، ونعمل ك وكلاء لـ 16 بنك و شركة.",
+        summary: "مجموعة چیا: تأسست عام 2019 ، وتخدم منذ 7 سنوات في أربيل عبر 5 قطاعات متنوعة ( التجارة العامة ، الصيرفة & الخدمات المالية ، الموبايل & التكنولوجيا ، الطباعة & الاستنساخ ، التجارة الإلكترونية ) يتكون فريقنا من 46 عضواً ، ونمتلك ( 3 شركات ، 5 صيرفة ، 1 مکتب طباعة & استنساخ ، 1 مركز صرف رواتب ، 1 مشروع ، 1 معرض ، 3 أعمال إلكترونية ) ، ونعمل ك وكلاء لـ 16 بنك & شركة.",
         explore: "انقر للاكتشاف",
         timeline: {
           foundation: {
             title: "شركة لمعة المرجان",
-            desc: "شركة لمعة المرجان للتجارة العامة ، هي أول شركة تابعة لقطاع التجارة العامة في مجموعة چیا . تأسست في 2019/11/30 وتعمل في مواد البناء مثل ( الخشب ، خشب MDF ، الأثاث ، الحديد ، الفوكة ، الإسمنت ، والخرسانة ) .",
-            content: "شركة لمعة المرجان للتجارة العامة ، هي أول شركة تابعة لقطاع التجارة العامة في مجموعة چیا . تأسست في 2019/11/30 وتعمل في مواد البناء مثل ( الخشب ، خشب MDF ، الأثاث ، الحديد ، الفوكة ، الإسمنت ، والخرسانة ) ."
+            desc: "شركة لمعة المرجان للتجارة العامة ، هي أول شركة تابعة لقطاع التجارة العامة في مجموعة چیا ، تأسست في 2019/11/30 وتعمل في مواد البناء مثل ( الخشب ، خشب MDF ، الأثاث ، الحديد ، الفوكة ، الإسمنت ، والخرسانة ) .",
+            content: "شركة لمعة المرجان للتجارة العامة ، هي أول شركة تابعة لقطاع التجارة العامة في مجموعة چیا ، تأسست في 2019/11/30 وتعمل في مواد البناء مثل ( الخشب ، خشب MDF ، الأثاث ، الحديد ، الفوكة ، الإسمنت ، والخرسانة ) ."
           },
           travel: {
             title: "چيا ترافل",
-            desc: "چيا ترافل للتذاكر والفيزا ، التابع لقطاع التجارة عبر الإنترنت في مجموعة چیا . تأسس في 2020/01/22 ، وتتكون أعماله من التذاكر السياحية والفيزا وحجز الفنادق والسيارات والأماكن السياحية وتوجيه المرضى والترجمة اللغوية .",
-            content: "چيا ترافل للتذاكر والفيزا ، التابع لقطاع التجارة عبر الإنترنت في مجموعة چیا . تأسس في 2020/01/22 ، وتتكون أعماله من التذاكر السياحية والفيزا وحجز الفنادق والسيارات والأماكن السياحية وتوجيه المرضى والترجمة اللغوية ."
+            desc: "چيا ترافل للتذاكر والفيزا ، التابع لقطاع التجارة عبر الإنترنت في مجموعة چیا تأسس في 2020/01/22 وتتكون أعماله من التذكرة السياحية والفيزا وحجز الفنادق وتأجير السيارات والأماكن السياحية وتوجيه المرضى والترجمة اللغوية .",
+            content: "چيا ترافل للتذاكر والفيزا ، التابع لقطاع التجارة عبر الإنترنت في مجموعة چیا تأسس في 2020/01/22 وتتكون أعماله من التذكرة السياحية والفيزا وحجز الفنادق وتأجير السيارات والأماكن السياحية وتوجيه المرضى والترجمة اللغوية ."
           },
           exchange: {
             title: "مكتب چيا",
@@ -1225,7 +1225,7 @@ export const translations = {
       },
       history: {
         title: "مێژووەکەمان",
-        summary: "چیا گروپ : لە ساڵی 2019 دامەزراوە ، و 7 ساڵە خزمەت دەکەن لە شاری هەولێر لە 5 سێکتەری جیاواز ( بازرگانی گشتی ، ئاڵوگۆڕی دراو و سێرڤسی دارایی ، مۆبایل و تەکنەلۆژیا ، چاپەمەنی و فۆتۆکۆپی ، بازرگانی ئۆنڵاین ) . ئەندامانی پێکهاتوون لە 46 کەس ، و خاوەنداریەتی ( 3 کۆمپانیا ، 5 نووسینگەی ئاڵوگۆڕی دراو ، 1 نووسینگەی چاپەمەنی و فۆتۆکۆپی ، 1 منفذ ی صرفی رواتب ، 1 مشروع ، 1 پێشانگا ، 3 کاری ئۆنڵاین ) دەکەن ، و 16 بریکاری بانک و کۆمپانیا دەکەن",
+        summary: "چیا گروپ : لە ساڵی 2019 دامەزراوە ، و 7 ساڵە خزمەت دەکەن لە شاری هەولێر لە 5 سێکتەری جیاواز ( بازرگانی گشتی ، ئاڵوگۆڕی دراو & سێرڤسی دارایی ، مۆبایل & تەکنەلۆژیا ، چاپەمەنی & فۆتۆکۆپی ، بازرگانی ئۆنڵاین ) ئەندامانی پێکهاتوون لە 46 کەس ، و خاوەنداریەتی ( 3 کۆمپانیا ، 5 ئاڵوگۆڕی دراو ، 1 نووسینگەی چاپەمەنی & فۆتۆکۆپی ، 1 شوێنی صرفی رواتب ، 1 مشروع ، 1 پێشانگا ، 3 کاری ئۆنڵاین ) دەکەن ، و 16 بریکاری بانک & کۆمپانیا دەکەن",
         explore: "کرتە بکە بۆ زیاتر",
         timeline: {
           foundation: {

@@ -64,25 +64,25 @@ const BRANDS_15 = [
     style: { transform: "scale(2.45)" },
   },
   {
-    id: "hangawexchange",
+    id: "hangaw",
     name: {
       en: "Hangaw Exchange",
       ar: "مکتب هەنگاو",
       ku: "نووسینگەی هەنگاو",
     },
     logo: "/brands/hangawexchange.png",
-    route: "/hangawexchange",
+    route: "/hangaw",
     style: { transform: "scale(1.25)" },
   },
   {
-    id: "chyaexchange",
+    id: "chya",
     name: {
       en: "Chya Exchange",
       ar: "مكتب جيا",
       ku: "نووسینگەی چیا",
     },
     logo: "/brands/chyaexchnage.png",
-    route: "/chyaexchange",
+    route: "/chya",
     style: { transform: "scale(1.35)" },
   },
   {
