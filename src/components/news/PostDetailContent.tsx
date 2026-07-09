@@ -37,6 +37,25 @@ export default function PostDetailContent({ post }: PostDetailContentProps) {
   // Localization selections
   const title = post[`title_${locale}` as keyof typeof post] as string || post.title;
   const content = post[`content_${locale}` as keyof typeof post] as string || post.content;
+
+  // Helper to format/sanitize RTL content with mixed direction parentheticals
+  const getProcessedContent = useCallback((rawHtml: string) => {
+    if (locale === "en") return rawHtml;
+
+    // 1. Strip inline text-align: right so our CSS right-align takes over
+    let processed = rawHtml.replace(/style\s*=\s*"[^"]*text-align\s*:\s*right[^"]*"/gi, (match) => 
+      match.replace(/text-align\s*:\s*right\s*;?/gi, '')
+    );
+
+    // 2. Wrap entire parenthetical ( ... ) in a nowrap inline-block so the closing )
+    //    never orphans to the next line. Safe because text-align: right doesn't stretch.
+    processed = processed.replace(/\(([^)]+)\)/g, (match) => {
+      return `<span style="white-space: nowrap; display: inline-block;">${match}</span>`;
+    });
+
+    return processed;
+  }, [locale]);
+
   const additionalImages = post.images || [];
 
   // Combine featured banner image + additional gallery images for a unified lightbox pool
@@ -384,7 +403,7 @@ export default function PostDetailContent({ post }: PostDetailContentProps) {
             locale === "en" ? "body-en" : "body-rtl"
           )}
           dir="auto"
-          dangerouslySetInnerHTML={{ __html: content }}
+          dangerouslySetInnerHTML={{ __html: getProcessedContent(content) }}
         />
         <style dangerouslySetInnerHTML={{ __html: `
           .post-details-body-content.body-en p, 
@@ -405,24 +424,36 @@ export default function PostDetailContent({ post }: PostDetailContentProps) {
             font-weight: 700 !important;
           }
 
+          .post-details-body-content.body-rtl {
+            direction: rtl !important;
+            text-align: right !important;
+          }
           .post-details-body-content.body-rtl p, 
           .post-details-body-content.body-rtl li {
             font-size: 21px !important;
-            line-height: 1.95 !important;
+            line-height: 2.05 !important;
             color: #3a4f6a !important;
             font-weight: 500 !important;
+            text-align: right !important;
+            overflow-wrap: break-word !important;
+            word-break: normal !important;
           }
           .post-details-body-content.body-rtl h2 {
             font-size: 30px !important;
             line-height: 1.5 !important;
             color: #0c1a2e !important;
             font-weight: 700 !important;
+            text-align: right !important;
           }
           .post-details-body-content.body-rtl h3 {
             font-size: 24px !important;
             line-height: 1.5 !important;
             color: #0c1a2e !important;
             font-weight: 700 !important;
+            text-align: right !important;
+          }
+          .post-details-body-content.body-rtl strong {
+            display: inline !important;
           }
         `}} />
 

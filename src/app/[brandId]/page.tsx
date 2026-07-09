@@ -342,7 +342,7 @@ export default function BrandPage() {
             {/* Brand Logo Circle */}
             <div className={cn(
               "w-28 h-28 bg-white rounded-[2rem] shadow-xl mb-6 flex items-center justify-center border border-white/10 hover:scale-105 transition-transform duration-500 overflow-hidden",
-              brandId === "manfazdibaga" ? "p-0" : "p-4"
+              brandId === "manfazdibaga" ? "p-0" : brandId === "lamatalmarjan" ? "p-2" : "p-4"
             )}>
               <Image
                 src={brand.logo}
@@ -352,7 +352,15 @@ export default function BrandPage() {
                 className={cn(
                   brandId === "manfazdibaga" ? "w-full h-full object-cover" : "object-contain"
                 )}
-                style={{ transform: brandId === "manfazdibaga" ? undefined : `scale(${brand.logoScale})` }}
+                style={{
+                  transform: brandId === "manfazdibaga" 
+                    ? undefined 
+                    : brandId === "lamatalmarjan" 
+                    ? "scale(1.15)" 
+                    : brandId === "chyatravel" 
+                    ? "scale(1.45)" 
+                    : `scale(${brand.logoScale})`
+                }}
               />
             </div>
 
@@ -484,7 +492,9 @@ export default function BrandPage() {
                     style={{
                       transform: brandId === "manfazdibaga" 
                         ? "scale(1.25)" 
-                        : (brandId === "chyaluxury")
+                        : brandId === "chyatravel"
+                        ? "scale(1.45)"
+                        : (brandId === "chyaluxury" || brandId === "lamatalmarjan" || brandId === "chyaymateen" || brandId === "chyaamazon" || brandId === "khakisarwar" || brandId === "chya" || brandId === "barzychya" || brandId === "hangaw" || brandId === "chyaphone")
                         ? undefined
                         : brand.logoScale 
                         ? `scale(${brand.logoScale})` 

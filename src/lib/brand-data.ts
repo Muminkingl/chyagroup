@@ -510,7 +510,7 @@ export const BRAND_DATA: Record<string, BrandData> = {
     qrLink: "https://www.instagram.com/blue.printing_office?igsh=MTk4MHU0NHc3eXBxNg==",
     email: "blueprinting2025@gmail.com",
     phone: "+964 750 479 8788",
-    heroImage: "https://imgs.search.brave.com/fZUn4AWO6iYd811I_tOrGu2MTivBhRUNKgOA0dN7XVk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTMz/NzE3OTE2MC9waG90/by9vZmZpY2Utd29y/a2VyLXByaW50LXBh/cGVyLW9uLW11bHRp/ZnVuY3Rpb24tbGFz/ZXItcHJpbnRlci1j/b3B5LXByaW50LXNj/YW4tYW5kLWZheC1t/YWNoaW5lLWluLmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz0t/WDQ1YXJrTHZyRWQz/N3NGNF9CR3EwLTJP/QlVvNTJKZnhLWER4/c2ZIYjZBPQ",
+    heroImage: "/printing.jpg",
     name: {
       en: "Blue Printing",
       ar: "مکتب بلو طباعە",
